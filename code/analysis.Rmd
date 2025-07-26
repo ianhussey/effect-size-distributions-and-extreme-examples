@@ -1,0 +1,474 @@
+---
+title: "Explore Paul Bogdan's effect size data"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: show
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+
+# set default chunk options
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE)
+
+# disable scientific notation
+options(scipen = 999) 
+
+```
+
+# Dependencies
+
+```{r}
+
+library(tidyverse)
+library(janitor)
+library(rlang)
+library(patchwork)
+library(ggridges)
+library(knitr)
+library(kableExtra)
+
+```
+
+# Load data
+
+```{r}
+
+data_effectsizes <- read_rds("../data/data_effectsizes.rds")
+
+data_effectsizes_possible <- data_effectsizes |>
+  filter(possible == TRUE)
+
+```
+
+# Impossible values
+
+```{r}
+
+data_effectsizes |>
+  group_by(type) |>
+  summarize(n = n(),
+            mean_possible = mean(possible),
+            n_impossible = sum(!possible)) |>
+  arrange(mean_possible)
+
+```
+
+# Descriptives
+
+## Percent impossible
+
+```{r}
+
+data_effectsizes |>
+  summarize(percent_impossible = (1 - mean(possible))*100) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+## Articles
+
+```{r}
+
+data_effectsizes_possible |>
+  distinct(doi, .keep_all = TRUE) |>
+  count() |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+data_effectsizes_possible |>
+  distinct(doi, .keep_all = TRUE) |>
+  count(subfield) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+## Journals
+
+```{r}
+
+data_effectsizes_possible |>
+  distinct(doi, .keep_all = TRUE) |>
+  count(journal) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+data_effectsizes_possible |>
+  distinct(journal) |>
+  count() |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+## Effect sizes
+
+```{r}
+
+data_effectsizes_possible |>
+  count(type) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+# Percentiles
+
+## Overall
+
+```{r}
+
+data_percentiles <- 
+  data_effectsizes_possible |>
+  filter(type %in% unique(type)) |>
+  group_by(type) |>
+  summarise(
+    across(
+      .cols = everything(),
+      .fns = list, 
+      .names = "{.col}_list"
+    ), # just for clarity — we only care about estimate column
+    .groups = "drop_last"
+  ) |>
+  select(type, estimate = estimate_list) |>
+  unnest(estimate) |>
+  group_by(type) |>
+  summarise(
+    percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
+    value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
+    .groups = "drop"
+  ) |>
+  mutate(percentile = percentile * 100) |>
+  pivot_wider(names_from = type, values_from = value)
+
+data_percentiles |>
+  mutate_if(is.numeric, round_half_up, digits = 2) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+data_percentiles |>
+  select(percentile, d_native, d_s, d_z, abs_r, R2, peta2, abs_OR) |>
+  mutate_if(is.numeric, round_half_up, digits = 2) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+data_percentiles |>
+  pivot_longer(col = -percentile,
+               names_to = "estimator",
+               values_to = "estimate") |>
+  ggplot(aes(as.factor(percentile), estimate)) +
+  geom_bar(stat = "identity", width = 0.8) +
+  theme_linedraw() +
+  facet_wrap(~ estimator, scales = "free")
+
+data_percentiles |>
+  pivot_longer(col = -percentile,
+               names_to = "estimator",
+               values_to = "estimate") |>
+  mutate(estimator = fct_relevel(estimator, 
+                                 "d_native", "d_s", "d_z", 
+                                 "abs_r", "R2", "peta2", 
+                                 "abs_OR")) |>
+  filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
+  ggplot(aes(as.factor(percentile), estimate)) +
+  geom_bar(stat = "identity", width = 0.8) +
+  theme_linedraw() +
+  facet_wrap(~ estimator, scales = "free")
+
+```
+
+## By subfield
+
+```{r}
+
+data_percentiles_by_subfield <- 
+  data_effectsizes_possible |>
+  filter(type %in% unique(type)) |>
+  group_by(type, subfield) |>
+  summarise(
+    across(
+      .cols = everything(),
+      .fns = list, 
+      .names = "{.col}_list"
+    ), # just for clarity — we only care about estimate column
+    .groups = "drop_last"
+  ) |>
+  select(type, subfield, estimate = estimate_list) |>
+  unnest(estimate) |>
+  group_by(type, subfield) |>
+  summarise(
+    percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
+    value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
+    .groups = "drop"
+  ) |>
+  mutate(percentile = percentile * 100) |>
+  pivot_wider(names_from = type, values_from = value)
+
+data_percentiles_by_subfield |>
+  arrange(percentile, subfield) |>
+  mutate_if(is.numeric, round_half_up, digits = 2) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+data_percentiles_by_subfield |>
+  pivot_longer(col = -c(percentile, subfield),
+               names_to = "estimator",
+               values_to = "estimate") |>
+  ggplot(aes(as.factor(percentile), estimate)) +
+  geom_bar(stat = "identity", width = 0.8) +
+  theme_linedraw() +
+  facet_grid(subfield ~ estimator, scales = "free")
+
+```
+
+
+```{r fig.height=20, fig.width=20}
+
+data_percentiles_by_subfield |>
+  pivot_longer(col = -c(percentile, subfield),
+               names_to = "estimator",
+               values_to = "estimate") |>
+  mutate(estimator = fct_relevel(estimator,
+                                 "d_native", "d_s", "d_z",
+                                 "abs_r", "R2", "peta2",
+                                 "abs_OR")) |>
+  filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
+  ggplot(aes(as.factor(percentile), estimate)) +
+  geom_bar(stat = "identity", width = 0.8) +
+  theme_linedraw() +
+  facet_grid(estimator ~ subfield, scales = "free")
+
+data_percentiles_by_subfield |>
+  pivot_longer(col = -c(percentile, subfield),
+               names_to = "estimator",
+               values_to = "estimate") |>
+  mutate(estimator = fct_relevel(estimator,
+                                 "d_native", "d_s", "d_z",
+                                 "abs_r", "R2", "peta2",
+                                 "abs_OR")) |>
+  filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
+  ggplot(aes(as.factor(percentile), estimate, fill = subfield)) +
+  geom_bar(stat = "identity", width = 0.8, position = position_dodge(width = .8), color = "black") +
+  theme_linedraw() +
+  facet_wrap( ~ estimator, scales = "free")
+
+```
+
+# Plot distributions
+
+## Descriptives
+
+```{r}
+
+data_effectsizes_possible |>
+  distinct(doi) |>
+  count()
+
+data_effectsizes_possible |>
+  distinct(year) |>
+  arrange(desc(year))
+
+data_effectsizes_possible |>
+  count(type) |>
+  arrange(desc(n)) |>
+  filter(str_detect(type, "d_"))
+
+```
+
+## Overall
+
+```{r}
+
+plot_es <- function(data, x, trim_lower = 0, trim_upper = 1, binwidth = 0.1, xlab, title, subtitle) {
+  data_subset <- data |>
+    filter(type == x)
+  
+  # plot limits
+  p1 <- quantile(data_subset$estimate, trim_lower, na.rm = TRUE)
+  p99 <- quantile(data_subset$estimate, trim_upper, na.rm = TRUE)
+  
+  ggplot(data_subset, aes(x = estimate)) +
+    geom_histogram(binwidth = binwidth, boundary = 0) +
+    theme_linedraw() +
+    scale_x_continuous(limits = c(p1, p99), breaks = scales::breaks_pretty(n = 10)) +
+    scale_y_continuous(breaks = scales::breaks_pretty(n = 6)) +
+    labs(title = title, 
+         subtitle = subtitle, 
+         x = xlab,
+         y = "Count")
+}
+
+p_d_native <- 
+  plot_es(data_effectsizes_possible, "d_native", trim_upper = 0.99,
+          xlab = expression("Cohen's "*italic(d)),
+          title = expression("Absolute Cohen's "*italic(d)),
+          subtitle = "0–99th percentile range")
+
+p_d_s <- 
+  plot_es(data_effectsizes_possible, "d_s", trim_upper = 0.99,
+          xlab = expression("Cohen's "*italic(d)[s]),
+          title = expression("Absolute Cohen's "*italic(d)[s]*" estimated from "*italic(t)*"-test"),
+          subtitle = "0–99th percentile range")
+
+p_d_z <- 
+  plot_es(data_effectsizes_possible, "d_z", trim_upper = 0.99,
+          xlab = expression("Cohen's "*italic(d)[z]),
+          title = expression("Absolute Cohen's "*italic(d)[z]*" estimated from "*italic(t)*"-test"),
+          subtitle = "0–99th percentile range")
+
+p_peta2 <- 
+  plot_es(data_effectsizes_possible, "peta2", trim_lower = 0.01, trim_upper = 0.99, binwidth = 0.01,
+          xlab = expression(italic(eta)[p]^2),
+          title = expression(italic(eta)[p]^2*" estimated from "*italic(F)*"-test"),
+          subtitle = "1–99th percentile range")
+
+p_abs_r <- 
+  plot_es(data_effectsizes_possible, "abs_r", binwidth = 0.1,
+          xlab = expression("Pearson's "*italic(r)),
+          title = expression("Absolute Pearson's "*italic(r)),
+          subtitle = "0–100th percentile range") + 
+  coord_cartesian(xlim = c(-1, 1))
+
+# data_effectsizes_possible |>
+#   mutate(r_out_of_bounds = case_when(r < -1 ~ TRUE,
+#                                      r > 1 ~ TRUE,
+#                                      TRUE ~ FALSE)) |>
+#   summarize(percent_r_out_of_bounds = mean(r_out_of_bounds)*100)
+
+p_abs_rho <- 
+  plot_es(data_effectsizes_possible, "rho", binwidth = 0.1,
+          xlab = expression(italic(rho)),
+          title = expression("Absolute "*italic(rho)),
+          subtitle = "0–100th percentile range") + 
+  coord_cartesian(xlim = c(-1, 1))
+
+p_sqrtR2 <- 
+  plot_es(data_effectsizes_possible, "sqrtR2", binwidth = 0.1,
+          xlab = expression("sqrt R"^2),
+          title = expression("sqrt R"^2),
+          subtitle = "0–100th percentile range") + 
+  coord_cartesian(xlim = c(-1, 1))
+
+p_R2 <- 
+  plot_es(data_effectsizes_possible, "R2", binwidth = 0.1,
+          xlab = expression("R"^2),
+          title = expression("R"^2),
+          subtitle = "0–100th percentile range") + 
+  coord_cartesian(xlim = c(-1, 1))
+
+# dat_es |>
+#   mutate(R2_out_of_bounds = case_when(R2 < -1 ~ TRUE,
+#                                       R2 > 1 ~ TRUE,
+#                                       TRUE ~ FALSE)) |>
+#   summarize(percent_R2_out_of_bounds = mean(R2_out_of_bounds)*100)
+
+p_stdB <- 
+  plot_es(data_effectsizes_possible, "stdB", trim_lower = 0.01, trim_upper = 0.95, binwidth = 0.01,
+          xlab = expression(beta),
+          title = expression(beta),
+          subtitle = "1–95th percentile range")
+
+p_B <- 
+  plot_es(data_effectsizes_possible, "B", trim_lower = 0.01, trim_upper = 0.95, binwidth = 0.1,
+          xlab = expression("B"),
+          title = expression("B"),
+          subtitle = "1–95th percentile range")
+
+p_wald <- 
+  plot_es(data_effectsizes_possible, "Wald", trim_lower = 0, trim_upper = 0.95, binwidth = 1,
+          xlab = expression("Wald"),
+          title = expression("Wald"),
+          subtitle = "1–95th percentile range")
+
+p_chi2 <- 
+  plot_es(data_effectsizes_possible, "chi2", trim_lower = 0, trim_upper = 0.9, binwidth = 5,
+          xlab = expression(chi^2),
+          title = expression(chi^2),
+          subtitle = "0–90th percentile range of positive values") + 
+  coord_cartesian(xlim = c(0, NA))
+
+p_OR <- 
+  plot_es(data_effectsizes_possible, "OR", trim_lower = 0.01, trim_upper = 0.98,
+          xlab = expression("OR"),
+          title = expression("OR"),
+          subtitle = "1–98th percentile range")
+
+p_abs_OR <- 
+  plot_es(data_effectsizes_possible, "abs_OR", trim_upper = 0.98,
+          xlab = expression("Absolute OR"),
+          title = expression("Absolute OR"),
+          subtitle = "0–98th percentile range")
+
+p_logOR <- 
+  plot_es(data_effectsizes_possible, "logOR", trim_lower = 0.01, trim_upper = 0.99,
+          xlab = expression("log-odds"),
+          title = expression("log-odds"),
+          subtitle = "1–99th percentile range")
+
+# plot_es(data_effectsizes_possible, z, trim_lower = 0.01, trim_upper = 0.98,
+#         xlab = expression("z-score"),
+#         title = expression("z-score"),
+#         subtitle = "1–98th percentile range") +
+#   geom_vline(xintercept = 1.96, color = "pink", linetype = "dashed")
+#
+# plot_es(dat_p, p_val, trim_lower = 0, trim_upper = 1, binwidth = 0.001,
+#         xlab = expression(italic(p)*" value"),
+#         title = expression(italic(p)*" value"),
+#         subtitle = "Between 0 and .1") +
+#   coord_cartesian(xlim = c(0, 0.1))
+# 
+# plot_es(dat_p, p_implied, trim_lower = 0, trim_upper = 1, binwidth = 0.001,
+#         xlab = expression("Implied "*italic(p)*" value"),
+#         title = expression("Implied "*italic(p)*" value"),
+#         subtitle = "Between 0 and .1") +
+#   coord_cartesian(xlim = c(0, 0.1))
+
+```
+
+### Combined
+
+```{r fig.height=10, fig.width=6}
+
+p_d_native + coord_cartesian(xlim = c(0,8)) +
+  p_d_s + coord_cartesian(xlim = c(0,8)) +
+  p_d_z + coord_cartesian(xlim = c(0,8)) +
+  plot_layout(ncol = 1)
+
+```
+
+
+```{r}
+
+p_peta2
+p_abs_r
+p_abs_rho
+p_sqrtR2
+p_R2
+p_stdB
+p_B
+p_wald
+p_chi2
+p_OR
+p_abs_OR
+p_logOR
+
+```
+
+# Session info
+
+```{r}
+
+sessionInfo()
+
+```
+
+

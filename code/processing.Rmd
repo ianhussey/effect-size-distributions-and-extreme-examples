@@ -1,0 +1,218 @@
+---
+title: "Explore Paul Bogdan's effect size data"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: show
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+
+# set default chunk options
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE)
+
+# disable scientific notation
+options(scipen = 999) 
+
+```
+
+# Dependencies
+
+```{r}
+
+library(feather)
+library(tidyverse)
+library(janitor)
+library(rlang)
+library(patchwork)
+library(ggridges)
+library(knitr)
+library(kableExtra)
+
+```
+
+# Load data
+
+```{r}
+
+dat <- arrow::read_feather("../data/df_by_pval_custom2_2025_06-03.feather")
+
+dat_p <- dat |>
+  select(doi = link,
+         author_first,
+         year,
+         title,
+         journal,
+         ISSN,
+         valid_stat,
+         df1,
+         df2,
+         p_val,
+         p_implied,
+         Applied_Psychology,
+         Clinical_Psychology,
+         Developmental_and_Educational_Psychology,
+         Experimental_and_Cognitive_Psychology,
+         General_Psychology,
+         Psychology_Miscellaneous,
+         Social_Psychology,
+         is_neuro,
+         is_psych,
+         cites,
+         cites_year) |>
+  filter(!is.na(p_val))
+
+write_rds(dat_p, "../data/data_p.rds", compress = "gz")
+
+data_effectsizes_wide <- dat |>
+  select(doi = link,
+         author_first,
+         year,
+         title,
+         journal,
+         ISSN,
+         valid_stat,
+         df1,
+         df2,
+         p_val,
+         p_implied,
+         stat_type,
+         stat,
+         Applied_Psychology,
+         Clinical_Psychology,
+         Developmental_and_Educational_Psychology,
+         Experimental_and_Cognitive_Psychology,
+         General_Psychology,
+         Psychology_Miscellaneous,
+         Social_Psychology,
+         is_neuro,
+         is_psych,
+         cites,
+         cites_year) |>
+  filter(!is.na(stat_type)) |>
+  #rename(d_from_t = d) |>
+  mutate(stat_type = case_when(stat_type %in% c("X2", "X²", "chi") ~ "chi2",
+                               #stat_type %in% c("X", "χ", "χ", "X2", "X²", "chi") ~ "chi2",
+                               stat_type %in% c("R2", "R²") ~ "R2",
+                               stat_type %in% c("R", "r") ~ "r",
+                               stat_type %in% c("B", "b") ~ "B",
+                               stat_type %in% c("Wald", "wald") ~ "Wald",
+                               TRUE ~ stat_type)) |>
+  mutate(d_native = case_when(stat_type == "d" ~ abs(stat)),
+         d_z = case_when(stat_type == "t" ~ abs(stat) / sqrt(df1 + 1)),
+         d_s = case_when(stat_type == "t" ~ (2 * abs(stat)) / sqrt(df1 + 2)),
+         peta2 = case_when(stat_type == "F" ~ (stat * df1) / (stat * df1 + df2)),
+         r = case_when(stat_type == "r" ~ stat),
+         abs_r = abs(r),
+         R2 = case_when(stat_type == "R2" ~ stat),
+         sqrtR2 = sqrt(R2),
+         sqrtR2 = case_when(is.nan(sqrtR2) ~ NA, TRUE ~ sqrtR2),
+         B = case_when(stat_type == "B" ~ stat),
+         stdB = case_when(stat_type == "β" ~ stat),
+         abs_stdB = abs(stdB),
+         chi2 = case_when(stat_type == "chi2" ~ stat),
+         Wald = case_when(stat_type == "Wald" ~ stat),
+         z = case_when(stat_type == "z" ~ stat),
+         rho = case_when(stat_type == "ρ" ~ stat),
+         abs_rho = abs(rho),
+         OR = case_when(stat_type == "OR" ~ stat),
+         abs_OR = case_when(OR < 1 & OR > 0 ~ 1/OR,
+                            OR >= 1 ~ OR,
+                            OR <= 0 ~ NA),
+         logOR = case_when(stat_type == "OR" ~ log(stat)),
+         logOR = case_when(is.nan(logOR) ~ NA, TRUE ~ logOR))
+
+write_rds(data_effectsizes_wide, "../data/data_effectsizes_wide.rds", compress = "gz")
+
+data_effectsizes_wide <- read_rds("../data/data_effectsizes_wide.rds")
+
+data_effectsizes <- data_effectsizes_wide |>
+  pivot_longer(cols = c("Applied_Psychology",
+                        "Clinical_Psychology",
+                        "Developmental_and_Educational_Psychology",
+                        "Experimental_and_Cognitive_Psychology",
+                        "General_Psychology",  # "Psychology_Miscellaneous",
+                        "Social_Psychology"),
+               names_to = "subfield",
+               values_to = "temp") |>
+  mutate(subfield = str_replace_all(subfield, "_", " ")) |>
+  filter(temp == TRUE) |>
+  select(doi,
+         author_first,
+         year,
+         title,
+         journal,
+         ISSN,
+         subfield,
+         d_native,
+         d_s,
+         d_z,
+         peta2,
+         r,
+         abs_r,
+         rho,
+         abs_rho,
+         sqrtR2,
+         R2,
+         B,
+         stdB,
+         abs_stdB,
+         Wald,
+         chi2,
+         OR,
+         abs_OR,
+         logOR) |>
+  pivot_longer(cols = c(d_native,
+                        d_s,
+                        d_z,
+                        peta2,
+                        r,
+                        abs_r,
+                        rho,
+                        abs_rho,
+                        sqrtR2,
+                        R2,
+                        B,
+                        stdB,
+                        abs_stdB,
+                        Wald,
+                        chi2,
+                        OR,
+                        abs_OR,
+                        logOR),
+               names_to = "type",
+               values_to = "estimate") |>
+  drop_na(estimate) |>
+  # flag impossible values
+  mutate(possible = case_when(type == "peta2"   & (estimate <  0 | estimate > 1) ~ FALSE,
+                              type == "r"       & (estimate < -1 | estimate > 1) ~ FALSE,
+                              type == "abs_r"   & (estimate <  0 | estimate > 1) ~ FALSE,
+                              type == "rho"     & (estimate < -1 | estimate > 1) ~ FALSE,
+                              type == "abs_rho" & (estimate <  0 | estimate > 1) ~ FALSE,
+                              type == "R2"      & (estimate <  0 | estimate > 1) ~ FALSE,
+                              type == "OR"      & estimate < 0 ~ FALSE,
+                              type == "abs_OR"  & (estimate <  1 | is.na(estimate)) ~ FALSE,
+                              TRUE ~ TRUE))
+
+write_rds(data_effectsizes, "../data/data_effectsizes.rds", compress = "gz")
+
+#data_effectsizes <- read_rds("../data/data_effectsizes.rds")
+
+```
+
+# Session info
+
+```{r}
+
+sessionInfo()
+
+```
+
+

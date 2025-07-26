@@ -1,11 +1,11 @@
 ---
-title: "Explore Paul Bogdan's effect size data"
+title: "Explore Bogdan's (2025) effect size data"
 author: "Ian Hussey"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
     code_download: true
-    code_folding: show
+    code_folding: hide
     highlight: haddock
     theme: flatly
     toc: yes
@@ -48,33 +48,27 @@ data_effectsizes_possible <- data_effectsizes |>
 
 ```
 
-# Impossible values
-
-```{r}
-
-data_effectsizes |>
-  group_by(type) |>
-  summarize(n = n(),
-            mean_possible = mean(possible),
-            n_impossible = sum(!possible)) |>
-  arrange(mean_possible)
-
-```
-
 # Descriptives
 
-## Percent impossible
+## Impossible values
+
+For bounded effect sizes
 
 ```{r}
 
 data_effectsizes |>
-  summarize(percent_impossible = (1 - mean(possible))*100) |>
+  filter(type %in% c("peta2", "r", "abs_r", "rho", "abs_rho", "R2", "OR")) |>
+  group_by(type) |>
+  summarize(n = n(),
+            percent_impossible = round_half_up(mean(!possible)*100, 3),
+            n_impossible = sum(!possible)) |>
+  arrange(desc(percent_impossible)) |>
   kable() |>
   kable_classic(full_width = FALSE)
 
 ```
 
-## Articles
+## Articles (by subfield)
 
 ```{r}
 
@@ -96,11 +90,11 @@ data_effectsizes_possible |>
 
 ```{r}
 
-data_effectsizes_possible |>
-  distinct(doi, .keep_all = TRUE) |>
-  count(journal) |>
-  kable() |>
-  kable_classic(full_width = FALSE)
+# data_effectsizes_possible |>
+#   distinct(doi, .keep_all = TRUE) |>
+#   count(journal) |>
+#   kable() |>
+#   kable_classic(full_width = FALSE)
 
 data_effectsizes_possible |>
   distinct(journal) |>
@@ -110,12 +104,26 @@ data_effectsizes_possible |>
 
 ```
 
-## Effect sizes
+## Years
+
+```{r}
+
+data_effectsizes_possible |>
+  distinct(year) |>
+  arrange(desc(year)) |>
+  slice(1, n()) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+## Frequency by effect size type
 
 ```{r}
 
 data_effectsizes_possible |>
   count(type) |>
+  arrange(desc(n)) |>
   kable() |>
   kable_classic(full_width = FALSE)
 
@@ -123,12 +131,9 @@ data_effectsizes_possible |>
 
 # Percentiles
 
-## Overall
-
 ```{r}
 
-data_percentiles <- 
-  data_effectsizes_possible |>
+data_percentiles <- data_effectsizes_possible |>
   filter(type %in% unique(type)) |>
   group_by(type) |>
   summarise(
@@ -148,45 +153,166 @@ data_percentiles <-
     .groups = "drop"
   ) |>
   mutate(percentile = percentile * 100) |>
-  pivot_wider(names_from = type, values_from = value)
+  pivot_wider(names_from = type, values_from = value) |>
+  select(percentile,
+         d_native, 
+         d_s, 
+         d_z, 
+         
+         abs_r, 
+         #r, 
+         #rho, 
+         #abs_rho, 
+         #sqrtR2,
+         
+         peta2, 
+         R2, 
+         
+         #OR, 
+         abs_OR, 
+         #logOR, 
+         
+         chi2, 
+         
+         B, 
+         #abs_B,
+         stdB,
+         abs_stdB)
+         #Wald
+
+```
+
+## Overall
+
+```{r}
 
 data_percentiles |>
   mutate_if(is.numeric, round_half_up, digits = 2) |>
   kable() |>
   kable_classic(full_width = FALSE)
 
-data_percentiles |>
-  select(percentile, d_native, d_s, d_z, abs_r, R2, peta2, abs_OR) |>
-  mutate_if(is.numeric, round_half_up, digits = 2) |>
-  kable() |>
-  kable_classic(full_width = FALSE)
-
-data_percentiles |>
-  pivot_longer(col = -percentile,
-               names_to = "estimator",
-               values_to = "estimate") |>
-  ggplot(aes(as.factor(percentile), estimate)) +
-  geom_bar(stat = "identity", width = 0.8) +
-  theme_linedraw() +
-  facet_wrap(~ estimator, scales = "free")
-
-data_percentiles |>
-  pivot_longer(col = -percentile,
-               names_to = "estimator",
-               values_to = "estimate") |>
-  mutate(estimator = fct_relevel(estimator, 
-                                 "d_native", "d_s", "d_z", 
-                                 "abs_r", "R2", "peta2", 
-                                 "abs_OR")) |>
-  filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
-  ggplot(aes(as.factor(percentile), estimate)) +
-  geom_bar(stat = "identity", width = 0.8) +
-  theme_linedraw() +
-  facet_wrap(~ estimator, scales = "free")
+# data_percentiles |>
+#   pivot_longer(col = -percentile,
+#                names_to = "estimator",
+#                values_to = "estimate") |>
+#   ggplot(aes(as.factor(percentile), estimate)) +
+#   geom_bar(stat = "identity", width = 0.8) +
+#   theme_linedraw() +
+#   facet_wrap(~ estimator, scales = "free")
+#
+# data_percentiles |>
+#   pivot_longer(col = -percentile,
+#                names_to = "estimator",
+#                values_to = "estimate") |>
+#   mutate(estimator = fct_relevel(estimator, 
+#                                  "d_native", "d_s", "d_z", 
+#                                  "abs_r", "R2", "peta2", 
+#                                  "abs_OR")) |>
+#   filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
+#   ggplot(aes(as.factor(percentile), estimate)) +
+#   geom_bar(stat = "identity", width = 0.8) +
+#   theme_linedraw() +
+#   facet_wrap(~ estimator, scales = "free")
 
 ```
 
 ## By subfield
+
+```{r}
+
+# data_percentiles_by_subfield <- 
+#   data_effectsizes_possible |>
+#   filter(type %in% unique(type)) |>
+#   group_by(type, subfield) |>
+#   summarise(
+#     across(
+#       .cols = everything(),
+#       .fns = list, 
+#       .names = "{.col}_list"
+#     ), # just for clarity — we only care about estimate column
+#     .groups = "drop_last"
+#   ) |>
+#   select(type, subfield, estimate = estimate_list) |>
+#   unnest(estimate) |>
+#   group_by(type, subfield) |>
+#   summarise(
+#     percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
+#     value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
+#     .groups = "drop"
+#   ) |>
+#   mutate(percentile = percentile * 100) |>
+#   pivot_wider(names_from = type, values_from = value) |>
+#   select(subfield, 
+#          percentile,
+#          d_native, 
+#          d_s, 
+#          d_z, 
+#          
+#          abs_r, 
+#          #r, 
+#          #rho, 
+#          #abs_rho, 
+#          #sqrtR2,
+#          
+#          peta2, 
+#          R2, 
+#          
+#          #OR, 
+#          abs_OR, 
+#          #logOR, 
+#          
+#          chi2, 
+#          
+#          B, 
+#          #abs_B,
+#          stdB,
+#          abs_stdB) |>
+#          #Wald
+#   arrange(subfield, percentile)
+# 
+# data_percentiles_by_subfield |>
+#   mutate_if(is.numeric, round_half_up, digits = 2) |>
+#   kable() |>
+#   kable_classic(full_width = FALSE)
+
+# data_percentiles_by_subfield |>
+#   pivot_longer(col = -c(percentile, subfield),
+#                names_to = "estimator",
+#                values_to = "estimate") |>
+#   ggplot(aes(as.factor(percentile), estimate)) +
+#   geom_bar(stat = "identity", width = 0.8) +
+#   theme_linedraw() +
+#   facet_grid(subfield ~ estimator, scales = "free")
+
+# data_percentiles_by_subfield |>
+#   pivot_longer(col = -c(percentile, subfield),
+#                names_to = "estimator",
+#                values_to = "estimate") |>
+#   mutate(estimator = fct_relevel(estimator,
+#                                  "d_native", "d_s", "d_z",
+#                                  "abs_r", "R2", "peta2",
+#                                  "abs_OR")) |>
+#   filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
+#   ggplot(aes(as.factor(percentile), estimate)) +
+#   geom_bar(stat = "identity", width = 0.8) +
+#   theme_linedraw() +
+#   facet_grid(estimator ~ subfield, scales = "free")
+# 
+# data_percentiles_by_subfield |>
+#   pivot_longer(col = -c(percentile, subfield),
+#                names_to = "estimator",
+#                values_to = "estimate") |>
+#   mutate(estimator = fct_relevel(estimator,
+#                                  "d_native", "d_s", "d_z",
+#                                  "abs_r", "R2", "peta2",
+#                                  "abs_OR")) |>
+#   filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
+#   ggplot(aes(as.factor(percentile), estimate, fill = subfield)) +
+#   geom_bar(stat = "identity", width = 0.8, position = position_dodge(width = .8), color = "black") +
+#   theme_linedraw() +
+#   facet_wrap( ~ estimator, scales = "free")
+
+```
 
 ```{r}
 
@@ -211,80 +337,40 @@ data_percentiles_by_subfield <-
     .groups = "drop"
   ) |>
   mutate(percentile = percentile * 100) |>
-  pivot_wider(names_from = type, values_from = value)
+  pivot_wider(names_from = subfield, values_from = value) |>
+  filter(type %in% c("d_native",
+                     "d_s",
+                     "d_z",
+                     "abs_r",
+                     "peta2",
+                     "R2",
+                     "abs_OR",
+                     "chi2",
+                     "B",
+                     "stdB",
+                     "abs_stdB")) |>
+  mutate(type = fct_relevel(type, 
+                            "d_native",
+                            "d_s",
+                            "d_z",
+                            "abs_r",
+                            "peta2",
+                            "R2",
+                            "abs_OR",
+                            "chi2",
+                            "B",
+                            "stdB",
+                            "abs_stdB")) |>
+  arrange(type, percentile)
 
 data_percentiles_by_subfield |>
-  arrange(percentile, subfield) |>
   mutate_if(is.numeric, round_half_up, digits = 2) |>
   kable() |>
   kable_classic(full_width = FALSE)
 
-data_percentiles_by_subfield |>
-  pivot_longer(col = -c(percentile, subfield),
-               names_to = "estimator",
-               values_to = "estimate") |>
-  ggplot(aes(as.factor(percentile), estimate)) +
-  geom_bar(stat = "identity", width = 0.8) +
-  theme_linedraw() +
-  facet_grid(subfield ~ estimator, scales = "free")
-
-```
-
-
-```{r fig.height=20, fig.width=20}
-
-data_percentiles_by_subfield |>
-  pivot_longer(col = -c(percentile, subfield),
-               names_to = "estimator",
-               values_to = "estimate") |>
-  mutate(estimator = fct_relevel(estimator,
-                                 "d_native", "d_s", "d_z",
-                                 "abs_r", "R2", "peta2",
-                                 "abs_OR")) |>
-  filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
-  ggplot(aes(as.factor(percentile), estimate)) +
-  geom_bar(stat = "identity", width = 0.8) +
-  theme_linedraw() +
-  facet_grid(estimator ~ subfield, scales = "free")
-
-data_percentiles_by_subfield |>
-  pivot_longer(col = -c(percentile, subfield),
-               names_to = "estimator",
-               values_to = "estimate") |>
-  mutate(estimator = fct_relevel(estimator,
-                                 "d_native", "d_s", "d_z",
-                                 "abs_r", "R2", "peta2",
-                                 "abs_OR")) |>
-  filter(estimator %in% c("d_native", "d_s", "d_z", "abs_OR", "peta2", "abs_r", "R2")) |>
-  ggplot(aes(as.factor(percentile), estimate, fill = subfield)) +
-  geom_bar(stat = "identity", width = 0.8, position = position_dodge(width = .8), color = "black") +
-  theme_linedraw() +
-  facet_wrap( ~ estimator, scales = "free")
-
 ```
 
 # Plot distributions
-
-## Descriptives
-
-```{r}
-
-data_effectsizes_possible |>
-  distinct(doi) |>
-  count()
-
-data_effectsizes_possible |>
-  distinct(year) |>
-  arrange(desc(year))
-
-data_effectsizes_possible |>
-  count(type) |>
-  arrange(desc(n)) |>
-  filter(str_detect(type, "d_"))
-
-```
-
-## Overall
 
 ```{r}
 
@@ -434,7 +520,7 @@ p_logOR <-
 
 ```
 
-### Combined
+## Combined Cohen's d plots
 
 ```{r fig.height=10, fig.width=6}
 
@@ -445,21 +531,20 @@ p_d_native + coord_cartesian(xlim = c(0,8)) +
 
 ```
 
+## Individual plots
 
 ```{r}
 
-p_peta2
 p_abs_r
-p_abs_rho
-p_sqrtR2
+p_peta2
 p_R2
-p_stdB
-p_B
-p_wald
-p_chi2
-p_OR
+
 p_abs_OR
-p_logOR
+
+p_chi2
+
+p_B
+p_stdB
 
 ```
 

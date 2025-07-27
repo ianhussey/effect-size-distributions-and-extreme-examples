@@ -42,7 +42,7 @@ library(kableExtra)
 
 ```{r}
 
-dat <- arrow::read_feather("../data/df_by_pval_custom2_2025_06-03.feather")
+dat <- arrow::read_feather("../data/bogdan 2025/raw/df_by_pval_custom2_2025_06-03.feather")
 
 dat_p <- dat |>
   select(doi = link,
@@ -69,7 +69,7 @@ dat_p <- dat |>
          cites_year) |>
   filter(!is.na(p_val))
 
-write_rds(dat_p, "../data/data_p.rds", compress = "gz")
+write_rds(dat_p, "../data/bogdan 2025/processed/data_p.rds", compress = "gz")
 
 data_effectsizes_wide <- dat |>
   select(doi = link,
@@ -115,6 +115,7 @@ data_effectsizes_wide <- dat |>
          sqrtR2 = sqrt(R2),
          sqrtR2 = case_when(is.nan(sqrtR2) ~ NA, TRUE ~ sqrtR2),
          B = case_when(stat_type == "B" ~ stat),
+         abs_B = abs(B),
          stdB = case_when(stat_type == "β" ~ stat),
          abs_stdB = abs(stdB),
          chi2 = case_when(stat_type == "chi2" ~ stat),
@@ -129,9 +130,9 @@ data_effectsizes_wide <- dat |>
          logOR = case_when(stat_type == "OR" ~ log(stat)),
          logOR = case_when(is.nan(logOR) ~ NA, TRUE ~ logOR))
 
-write_rds(data_effectsizes_wide, "../data/data_effectsizes_wide.rds", compress = "gz")
+write_rds(data_effectsizes_wide, "../data/bogdan 2025/processed/data_effectsizes_wide.rds", compress = "gz")
 
-data_effectsizes_wide <- read_rds("../data/data_effectsizes_wide.rds")
+data_effectsizes_wide <- read_rds("../data/bogdan 2025/processed/data_effectsizes_wide.rds")
 
 data_effectsizes <- data_effectsizes_wide |>
   pivot_longer(cols = c("Applied_Psychology",
@@ -162,6 +163,7 @@ data_effectsizes <- data_effectsizes_wide |>
          sqrtR2,
          R2,
          B,
+         abs_B,
          stdB,
          abs_stdB,
          Wald,
@@ -180,6 +182,7 @@ data_effectsizes <- data_effectsizes_wide |>
                         sqrtR2,
                         R2,
                         B,
+                        abs_B,
                         stdB,
                         abs_stdB,
                         Wald,
@@ -201,9 +204,9 @@ data_effectsizes <- data_effectsizes_wide |>
                               type == "abs_OR"  & (estimate <  1 | is.na(estimate)) ~ FALSE,
                               TRUE ~ TRUE))
 
-write_rds(data_effectsizes, "../data/data_effectsizes.rds", compress = "gz")
+write_rds(data_effectsizes, "../data/bogdan 2025/processed/data_effectsizes.rds", compress = "gz")
 
-#data_effectsizes <- read_rds("../data/data_effectsizes.rds")
+#data_effectsizes <- read_rds("../data/bogdan 2025/processed/data_effectsizes.rds")
 
 ```
 

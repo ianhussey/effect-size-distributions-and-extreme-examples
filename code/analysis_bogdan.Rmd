@@ -34,6 +34,8 @@ library(patchwork)
 library(ggridges)
 library(knitr)
 library(kableExtra)
+library(quantreg)
+library(ggstance)
 
 ```
 
@@ -41,7 +43,7 @@ library(kableExtra)
 
 ```{r}
 
-data_effectsizes <- read_rds("../data/data_effectsizes.rds")
+data_effectsizes <- read_rds("../data/bogdan 2025/processed/data_effectsizes.rds")
 
 data_effectsizes_possible <- data_effectsizes |>
   filter(possible == TRUE)
@@ -545,6 +547,105 @@ p_chi2
 
 p_B
 p_stdB
+
+```
+
+# Quantile regression
+
+```{r}
+
+quantile_regression_and_plot <- function(data, es_type, label){
+  dat_for_reg <- data |> 
+    filter(type == es_type) |>
+    mutate(estimate = round_half_up(estimate, 2)) |>
+    count(subfield, estimate)
+  
+  # fit quantile regressions at multiple quantiles
+  #fit_05 <- rq(estimate ~ 0 + subfield, tau = 0.05, weights = n, method = "fn", data = dat_for_reg)
+  fit_10 <- rq(estimate ~ 0 + subfield, tau = 0.10, weights = n, method = "fn", data = dat_for_reg)
+  fit_25 <- rq(estimate ~ 0 + subfield, tau = 0.25, weights = n, method = "fn", data = dat_for_reg)
+  fit_50 <- rq(estimate ~ 0 + subfield, tau = 0.50, weights = n, method = "fn", data = dat_for_reg)
+  fit_75 <- rq(estimate ~ 0 + subfield, tau = 0.75, weights = n, method = "fn", data = dat_for_reg)
+  fit_90 <- rq(estimate ~ 0 + subfield, tau = 0.90, weights = n, method = "fn", data = dat_for_reg)
+  fit_95 <- rq(estimate ~ 0 + subfield, tau = 0.95, weights = n, method = "fn", data = dat_for_reg)
+  
+  # wrangle and plot
+  res <- bind_rows(
+    # summary(fit_05, se = "nid")$coefficients |>
+    #   as.data.frame() |>
+    #   rownames_to_column(var = "subfield") |>
+    #   mutate(percentile = 5),
+    summary(fit_10, se = "nid")$coefficients |>
+      as.data.frame() |>
+      rownames_to_column(var = "subfield") |>
+      mutate(percentile = 10),
+    summary(fit_25, se = "nid")$coefficients |>
+      as.data.frame() |>
+      rownames_to_column(var = "subfield") |>
+      mutate(percentile = 25),
+    summary(fit_50, se = "nid")$coefficients |>
+      as.data.frame() |>
+      rownames_to_column(var = "subfield") |>
+      mutate(percentile = 50),
+    summary(fit_75, se = "nid")$coefficients |>
+      as.data.frame() |>
+      rownames_to_column(var = "subfield") |>
+      mutate(percentile = 75),
+    summary(fit_90, se = "nid")$coefficients |>
+      as.data.frame() |>
+      rownames_to_column(var = "subfield") |>
+      mutate(percentile = 90),
+    summary(fit_95, se = "nid")$coefficients |>
+      as.data.frame() |>
+      rownames_to_column(var = "subfield") |>
+      mutate(percentile = 95)
+  ) |>
+    mutate(subfield = str_remove(subfield, "subfield"),
+           percentile = as.factor(percentile)) |>
+    rename(estimate = Value,
+           se = `Std. Error`) |>
+    mutate(subfield = fct_relevel(subfield,
+                                  "Social Psychology",
+                                  "Applied Psychology", 	
+                                  "Clinical Psychology",
+                                  "Developmental and Educational Psychology",			
+                                  "Experimental and Cognitive Psychology",			
+                                  "General Psychology"))
+  
+  # ggplot(res, aes(estimate, subfield, color = percentile)) +
+  #   geom_linerangeh(aes(xmin = estimate - se*1.96, xmax = estimate + se*1.96),
+  #                   position = position_dodge(width = 0.75)) +
+  #   geom_point(position = position_dodge(width = 0.75)) +
+  #   theme_linedraw() +
+  #   ylab("") +
+  #   scale_x_continuous(name = label, breaks = scales::breaks_pretty(n = 8)) +
+  #   guides(color = guide_legend(reverse = TRUE)) 
+  
+  plot <- 
+    ggplot(res, aes(estimate, percentile, color = subfield)) +
+    geom_linerangeh(aes(xmin = estimate - se*1.96, xmax = estimate + se*1.96),
+                    position = position_dodge(width = 0.75)) +
+    geom_point(position = position_dodge(width = 0.75)) +
+    theme_linedraw() +
+    scale_x_continuous(name = label, breaks = scales::breaks_pretty(n = 8)) +
+    ylab("Percentile") +
+    guides(color = guide_legend(reverse = TRUE)) 
+  
+  return(list(res = res,
+              plot = plot))
+}
+
+quantile_regression_and_plot(data_effectsizes_possible, "d_native", "Cohen's d")
+quantile_regression_and_plot(data_effectsizes_possible, "d_s", "Cohen's ds from t-test")
+quantile_regression_and_plot(data_effectsizes_possible, "d_z", "Cohen's dz from t-test")
+quantile_regression_and_plot(data_effectsizes_possible, "abs_r", "Absolute r")
+quantile_regression_and_plot(data_effectsizes_possible, "peta2", "peta2") # throws error, needs fixing 
+quantile_regression_and_plot(data_effectsizes_possible, "R2", "R2")
+quantile_regression_and_plot(data_effectsizes_possible, "abs_OR", "Absolute OR")
+#quantile_regression_and_plot(data_effectsizes_possible, "chi2", "chi2")
+#quantile_regression_and_plot(data_effectsizes_possible, "B", "B")
+#quantile_regression_and_plot(data_effectsizes_possible, "stdB", "")
+quantile_regression_and_plot(data_effectsizes_possible, "abs_stdB", "Absolute std. B") 
 
 ```
 

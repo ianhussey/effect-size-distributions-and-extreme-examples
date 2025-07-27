@@ -1,0 +1,78 @@
+---
+title: "Percentiles of Cronbach's α values extracted by Hussey et al. 2025"
+subtitle: "Analyses of Psychology/APA dataset"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(message = FALSE, 
+                      warning = FALSE)
+
+```
+
+# Dependencies
+
+```{r}
+
+library(tidyverse)
+library(broom)
+library(knitr)
+library(kableExtra)
+
+```
+
+# Get data
+
+```{r}
+
+data_processed <- read_csv("../data/hussey et al 2025/processed/data_processed_psychology.csv") 
+
+data_processed_trimmed <- data_processed |>
+  filter(!is.na(alpha) & exclude_master == FALSE)
+
+```
+
+# Descriptives
+
+```{r}
+
+data_processed_trimmed |>
+  count() |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+# percentiles_reliability <- 
+#   data.frame(percentile = seq(from = 0, to = 1, by = 0.005)) |>
+#   mutate(alpha = map_dbl(percentile, ~ quantile(data_processed_trimmed$alpha, .x)))
+# 
+# percentiles_reliability |>
+#   kable() |>
+#   kable_classic(full_width = FALSE)
+
+
+percentiles_reliability <- 
+  data.frame(percentile = c(.01, .05, .10, .25, .5, .75, .9, .95, .99)) |>
+  mutate(alpha = map_dbl(percentile, ~ quantile(data_processed_trimmed$alpha, .x)))
+
+percentiles_reliability |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+# Session info
+
+```{r}
+
+sessionInfo()
+
+```

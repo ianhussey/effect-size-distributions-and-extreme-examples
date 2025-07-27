@@ -552,7 +552,7 @@ p_stdB
 
 # Quantile regression
 
-```{r}
+```{r fig.height=5, fig.width=9}
 
 quantile_regression_and_plot <- function(data, es_type, label){
   dat_for_reg <- data |> 

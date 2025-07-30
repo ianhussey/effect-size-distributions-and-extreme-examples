@@ -1,0 +1,376 @@
+---
+title: "Warriner et al 2013"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE)
+```
+
+```{r}
+
+# dependencies
+library(tidyverse)
+library(stringr)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(tides)
+library(furrr)
+library(unsum)
+library(scrutiny)
+
+# set up parallelization
+plan(multisession)
+
+```
+
+# Means vs SDs plot
+
+```{r}
+
+dat_processed <- read_csv("../data/Warriner et al 2013/processed/BRM-emot-submit.csv") |>
+  select(word = Word,
+         valence_mean = V.Mean.Sum, 
+         valence_sd = V.SD.Sum)
+
+ggplot(dat_processed, aes(valence_mean, valence_sd)) +
+  geom_point()
+
+```
+
+# TIDES plot
+
+“For all three dimensions, more than 87 % of the words had between 18 and 30 ratings per word.” Warriner et al., 2013, p. 1193
+
+Assume 15 for a low estimate. Because, N had to be guessed so take with a pinch of salt
+
+```{r}
+
+dat_tides <- dat_processed |>
+  mutate(tides = future_pmap(.l = list(mean = valence_mean, 
+                                       sd = valence_sd, 
+                                       n = 15, 
+                                       min = 1, 
+                                       max = 9, 
+                                       n_items = 1, 
+                                       digits = 2, 
+                                       method = "approximate"),
+                             .f = tides)) |>
+  unnest(tides) 
+
+dat_tides |>
+  summarize(prop_tides = mean(tides_consistent))
+
+dat_tides |>
+  plot_tides() +
+  geom_hline(yintercept = 4*.66, linetype = "dashed", color = "darkred")
+
+```
+
+- there are some values above the line which imply they have weird distibutions. the participant level data/frequencies wasn't distributed, but we can use closure to find matching datasets and examine them.
+
+# Max SD: 'fucking'
+
+## TIDES
+
+```{r}
+
+dat_tides |>
+  filter(word == "fucking") |>
+  mutate(n = 22,
+         x = as.character(valence_mean),
+         sd = as.character(valence_sd),
+         x = restore_zeros(x, 2),
+         sd = restore_zeros(sd, 2)) |>
+  grim_map() |>
+  grim_plot()
+
+grimmer(x = "5.09", sd = "3.29", n = 22, items = 1)
+
+```
+
+## CLOSURE
+
+```{r fig.height=15, fig.width=15}
+
+# max sd = "fucking": mean = , sd =  
+dat_closure_fucking <- closure_generate(
+  mean = "5.09",
+  sd = "3.29",
+  n = 22, 
+  scale_min = 1,
+  scale_max = 9,
+  ask_to_proceed = FALSE
+)
+
+dat_closure_fucking
+
+dat_horns_fucking <- closure_horns_analyze(dat_closure_fucking)
+closure_horns_histogram(dat_horns_fucking)
+dat_horns_fucking$horns_metrics
+
+# plot
+samples_fucking <- dat_closure_fucking$results$sample
+
+# Convert to long format: one row per value, with group index
+df_long_fucking <- samples_fucking |>
+  enframe(name = "group", value = "values") |>
+  unnest(values)
+
+# ggplot(df_long_fucking, aes(x = values, color = factor(group))) +
+#   stat_ecdf(geom = "step") +
+#   labs(x = "Sample value", y = "Cumulative proportion", color = "Sample group") +
+#   theme_minimal() + 
+#   theme(legend.position = "none")
+
+df_long_fucking |>
+  filter(group %in% 1:30) |>
+  ggplot(aes(x = values)) +
+  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
+  facet_wrap(~ group) +
+  labs(x = "Sample value", y = "Count") +
+  scale_x_continuous(limits = c(0.5, 9.5), breaks = scales::breaks_pretty(9)) +
+  theme_linedraw()
+
+```
+
+# Min SD: 'gradual'
+
+## TIDES
+
+```{r}
+
+dat_tides |>
+  filter(mean > 4.8 & mean < 5.2 & sd < .5)
+
+dat_tides |>
+  filter(word == "gradual") |>
+  mutate(n = 20,
+         x = as.character(valence_mean),
+         sd = as.character(valence_sd),
+         x = restore_zeros(x, 2),
+         sd = restore_zeros(sd, 2)) |>
+  grim_map() |>
+  grim_plot()
+
+grimmer(x = "5.1", sd = "0.31", n = 20, items = 1)
+
+```
+
+## CLOSURE
+
+```{r fig.height=5, fig.width=5}
+
+# max sd = "gradual": mean = , sd =  
+dat_closure_gradual <- closure_generate(
+  mean = "5.10",
+  sd = "0.31",
+  n = 20, 
+  scale_min = 1,
+  scale_max = 9,
+  ask_to_proceed = FALSE
+)
+
+dat_closure_gradual
+
+dat_horns_gradual <- closure_horns_analyze(dat_closure_gradual)
+closure_horns_histogram(dat_horns_gradual)
+dat_horns_gradual$horns_metrics
+
+# plot
+samples_gradual <- dat_closure_gradual$results$sample
+
+# Convert to long format: one row per value, with group index
+df_long_gradual <- samples_gradual |>
+  enframe(name = "group", value = "values") |>
+  unnest(values)
+
+# ggplot(df_long_gradual, aes(x = values, color = factor(group))) +
+#   stat_ecdf(geom = "step") +
+#   labs(x = "Sample value", y = "Cumulative proportion", color = "Sample group") +
+#   theme_minimal() + 
+#   theme(legend.position = "none")
+
+df_long_gradual |>
+  filter(group %in% 1:30) |>
+  ggplot(aes(x = values)) +
+  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
+  facet_wrap(~ group) +
+  labs(x = "Sample value", y = "Count") +
+  scale_x_continuous(limits = c(0.5, 9.5), breaks = scales::breaks_pretty(9)) +
+  theme_linedraw()
+
+```
+
+# Min mean: 'pedophile'
+
+## TIDES
+
+```{r}
+
+dat_tides |>
+  filter(mean == min(mean))
+
+dat_tides |>
+  filter(word == "pedophile") |>
+  mutate(n = 19,
+         x = as.character(valence_mean),
+         sd = as.character(valence_sd),
+         x = restore_zeros(x, 2),
+         sd = restore_zeros(sd, 2)) |>
+  grim_map() |>
+  grim_plot()
+
+grimmer(x = "1.26", sd = "0.65", n = 19, items = 1)
+
+```
+
+## CLOSURE
+
+```{r fig.height=5, fig.width=5}
+
+dat_closure_pedophile <- closure_generate(
+  mean = "1.26",
+  sd = "0.65",
+  n = 19, 
+  scale_min = 1,
+  scale_max = 9,
+  ask_to_proceed = FALSE
+)
+
+dat_closure_pedophile
+
+dat_horns_pedophile <- closure_horns_analyze(dat_closure_pedophile)
+closure_horns_histogram(dat_horns_pedophile)
+dat_horns_pedophile$horns_metrics
+
+# plot
+samples_pedophile <- dat_closure_pedophile$results$sample
+
+# Convert to long format: one row per value, with group index
+df_long_pedophile <- samples_pedophile |>
+  enframe(name = "group", value = "values") |>
+  unnest(values)
+
+# ggplot(df_long, aes(x = values, color = factor(group))) +
+#   stat_ecdf(geom = "step") +
+#   labs(x = "Sample value", y = "Cumulative proportion", color = "Sample group") +
+#   theme_minimal() + 
+#   theme(legend.position = "none")
+
+df_long_pedophile |>
+  filter(group %in% 1:30) |>
+  ggplot(aes(x = values)) +
+  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
+  facet_wrap(~ group) +
+  labs(x = "Sample value", y = "Count") +
+  scale_x_continuous(limits = c(0.5, 9.5), breaks = scales::breaks_pretty(9)) +
+  theme_linedraw() 
+
+```
+
+# Max mean: 'vacation'
+
+## TIDES
+
+```{r}
+
+dat_tides |>
+  filter(mean == max(mean))
+
+dat_tides |>
+  filter(word == "vacation") |>
+  mutate(n = 19,
+         x = as.character(valence_mean),
+         sd = as.character(valence_sd),
+         x = restore_zeros(x, 2),
+         sd = restore_zeros(sd, 2)) |>
+  grim_map() |>
+  grim_plot()
+
+grimmer(x = "8.53", sd = "0.77", n = 19, items = 1)
+
+```
+
+## CLOSURE
+
+```{r fig.height=5, fig.width=9}
+
+dat_closure_vacation <- closure_generate(
+  mean = "8.53",
+  sd = "0.77",
+  n = 19, 
+  scale_min = 1,
+  scale_max = 9,
+  ask_to_proceed = FALSE
+)
+
+dat_closure_vacation
+
+dat_horns_vacation <- closure_horns_analyze(dat_closure_vacation)
+closure_horns_histogram(dat_horns_vacation)
+dat_horns_vacation$horns_metrics
+
+# plot
+samples_vacation <- dat_closure_vacation$results$sample
+
+# Convert to long format: one row per value, with group index
+df_long_vacation <- samples_vacation |>
+  enframe(name = "group", value = "values") |>
+  unnest(values)
+
+# ggplot(df_long, aes(x = values, color = factor(group))) +
+#   stat_ecdf(geom = "step") +
+#   labs(x = "Sample value", y = "Cumulative proportion", color = "Sample group") +
+#   theme_minimal() + 
+#   theme(legend.position = "none")
+
+df_long_vacation |>
+  filter(group %in% 1:30) |>
+  ggplot(aes(x = values)) +
+  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
+  facet_wrap(~ group) +
+  labs(x = "Sample value", y = "Count") +
+  scale_x_continuous(limits = c(0.5, 9.5), breaks = scales::breaks_pretty(9)) +
+  theme_linedraw() 
+
+```
+
+# Cohens d between min mean and max mean
+
+pedophile vs vacation
+
+```{r}
+
+dat_extreme <- dat_tides |>
+  filter(word %in% c("pedophile", "vacation")) |>
+  select(word, valence_mean, valence_sd)
+
+dat_extreme
+
+compute_cohens_d_equal_n <- function(m1, sd1, m2, sd2) {
+  sd_pooled <- sqrt((sd1^2 + sd2^2) / 2)
+  d <- (m1 - m2) / sd_pooled
+  return(d)
+}
+
+compute_cohens_d_equal_n(dat_extreme$valence_mean[1], 
+                         dat_extreme$valence_sd[1], 
+                         dat_extreme$valence_mean[2], 
+                         dat_extreme$valence_sd[2])
+
+```
+
+extreme ES but probably reliant on very small N, assumed 15 and equal per group but not reported exactly. More participants would create small amounts of noise, but even a small amount will greatly increase SD and lower ES.
+
+

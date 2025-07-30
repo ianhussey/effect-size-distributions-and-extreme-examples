@@ -1,0 +1,99 @@
+---
+title: "Vo et al 2013"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE)
+```
+
+```{r}
+
+# dependencies
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(knitr)
+library(kableExtra)
+library(tides)
+library(furrr)
+
+# set up parallelization
+plan(multisession)
+
+```
+
+# Means vs SDs plot
+
+```{r}
+
+dat_processed <- read_xlsx("../data/Vo et al 2011/processed/BAWL-R.xlsx") 
+
+ggplot(dat_processed, aes(valence_mean, valence_sd)) +
+  geom_point()
+
+```
+
+# TIDES plot
+
+N had to be guessed so take with a pinch of salt
+
+```{r}
+
+dat_tides <- dat_processed |>
+  mutate(tides = future_pmap(.l = list(mean = valence_mean, 
+                                       sd = valence_sd, 
+                                       n = 15, 
+                                       min = -3, 
+                                       max = +3, 
+                                       n_items = 1, 
+                                       digits = 2, 
+                                       method = "approximate"),
+                             .f = tides)) |>
+  unnest(tides) 
+
+dat_tides |>
+  summarize(prop_tides = mean(tides_consistent))
+
+plot_tides(dat_tides) +
+  geom_hline(yintercept = 3*.666, linetype = "dashed", color = "darkred")
+
+```
+
+## Cohens d between min mean and max mean 
+
+liebe vs. mordtat, ie love vs. murder
+
+```{r}
+
+dat_extreme <- dat_tides |>
+  filter(word %in% c("liebe", "mordtat")) |>
+  select(word, valence_mean, valence_sd)
+
+dat_extreme
+
+compute_cohens_d_equal_n <- function(m1, sd1, m2, sd2) {
+  sd_pooled <- sqrt((sd1^2 + sd2^2) / 2)
+  d <- (m1 - m2) / sd_pooled
+  return(d)
+}
+
+compute_cohens_d_equal_n(dat_extreme$valence_mean[1], 
+                         dat_extreme$valence_sd[1], 
+                         dat_extreme$valence_mean[2], 
+                         dat_extreme$valence_sd[2])
+
+```
+
+extreme ES but probably reliant on very small N, assumed 15 but not reported exactly. More participants would create small amounts of noise, but even a small amount will greatly increase SD and lower ES.
+
+

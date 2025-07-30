@@ -1,0 +1,388 @@
+---
+title: "Calculate max effect size from Britz et al. 2023s data"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+
+# set default chunk options
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE)
+
+# disable scientific notation
+options(scipen = 999) 
+
+```
+
+# Dependencies
+
+```{r}
+
+library(tidyverse)
+library(scales)
+library(readxl)
+library(effectsize)
+library(janitor)
+library(purrr)
+library(furrr)
+library(scrutiny)
+library(tides)
+library(knitr)
+library(kableExtra)
+
+# set up parallelization
+plan(multisession)
+
+```
+
+# Load data 
+
+Subset of all words in database based on extreme means or extreme SDs
+
+```{r}
+
+dat_processed <- read_xlsx("../data/britz et al 2023/processed/Database 1_Ratings.xlsx") |>
+  rename(n = valence_n) %>%
+  rowwise() %>%
+  mutate(m = mean(c(rep(-3, freq_minus_3),
+                    rep(-2, freq_minus_2),
+                    rep(1, freq_minus_1),
+                    rep(0, freq_0),
+                    rep(1, freq_plus_1),
+                    rep(2, freq_plus_2),
+                    rep(3, freq_plus_3))),
+         sd = sd(c(rep(-3, freq_minus_3),
+                   rep(-2, freq_minus_2),
+                   rep(-1, freq_minus_1),
+                   rep( 0, freq_0),
+                   rep( 1, freq_plus_1),
+                   rep( 2, freq_plus_2),
+                   rep( 3, freq_plus_3)))) |>
+  ungroup() |>
+  mutate(m = round_half_up(m, 2),
+         sd = round_half_up(sd, 2)) |>
+  select(word,
+         n,
+         m,
+         sd,
+         freq_minus_3, 
+         freq_minus_2, 
+         freq_minus_1, 
+         freq_0, 
+         freq_plus_1, 
+         freq_plus_2, 
+         freq_plus_3)
+
+```
+
+# Descriptives
+
+```{r}
+
+dat_subset <- dat_processed |>
+  filter(word %in% c("hateful", "racist", "dishonest", "authoritarian", "shrewd", "loving", "honest")) 
+
+dat_subset |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+N total words in database = `r nrow(dat_processed)`
+
+# Min SD
+
+## Racist	
+
+```{r}
+
+vec_racist <- c(rep(-3, 181), 
+                rep(-2, 20), 
+                rep(-1, 4), 
+                rep( 0, 3), 
+                rep( 1, 1), 
+                rep( 2, 0), 
+                rep( 3, 0))
+
+dat_racist <- tibble(score = vec_racist)
+    
+ggplot(dat_racist, aes(score)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black", fill = "darkorange") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  ggtitle("Valence ratings of 'racist'")
+
+```
+
+SD = `r round_half_up(sd(vec_racist), 2)`
+
+# Max SD
+
+## Shrewd	
+
+Definition for the non native speakers: having or showing sharp powers of judgement; astute.
+
+```{r}
+
+vec_shrewd <- c(rep(-3, 15), 
+                rep(-2, 24), 
+                rep(-1, 43), 
+                rep( 0, 55), 
+                rep( 1, 37), 
+                rep( 2, 14), 
+                rep( 3, 10))
+
+dat_shrewd <- tibble(score = vec_shrewd)
+    
+ggplot(dat_shrewd, aes(score)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black", fill = "darkgreen") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  ggtitle("Valence ratings of 'shrewd'")
+
+```
+
+SD = `r round_half_up(sd(vec_shrewd), 2)`
+
+# Max between groups Cohen's *d*
+
+## honest vs dishonest
+
+NB i exclude "authoritarian" because its a political word that (unfortunately) may show changes over time and between cultures, especially in the current political moment. 
+
+```{r}
+
+vec_dishonest <- c(rep(-3, 132), 
+                   rep(-2, 56), 
+                   rep(-1, 18))
+
+vec_honest <- c(rep(0, 2), 
+                rep(1, 15), 
+                rep(2, 51), 
+                rep(3, 138))
+
+dat_honest_dishonest <- 
+  tibble(score = c(vec_dishonest, vec_honest),
+         word = c(rep("dishonest", length(vec_dishonest)), rep("honest", length(vec_honest)))) |>
+  mutate(word = fct_relevel(word, "honest", "dishonest"))
+
+cohens_d(score ~ word, pooled = TRUE, data = dat_honest_dishonest)
+    
+ggplot(dat_honest_dishonest, aes(score, fill = word)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  scale_fill_manual(values = c("dishonest" = "steelblue", "honest" = "tomato")) +
+  ggtitle("Valence ratings of 'dishonest' vs. 'honest'")
+
+```
+
+## loving vs racist
+
+```{r}
+
+vec_loving <- c(rep(-3, 0), 
+                rep(-2, 0), 
+                rep(-1, 2), 
+                rep( 0, 4), 
+                rep( 1, 10), 
+                rep( 2, 47), 
+                rep( 3, 145))
+
+dat_racist_loving <- 
+  tibble(score = c(vec_racist, vec_loving),
+         word = c(rep("racist", length(vec_racist)), rep("loving", length(vec_loving)))) |>
+  mutate(word = fct_relevel(word, "loving", "racist"))
+
+cohens_d(score ~ word, pooled = TRUE, data = dat_racist_loving)
+    
+ggplot(dat_racist_loving, aes(score, fill = word)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  scale_fill_manual(values = c("racist" = "steelblue", "loving" = "tomato")) +
+  ggtitle("Valence ratings of 'racist' vs. 'loving'")
+
+```
+
+## honest vs racist
+
+```{r}
+
+dat_racist_honest <- 
+  tibble(score = c(vec_racist, vec_honest),
+         word = c(rep("racist", length(vec_racist)), rep("honest", length(vec_honest)))) |>
+  mutate(word = fct_relevel(word, "honest", "racist"))
+
+cohens_d(score ~ word, pooled = TRUE, data = dat_racist_honest)
+    
+ggplot(dat_racist_honest, aes(score, fill = word)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  scale_fill_manual(values = c("racist" = "steelblue", "honest" = "tomato")) +
+  ggtitle("Valence ratings of 'racist' vs. 'honest'")
+
+```
+
+# Max one sample t test's Cohen's *d*
+
+## "honest" vs the neutral point of the scale (0)
+
+```{r}
+
+vec_0 <- rep(0, length(vec_honest))
+
+cohen_d <- cohens_d(vec_honest, vec_0, pooled = TRUE)
+cohen_d
+
+ggplot(data.frame(score = vec_honest), aes(score)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black", fill = "tomato") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  ggtitle("Valence ratings of 'honest' vs. neutral point (0)")
+
+```
+
+## "racist" vs the neutral point of the scale (0)
+
+```{r}
+
+vec_0 <- rep(0, length(vec_racist))
+
+cohen_d <- cohens_d(vec_racist, vec_0, pooled = TRUE)
+cohen_d
+
+ggplot(data.frame(score = vec_racist), aes(score)) +
+  geom_histogram(alpha = 0.7, binwidth = 1, boundary = 1 - 0.5, position = position_dodge(width = 0.5), color = "black", fill = "darkorange") +
+  scale_x_continuous(
+    breaks = seq(-3, 3),
+    limits = c(-3 - 0.5, +3 + 0.5)
+  ) +
+  scale_y_continuous(breaks = breaks_pretty(7)) +
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  theme_linedraw() +
+  ylab("Frequency") +
+  xlab("Score") +
+  ggtitle("Valence ratings of 'racist' vs. neutral point (0)")
+
+```
+
+# TIDES plot
+
+```{r}
+
+dat_tides <- dat_processed |>
+  rename(mean = m) |>
+  mutate(min = -3, 
+         max = +3,
+         n_items = 1,
+         digits = 2,
+         verbose = FALSE,
+         calculate_min_sd = TRUE,
+         method = "approximate") |>
+  mutate(tides = future_pmap(.l = list(mean = mean, 
+                                       sd = sd, 
+                                       n = n, 
+                                       min = min, 
+                                       max = max, 
+                                       n_items = n_items, 
+                                       digits = digits, 
+                                       verbose = verbose,
+                                       calculate_min_sd = calculate_min_sd,
+                                       method = method),
+                      .f = tides)) |>
+  unnest(tides) 
+
+dat_tides |>
+  summarize(prop_tides = mean(tides_consistent))
+
+plot_tides(dat_tides) +
+  geom_hline(yintercept = 3*.666, linetype = "dashed", color = "darkred")
+
+
+```
+
+# Absolute max cohens d for a 1-7 scale
+
+```{r}
+
+dat_umbrella <- umbrella(n = 25, min = -3, max = +3)
+
+plot_umbrella(dat_umbrella)
+
+dat_umbrella_extreme <- dat_umbrella |>
+  filter(sd != 0) |>
+  filter(sd == min(sd)) |>
+  filter(mean == max(mean) | mean == min(mean))
+
+dat_umbrella_extreme
+
+compute_cohens_d_equal_n <- function(m1, sd1, m2, sd2) {
+  sd_pooled <- sqrt((sd1^2 + sd2^2) / 2)
+  d <- (m1 - m2) / sd_pooled
+  return(d)
+}
+
+compute_cohens_d_equal_n(dat_umbrella_extreme$mean[1], 
+                         dat_umbrella_extreme$sd[1], 
+                         dat_umbrella_extreme$mean[2], 
+                         dat_umbrella_extreme$sd[2])
+
+```
+
+# Session info
+
+```{r}
+
+sessionInfo()
+
+```
+
+

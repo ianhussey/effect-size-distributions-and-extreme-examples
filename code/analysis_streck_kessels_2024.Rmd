@@ -1,0 +1,126 @@
+---
+title: "Analysis of Streck & Kessels (2024)"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(message = FALSE, 
+                      warning = FALSE)
+
+```
+
+# Dependencies
+
+```{r}
+
+library(tidyverse)
+library(readxl)
+library(knitr)
+library(kableExtra)
+library(scrutiny)
+library(metafor)
+library(janitor)
+
+# disable scientific notation
+options(scipen=999)
+
+# set seed
+set.seed(42)
+
+```
+
+# Get data
+
+```{r}
+
+data_poster <- read_xlsx("../data/streck kessels 2024/processed/gender stereotypes in children.xlsx") 
+
+```
+
+# GRIM & GRIMMER
+
+Unlikely to be useful as N is close to 100
+
+```{r}
+
+data_grim_grimmer <- data_poster |>
+  mutate(m_girls = as.character(m_girls),
+         sd_girls = as.character(sd_girls),
+         m_boys = as.character(m_boys),
+         sd_boys = as.character(sd_boys)) |>
+
+  mutate(grim = pmap(list(m_girls, n_girls), grim)) |>
+  unnest(grim) |>
+  rename(grim_girls = grim) |>
+
+  mutate(grim = pmap(list(m_boys, n_boys), grim)) |>
+  unnest(grim) |>
+  rename(grim_boys = grim) |>
+
+  mutate(grimmer = pmap(list(m_girls, sd_girls, n_girls), grimmer)) |>
+  unnest(grimmer) |>
+  rename(grimmer_girls = grimmer) |>
+
+  mutate(grimmer = pmap(list(m_boys, sd_boys, n_boys), grimmer)) |>
+  unnest(grimmer) |>
+  rename(grimmer_boys = grimmer)
+
+data_grim_grimmer |>
+  select(type, trait, grim_girls, grim_boys, grimmer_girls, grimmer_boys) |>
+  kable() |>
+  kable_classic()
+
+```
+
+# Recalculate ES
+
+```{r}
+
+data_es <- 
+  escalc(measure = "SMD",
+         m1i     = m_girls,
+         m2i     = m_boys,
+         sd1i    = sd_girls,
+         sd2i    = sd_boys,
+         n1i     = n_girls,
+         n2i     = n_boys,
+         data    = data_poster) |>
+  mutate(es_diff = round_half_up(d - yi, digits = 2),
+         yi = round_half_up(yi, digits = 2),
+         d_yi_match = d == yi) |>
+  mutate(yi_ci_lower = round_half_up(yi - sqrt(vi)*1.96, digits = 2),
+         yi_ci_upper = round_half_up(yi + sqrt(vi)*1.96, digits = 2)) |>
+  
+  mutate(mean_diff = m_girls - m_boys,  
+         pooled_sd = sqrt(((n_boys - 1) * sd_boys^2 + (n_girls - 1) * sd_girls^2) / (n_boys + n_girls - 2)),
+         d_recalc = mean_diff / pooled_sd) |>
+  mutate(es_diff2 = round_half_up(d - d_recalc, digits = 2),
+         d_recalc = round_half_up(d_recalc, digits = 2),
+         d_drecalc_match = d == d_recalc)
+
+data_es |>
+  select(type, trait, d, yi, yi_ci_lower, yi_ci_upper, d_yi_match, 
+         d_recalc, d_drecalc_match) |>
+  kable() |>
+  kable_classic()
+
+```
+
+- Cohen's d may or may not have had Hedges' correction applied. Mostly reproduces within ±.01, which could be due to rounding of the reported summary stats.
+
+# Session info
+
+```{r}
+
+sessionInfo()
+
+```

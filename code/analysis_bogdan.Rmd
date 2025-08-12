@@ -383,7 +383,59 @@ data_percentiles_by_subfield |>
 
 ```
 
+# Ridge plots by subfield
+
+```{r}
+
+library(ggridges)
+
+data_effectsizes_possible |>
+  count(type)
+
+data_effectsizes_possible |>
+  filter(type == "d_native") |>
+  group_by(type) |>
+  filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
+  ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
+  geom_density_ridges(alpha = 1) +
+  theme_linedraw() +
+  scale_x_continuous(breaks = breaks_pretty(n = 8)) +
+  labs(x = "Cohen's d native",
+       y = "") +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none")
+
+data_effectsizes_possible |>
+  filter(type == "d_s") |>
+  group_by(type) |>
+  filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
+  ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
+  geom_density_ridges(alpha = 1) +
+  theme_linedraw() +
+  scale_x_continuous(breaks = breaks_pretty(n = 8)) +
+  labs(x = "Cohen's d_s",
+       y = "") +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none")
+
+data_effectsizes_possible |>
+  filter(type == "d_z") |>
+  group_by(type) |>
+  filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
+  ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
+  geom_density_ridges(alpha = 1) +
+  theme_linedraw() +
+  scale_x_continuous(breaks = breaks_pretty(n = 8)) +
+  labs(x = "Cohen's d_s",
+       y = "") +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none")
+
+```
+
 # Plot distributions
+
+IS THIS TRIMMING THINGS WEIRDLY? WHERE IS THE ABSOLUTE SCORING IN THE BELOW?
 
 ```{r}
 

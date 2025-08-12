@@ -20,7 +20,10 @@ knitr::opts_chunk$set(message = FALSE,
 
 # dependencies
 library(tidyverse)
+library(scales)
 library(stringr)
+library(effectsize)
+library(janitor)
 library(knitr)
 library(kableExtra)
 
@@ -56,6 +59,9 @@ data_trimmed <- AIID_subset_confirmatory %>%
 
 ```
 
+## Correlations
+
+### Cors
 
 ```{r fig.height=8, fig.width=8}
 
@@ -113,7 +119,7 @@ dat_r |>
   - Difference in liking ~ preference for protestants vs Catholics: r = .53
   - Difference in liking ~ preference for conservatives vs liberals: r = .64
 
-## plot actual feelings towards x vs y items
+### plot actual feelings towards x vs y items
 
 ```{r fig.height=8, fig.width=8}
 
@@ -159,7 +165,7 @@ ggplot(dat_subset, aes(actual_x, actual_y)) +
 
 ```
 
-## plot prefer vs actual items
+### plot prefer vs actual items
 
 ```{r fig.height=8, fig.width=8}
 
@@ -202,6 +208,74 @@ ggplot(dat_subset, aes(actual_diff, prefer)) +
   scale_y_continuous(breaks = scales::breaks_pretty(7)) +
   coord_fixed() +
   coord_cartesian(xlim = c(-10.5, 10.5), ylim = c(-3.5, +3.5))
+
+```
+
+## Cohen's d
+
+```{r}
+
+data_cohensd <- data_trimmed |>
+  group_by(domain) |>
+  summarize(n_x = sum(!is.na(actual_x)), 
+            n_y = sum(!is.na(actual_y)), 
+            mean_x = mean(actual_x, na.rm = TRUE), 
+            mean_y = mean(actual_y, na.rm = TRUE), 
+            sd_x = sd(actual_x, na.rm = TRUE), 
+            sd_y = sd(actual_y, na.rm = TRUE), 
+            d = cohens_d(actual_x, actual_y, pooled = TRUE)) |>
+  unnest(d) |>
+  # negative scores refer to preference for term on left and vice versa
+  mutate(Cohens_d = Cohens_d*-1) |> 
+  rename(d = Cohens_d, ci_lower = CI_high, ci_upper = CI_low) |>
+  select(-CI) |>
+  mutate_if(is.numeric, round_half_up, digits = 2) |>
+  drop_na()
+
+ggplot(data_cohensd, aes(mean_x, sd_x)) +
+  geom_point()
+
+library(tides)
+
+data_cohensd |>
+  pivot_longer(
+    cols = c(n_x, n_y, mean_x, mean_y, sd_x, sd_y),
+    names_to = c(".value", "category"),
+    names_sep = "_"
+  ) |>
+  mutate(min = 1, 
+         max = 10, 
+         n_items = 1,
+         digits = 2,
+         calculate_min_sd = TRUE,
+         method = "approximate") |>
+  tides_df(mean = mean, 
+           sd = sd, 
+           n = n,
+           min = min,
+           max = max,
+           n_items = n_items,
+           digits = digits,
+           calculate_min_sd = calculate_min_sd,
+           method = method) |>
+  plot_tides() +
+  geom_hline(yintercept = 4.5*.666, linetype = "dashed", color = "darkred")
+
+data_cohensd |>
+  arrange(d) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+data_cohensd |>
+  summarise(
+    percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
+    d = map_dbl(percentile, ~ quantile(d, probs = .x, na.rm = TRUE)),
+    .groups = "drop"
+  ) |>
+  mutate(percentile = percentile * 100,
+         d = round_half_up(d, 2)) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
 
 ```
 
@@ -317,6 +391,3 @@ Height:
 effsize::cohen.d(Height ~ Gender, data = dat)
 
 ```
-
-
-

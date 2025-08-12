@@ -17,7 +17,7 @@ output:
 - in quantile regression, 5th percentile throws errors for peta2 so I've removed it for the moment.
 - Re-running the data processing would add abs_B to the dataset and allow it to be included
 - look into the impossible effect size - what proportion are extraction errors vs actually impossible values?
-- Add random sampling and categorisation of what sort of effects or comparisons give rise to what magnitdue of effect sizes? 
+- Add random sampling and categorization of what sort of effects or comparisons give rise to what magnitdue of effect sizes? 
 - Clarify source of each ES 
   - Save journal list to disk.
   - eg was peta2 explicitly reported or recalculated from F test? is it definitely peta2 and not eta2? were r values in text or also tables?
@@ -39,6 +39,7 @@ options(scipen = 999)
 ```{r}
 
 library(tidyverse)
+library(scales)
 library(janitor)
 library(rlang)
 library(patchwork)
@@ -146,7 +147,7 @@ data_effectsizes_possible |>
 
 ```{r}
 
-data_percentiles <- data_effectsizes_possible |>
+data_percentiles_long <- data_effectsizes_possible |>
   filter(type %in% unique(type)) |>
   group_by(type) |>
   summarise(
@@ -161,11 +162,13 @@ data_percentiles <- data_effectsizes_possible |>
   unnest(estimate) |>
   group_by(type) |>
   summarise(
-    percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
+    percentile = c(1, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 99) / 100,
     value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
     .groups = "drop"
   ) |>
-  mutate(percentile = percentile * 100) |>
+  mutate(percentile = percentile * 100) 
+
+data_percentiles <- data_percentiles_long |>
   pivot_wider(names_from = type, values_from = value) |>
   select(percentile,
          d_native, 
@@ -226,6 +229,132 @@ data_percentiles |>
 #   geom_bar(stat = "identity", width = 0.8) +
 #   theme_linedraw() +
 #   facet_wrap(~ estimator, scales = "free")
+
+```
+
+### Plot
+
+```{r}
+
+data_percentiles_for_plot <- data_percentiles_long |>
+  filter(type %in% c("d_native", 
+                     "d_s", 
+                     "d_z", 
+                     "abs_r",
+                     "peta2", 
+                     "R2", 
+                     "abs_OR",
+                     "abs_stdB",
+                     "chi2")) |>
+  mutate(type_lab = case_when(
+    type == "d_native" ~ "\"Cohen's\"~'|'*italic(d)*'|'~'(reported)'",
+    type == "d_s"      ~ "\"Cohen's\"~'|'*italic(d)[s]*'|'~'(from t-test)'",
+    type == "d_z"      ~ "\"Cohen's\"~'|'*italic(d)[z]*'|'~'(from t-test)'",
+    type == "abs_r"    ~ "\"Pearson's\"~'|'*italic(r)*'|'",
+    type == "peta2"    ~ "eta[p]^2",
+    type == "R2"       ~ "italic(R)^2",
+    type == "abs_OR"   ~ "\"|Odds Ratio|\"",
+    type == "abs_stdB" ~ "'|'*italic(beta)*'|'",
+    type == "chi2"     ~ "chi^2",
+    TRUE ~ type
+  )) |>
+  mutate(type_lab = fct_relevel(
+    type_lab,
+    "\"Cohen's\"~'|'*italic(d)*'|'~'(reported)'",
+    "\"Cohen's\"~'|'*italic(d)[s]*'|'~'(from t-test)'",
+    "\"Cohen's\"~'|'*italic(d)[z]*'|'~'(from t-test)'",
+    "\"Pearson's\"~'|'*italic(r)*'|'",
+    "eta[p]^2",
+    "italic(R)^2",
+    "\"|Odds Ratio|\"",
+    "'|'*italic(beta)*'|'",
+    "chi^2"
+  )) |>
+  drop_na() 
+
+```
+
+```{r fig.height=4, fig.width=6}
+
+labs_map <- c(
+  d_native = "\"Cohen's\"~group('|',italic(d),'|')~'(reported)'",
+  d_s      = "\"Independent Cohen's\"~group('|',italic(d)[s],'|')~'(recalculated from t-test)'",
+  d_z      = "\"Dependent Cohen's\"~group('|',italic(d)[z],'|')~'(recalculated from t-test)'"
+)
+
+label_map_parsed <- function(map) {
+  force(map)
+  function(x) parse(text = unname(map[x]))
+}
+
+data_percentiles_for_plot |>
+  filter(percentile < 99) |>
+  filter(str_detect(type, "d_")) |>
+  mutate(type = fct_relevel(type, "d_z", "d_native", "d_s")) |>
+  ggplot(aes(value, percentile, color = type)) +  
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(
+    #breaks = c(1, seq(5, 95, 5), 99), 
+    breaks = c(1, seq(5, 95, 5)), 
+    name = "Percentile"
+  ) +
+  scale_x_continuous(
+    breaks = scales::breaks_pretty(n = 8), 
+    #limits = c(0, 1), 
+    name = expression("Cohen's" ~ group("|", italic(d), "|"))
+  ) +
+  theme_linedraw() +
+  theme(
+    panel.grid.minor = element_blank(),
+    strip.placement = "outside",
+    strip.background = element_blank(),  # no fill or box
+    strip.text = element_text(colour = "black"),
+    legend.position = c(0.65, 0.3)
+  ) +
+  scale_colour_discrete(
+    name = "Method",
+    breaks = c("d_z", "d_native", "d_s"),  # desired legend order
+    #breaks = names(labs_map),
+    labels = label_map_parsed(labs_map)
+  )
+
+ggsave("plots/percentiles_bogdan_d.png", width = 6, height = 4, dpi = 600)
+
+```
+
+```{r fig.height=8, fig.width=12}
+
+data_percentiles_for_plot |>
+  filter(percentile < 99) |>
+  filter(!str_detect(type, "d_")) |>
+  ggplot(aes(value, percentile)) +  
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(
+    #breaks = c(1, seq(5, 95, 5), 99), 
+    breaks = c(1, seq(5, 95, 5)), 
+    name = "Percentile"
+  ) +
+  scale_x_continuous(
+    breaks = scales::breaks_pretty(n = 8), 
+    #limits = c(0, 1), 
+    name = "Effect size"
+  ) +
+  theme_linedraw() +
+  theme(
+    panel.grid.minor = element_blank(),
+    strip.placement = "outside",
+    strip.background = element_blank(),  # no fill or box
+    strip.text = element_text(colour = "black")
+    #legend.position = c(0.8, 0.4)
+  ) +
+  facet_wrap(~ type_lab, 
+             scales = "free", 
+             strip.position = "bottom",
+             labeller = label_parsed)
+
+ggsave("plots/percentiles_bogdan_others.png", width = 12, height = 8, dpi = 600)
 
 ```
 

@@ -1,0 +1,34 @@
+
+```{r}
+
+library(tidyverse)
+
+# Read your CSV and calculate percentiles
+dat <- read_csv("data_richards_raw.csv") |> 
+  arrange(r) |>
+  mutate(
+    dx   = lead(r) - r,
+    yavg = (count + lead(count)) / 2,
+    seg_area = dx * yavg
+  ) |>
+  mutate(
+    cum_area = replace_na(cumsum(lag(seg_area, default = 0)), 0),
+    total_area = sum(seg_area, na.rm = TRUE),
+    percentile = 100 * cum_area / total_area
+  ) |>
+  select(r, count, percentile)
+
+# Interpolation function: percentile -> r
+r_at_percentile <- approxfun(dat$percentile, dat$r, rule = 2)
+
+# Return r for each 10% step
+percentile_steps <- tibble(
+  percentile = c(1, 5, 25, seq(10, 90, by = 10), 75, 95, 99),
+  r = r_at_percentile(percentile)
+) |>
+  mutate(r = janitor::round_half_up(r, digits = 2)) |>
+  arrange(percentile)
+
+write_csv(percentile_steps, "data_richards.csv")
+
+```

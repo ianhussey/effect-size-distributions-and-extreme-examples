@@ -1,0 +1,365 @@
+---
+title: "Comparing percentiles of effect sizes across analyses"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(message = FALSE, 
+                      warning = FALSE)
+
+```
+
+# Dependencies
+
+```{r}
+
+library(tidyverse)
+library(scales)
+library(janitor)
+
+dir.create("plots")
+
+```
+
+# Data
+
+```{r}
+
+data_percentiles_bogdan <- read_rds("../data/bogdan 2025/processed/data_effectsizes.rds") |>
+  filter(possible == TRUE) |>
+  filter(type %in% unique(type)) |>
+  group_by(type) |>
+  summarise(
+    across(
+      .cols = everything(),
+      .fns = list, 
+      .names = "{.col}_list"
+    ), # just for clarity — we only care about estimate column
+    .groups = "drop_last"
+  ) |>
+  select(type, estimate = estimate_list) |>
+  unnest(estimate) |>
+  group_by(type) |>
+  summarise(
+    percentile = c(1, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 99) / 100,
+    value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
+    .groups = "drop"
+  ) |>
+  mutate(percentile = percentile * 100) |>
+  pivot_wider(names_from = type, values_from = value) |>
+  select(percentile,
+         d_native, 
+         d_s, 
+         d_z,
+         r = abs_r) |>
+  mutate(d_s = janitor::round_half_up(d_s, digits = 2))
+
+dat_percentiles_comparative <- bind_rows(
+  data_percentiles_bogdan |>
+    select(percentile,
+           r) |> 
+    mutate(Source = "Bogdan (2025)"),
+  
+  data_percentiles_bogdan |>
+    select(percentile,
+           d = d_native) |> 
+    mutate(Source = "Bogdan (2025) native"),
+  
+  data_percentiles_bogdan |>
+    select(percentile,
+           d = d_s) |> 
+    mutate(Source = "Bogdan (2025) from t-test"),
+  
+  read_csv("../data/previous articles extracting many effect sizes/data_bosco.csv") |> 
+    mutate(Source = "Bosco et al. (2015)"),
+  
+  read_csv("../data/previous articles extracting many effect sizes/data_lovakov_agadullina.csv") |> 
+    mutate(Source = "Lovakov & Agadullina (2021)"),
+  
+  read_csv("../data/previous articles extracting many effect sizes/data_paterson.csv") |> 
+    mutate(Source = "Paterson et al. (2016)"),
+  
+  read_csv("../data/previous articles extracting many effect sizes/data_richards.csv") |> 
+    mutate(Source = "Richards et al. (2003)")
+) |>
+  mutate(Type = case_when(str_detect(Source, "Bogdan") ~ "All effects",
+                          TRUE ~ "Substantive effects"))
+
+```
+
+# Pearson's r
+
+```{r}
+
+dat_percentiles_comparative |>
+  select(-d) |>
+  drop_na(r) |>
+  pivot_wider(names_from = "Source",
+              values_from = "r") |>
+  arrange(percentile)
+
+dat_percentiles_comparative |>
+  select(-d) |>
+  drop_na(r) |>
+  pivot_wider(names_from = "Source",
+              values_from = "r") |>
+  arrange(percentile) |>
+  filter(percentile %in% c(5, 25, 50, 75, 95))
+
+dat_percentiles_comparative |>
+  drop_na(r) |>
+  ggplot(aes(r, percentile, shape = Type, color = Source, group = Source)) +  
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(breaks = c(1, seq(5, 95, 5), 99), name = "Percentile") +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 10), limits = c(0, 1), name = "Pearson's r") +
+  theme_linedraw() +
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.8, 0.4)) +
+  guides(colour = guide_legend(reverse = TRUE, order = 1),
+         shape  = guide_legend(reverse = TRUE, order = 2),
+         fill   = guide_legend(reverse = TRUE, order = 1)) +
+  # geom_vline(xintercept = .3, linetype = "dashed", color = "grey40") +
+  # geom_hline(yintercept = 45, linetype = "dashed", color = "grey40") +
+  # geom_hline(yintercept = 75, linetype = "dashed", color = "grey40")
+  geom_segment(data = data.frame(x1 = 0.1, 
+                                 x2 = 0.1, 
+                                 y1 = 9.5, 
+                                 y2 = 35.5),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               colour = "mediumvioletred",
+               inherit.aes = FALSE) +
+  geom_segment(data = data.frame(x1 = 0.3, 
+                                 x2 = 0.3, 
+                                 y1 = 45.5, 
+                                 y2 = 75),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               colour = "mediumvioletred",
+               inherit.aes = FALSE) +
+  geom_segment(data = data.frame(x1 = 0.5, 
+                                 x2 = 0.5, 
+                                 y1 = 76, 
+                                 y2 = 94.5),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               colour = "mediumvioletred",
+               inherit.aes = FALSE)
+
+ggsave("plots/percentiles_comparative_r.png", width = 6, height = 4, dpi = 600)
+
+```
+
+# Cohen's d
+
+```{r}
+
+dat_percentiles_comparative |>
+  select(-r) |>
+  drop_na(d) |>
+  pivot_wider(names_from = "Source",
+              values_from = "d") |>
+  arrange(percentile)
+
+dat_percentiles_comparative |>
+  select(-r) |>
+  drop_na(d) |>
+  pivot_wider(names_from = "Source",
+              values_from = "d") |>
+  arrange(percentile) |>
+  filter(percentile %in% c(5, 25, 50, 75, 95))
+
+dat_percentiles_comparative |>
+  drop_na(d) |>
+  filter(percentile <= 95) |>
+  ggplot(aes(d, percentile, shape = Type, color = Source, group = Source)) +  
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(breaks = c(1, seq(5, 95, 5)), name = "Percentile") +
+  scale_x_continuous(breaks = c(0, .2, .5, .8, 1, 1.5, 2, 2.5, 3, 3.5), name = "Cohen's d") +
+  theme_linedraw() +
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.8, 0.4)) +
+  guides(colour = guide_legend(reverse = TRUE, order = 1),
+         shape  = guide_legend(reverse = TRUE, order = 2),
+         fill   = guide_legend(reverse = TRUE, order = 1)) +
+  # geom_vline(xintercept = .5, linetype = "dashed", color = "grey40") +
+  # geom_hline(yintercept = 35, linetype = "dashed", color = "grey40") +
+  # geom_hline(yintercept = 65, linetype = "dashed", color = "grey40")
+  geom_segment(data = data.frame(x1 = 0.2, 
+                                 x2 = 0.2, 
+                                 y1 = 12, 
+                                 y2 = 32),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               colour = "mediumvioletred",
+               inherit.aes = FALSE) +
+  geom_segment(data = data.frame(x1 = 0.5, 
+                                 x2 = 0.5, 
+                                 y1 = 36, 
+                                 y2 = 63.5),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               colour = "mediumvioletred",
+               inherit.aes = FALSE) +
+  geom_segment(data = data.frame(x1 = 0.8, 
+                                 x2 = 0.8, 
+                                 y1 = 55, 
+                                 y2 = 83.5),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               colour = "mediumvioletred",
+               inherit.aes = FALSE)
+
+ggsave("plots/percentiles_comparative_d.png", width = 6, height = 4, dpi = 600)
+
+```
+
+
+
+```{r eval=FALSE, fig.height=4, fig.width=6, include=FALSE}
+
+
+# dat_percentiles_comparative |>
+#   drop_na(r) |>
+#   ggplot(aes(r, percentile, shape = Type, color = Source, group = Source)) +  
+#   geom_line() +
+#   geom_point() +
+#   scale_y_continuous(breaks = c(1, seq(5, 95, 5), 99), name = "Percentile") +
+#   scale_x_continuous(breaks = scales::breaks_pretty(n = 10), limits = c(0, 1), name = "Pearson's r") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank()) +
+#   guides(colour = guide_legend(reverse = TRUE, order = 1),
+#          shape  = guide_legend(reverse = TRUE, order = 2),
+#          fill   = guide_legend(reverse = TRUE, order = 1))
+
+dat_percentiles_comparative |>
+  drop_na(d) |>
+  ggplot(aes(d, percentile, shape = Type, color = Source, group = Source)) +  
+  geom_line() +
+  geom_point() +
+  scale_y_continuous(breaks = c(1, seq(5, 95, 5), 99), name = "Percentile") +
+  scale_x_continuous(breaks = c(0, .2, .5, .8, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5), name = "Cohen's d") +
+  theme_linedraw() +
+  theme(panel.grid.minor = element_blank(),
+        legend.position = c(0.8, 0.4),
+        axis.text.x = element_text(
+          angle = 60,      # rotate text
+          vjust = 0.5,     # vertical justification
+          hjust = 1        # horizontal justification
+        )) +
+  guides(colour = guide_legend(reverse = TRUE, order = 1),
+         shape  = guide_legend(reverse = TRUE, order = 2),
+         fill   = guide_legend(reverse = TRUE, order = 1)) +
+  # geom_vline(xintercept = .5, linetype = "dashed", color = "grey40") +
+  # geom_hline(yintercept = 35, linetype = "dashed", color = "grey40") +
+  # geom_hline(yintercept = 65, linetype = "dashed", color = "grey40")
+  geom_segment(data = data.frame(x1 = 0.2, 
+                                 x2 = 0.2, 
+                                 y1 = 12, 
+                                 y2 = 32),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               lineend = "butt",  # square-cut ends
+               colour = "mediumvioletred",
+               inherit.aes = FALSE) +
+  geom_segment(data = data.frame(x1 = 0.5, 
+                                 x2 = 0.5, 
+                                 y1 = 35, 
+                                 y2 = 65),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               lineend = "butt",  # square-cut ends
+               colour = "mediumvioletred",
+               inherit.aes = FALSE) +
+  geom_segment(data = data.frame(x1 = 0.8, 
+                                 x2 = 0.8, 
+                                 y1 = 55, 
+                                 y2 = 83.5),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               linewidth = 2,
+               alpha = 0.3,
+               lineend = "butt",  # square-cut ends
+               colour = "mediumvioletred",
+               inherit.aes = FALSE)
+
+
+# dat_percentiles_comparative |>
+#   drop_na(r) |>
+#   ggplot(aes(percentile, r, color = Source, group = Source)) +
+#   geom_line() +
+#   geom_point() +
+#   scale_x_continuous(breaks = seq(0, 100, 5), name = "Percentile") +
+#   scale_y_continuous(breaks = scales::breaks_pretty(n = 10), name = "Pearson's r") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank())
+# 
+# dat_percentiles_comparative |>
+#   drop_na(r) |>
+#   ggplot(aes(percentile, r, color = Source, group = percentile)) +
+#   geom_line() +
+#   geom_point() +
+#   scale_x_continuous(breaks = seq(0, 100, 5), name = "Percentile") +
+#   scale_y_continuous(breaks = scales::breaks_pretty(n = 10), name = "Pearson's r") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank())
+
+# dat_percentiles_comparative |>
+#   drop_na(r) |>
+#   ggplot(aes(r, percentile, color = Source, group = percentile)) +  
+#   geom_line() +
+#   geom_point() +
+#   scale_y_continuous(breaks = seq(0, 100, 5), name = "Percentile") +
+#   scale_x_continuous(breaks = scales::breaks_pretty(n = 10), name = "Pearson's r") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank())
+
+# dat_percentiles_comparative |>
+#   drop_na(d) |>
+#   ggplot(aes(percentile, d, color = Source, group = Source)) +  
+#   geom_line() +
+#   geom_point() +
+#   scale_x_continuous(breaks = seq(0, 100, 5), name = "Percentile") +
+#   scale_y_continuous(breaks = scales::breaks_pretty(n = 10), name = "Cohen's d") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank())
+# 
+# dat_percentiles_comparative |>
+#   drop_na(d) |>
+#   ggplot(aes(percentile, d, color = Source, group = percentile)) +  
+#   geom_line() +
+#   geom_point() +
+#   scale_x_continuous(breaks = seq(0, 100, 5), name = "Percentile") +
+#   scale_y_continuous(breaks = scales::breaks_pretty(n = 10), name = "Cohen's d") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank())
+
+# dat_percentiles_comparative |>
+#   drop_na(d) |>
+#   ggplot(aes(d, percentile, color = Source, group = percentile)) +  
+#   geom_line() +
+#   geom_point() +
+#   scale_y_continuous(breaks = seq(0, 100, 5), name = "Percentile") +
+#   scale_x_continuous(breaks = scales::breaks_pretty(n = 10), name = "Cohen's d") +
+#   theme_linedraw() +
+#   theme(panel.grid.minor = element_blank())
+
+```

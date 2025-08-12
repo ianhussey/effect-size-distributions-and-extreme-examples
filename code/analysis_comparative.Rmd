@@ -72,12 +72,12 @@ dat_percentiles_comparative <- bind_rows(
   data_percentiles_bogdan |>
     select(percentile,
            d = d_native) |> 
-    mutate(Source = "Bogdan (2025) native"),
+    mutate(Source = "Bogdan (2025) reported"),
   
   data_percentiles_bogdan |>
     select(percentile,
            d = d_s) |> 
-    mutate(Source = "Bogdan (2025) from t-test"),
+    mutate(Source = "Bogdan (2025) recalculated"),
   
   read_csv("../data/previous articles extracting many effect sizes/data_bosco.csv") |> 
     mutate(Source = "Bosco et al. (2015)"),
@@ -121,7 +121,8 @@ dat_percentiles_comparative |>
   geom_line() +
   geom_point() +
   scale_y_continuous(breaks = c(1, seq(5, 95, 5), 99), name = "Percentile") +
-  scale_x_continuous(breaks = scales::breaks_pretty(n = 10), limits = c(0, 1), name = "Pearson's r") +
+  scale_x_continuous(breaks = scales::breaks_pretty(n = 10), limits = c(0, 1), 
+                     name = expression("Pearson's" ~ group("|", italic(r), "|"))) +
   theme_linedraw() +
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.8, 0.4)) +
@@ -189,7 +190,8 @@ dat_percentiles_comparative |>
   geom_line() +
   geom_point() +
   scale_y_continuous(breaks = c(1, seq(5, 95, 5)), name = "Percentile") +
-  scale_x_continuous(breaks = c(0, .2, .5, .8, 1, 1.5, 2, 2.5, 3, 3.5), name = "Cohen's d") +
+  scale_x_continuous(breaks = c(0, .2, .5, .8, 1, 1.5, 2, 2.5, 3, 3.5), 
+                     name = expression("Cohen's" ~ group("|", italic(d), "|"))) +
   theme_linedraw() +
   theme(panel.grid.minor = element_blank(),
         legend.position = c(0.8, 0.4)) +

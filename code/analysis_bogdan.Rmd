@@ -143,6 +143,135 @@ data_effectsizes_possible |>
 
 ```
 
+## Extreme values 
+
+8 largest Cohen's d values in the database, by unique DOI.
+
+```{r}
+
+data_effectsizes_possible |>
+  filter(type %in% "d_native") |> # c("d_native", "abs_r", "R2")) |>
+  group_by(type) |>
+  arrange(desc(estimate)) |>
+  slice_head(n = 14) |>
+  select(doi, type, estimate) |>
+  distinct(doi, .keep_all = TRUE) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
+```
+
+### Verification of extreme natively reported Cohen's d values
+
+**Purvanova and Muros (2010)**
+
+https://doi.org/10.1016/j.jvb.2010.04.006
+
+“Q_D = 919.17” (p. 174)
+
+Q statistic incorrectly extracted as d.
+
+[no pubpeer comment needed]
+
+
+**Atkinson et al., (2010)** 
+
+Multiple Sexual Partnerships in a Sample of African-American Crack Smokers, https://doi.org/10.1007/s10461-007-9346-0
+
+“Women had had significantly more total sex partners in the 30 days preceding their interview, on average, than men (14.2 vs. 7.9, t =-4.48, d = 690, P < .01).” (p. 51)
+
+d was indeed reported, but does not reproduce from the t test:
+
+SDs implied by differences in mean:
+
+```{r}
+# d = m_diff / sd_pooled; therefore sd_pooled = m_diff / d: 
+sd_pooled <- (14.2 - 7.9) / 690
+```
+
+Implied $SD_{pooled}$ = `r sd_pooled`. This would require that almost all of the 497 males and 195 female in the sample each reported the same number of sexual partners, within each group.
+
+Recalculated d from t value and df:
+
+```{r}
+effectsize::t_to_d(t = 4.48, 
+                   df_error = 497 + 195 - 2, 
+                   paired = FALSE, 
+                   ci = 0.95, 
+                   alternative = "two.sided")
+```
+
+Given that recalculated df from the Ns (497 + 195 - 2) = 609 matches the reported d, I suspect that the t-test's df has been mislabeled as the effect size.
+
+https://pubpeer.com/publications/DDDBEA2AB1381B343EF23E2028F75B#1
+
+
+**Eddington et al. (2014)**
+
+https://doi.org/10.1177/1073191113517929
+
+“Mardia’s test (Mardia, 1970) indicated significant departures from multivariate kurtosis (b2,d = 535.25, p < .001)” (p. 7)
+
+Other test statistic incorrectly extracted as d.
+
+[no pubpeer comment needed]
+
+
+**Hoyo et al. (2019)**
+
+https://doi.org/10.3389/fpsyg.2019.02293	
+
+on the "A new version of the Dots spatial conflict task" used to measure "Executive Function" in children, “Participants took more time to respond to incongruent than congruent trials (d = 132.44, p < 0.001), and in the mixed block compared to the simple blocks (d = 339.45, p < 0.001).” (p. 8)
+
+d was indeed reported, but does not seem to reproduce from the reported Ms and SDs (.xlsx in zotero); very roughly recalculated d for the simple vs mixed comparison d = 1.4
+
+https://pubpeer.com/publications/A983972167F472FFCC0AFAEE921216#
+
+
+**Firth et al. (2017)** 
+
+[paraphrasing] "Reductions in general symptoms after a 10 week exercise program in psychiatric inpatients": Cohen's d = 204.
+
+https://doi.org/10.1016/j.mhpa.2017.04.004
+
+This is likely to be simply a typo: adding a decimal place to make the effect size d = .204 would bring it in line with other effect sizes reported in the paragraph.
+
+https://pubpeer.com/publications/24998D2B750BA7927040318CCBD6C9#
+
+
+**Bogliotti & Isel (2021)**
+
+[paraphrasing] "differences in reaction times between experimental conditions in a behavioral paradigm": d = 181 and 54.
+
+https://doi.org/10.3389/fpsyg.2021.655168
+
+SDs likely misreported as Cohen's ds.
+
+https://pubpeer.com/publications/FEC504747ABE62EE2071B3EF4A2ED7#1
+
+
+**van der Horst et al. (2014)**
+
+[paraphrasing] "when children do the cooking they consume more calories than when parents do the cooking": “(d =146 kcal; 47%; P = .004)” (p. 22) 
+
+http://dx.doi.org/10.1016/j.appet.2014.03.030
+
+d seems to refer to delta, the difference in means between conditions, rather than Cohen's d - although this is not explicated anywhere.
+
+[no pubpeer comment needed]
+
+
+**Bennett et al. (2015)**
+
+ANOVA applied to RT data: “Pairwise comparisons indicated that the mean response latency during the first block were significantly longer than those in the third block, d = 95.11, SE = 30.91, p = 0.02, and fourth block, d = 117.22, SE = 36.10, p = 0.01.” (p. 8)
+
+https://doi.org/10.3389/fpsyg.2015.00520
+
+d seems to refer to delta, the difference in mean RTs between conditions, rather than Cohen's d - although this is not explicated anywhere.
+
+[no pubpeer comment needed]
+
+
 # Percentiles
 
 ```{r}

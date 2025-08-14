@@ -7,7 +7,7 @@ library(purrr)
 library(knitr)
 library(kableExtra)
 
-dat <- read_xlsx("metaBUS-Ver2-08_MasterDB_JAP-PPsych_1980-2010.xlsx", sheet = "DATA")
+dat <- read_xlsx("../data/bosco et al 2015/metaBUS-Ver2-08_MasterDB_JAP-PPsych_1980-2010.xlsx", sheet = "DATA")
 
 # sample sizes
 data_percentiles_n <- dat |>
@@ -34,10 +34,10 @@ data_percentiles_r |>
   kable() |>
   kable_classic(full_width = FALSE)
 
-#dir.exists("../previous articles extracting many effect sizes")
+#dir.exists("../data/bosco et al 2015/previous articles extracting many effect sizes")
 
-write_csv(data_percentiles_r, "data_bosco_percentiles.csv")
+write_csv(data_percentiles_r, "../data/bosco et al 2015/data_bosco_percentiles.csv")
 
-write_csv(data_percentiles_r, "../previous articles extracting many effect sizes/data_bosco.csv")
+write_csv(data_percentiles_r, "../data/previous articles extracting many effect sizes/data_bosco.csv")
 
 ```

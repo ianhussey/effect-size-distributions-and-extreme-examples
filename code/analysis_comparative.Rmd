@@ -11,10 +11,6 @@ output:
     toc_float: yes
 ---
 
-# TODO
-
-- add bosco full percentiles from his data, see data folder
-
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(message = FALSE, 
@@ -159,7 +155,7 @@ dat_percentiles_comparative |>
   geom_segment(data = data.frame(x1 = 0.1, 
                                  x2 = 0.1, 
                                  y1 = 9.5, 
-                                 y2 = 35.5),
+                                 y2 = 35),
                aes(x = x1, y = y1, xend = x2, yend = y2),
                linewidth = 2,
                alpha = 0.3,

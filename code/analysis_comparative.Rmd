@@ -11,6 +11,10 @@ output:
     toc_float: yes
 ---
 
+# TODO
+
+- add bosco full percentiles from his data, see data folder
+
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(message = FALSE, 

@@ -44,6 +44,19 @@ library(kableExtra)
 
 dat <- arrow::read_feather("../data/bogdan 2025/raw/df_by_pval_custom2_2025_06-03.feather")
 
+
+dat_t <- dat |>
+  filter(stat_type == "t" & valid_stat) |>
+  select(doi = link,
+         year,
+         df = df1,
+         t = stat,
+         p_val,
+         p_implied)
+
+write_rds(dat_t, "../data/bogdan 2025/processed/dat_t.rds", compress = "gz")
+
+
 dat_p <- dat |>
   select(doi = link,
          author_first,
@@ -135,23 +148,12 @@ write_rds(data_effectsizes_wide, "../data/bogdan 2025/processed/data_effectsizes
 data_effectsizes_wide <- read_rds("../data/bogdan 2025/processed/data_effectsizes_wide.rds")
 
 data_effectsizes <- data_effectsizes_wide |>
-  pivot_longer(cols = c("Applied_Psychology",
-                        "Clinical_Psychology",
-                        "Developmental_and_Educational_Psychology",
-                        "Experimental_and_Cognitive_Psychology",
-                        "General_Psychology",  # "Psychology_Miscellaneous",
-                        "Social_Psychology"),
-               names_to = "subfield",
-               values_to = "temp") |>
-  mutate(subfield = str_replace_all(subfield, "_", " ")) |>
-  filter(temp == TRUE) |>
-  select(doi,
+  dplyr::select(doi,
          author_first,
          year,
          title,
          journal,
          ISSN,
-         subfield,
          d_native,
          d_s,
          d_z,
@@ -163,14 +165,20 @@ data_effectsizes <- data_effectsizes_wide |>
          sqrtR2,
          R2,
          B,
-         abs_B,
+         #abs_B,
          stdB,
          abs_stdB,
          Wald,
          chi2,
          OR,
          abs_OR,
-         logOR) |>
+         logOR,
+         Applied_Psychology,
+         Clinical_Psychology,
+         Developmental_and_Educational_Psychology,
+         Experimental_and_Cognitive_Psychology,
+         General_Psychology,
+         Social_Psychology) |>
   pivot_longer(cols = c(d_native,
                         d_s,
                         d_z,
@@ -182,7 +190,7 @@ data_effectsizes <- data_effectsizes_wide |>
                         sqrtR2,
                         R2,
                         B,
-                        abs_B,
+                        #abs_B,
                         stdB,
                         abs_stdB,
                         Wald,

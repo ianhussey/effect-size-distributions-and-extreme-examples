@@ -1,0 +1,645 @@
+---
+title: "Exploring Stanley et al 2018"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: show
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup}
+#| include: false
+
+# load knitr 
+library(knitr)
+
+# set knitr chunk options 
+opts_chunk$set(echo = TRUE,
+               message = FALSE,
+               warning = FALSE)
+```
+
+# processing
+
+```{r}
+
+# Source the original functions
+source("../original/powerBullFunctions.R")
+
+# Define the directory where the data files are saved
+dataDir = "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/raw/"
+
+# Grab the names of all of the files
+nameF = list.files(path = dataDir)
+
+# Initialize empty list to collect effect size level data
+es_level_data <- list()
+
+# Loop over each dataset
+for(i in 1:length(nameF)){
+  
+  print(paste0("Read in and process dataset ", i, ": ", nameF[i]))
+  
+  # Read in dataset i (using same method as original)
+  dat = read.dta13(file = paste0(dataDir, nameF[i]))
+  
+  # Extract the meta-analysis name (same as original)
+  meta_name = strsplit(nameF[i], ".dta")[[1]]
+  
+  # Calculate variance (same as original)
+  v = dat$SE^2
+  
+  # === METRIC CLASSIFICATION ===
+  # Strategy 1: Check if file has dedicated d/r/correlation columns with data
+  has_d_col <- "d" %in% names(dat) && sum(!is.na(dat$d)) > 0
+  has_g_col <- "g" %in% names(dat) && sum(!is.na(dat$g)) > 0
+  has_r_col <- "r" %in% names(dat) && sum(!is.na(dat$r)) > 0
+  has_correlation_col <- "correlation" %in% names(dat) && sum(!is.na(dat$correlation)) > 0
+  has_fischer_col <- "fischer" %in% names(dat) && sum(!is.na(dat$fischer)) > 0
+  
+  # Determine metric type for this file
+  if (has_d_col || has_g_col) {
+    file_metric <- "d"
+  } else if (has_r_col || has_correlation_col || has_fischer_col) {
+    file_metric <- "r"
+  # } else {
+  #   file_metric <- NA_character_
+  # }
+  } else {
+    # Strategy 2: Use magnitude heuristic on 'es' column
+    # Correlations bounded by [-1, 1], Cohen's d unbounded
+    min_es <- min(dat$es, na.rm = TRUE)
+    max_es <- max(dat$es, na.rm = TRUE)
+
+    # Check proportion above 1.0 for more robust classification
+    prop_above_abs_1 <- mean(min_es < -1 | max_es > -1, na.rm = TRUE)
+    
+    if (prop_above_abs_1 > 0.01) {  # If >1% of effects are above 1, likely d
+      file_metric <- "d"
+    } else {
+      file_metric <- "unknown" # can't be said with certainty to be r, so drop
+    }
+  }
+  
+  cat(sprintf("  Classified as metric type: %s\n", file_metric))
+  
+  # === Calculate article-level estimates (same as original) ===
+  avgES_file   = mean(dat$es, na.rm = TRUE)
+  medSE_file   = median(dat$SE, na.rm = TRUE)
+  I_sq_file    = RMA.est(dat$es, v)$value[7]
+  FE_est_file  = as.numeric(rma(dat$es, v, method="FE")$b)
+  RE_est_file  = RMA.est(dat$es, v)$value[1]
+  WLS_est_file = WLS.est(dat$es, v)$value[1]
+  WW_est_file  = as.numeric(WAAP.est(dat$es, v)$value[1])
+  PP_est_file  = PETPEESE.est(dat$es, v)$value[25]
+  
+  # Calculate median power estimates
+  pow_WL_file = 1 - pnorm(1.96 - abs(WLS_est_file)/medSE_file)
+  pow_PP_file = 1 - pnorm(1.96 - abs(PP_est_file)/medSE_file)
+  pow_WW_file = 1 - pnorm(1.96 - abs(WW_est_file)/medSE_file)
+  
+  # === Create effect-size level dataframe ===
+  es_data <- tibble(
+    # Identifiers
+    meta_analysis = meta_name,
+    file_name = nameF[i],
+    es_index = 1:nrow(dat),
+    
+    # METRIC TYPE
+    metric = file_metric,
+    
+    # Raw effect size data (what the original used)
+    yi = dat$es,
+    sei = dat$SE,
+    vi = v,
+    
+    # Article-level summary statistics
+    meta_k = nrow(dat),
+    meta_metric = file_metric,  # Store at meta-analysis level too
+    meta_avgES = avgES_file,
+    meta_medSE = medSE_file,
+    meta_I_sq = I_sq_file,
+    meta_FE_est = FE_est_file,
+    meta_RE_est = RE_est_file,
+    meta_WLS_est = WLS_est_file,
+    meta_WW_est = WW_est_file,
+    meta_PP_est = PP_est_file,
+    meta_pow_WL = pow_WL_file,
+    meta_pow_PP = pow_PP_file,
+    meta_pow_WW = pow_WW_file,
+    
+    # Effect-size level indicators
+    is_adequately_powered_WLS = sei < abs(WLS_est_file)/2.8,
+    is_adequately_powered_PP = sei < abs(PP_est_file)/2.8,
+    is_adequately_powered_WW = sei < abs(WW_est_file)/2.8,
+    
+    # Effect size level power
+    power_individual = 1 - pnorm(1.96 - abs(yi)/sei)
+  )
+  
+  # Add to list
+  es_level_data[[i]] <- es_data
+}
+
+# Combine all effect sizes into one dataframe
+all_effect_sizes <- bind_rows(es_level_data)
+
+# Print summary by metric type
+cat("\n=== EFFECT SIZE LEVEL DATA SUMMARY ===\n")
+cat(sprintf("Total meta-analyses: %d\n", length(nameF)))
+cat(sprintf("Total effect sizes: %d\n", nrow(all_effect_sizes)))
+
+metric_summary <- all_effect_sizes %>%
+  group_by(metric) %>%
+  summarise(
+    n_meta_analyses = n_distinct(meta_analysis),
+    n_effect_sizes = n(),
+    n_with_data = sum(!is.na(yi) & !is.na(sei)),
+    mean_yi = mean(yi, na.rm = TRUE),
+    median_yi = median(yi, na.rm = TRUE),
+    min_yi = min(yi, na.rm = TRUE),
+    max_yi = max(yi, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+cat("\nBy Metric Type:\n")
+print(metric_summary)
+
+# Split datasets by metric
+dat_r <- all_effect_sizes %>% filter(metric == "r", !is.na(yi))
+dat_d <- all_effect_sizes %>% filter(metric == "d", !is.na(yi))
+dat_unknown <- all_effect_sizes %>% filter(!metric %in% c("d", "r"), !is.na(yi))
+
+cat(sprintf("\nCorrelations (r): %d effect sizes from %d meta-analyses\n", 
+            nrow(dat_r), n_distinct(dat_r$meta_analysis)))
+cat(sprintf("Cohen's d: %d effect sizes from %d meta-analyses\n", 
+            nrow(dat_d), n_distinct(dat_d$meta_analysis)))
+
+# Save the effect-size-level dataset
+write_csv(all_effect_sizes, 
+          "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/effect_sizes_with_metric.csv")
+
+cat("\nEffect-size level data saved to: effect_sizes_with_metric.csv\n")
+
+# === Create metric-specific plots ===
+
+# Plot 1: Distribution by metric type
+p1 <- ggplot(all_effect_sizes %>% filter(!is.na(yi)), 
+             aes(x = yi, fill = metric)) +
+  geom_histogram(binwidth = 0.1, boundary = 0, alpha = 0.7, position = "identity") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  facet_wrap(~metric, scales = "free_y", ncol = 1) +
+  labs(
+    title = "Distribution of Effect Sizes by Metric Type",
+    x = "Effect Size",
+    y = "Count"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+ggsave("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/plot_by_metric.png", 
+       p1, width = 10, height = 6)
+
+# Plot 2: Separate histograms for cleaner visualization
+if (nrow(dat_r) > 0) {
+  p2 <- ggplot(dat_r, aes(x = yi)) +
+    geom_histogram(binwidth = 0.05, boundary = 0, fill = "steelblue", alpha = 0.7) +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+    geom_vline(xintercept = c(-1, 1), linetype = "dotted", color = "gray50") +
+    labs(
+      title = "Distribution of Correlations (r)",
+      x = "Correlation (r)",
+      y = "Count",
+      subtitle = sprintf("n = %d effect sizes from %d meta-analyses", 
+                        nrow(dat_r), n_distinct(dat_r$meta_analysis))
+    ) +
+    theme_minimal()
+  
+  ggsave("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/plot_r_distribution.png", 
+         p2, width = 8, height = 5)
+}
+
+if (nrow(dat_d) > 0) {
+  p3 <- ggplot(dat_d, aes(x = yi)) +
+    geom_histogram(binwidth = 0.1, boundary = 0, fill = "coral", alpha = 0.7) +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+    labs(
+      title = "Distribution of Standardized Mean Differences (d)",
+      x = "Cohen's d",
+      y = "Count",
+      subtitle = sprintf("n = %d effect sizes from %d meta-analyses", 
+                        nrow(dat_d), n_distinct(dat_d$meta_analysis))
+    ) +
+    theme_minimal()
+  
+  ggsave("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/plot_d_distribution.png", 
+         p3, width = 8, height = 5)
+}
+
+if (nrow(dat_unknown) > 0) {
+  p4 <- ggplot(dat_unknown, aes(x = yi)) +
+    geom_histogram(binwidth = 0.1, boundary = 0, fill = "coral", alpha = 0.7) +
+    geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+    labs(
+      title = "Distribution of remaining es of unknown types",
+      x = "Unknown",
+      y = "Count",
+      subtitle = sprintf("n = %d effect sizes from %d meta-analyses", 
+                        nrow(dat_d), n_distinct(dat_d$meta_analysis))
+    ) +
+    theme_minimal()
+  
+  ggsave("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/plot_unknown_es_distribution.png", 
+         p4, width = 8, height = 5)
+}
+
+# === Percentile analysis by metric ===
+percentile_probs <- c(.0001, .001, seq(.01, .99, by = 0.01), .999, .9999)
+
+if (nrow(dat_r) > 0) {
+  percentiles_r <- dat_r %>%
+    reframe(
+      metric = "r",
+      percentile = percentile_probs * 100,
+      yi_raw = quantile(yi, probs = percentile_probs, na.rm = TRUE),
+      yi_abs = quantile(abs(yi), probs = percentile_probs, na.rm = TRUE)
+    )
+} else {
+  percentiles_r <- tibble()
+}
+
+if (nrow(dat_d) > 0) {
+  percentiles_d <- dat_d %>%
+    reframe(
+      metric = "d",
+      percentile = percentile_probs * 100,
+      yi_raw = quantile(yi, probs = percentile_probs, na.rm = TRUE),
+      yi_abs = quantile(abs(yi), probs = percentile_probs, na.rm = TRUE)
+    )
+} else {
+  percentiles_d <- tibble()
+}
+
+percentiles_combined <- bind_rows(percentiles_r, percentiles_d) |>
+  mutate_if(is.numeric, roundwork::round_up, digits = 2)
+
+write_csv(percentiles_combined, 
+          "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/percentiles_by_metric.csv")
+
+cat("\nPercentiles by metric saved to: percentiles_by_metric.csv\n")
+
+# === List meta-analyses by metric type ===
+meta_by_metric <- all_effect_sizes %>%
+  group_by(meta_analysis, meta_metric) %>%
+  summarise(
+    k = n(),
+    k_with_data = sum(!is.na(yi) & !is.na(sei)),
+    mean_yi = mean(yi, na.rm = TRUE),
+    median_sei = median(sei, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  arrange(meta_metric, meta_analysis)
+
+write_csv(meta_by_metric,
+          "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/meta_analyses_by_metric.csv")
+
+cat("Meta-analysis listing by metric saved to: meta_analyses_by_metric.csv\n")
+
+cat("\n=== ANALYSIS COMPLETE ===\n")
+cat("Effect sizes classified by metric type (d vs r)\n")
+cat("Separate plots and percentiles generated for each metric\n")
+
+
+
+all_effect_sizes |>
+  group_by(meta_analysis) |>
+  summarize(k = n(),
+            min_yi = round(min(yi, na.rm = TRUE), 2),
+            max_yi = round(max(yi, na.rm = TRUE), 2))
+
+```
+
+## Diagnostics of confusion of r and d
+
+```{r}
+
+
+files <- dir_ls("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/raw/", glob = "*.dta")
+
+# ============================================================
+# Check each file for correspondence between es and r/d columns
+# ============================================================
+
+correspondence_check <- map_dfr(files, function(f) {
+  dat <- read_dta(f)
+  cols <- names(dat)
+  
+  # Initialize results for this file
+  result <- tibble(
+    file = basename(f),
+    n_rows = nrow(dat),
+    
+    # Check which columns exist and have data
+    has_es = "es" %in% cols,
+    has_r = "r" %in% cols,
+    has_d = "d" %in% cols,
+    has_g = "g" %in% cols,
+    has_correlation = "correlation" %in% cols,
+    
+    n_es = if("es" %in% cols) sum(!is.na(dat$es)) else 0,
+    n_r = if("r" %in% cols) sum(!is.na(dat$r)) else 0,
+    n_d = if("d" %in% cols) sum(!is.na(dat$d)) else 0,
+    n_g = if("g" %in% cols) sum(!is.na(dat$g)) else 0,
+    n_correlation = if("correlation" %in% cols) sum(!is.na(dat$correlation)) else 0
+  )
+  
+  # === KEY TEST: Check if es == r or es == d ===
+  
+  if ("es" %in% cols && "r" %in% cols) {
+    # Convert to numeric and compare es to r where both are non-missing
+    es_num <- as.numeric(dat$es)
+    r_num <- as.numeric(dat$r)
+    both_present <- !is.na(es_num) & !is.na(r_num)
+    if (sum(both_present) > 0) {
+      # Check if they're identical (allowing for small floating point differences)
+      es_equals_r <- all(abs(es_num[both_present] - r_num[both_present]) < 0.0001, na.rm = TRUE)
+      result$es_equals_r <- es_equals_r
+      result$n_both_es_r <- sum(both_present)
+      result$max_diff_es_r <- max(abs(es_num[both_present] - r_num[both_present]), na.rm = TRUE)
+    } else {
+      result$es_equals_r <- NA
+      result$n_both_es_r <- 0
+      result$max_diff_es_r <- NA
+    }
+  } else {
+    result$es_equals_r <- NA
+    result$n_both_es_r <- NA
+    result$max_diff_es_r <- NA
+  }
+  
+  if ("es" %in% cols && "d" %in% cols) {
+    # Convert to numeric and compare es to d where both are non-missing
+    es_num <- as.numeric(dat$es)
+    d_num <- as.numeric(dat$d)
+    both_present <- !is.na(es_num) & !is.na(d_num)
+    if (sum(both_present) > 0) {
+      es_equals_d <- all(abs(es_num[both_present] - d_num[both_present]) < 0.0001, na.rm = TRUE)
+      result$es_equals_d <- es_equals_d
+      result$n_both_es_d <- sum(both_present)
+      result$max_diff_es_d <- max(abs(es_num[both_present] - d_num[both_present]), na.rm = TRUE)
+    } else {
+      result$es_equals_d <- NA
+      result$n_both_es_d <- 0
+      result$max_diff_es_d <- NA
+    }
+  } else {
+    result$es_equals_d <- NA
+    result$n_both_es_d <- NA
+    result$max_diff_es_d <- NA
+  }
+  
+  if ("es" %in% cols && "g" %in% cols) {
+    # Convert to numeric and compare es to g (Hedges' g)
+    es_num <- as.numeric(dat$es)
+    g_num <- as.numeric(dat$g)
+    both_present <- !is.na(es_num) & !is.na(g_num)
+    if (sum(both_present) > 0) {
+      es_equals_g <- all(abs(es_num[both_present] - g_num[both_present]) < 0.0001, na.rm = TRUE)
+      result$es_equals_g <- es_equals_g
+      result$n_both_es_g <- sum(both_present)
+      result$max_diff_es_g <- max(abs(es_num[both_present] - g_num[both_present]), na.rm = TRUE)
+    } else {
+      result$es_equals_g <- NA
+      result$n_both_es_g <- 0
+      result$max_diff_es_g <- NA
+    }
+  } else {
+    result$es_equals_g <- NA
+    result$n_both_es_g <- NA
+    result$max_diff_es_g <- NA
+  }
+  
+  if ("es" %in% cols && "correlation" %in% cols) {
+    # Convert to numeric and compare es to correlation
+    es_num <- as.numeric(dat$es)
+    corr_num <- as.numeric(dat$correlation)
+    both_present <- !is.na(es_num) & !is.na(corr_num)
+    if (sum(both_present) > 0) {
+      es_equals_corr <- all(abs(es_num[both_present] - corr_num[both_present]) < 0.0001, na.rm = TRUE)
+      result$es_equals_correlation <- es_equals_corr
+      result$n_both_es_corr <- sum(both_present)
+      result$max_diff_es_corr <- max(abs(es_num[both_present] - corr_num[both_present]), na.rm = TRUE)
+    } else {
+      result$es_equals_correlation <- NA
+      result$n_both_es_corr <- 0
+      result$max_diff_es_corr <- NA
+    }
+  } else {
+    result$es_equals_correlation <- NA
+    result$n_both_es_corr <- NA
+    result$max_diff_es_corr <- NA
+  }
+  
+  # Add magnitude-based classification
+  if ("es" %in% cols && sum(!is.na(dat$es)) > 0) {
+    es_num <- as.numeric(dat$es)
+    result$max_abs_es <- max(abs(es_num), na.rm = TRUE)
+    result$prop_es_above_1 <- mean(abs(es_num) > 1.0, na.rm = TRUE)
+    result$likely_metric <- if(result$max_abs_es > 1.05) "d" else "r"
+  } else {
+    result$max_abs_es <- NA
+    result$prop_es_above_1 <- NA
+    result$likely_metric <- NA
+  }
+  
+  return(result)
+})
+
+# ============================================================
+# Summarize findings
+# ============================================================
+
+cat("=== CORRESPONDENCE ANALYSIS ===\n\n")
+
+cat("Files where es == r (within 0.0001 tolerance):\n")
+r_matches <- correspondence_check %>%
+  filter(!is.na(es_equals_r), es_equals_r == TRUE)
+print(r_matches %>% select(file, n_both_es_r, max_diff_es_r))
+cat(sprintf("Total: %d files\n\n", nrow(r_matches)))
+
+cat("Files where es == d (within 0.0001 tolerance):\n")
+d_matches <- correspondence_check %>%
+  filter(!is.na(es_equals_d), es_equals_d == TRUE)
+print(d_matches %>% select(file, n_both_es_d, max_diff_es_d))
+cat(sprintf("Total: %d files\n\n", nrow(d_matches)))
+
+cat("Files where es == g (within 0.0001 tolerance):\n")
+g_matches <- correspondence_check %>%
+  filter(!is.na(es_equals_g), es_equals_g == TRUE)
+print(g_matches %>% select(file, n_both_es_g, max_diff_es_g))
+cat(sprintf("Total: %d files\n\n", nrow(g_matches)))
+
+cat("Files where es == correlation:\n")
+corr_matches <- correspondence_check %>%
+  filter(!is.na(es_equals_correlation), es_equals_correlation == TRUE)
+print(corr_matches %>% select(file, n_both_es_corr, max_diff_es_corr))
+cat(sprintf("Total: %d files\n\n", nrow(corr_matches)))
+
+# ============================================================
+# Check for files where es does NOT match any other column
+# ============================================================
+
+cat("Files where es exists but doesn't match r, d, g, or correlation:\n")
+no_match <- correspondence_check %>%
+  filter(
+    n_es > 0,
+    (is.na(es_equals_r) | es_equals_r == FALSE),
+    (is.na(es_equals_d) | es_equals_d == FALSE),
+    (is.na(es_equals_g) | es_equals_g == FALSE),
+    (is.na(es_equals_correlation) | es_equals_correlation == FALSE)
+  )
+print(no_match %>% select(file, n_es, max_abs_es, likely_metric))
+cat(sprintf("Total: %d files\n\n", nrow(no_match)))
+
+# ============================================================
+# Create classification based on correspondence
+# ============================================================
+
+cat("=== METRIC CLASSIFICATION ===\n\n")
+
+classification <- correspondence_check %>%
+  mutate(
+    metric_source = case_when(
+      !is.na(es_equals_r) & es_equals_r == TRUE ~ "r (es==r)",
+      !is.na(es_equals_d) & es_equals_d == TRUE ~ "d (es==d)",
+      !is.na(es_equals_g) & es_equals_g == TRUE ~ "g (es==g)",
+      !is.na(es_equals_correlation) & es_equals_correlation == TRUE ~ "r (es==correlation)",
+      !is.na(likely_metric) ~ paste0(likely_metric, " (heuristic)"),
+      TRUE ~ "unknown"
+    )
+  )
+
+classification_summary <- classification %>%
+  count(metric_source) %>%
+  arrange(desc(n))
+
+cat("Metric classification by source:\n")
+print(classification_summary)
+
+# ============================================================
+# Detailed look at files that have both r and d columns
+# ============================================================
+
+cat("\n=== FILES WITH BOTH R AND D COLUMNS ===\n")
+both_r_and_d <- correspondence_check %>%
+  filter(has_r & has_d, n_r > 0, n_d > 0)
+
+if (nrow(both_r_and_d) > 0) {
+  cat(sprintf("Found %d files with both r and d columns containing data:\n", nrow(both_r_and_d)))
+  print(both_r_and_d %>% select(file, n_r, n_d, n_es, es_equals_r, es_equals_d))
+  
+  # For these files, check which one es matches
+  cat("\nWhich column does 'es' match in files with both r and d?\n")
+  both_match <- both_r_and_d %>%
+    mutate(
+      es_matches = case_when(
+        es_equals_r == TRUE ~ "r",
+        es_equals_d == TRUE ~ "d",
+        TRUE ~ "neither"
+      )
+    ) %>%
+    count(es_matches)
+  print(both_match)
+} else {
+  cat("No files have both r and d columns with data.\n")
+}
+
+# ============================================================
+# Check for files where r/d columns exist but are empty
+# while es has data
+# ============================================================
+
+cat("\n=== FILES WHERE ES HAS DATA BUT R/D COLUMNS ARE EMPTY ===\n")
+
+empty_source_cols <- correspondence_check %>%
+  filter(
+    n_es > 0,
+    (has_r == FALSE | n_r == 0),
+    (has_d == FALSE | n_d == 0),
+    (has_g == FALSE | n_g == 0),
+    (has_correlation == FALSE | n_correlation == 0)
+  )
+
+cat(sprintf("Found %d files where es has data but r/d/g/correlation are missing or empty:\n", 
+            nrow(empty_source_cols)))
+if (nrow(empty_source_cols) > 0) {
+  print(empty_source_cols %>% select(file, n_es, max_abs_es, likely_metric))
+  cat("\nThese files likely had r/d data copied into 'es' during data preparation.\n")
+  cat("We must rely on magnitude heuristics to classify them.\n")
+}
+
+# ============================================================
+# Save detailed results
+# ============================================================
+
+write_csv(correspondence_check, 
+          "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/es_correspondence_check.csv")
+
+write_csv(classification, 
+          "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/metric_classification.csv")
+
+cat("\n=== RESULTS SAVED ===\n")
+cat("Full correspondence check: es_correspondence_check.csv\n")
+cat("Metric classification: metric_classification.csv\n")
+
+# ============================================================
+# FINAL SUMMARY
+# ============================================================
+
+cat("\n=== FINAL SUMMARY ===\n\n")
+
+summary_stats <- classification %>%
+  summarise(
+    total_files = n(),
+    files_es_equals_r = sum(es_equals_r == TRUE, na.rm = TRUE),
+    files_es_equals_d = sum(es_equals_d == TRUE, na.rm = TRUE),
+    files_es_equals_g = sum(es_equals_g == TRUE, na.rm = TRUE),
+    files_es_equals_correlation = sum(es_equals_correlation == TRUE, na.rm = TRUE),
+    files_no_source_cols = sum(
+      (has_r == FALSE | n_r == 0) & 
+      (has_d == FALSE | n_d == 0) & 
+      (has_g == FALSE | n_g == 0) &
+      (has_correlation == FALSE | n_correlation == 0) &
+      n_es > 0
+    )
+  )
+
+print(summary_stats)
+
+if (summary_stats$files_es_equals_r > 0 && summary_stats$files_es_equals_d > 0) {
+  cat("\n⚠️ CRITICAL FINDING:\n")
+  cat("The 'es' column contains DIFFERENT metrics in different files:\n")
+  cat(sprintf("  - %d files where es = r (correlations)\n", summary_stats$files_es_equals_r))
+  cat(sprintf("  - %d files where es = d (Cohen's d)\n", summary_stats$files_es_equals_d))
+  cat("\nThe original script treats these as if they're on the same scale,\n")
+  cat("which is methodologically problematic!\n")
+} else if (summary_stats$files_es_equals_r > 0) {
+  cat("\n✓ All files where we can check use r (correlations)\n")
+} else if (summary_stats$files_es_equals_d > 0) {
+  cat("\n✓ All files where we can check use d (Cohen's d)\n")
+}
+
+if (summary_stats$files_no_source_cols > 0) {
+  cat(sprintf("\n⚠️ Note: %d files have no r/d/g/correlation columns to verify against.\n", 
+              summary_stats$files_no_source_cols))
+  cat("These must be classified using magnitude heuristics.\n")
+}
+
+```
+
+
+

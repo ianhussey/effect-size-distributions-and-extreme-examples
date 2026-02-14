@@ -1,0 +1,542 @@
+---
+title: "Bainbridge et al.'s data"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,
+                      warning=FALSE)
+```
+
+# Dependencies
+
+```{r}
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+```
+
+# Extract scale items' text
+
+```{r}
+
+labels_all <- read_rds("../../data/bainbridge et al/raw/label.rds")
+
+s1_labels <- labels_all[1] |>
+  as.data.frame() |>
+  rownames_to_column("variable") |>
+  rename(text = s1)
+
+s2_labels <- labels_all[2] |>
+  as.data.frame() |>
+  rownames_to_column("variable") |>
+  rename(text = s2)
+
+s3_labels <- labels_all[3] |>
+  as.data.frame() |>
+  rownames_to_column("variable") |>
+  rename(text = s3)
+
+write_csv(s1_labels, "../../data/bainbridge et al/processed/study 1 full text of scale items.csv")
+write_csv(s2_labels, "../../data/bainbridge et al/processed/study 1 full text of scale items.csv")
+write_csv(s3_labels, "../../data/bainbridge et al/processed/study 1 full text of scale items.csv")
+
+```
+
+# Extract scale abbreviations and full names
+
+```{r}
+
+names_all <- read_rds("../../data/bainbridge et al/raw/scalenames.rds")
+
+s1_scales <- names_all[1] |>
+  as.data.frame() |>
+  rownames_to_column("scale") |>
+  rename(scale_name = s1)
+
+s2_scales <- names_all[2] |>
+  as.data.frame() |>
+  rownames_to_column("scale") |>
+  rename(scale_name = s2)
+
+s3_scales <- names_all[3] |>
+  as.data.frame() |>
+  rownames_to_column("scale") |>
+  rename(scale_name = s3) |>
+  distinct()
+
+scale_names <- 
+  bind_rows(s1_scales,
+            s2_scales,
+            s3_scales) |>
+  distinct(scale, scale_name) |>
+  separate_wider_delim(scale, names = c("scale", "subscale"), delim = "_", too_few = "align_start")
+
+write_csv(scale_names, "../../data/bainbridge et al/processed/scale abbreviations and full names.csv")
+
+```
+
+# Reshape data
+
+## Study 1
+
+```{r}
+
+# NB there are more comments for study 1's code than the others but flow is almost identical between studies 
+
+# study 1
+data_s1 <- read_csv("../../data/bainbridge et al/raw/s1.csv") |>
+  janitor::clean_names() |>
+  select(-x1,
+         -unused_1,
+         -unused_2,
+         -pls_t_first_click, 
+         -pls_t_last_click, 
+         -pls_t_page_submit, 
+         -pls_t_click_count,
+         -consent_t_first_click, 
+         -consent_t_last_click, 
+         -consent_t_page_submit, 
+         -consent_t_click_count) |>
+  mutate(study = 1,
+         id = paste(study, id, sep = "_"))
+
+data_s1_demographics <- data_s1 |>
+  select(id, 
+         study,
+         start_date, 
+         dob1, 
+         dob2,
+         gender, 
+         ethnic, 
+         eng, 
+         edu, 
+         emp,
+         age)
+
+data_s1_itemlevel <- data_s1 |>
+  select(-study,
+         -start_date,
+         -dob1,
+         -dob2,
+         -gender,
+         -ethnic,
+         -eng,
+         -edu,
+         -emp,
+         -age) |>
+  # bfi and ip have different naming conventions to the other scales; fix this so they parse in the same way
+  rename_with(function(x){str_replace(x, pattern = "bfi_o_", replacement = "bfi_o")}) |> 
+  rename_with(function(x){str_replace(x, pattern = "bfi_c_", replacement = "bfi_c")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_e_", replacement = "bfi_e")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_a_", replacement = "bfi_a")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_n_", replacement = "bfi_n")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_o_", replacement = "ip_o")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_c_", replacement = "ip_c")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_e_", replacement = "ip_e")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_a_", replacement = "ip_a")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_n_", replacement = "ip_n")}) |>
+  # drop cases with missing items; they add unnecessary complexity to the analyses for the current purposes
+  drop_na() |>
+  pivot_longer(cols = -id,
+               names_to = "column", 
+               values_to = "response") |>
+  separate_wider_delim(cols = column, 
+                       names = c("scale", "subscale", "item"), 
+                       delim = "_", 
+                       too_few = "align_start",
+                       cols_remove = TRUE) |>
+  mutate(item = ifelse(is.na(item), subscale, item),
+         subscale = ifelse(item == subscale, scale, subscale)) |>
+  # two different versions of the optimism scale were used between studies. drop the study 1 (original) version and retain the study 2 and 3 (revised) version
+  filter(scale != "opt")
+
+```
+
+## Study 2
+
+```{r}
+
+data_s2 <- read_csv("../../data/bainbridge et al/raw/s2.csv") |>
+  janitor::clean_names() |>
+  select(-x1,
+         -unused_1,
+         -unused_2,
+         -pls_t_first_click, 
+         -pls_t_last_click, 
+         -pls_t_page_submit, 
+         -pls_t_click_count,
+         -consent_t_first_click, 
+         -consent_t_last_click, 
+         -consent_t_page_submit, 
+         -consent_t_click_count,
+         -email_t_first_click, -email_t_last_click, -email_t_page_submit,
+         -email_t_click_count, -dob_t_first_click, -dob_t_last_click,
+         -dob_t_page_submit, -dob_t_click_count, -ethnic_t_first_click,
+         -ethnic_t_last_click, -ethnic_t_page_submit, -ethnic_t_click_count,
+         -ge_t_first_click, -ge_t_last_click, -ge_t_page_submit, -ge_t_click_count,
+         -edu_t_first_click, -edu_t_last_click, -edu_t_page_submit,
+         -edu_t_click_count, -emp_t_first_click, -emp_t_last_click,
+         -emp_t_page_submit, -emp_t_click_count, -bfi1_t_first_click,
+         -bfi1_t_last_click, -bfi1_t_page_submit, -bfi1_t_click_count,
+         -bfi2_t_first_click, -bfi2_t_last_click, -bfi2_t_page_submit,
+         -bfi2_t_click_count, -bfi3_t_first_click, -bfi3_t_last_click,
+         -bfi3_t_page_submit, -bfi3_t_click_count, -bfi4_t_first_click,
+         -bfi4_t_last_click, -bfi4_t_page_submit, -bfi4_t_click_count,
+         -bfi5_t_first_click, -bfi5_t_last_click, -bfi5_t_page_submit,
+         -bfi5_t_click_count, -bfi6_t_first_click, -bfi6_t_last_click,
+         -bfi6_t_page_submit, -bfi6_t_click_count, -bfi7_t_first_click,
+         -bfi7_t_last_click, -bfi7_t_page_submit, -bfi7_t_click_count,
+         -ipip1_t_first_click, -ipip1_t_last_click, -ipip1_t_page_submit,
+         -ipip1_t_click_count, -ipip2_t_first_click, -ipip2_t_last_click,
+         -ipip2_t_page_submit, -ipip2_t_click_count, -ipip3_t_first_click,
+         -ipip3_t_last_click, -ipip3_t_page_submit, -ipip3_t_click_count,
+         -ipip4_t_first_click, -ipip4_t_last_click, -ipip4_t_page_submit,
+         -ipip4_t_click_count, -ipip5_t_first_click, -ipip5_t_last_click,
+         -ipip5_t_page_submit, -ipip5_t_click_count, -ipip6_t_first_click,
+         -ipip6_t_last_click, -ipip6_t_page_submit, -ipip6_t_click_count,
+         -ipip7_t_first_click, -ipip7_t_last_click, -ipip7_t_page_submit,
+         -ipip7_t_click_count, -ipip8_t_first_click, -ipip8_t_last_click,
+         -ipip8_t_page_submit, -ipip8_t_click_count, -ipip9_t_first_click,
+         -ipip9_t_last_click, -ipip9_t_page_submit, -ipip9_t_click_count,
+         -ipip10_t_first_click, -ipip10_t_last_click, -ipip10_t_page_submit,
+         -ipip10_t_click_count, -ipip11_t_first_click, -ipip11_t_last_click,
+         -ipip11_t_page_submit, -ipip11_t_click_count, -ipip12_t_first_click,
+         -ipip12_t_last_click, -ipip12_t_page_submit, -ipip12_t_click_count,
+         -ipip13_t_first_click, -ipip13_t_last_click, -ipip13_t_page_submit,
+         -ipip13_t_click_count, -ipip14_t_first_click, -ipip14_t_last_click,
+         -ipip14_t_page_submit, -ipip14_t_click_count, -ipip15_t_first_click,
+         -ipip15_t_last_click, -ipip15_t_page_submit, -ipip15_t_click_count,
+         -b1_t_first_click, -b1_t_last_click, -b1_t_page_submit, -b1_t_click_count,
+         -b2_t_first_click, -b2_t_last_click, -b2_t_page_submit, -b2_t_click_count,
+         -b3_t_first_click, -b3_t_last_click, -b3_t_page_submit, -b3_t_click_count,
+         -b4_t_first_click, -b4_t_last_click, -b4_t_page_submit, -b4_t_click_count,
+         -b5_t_first_click, -b5_t_last_click, -b5_t_page_submit, -b5_t_click_count,
+         -b6_t_first_click, -b6_t_last_click, -b6_t_page_submit, -b6_t_click_count,
+         -b7_t_first_click, -b7_t_last_click, -b7_t_page_submit, -b7_t_click_count,
+         -b8_t_first_click, -b8_t_last_click, -b8_t_page_submit, -b8_t_click_count,
+         -b9_t_first_click, -b9_t_last_click, -b9_t_page_submit, -b9_t_click_count,
+         -b10_t_first_click, -b10_t_last_click, -b10_t_page_submit,
+         -b10_t_click_count, -b11_t_first_click, -b11_t_last_click,
+         -b11_t_page_submit, -b11_t_click_count, -b12_t_first_click,
+         -b12_t_last_click, -b12_t_page_submit, -b12_t_click_count,
+         -b13_t_first_click, -b13_t_last_click, -b13_t_page_submit,
+         -b13_t_click_count, -b14_t_first_click, -b14_t_last_click,
+         -b14_t_page_submit, -b14_t_click_count, -b15_t_first_click,
+         -b15_t_last_click, -b15_t_page_submit, -b15_t_click_count,
+         -b16_t_first_click, -b16_t_last_click, -b16_t_page_submit,
+         -b16_t_click_count, -b17_t_first_click, -b17_t_last_click,
+         -b17_t_page_submit, -b17_t_click_count, -b18_t_first_click,
+         -b18_t_last_click, -b18_t_page_submit, -b18_t_click_count,
+         -b19_t_first_click, -b19_t_last_click, -b19_t_page_submit,
+         -b19_t_click_count, -b20_t_first_click, -b20_t_last_click,
+         -b20_t_page_submit, -b20_t_click_count, -b21_t_first_click,
+         -b21_t_last_click, -b21_t_page_submit, -b21_t_click_count,
+         -b22_t_first_click, -b22_t_last_click, -b22_t_page_submit,
+         -b22_t_click_count, -b23_t_first_click, -b23_t_last_click,
+         -b23_t_page_submit, -b23_t_click_count, -b24_t_first_click,
+         -b24_t_last_click, -b24_t_page_submit, -b24_t_click_count,
+         -b25_t_first_click, -b25_t_last_click, -b25_t_page_submit,
+         -b25_t_click_count, -b26_t_first_click, -b26_t_last_click,
+         -b26_t_page_submit, -b26_t_click_count, -b27_t_first_click,
+         -b27_t_last_click, -b27_t_page_submit, -b27_t_click_count,
+         -b28_t_first_click, -b28_t_last_click, -b28_t_page_submit,
+         -b28_t_click_count, -b29_t_first_click, -b29_t_last_click,
+         -b29_t_page_submit, -b29_t_click_count, -b30_t_first_click,
+         -b30_t_last_click, -b30_t_page_submit, -b30_t_click_count,
+         -b31_t_first_click, -b31_t_last_click, -b31_t_page_submit,
+         -b31_t_click_count, -b32_t_first_click, -b32_t_last_click,
+         -b32_t_page_submit, -b32_t_click_count, -b33_t_first_click,
+         -b33_t_last_click, -b33_t_page_submit, -b33_t_click_count,
+         -b34_t_first_click, -b34_t_last_click, -b34_t_page_submit,
+         -b34_t_click_count, -b35_t_first_click, -b35_t_last_click,
+         -b35_t_page_submit, -b35_t_click_count, -b36_t_first_click,
+         -b36_t_last_click, -b36_t_page_submit, -b36_t_click_count,
+         -honest_t_first_click, -honest_t_last_click, -honest_t_page_submit,
+         -honest_t_click_count, -db_t_first_click, -db_t_last_click,
+         -db_t_page_submit, -db_t_click_count,
+         -unused_3, -unused_4, -unused_5, 
+         -unused_6, -unused_7, -unused_8, -unused_9)  |>
+  mutate(study = 2,
+         id = paste(study, id, sep = "_"))
+
+data_s2_demographics <- data_s2 |>
+  select(id, 
+         study,
+         start_date, 
+         dob1, 
+         dob2, 
+         gender, 
+         ethnic, 
+         eng, 
+         edu, 
+         emp, 
+         age, 
+         honest)
+
+data_s2_itemlevel <- data_s2 |>
+  select(-study,
+         -start_date, 
+         -dob1, 
+         -dob2, 
+         -gender, 
+         -ethnic, 
+         -eng, 
+         -edu, 
+         -emp, 
+         -age, 
+         -honest) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_o_", replacement = "bfi_o")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_c_", replacement = "bfi_c")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_e_", replacement = "bfi_e")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_a_", replacement = "bfi_a")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_n_", replacement = "bfi_n")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_o_", replacement = "ip_o")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_c_", replacement = "ip_c")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_e_", replacement = "ip_e")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_a_", replacement = "ip_a")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_n_", replacement = "ip_n")}) |>
+  # drop cases with missing items; they add unnecessary complexity to the analyses for the current purposes
+  drop_na() |>
+  pivot_longer(cols = -id,
+               names_to = "column", 
+               values_to = "response") |>
+  separate_wider_delim(cols = column, 
+                       names = c("scale", "subscale", "item"), 
+                       delim = "_", 
+                       too_few = "align_start",
+                       cols_remove = TRUE) |>
+  mutate(item = ifelse(is.na(item), subscale, item),
+         subscale = ifelse(item == subscale, scale, subscale))
+
+```
+
+## Study 3
+
+```{r}
+
+data_s3 <- read_csv("../../data/bainbridge et al/raw/s3.csv") |>
+  janitor::clean_names() |>
+  select(-x1,
+         -unused_1, -unused_2, -unused_3,
+         -unused_4, -unused_5, -unused_6, -unused_7, -unused_8, -unused_9,
+         -pls_t_first_click, -pls_t_last_click,
+         -pls_t_page_submit, -pls_t_click_count, -consent_t_first_click,
+         -consent_t_last_click, -consent_t_page_submit, -consent_t_click_count,
+         -view_t_first_click, -view_t_last_click, -view_t_page_submit,
+         -view_t_click_count, -dob_t_first_click, -dob_t_last_click,
+         -dob_t_page_submit, -dob_t_click_count, -ethnic_t_first_click,
+         -ethnic_t_last_click, -ethnic_t_page_submit, -ethnic_t_click_count,
+         -gender_t_first_click, -gender_t_last_click, -gender_t_page_submit,
+         -gender_t_click_count, -eng_t_first_click, -eng_t_last_click,
+         -eng_t_page_submit, -eng_t_click_count, -edu_t_first_click,
+         -edu_t_last_click, -edu_t_page_submit, -edu_t_click_count,
+         -emp_t_first_click, -emp_t_last_click, -emp_t_page_submit,
+         -emp_t_click_count, -bfi1_t_first_click, -bfi1_t_last_click,
+         -bfi1_t_page_submit, -bfi1_t_click_count, -bfi2_t_first_click,
+         -bfi2_t_last_click, -bfi2_t_page_submit, -bfi2_t_click_count,
+         -bfi3_t_first_click, -bfi3_t_last_click, -bfi3_t_page_submit,
+         -bfi3_t_click_count, -bfi4_t_first_click, -bfi4_t_last_click,
+         -bfi4_t_page_submit, -bfi4_t_click_count, -bfi5_t_first_click,
+         -bfi5_t_last_click, -bfi5_t_page_submit, -bfi5_t_click_count,
+         -bfi6_t_first_click, -bfi6_t_last_click, -bfi6_t_page_submit,
+         -bfi6_t_click_count, -bfi7_t_first_click, -bfi7_t_last_click,
+         -bfi7_t_page_submit, -bfi7_t_click_count, -ipip1_t_first_click,
+         -ipip1_t_last_click, -ipip1_t_page_submit, -ipip1_t_click_count,
+         -ipip2_t_first_click, -ipip2_t_last_click, -ipip2_t_page_submit,
+         -ipip2_t_click_count, -ipip3_t_first_click, -ipip3_t_last_click,
+         -ipip3_t_page_submit, -ipip3_t_click_count, -ipip4_t_first_click,
+         -ipip4_t_last_click, -ipip4_t_page_submit, -ipip4_t_click_count,
+         -ipip5_t_first_click, -ipip5_t_last_click, -ipip5_t_page_submit,
+         -ipip5_t_click_count, -ipip6_t_first_click, -ipip6_t_last_click,
+         -ipip6_t_page_submit, -ipip6_t_click_count, -ipip7_t_first_click,
+         -ipip7_t_last_click, -ipip7_t_page_submit, -ipip7_t_click_count,
+         -ipip8_t_first_click, -ipip8_t_last_click, -ipip8_t_page_submit,
+         -ipip8_t_click_count, -ipip9_t_first_click, -ipip9_t_last_click,
+         -ipip9_t_page_submit, -ipip9_t_click_count, -ipip10_t_first_click,
+         -ipip10_t_last_click, -ipip10_t_page_submit, -ipip10_t_click_count,
+         -ipip11_t_first_click, -ipip11_t_last_click, -ipip11_t_page_submit,
+         -ipip11_t_click_count, -ipip12_t_first_click, -ipip12_t_last_click,
+         -ipip12_t_page_submit, -ipip12_t_click_count, -ipip13_t_first_click,
+         -ipip13_t_last_click, -ipip13_t_page_submit, -ipip13_t_click_count,
+         -ipip14_t_first_click, -ipip14_t_last_click, -ipip14_t_page_submit,
+         -ipip14_t_click_count, -ipip15_t_first_click, -ipip15_t_last_click,
+         -ipip15_t_page_submit, -ipip15_t_click_count, -b1_t_first_click,
+         -b1_t_last_click, -b1_t_page_submit, -b1_t_click_count, -b2_t_first_click,
+         -b2_t_last_click, -b2_t_page_submit, -b2_t_click_count, -b3_t_first_click,
+         -b3_t_last_click, -b3_t_page_submit, -b3_t_click_count, -b4_t_first_click,
+         -b4_t_last_click, -b4_t_page_submit, -b4_t_click_count, -b5_t_first_click,
+         -b5_t_last_click, -b5_t_page_submit, -b5_t_click_count, -b6_t_first_click,
+         -b6_t_last_click, -b6_t_page_submit, -b6_t_click_count, -b7_t_first_click,
+         -b7_t_last_click, -b7_t_page_submit, -b7_t_click_count, -b8_t_first_click,
+         -b8_t_last_click, -b8_t_page_submit, -b8_t_click_count, -b9_t_first_click,
+         -b9_t_last_click, -b9_t_page_submit, -b9_t_click_count, -b10_t_first_click,
+         -b10_t_last_click, -b10_t_page_submit, -b10_t_click_count,
+         -b11_t_first_click, -b11_t_last_click, -b11_t_page_submit,
+         -b11_t_click_count, -b12_t_first_click, -b12_t_last_click,
+         -b12_t_page_submit, -b12_t_click_count, -b13_t_first_click,
+         -b13_t_last_click, -b13_t_page_submit, -b13_t_click_count,
+         -b14_t_first_click, -b14_t_last_click, -b14_t_page_submit,
+         -b14_t_click_count, -b15_t_first_click, -b15_t_last_click,
+         -b15_t_page_submit, -b15_t_click_count, -b16_t_first_click,
+         -b16_t_last_click, -b16_t_page_submit, -b16_t_click_count,
+         -b17_t_first_click, -b17_t_last_click, -b17_t_page_submit,
+         -b17_t_click_count, -b18_t_first_click, -b18_t_last_click,
+         -b18_t_page_submit, -b18_t_click_count, -b19_t_first_click,
+         -b19_t_last_click, -b19_t_page_submit, -b19_t_click_count,
+         -b20_t_first_click, -b20_t_last_click, -b20_t_page_submit,
+         -b20_t_click_count, -b21_t_first_click, -b21_t_last_click,
+         -b21_t_page_submit, -b21_t_click_count, -b22_t_first_click,
+         -b22_t_last_click, -b22_t_page_submit, -b22_t_click_count,
+         -b23_t_first_click, -b23_t_last_click, -b23_t_page_submit,
+         -b23_t_click_count, -b24_t_first_click, -b24_t_last_click,
+         -b24_t_page_submit, -b24_t_click_count, -b25_t_first_click,
+         -b25_t_last_click, -b25_t_page_submit, -b25_t_click_count,
+         -b26_t_first_click, -b26_t_last_click, -b26_t_page_submit,
+         -b26_t_click_count, -b27_t_first_click, -b27_t_last_click,
+         -b27_t_page_submit, -b27_t_click_count, -b28_t_first_click,
+         -b28_t_last_click, -b28_t_page_submit, -b28_t_click_count,
+         -b29_t_first_click, -b29_t_last_click, -b29_t_page_submit,
+         -b29_t_click_count, -b30_t_first_click, -b30_t_last_click,
+         -b30_t_page_submit, -b30_t_click_count, -b31_t_first_click,
+         -b31_t_last_click, -b31_t_page_submit, -b31_t_click_count,
+         -b32_t_first_click, -b32_t_last_click, -b32_t_page_submit,
+         -b32_t_click_count, -b33_t_first_click, -b33_t_last_click,
+         -b33_t_page_submit, -b33_t_click_count, -b34_t_first_click,
+         -b34_t_last_click, -b34_t_page_submit, -b34_t_click_count,
+         -b35_t_first_click, -b35_t_last_click, -b35_t_page_submit,
+         -b35_t_click_count, -b36_t_first_click, -b36_t_last_click,
+         -b36_t_page_submit, -b36_t_click_count, -honest1_t_first_click,
+         -honest1_t_last_click, -honest1_t_page_submit, -honest1_t_click_count,
+         -honest2_t_first_click, -honest2_t_last_click, -honest2_t_page_submit,
+         -honest2_t_click_count, -debrief_t_first_click, -debrief_t_last_click,
+         -debrief_t_page_submit, -debrief_t_click_count, -view2_t_first_click,
+         -view2_t_last_click, -view2_t_page_submit, -view2_t_click_count,
+         -report_t_first_click, -report_t_last_click, -report_t_page_submit,
+         -report_t_click_count) |>
+  mutate(study = 3,
+         id = paste(study, id, sep = "_"))
+
+data_s3_demographics <- data_s3 |>
+  select(id, 
+         study,
+         start_date,
+         dob1, 
+         dob2, 
+         gender, 
+         ethnic, 
+         eng, 
+         edu, 
+         emp, 
+         age,
+         honest1, 
+         honest2)
+
+data_s3_itemlevel <- data_s3 |>
+  select(-study,
+         -start_date,
+         -dob1, 
+         -dob2, 
+         -gender, 
+         -ethnic, 
+         -eng, 
+         -edu, 
+         -emp, 
+         -age,
+         -honest1, 
+         -honest2) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_o_", replacement = "bfi_o")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_c_", replacement = "bfi_c")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_e_", replacement = "bfi_e")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_a_", replacement = "bfi_a")}) |>
+  rename_with(function(x){str_replace(x, pattern = "bfi_n_", replacement = "bfi_n")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_o_", replacement = "ip_o")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_c_", replacement = "ip_c")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_e_", replacement = "ip_e")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_a_", replacement = "ip_a")}) |>
+  rename_with(function(x){str_replace(x, pattern = "ip_n_", replacement = "ip_n")}) |>
+  # drop cases with missing items; they add unnecessary complexity to the analyses for the current purposes
+  drop_na() |>
+  pivot_longer(cols = -id,
+               names_to = "column", 
+               values_to = "response") |>
+  separate_wider_delim(cols = column, 
+                       names = c("scale", "subscale", "item"), 
+                       delim = "_", 
+                       too_few = "align_start",
+                       cols_remove = TRUE) |>
+  mutate(item = ifelse(is.na(item), subscale, item),
+         subscale = ifelse(item == subscale, scale, subscale))
+
+```
+
+## Combined
+
+```{r}
+
+data_combined_demographics <- 
+  bind_rows(data_s1_demographics,
+            data_s2_demographics,
+            data_s3_demographics)
+
+write_csv(data_combined_demographics, "../../data/bainbridge et al/processed/data_processed_demographics.csv")
+
+```
+
+```{r}
+
+data_combined_itemlevel <- 
+  bind_rows(data_s1_itemlevel,
+            data_s2_itemlevel,
+            data_s3_itemlevel) |>
+  # retain only what are clearly scales mentioned in the publication, using the abbreviations file wrangled earlier
+  semi_join(scale_names, by = "scale") 
+
+data_combined_itemlevel_wide <- data_combined_itemlevel |>
+  # pivot back to wide format
+  pivot_wider(names_from = c(scale, subscale, item),
+              values_from = response,
+              names_sep = "_") 
+
+write_csv(data_combined_itemlevel_wide, "../../data/bainbridge et al/processed/data_processed_itemlevel_wide.csv")
+
+
+scale_names_simple <- scale_names |>
+  filter(is.na(subscale)) |>
+  select(-subscale) |>
+  bind_rows(
+    tibble(scale = c("ip", "bfi"),
+         scale_name = c("IPIP_personality", "BFI_personality"))
+  )
+
+data_combined_itemlevel_long <- data_combined_itemlevel |>
+  # add scale names
+  left_join(scale_names_simple, by = "scale") |>
+  select(-scale) |>
+  rename(scale = scale_name) |>
+  mutate(subscale = str_remove(subscale, "[:digit:]"))
+
+write_csv(data_combined_itemlevel_long, "../../data/bainbridge et al/processed/data_processed_itemlevel_long.csv")
+
+```
+
+# Session info
+
+```{r}
+
+sessionInfo()
+
+```
+
+
+

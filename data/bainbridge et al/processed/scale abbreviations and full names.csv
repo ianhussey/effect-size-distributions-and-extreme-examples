@@ -1,0 +1,55 @@
+scale,subscale,scale_name
+bfi,e,BFI-E
+bfi,a,BFI-A
+bfi,c,BFI-C
+bfi,n,BFI-N
+bfi,o,BFI-O
+ip,e,IPIP-E
+ip,a,IPIP-A
+ip,c,IPIP-C
+ip,n,IPIP-N
+ip,o,IPIP-O
+aggr,NA,Aggression
+ambig,NA,Ambiguity Tolerance
+curi,NA,Curiosity
+doc,NA,Desirability of Control
+dogma,NA,Dogmatism
+dtmach,NA,Machiavellianism
+dtnarc,NA,Narcissism
+dtpsyc,NA,Psychopathy
+empa,NA,Empathy
+flour,NA,Flourishing
+gratit,NA,Gratitude
+grit,NA,Grit
+hope,NA,Hope
+iuncr,NA,Intolerance of Uncertainty
+lone,NA,Loneliness
+nfs,NA,Need for Structure
+opt,NA,Optimism
+satwl,NA,Satisfaction with Life
+scpri,NA,Private Self-Consciousness
+scpub,NA,Public Self-Consciousness
+scsanx,NA,Social Anxiety
+scont,NA,Self-Control
+seff,NA,Self-Efficacy
+sest,NA,Self-Esteem
+vital,NA,Vitality
+bas,NA,BAS
+bis,NA,BIS
+erreap,NA,Emotion Regulation: Reappraisal
+ersup,NA,Emotion Regulation: Suppression
+empec,NA,Empathy: Empathic Concern
+empf,NA,Empathy: Fantasy
+emppd,NA,Empathy: Personal Distress
+emppt,NA,Empathy: Perspective-Taking
+imp,NA,Impulsivity
+mndfn,NA,Mindfulness
+nfc,NA,Need for Cognition
+pain,NA,Pain Catastrophizing
+pwb,NA,PWB
+scomp,NA,Self-Compassion
+smast,NA,Self-Mastery
+ss,NA,Social Support
+worry,NA,Worry
+mlpres,NA,Presence of Meaning
+mlsrch,NA,Search for Meaning

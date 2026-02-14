@@ -14,6 +14,7 @@ output:
 
 # TODO
 
+- duplicates entries for different subfields have been added somehow!
 - in quantile regression, 5th percentile throws errors for peta2 so I've removed it for the moment.
 - Re-running the data processing would add abs_B to the dataset and allow it to be included
 - look into the impossible effect size - what proportion are extraction errors vs actually impossible values?
@@ -163,6 +164,16 @@ data_effectsizes_possible |>
 
 ### Verification of extreme natively reported Cohen's d values
 
+Additional articles are in the "dodgy papers + large legit effect sizes" zotero folder, not all details of articles i looked into are below.
+
+
+**Ko et al. 2022**
+
+https://doi.org/10.1016/j.jad.2022.09.168
+
+d = 2.5 in a component study included in this meta-analysis of Psychedelic therapy for depressive symptoms. 
+
+
 **Purvanova and Muros (2010)**
 
 https://doi.org/10.1016/j.jvb.2010.04.006
@@ -290,7 +301,7 @@ data_percentiles_long <- data_effectsizes_possible |>
   select(type, estimate = estimate_list) |>
   unnest(estimate) |>
   group_by(type) |>
-  summarise(
+  reframe(
     percentile = c(1, 5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 95, 99) / 100,
     value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
     .groups = "drop"
@@ -416,7 +427,7 @@ label_map_parsed <- function(map) {
   function(x) parse(text = unname(map[x]))
 }
 
-data_percentiles_for_plot |>
+d_percentiles <- data_percentiles_for_plot |>
   filter(percentile < 99) |>
   filter(str_detect(type, "d_")) |>
   mutate(type = fct_relevel(type, "d_z", "d_native", "d_s")) |>
@@ -448,7 +459,19 @@ data_percentiles_for_plot |>
     labels = label_map_parsed(labs_map)
   )
 
-ggsave("plots/percentiles_bogdan_d.png", width = 6, height = 4, dpi = 600)
+d_percentiles
+
+ggsave(d_percentiles, "plots/percentiles_bogdan_d.png", width = 6, height = 4, dpi = 600)
+
+d_percentiles +
+  coord_flip() +
+  theme(
+    panel.grid.minor = element_blank(),
+    strip.placement = "outside",
+    strip.background = element_blank(),  # no fill or box
+    strip.text = element_text(colour = "black"),
+    legend.position = c(0.35, 0.75)
+  )
 
 ```
 
@@ -587,57 +610,57 @@ ggsave("plots/percentiles_bogdan_others.png", width = 12, height = 8, dpi = 600)
 
 ```{r}
 
-data_percentiles_by_subfield <- 
-  data_effectsizes_possible |>
-  filter(type %in% unique(type)) |>
-  group_by(type, subfield) |>
-  summarise(
-    across(
-      .cols = everything(),
-      .fns = list, 
-      .names = "{.col}_list"
-    ), # just for clarity — we only care about estimate column
-    .groups = "drop_last"
-  ) |>
-  select(type, subfield, estimate = estimate_list) |>
-  unnest(estimate) |>
-  group_by(type, subfield) |>
-  summarise(
-    percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
-    value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
-    .groups = "drop"
-  ) |>
-  mutate(percentile = percentile * 100) |>
-  pivot_wider(names_from = subfield, values_from = value) |>
-  filter(type %in% c("d_native",
-                     "d_s",
-                     "d_z",
-                     "abs_r",
-                     "peta2",
-                     "R2",
-                     "abs_OR",
-                     "chi2",
-                     "B",
-                     "stdB",
-                     "abs_stdB")) |>
-  mutate(type = fct_relevel(type, 
-                            "d_native",
-                            "d_s",
-                            "d_z",
-                            "abs_r",
-                            "peta2",
-                            "R2",
-                            "abs_OR",
-                            "chi2",
-                            "B",
-                            "stdB",
-                            "abs_stdB")) |>
-  arrange(type, percentile)
-
-data_percentiles_by_subfield |>
-  mutate_if(is.numeric, round_half_up, digits = 2) |>
-  kable() |>
-  kable_classic(full_width = FALSE)
+# data_percentiles_by_subfield <- 
+#   data_effectsizes_possible |>
+#   filter(type %in% unique(type)) |>
+#   group_by(type, subfield) |>
+#   summarise(
+#     across(
+#       .cols = everything(),
+#       .fns = list, 
+#       .names = "{.col}_list"
+#     ), # just for clarity — we only care about estimate column
+#     .groups = "drop_last"
+#   ) |>
+#   select(type, subfield, estimate = estimate_list) |>
+#   unnest(estimate) |>
+#   group_by(type, subfield) |>
+#   summarise(
+#     percentile = c(1, 5, 10, 25, 50, 75, 90, 95, 99) / 100,
+#     value = map_dbl(percentile, ~ quantile(estimate, probs = .x, na.rm = TRUE)),
+#     .groups = "drop"
+#   ) |>
+#   mutate(percentile = percentile * 100) |>
+#   pivot_wider(names_from = subfield, values_from = value) |>
+#   filter(type %in% c("d_native",
+#                      "d_s",
+#                      "d_z",
+#                      "abs_r",
+#                      "peta2",
+#                      "R2",
+#                      "abs_OR",
+#                      "chi2",
+#                      "B",
+#                      "stdB",
+#                      "abs_stdB")) |>
+#   mutate(type = fct_relevel(type, 
+#                             "d_native",
+#                             "d_s",
+#                             "d_z",
+#                             "abs_r",
+#                             "peta2",
+#                             "R2",
+#                             "abs_OR",
+#                             "chi2",
+#                             "B",
+#                             "stdB",
+#                             "abs_stdB")) |>
+#   arrange(type, percentile)
+# 
+# data_percentiles_by_subfield |>
+#   mutate_if(is.numeric, round_half_up, digits = 2) |>
+#   kable() |>
+#   kable_classic(full_width = FALSE)
 
 ```
 
@@ -645,49 +668,49 @@ data_percentiles_by_subfield |>
 
 ```{r}
 
-library(ggridges)
-
-data_effectsizes_possible |>
-  count(type)
-
-data_effectsizes_possible |>
-  filter(type == "d_native") |>
-  group_by(type) |>
-  filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
-  ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
-  geom_density_ridges(alpha = 1) +
-  theme_linedraw() +
-  scale_x_continuous(breaks = breaks_pretty(n = 8)) +
-  labs(x = "Cohen's d native",
-       y = "") +
-  scale_fill_viridis_d() +
-  theme(legend.position = "none")
-
-data_effectsizes_possible |>
-  filter(type == "d_s") |>
-  group_by(type) |>
-  filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
-  ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
-  geom_density_ridges(alpha = 1) +
-  theme_linedraw() +
-  scale_x_continuous(breaks = breaks_pretty(n = 8)) +
-  labs(x = "Cohen's d_s",
-       y = "") +
-  scale_fill_viridis_d() +
-  theme(legend.position = "none")
-
-data_effectsizes_possible |>
-  filter(type == "d_z") |>
-  group_by(type) |>
-  filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
-  ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
-  geom_density_ridges(alpha = 1) +
-  theme_linedraw() +
-  scale_x_continuous(breaks = breaks_pretty(n = 8)) +
-  labs(x = "Cohen's d_s",
-       y = "") +
-  scale_fill_viridis_d() +
-  theme(legend.position = "none")
+# library(ggridges)
+# 
+# data_effectsizes_possible |>
+#   count(type)
+# 
+# data_effectsizes_possible |>
+#   filter(type == "d_native") |>
+#   group_by(type) |>
+#   filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
+#   ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
+#   geom_density_ridges(alpha = 1) +
+#   theme_linedraw() +
+#   scale_x_continuous(breaks = breaks_pretty(n = 8)) +
+#   labs(x = "Cohen's d native",
+#        y = "") +
+#   scale_fill_viridis_d() +
+#   theme(legend.position = "none")
+# 
+# data_effectsizes_possible |>
+#   filter(type == "d_s") |>
+#   group_by(type) |>
+#   filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
+#   ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
+#   geom_density_ridges(alpha = 1) +
+#   theme_linedraw() +
+#   scale_x_continuous(breaks = breaks_pretty(n = 8)) +
+#   labs(x = "Cohen's d_s",
+#        y = "") +
+#   scale_fill_viridis_d() +
+#   theme(legend.position = "none")
+# 
+# data_effectsizes_possible |>
+#   filter(type == "d_z") |>
+#   group_by(type) |>
+#   filter(estimate <= quantile(estimate, .99, na.rm = TRUE)) |>
+#   ggplot(aes(x = estimate, y = subfield, fill = subfield)) +
+#   geom_density_ridges(alpha = 1) +
+#   theme_linedraw() +
+#   scale_x_continuous(breaks = breaks_pretty(n = 8)) +
+#   labs(x = "Cohen's d_s",
+#        y = "") +
+#   scale_fill_viridis_d() +
+#   theme(legend.position = "none")
 
 ```
 
@@ -978,6 +1001,131 @@ quantile_regression_and_plot(data_effectsizes_possible, "abs_OR", "Absolute OR")
 #quantile_regression_and_plot(data_effectsizes_possible, "B", "B")
 #quantile_regression_and_plot(data_effectsizes_possible, "stdB", "")
 quantile_regression_and_plot(data_effectsizes_possible, "abs_stdB", "Absolute std. B") 
+
+```
+
+# t tests only 
+
+```{r}
+
+dat_t <- read_rds("../data/bogdan 2025/processed/dat_t.rds")
+
+# note that `r .Machine$double.xmin` is the floating point limit, but floating point weirdness can occur before this, so all order of magnitude >300 (including p == 0, which is a value smaller than the fp limit) are coded as 300. 
+# 308 is the technical limit, 300 is a safe clean number.
+cap <- 300 
+
+dat_t_processed <- dat_t |>
+  mutate(
+    order_of_magnitude = case_when(
+      p_implied == 0 ~ cap,                      # Handle absolute 0
+      p_implied < 10^-cap ~ cap,                 # Cap extremely small subnormals
+      TRUE ~ abs(floor(log10(p_implied)))        # Standard calculation
+    )
+  ) |>
+  mutate(n = df + 2) |>
+  mutate(cohens_d = (2 * t) / sqrt(df))
+
+
+```
+
+## Percentiles of order of magnitude
+
+```{r}
+
+percentiles_vec <- c(.5, .6, .7, .8, .9, .95, .99, .999)
+
+dat_t_processed %>%
+  reframe(
+    percentile = percentiles_vec,
+    value = quantile(order_of_magnitude, percentiles_vec, na.rm = TRUE)
+  )
+
+```
+
+## Percentiles of sample size
+
+```{r}
+
+percentiles_vec <- c(.001, .01, .1, .2, .3, .4, .5, .6, .7, .8, .9, .95, .99, .999)
+
+dat_t_processed %>%
+  reframe(
+    percentile = percentiles_vec,
+    value = quantile(n, percentiles_vec, na.rm = TRUE)
+  )
+
+ggplot(dat_t_processed, aes(n)) +
+  geom_histogram() +
+  scale_x_log10(labels = scales::label_comma())
+
+```
+
+```{r}
+
+ggplot(dat_t_processed, aes(n, order_of_magnitude)) +
+  geom_point(alpha = 0.2) +
+  geom_hline(yintercept = 17, color = "purple", linetype = "dashed") +
+  scale_x_log10()
+
+dat_t_processed |>
+  filter(n >= 10 & n <= 1000) |>
+  ggplot(aes(n, order_of_magnitude)) +
+  geom_point(alpha = 0.2) +
+  geom_hline(yintercept = 17, color = "purple", linetype = "dashed") +
+  scale_x_log10()
+
+library(hexbin) # Required for geom_hex()
+
+dat_t_processed |>
+  filter(n >= 10 & n <= 1000) |>
+  ggplot(aes(n, order_of_magnitude)) +
+  # Replaced geom_point with geom_hex
+  geom_hex(bins = 30) + 
+  geom_hline(yintercept = 17, color = "lightgreen", linetype = "dashed") +
+  scale_x_log10(labels = scales::label_comma()) +
+  scale_fill_viridis_c() +
+  theme_minimal()
+
+dat_t_processed |>
+  filter(n >= 10 & n <= 1000) |>
+  ggplot(aes(n, order_of_magnitude)) +
+  geom_hex(bins = 30) +
+  geom_hline(yintercept = 17, color = "lightgreen", linetype = "dashed") +
+  scale_x_log10(labels = scales::label_comma()) +
+  # Apply log10 transformation to the fill (density count)
+  scale_fill_continuous(trans = "log10")
+
+```
+
+
+```{r}
+
+dat_t_processed |>
+  filter(n >= 10 & n <= 1000) |>
+  ggplot(aes(cohens_d, order_of_magnitude)) +
+  geom_hex(bins = 30) +
+  geom_hline(yintercept = 17, color = "lightgreen", linetype = "dashed") +
+  scale_x_log10(labels = scales::label_comma()) +
+  # Apply log10 transformation to the fill (density count)
+  scale_fill_continuous(trans = "log10")
+
+dat_t_processed |>
+  filter(n >= 10 & n <= 1000) |>
+  ggplot(aes(cohens_d, n)) +
+  geom_hex(bins = 30) +
+  geom_hline(yintercept = 17, color = "lightgreen", linetype = "dashed") +
+  scale_x_log10(labels = scales::label_comma()) +
+  # Apply log10 transformation to the fill (density count)
+  scale_fill_continuous(trans = "log10")
+
+```
+
+# Native d only
+
+```{r}
+
+dat_d_native <- data_effectsizes_possible |>
+  filter(type=="d_native")
 
 ```
 

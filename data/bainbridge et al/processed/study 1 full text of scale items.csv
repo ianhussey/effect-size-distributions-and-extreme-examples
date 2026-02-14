@@ -1,0 +1,742 @@
+variable,text
+bfi_e1_1,"I am someone who - Is outgoing, sociable"
+bfi_e1_2,I am someone who - Tends to be quiet
+bfi_e1_3,"I am someone who - Is sometimes shy, introverted"
+bfi_e1_4,I am someone who - Is talkative
+bfi_e2_1,I am someone who - Has an assertive personality
+bfi_e2_2,"I am someone who - Is dominant, acts as a leader"
+bfi_e2_3,I am someone who - Finds it hard to influence people
+bfi_e2_4,I am someone who - Prefers to have others take charge
+bfi_e3_1,I am someone who - Rarely feels excited or eager
+bfi_e3_2,I am someone who - Is less active than other people
+bfi_e3_3,I am someone who - Is full of energy
+bfi_e3_4,I am someone who - Shows a lot of Enthusiasm
+bfi_a1_1,"I am someone who - Is compassionate, has a soft heart"
+bfi_a1_2,I am someone who - Feels little sympathy for others
+bfi_a1_3,I am someone who - Is helpful and unselfish with others
+bfi_a1_4,I am someone who - Can be cold and uncaring
+bfi_a2_1,"I am someone who - Is respectful, treats others with respect"
+bfi_a2_2,I am someone who - Starts arguments with others
+bfi_a2_3,I am someone who - Is sometimes rude to others
+bfi_a2_4,"I am someone who - Is polite, courteous to others"
+bfi_a3_1,I am someone who - Tends to find fault with others
+bfi_a3_2,I am someone who - Has a forgiving nature
+bfi_a3_3,I am someone who - Is suspicious of others’ intentions
+bfi_a3_4,I am someone who - Assumes the best about people
+bfi_c1_1,I am someone who - Tends to be disorganized
+bfi_c1_2,"I am someone who - Is systematic, likes to keep things in order"
+bfi_c1_3,I am someone who - Keeps things neat and tidy
+bfi_c1_4,"I am someone who - Leaves a mess, doesn’t clean up"
+bfi_c2_1,"I am someone who - Is efficient, gets things done"
+bfi_c2_2,I am someone who - Tends to be lazy
+bfi_c2_3,I am someone who - Has difficulty getting started on tasks
+bfi_c2_4,"I am someone who - Is persistent, works until the task is finished"
+bfi_c3_1,"I am someone who - Is dependable, steady"
+bfi_c3_2,I am someone who - Can be somewhat careless
+bfi_c3_3,"I am someone who - Is reliable, can always be counted on"
+bfi_c3_4,I am someone who - Sometimes behaves irresponsibly
+bfi_n1_1,"I am someone who - Is relaxed, handles stress well"
+bfi_n1_2,I am someone who - Can be tense
+bfi_n1_3,I am someone who - Worries a lot
+bfi_n1_4,I am someone who - Rarely feels anxious or afraid
+bfi_n2_1,I am someone who - Stays optimistic after experiencing a setback
+bfi_n2_2,"I am someone who - Feels secure, comfortable with self"
+bfi_n2_3,I am someone who - Often feels sad
+bfi_n2_4,"I am someone who - Tends to feel depressed, blue"
+bfi_n3_1,"I am someone who - Is moody, has up and down mood swings"
+bfi_n3_2,"I am someone who - Is emotionally stable, not easily upset"
+bfi_n3_3,I am someone who - Keeps their emotions under control
+bfi_n3_4,"I am someone who - Is temperamental, gets emotional easily"
+bfi_o1_1,I am someone who - Has few artistic interests
+bfi_o1_2,"I am someone who - Is fascinated by art, music, or literature"
+bfi_o1_3,I am someone who - Values art and beauty
+bfi_o1_4,I am someone who - Thinks poetry and plays are boring
+bfi_o2_1,I am someone who - Is curious about many different things
+bfi_o2_2,"I am someone who - Avoids intellectual, philosophical discussions"
+bfi_o2_3,"I am someone who - Is complex, a deep thinker"
+bfi_o2_4,I am someone who - Has little interest in abstract Ideas
+bfi_o3_1,"I am someone who - Is inventive, finds clever ways to do things"
+bfi_o3_2,I am someone who - Has little creativity
+bfi_o3_3,I am someone who - Has difficulty imagining things
+bfi_o3_4,"I am someone who - Is original, comes up with new Ideas"
+ip_e1_1,I - Make friends easily
+ip_e1_2,I - Warm up quickly to others
+ip_e1_3,I - Feel comfortable around people
+ip_e1_4,I - Act comfortably with others
+ip_e2_1,I - Love large parties
+ip_e2_2,I - Talk to a lot of different people at parties
+ip_e2_3,I - Don’t like crowded events
+ip_e2_4,I - Avoid crowds
+ip_e3_1,I - Take charge
+ip_e3_2,I - Try to lead others
+ip_e3_3,I - Take control of things
+ip_e3_4,I - Wait for others to lead the way
+ip_e4_1,I - Am always busy
+ip_e4_2,I - Am always on the go
+ip_e4_3,I - Do a lot in my spare time
+ip_e4_4,I - Can manage many things at the same time
+ip_e5_1,I - Love excitement
+ip_e5_2,I - Seek adventure
+ip_e5_3,I - Love action
+ip_e5_4,I - Enjoy being reckless
+ip_e6_1,I - Radiate joy
+ip_e6_2,I - Have a lot of fun
+ip_e6_3,I - Love life
+ip_e6_4,I - Laugh aloud
+ip_a1_1,I - Trust others
+ip_a1_2,I - Believe that others have good intentions
+ip_a1_3,I - Trust what people say
+ip_a1_4,I - Distrust people
+ip_a2_1,I - Know how to get around the rules
+ip_a2_2,I - Cheat to get ahead
+ip_a2_3,I - Take advantage of others
+ip_a2_4,I - Use others for my own ends
+ip_a3_1,I - Make people feel welcome
+ip_a3_2,I - Love to help others
+ip_a3_3,I - Am concerned about others
+ip_a3_4,I - Turn my back on others
+ip_a4_1,I - Love a good fight
+ip_a4_2,I - Yell at people
+ip_a4_3,I - Insult people
+ip_a4_4,I - Get back at others
+ip_a5_1,I - Believe that I am better than others
+ip_a5_2,I - Think highly of myself
+ip_a5_3,I - Have a high opinion of myself
+ip_a5_4,I - Boast about my virtues
+ip_a6_1,I - Sympathize with the homeless
+ip_a6_2,I - Feel sympathy for those who are worse off than myself
+ip_a6_3,I - Suffer from others’ sorrows
+ip_a6_4,I - Am not interested in other people’s problems
+ip_c1_1,I - Complete tasks successfully
+ip_c1_2,I - Excel in what I do
+ip_c1_3,I - Handle tasks smoothly
+ip_c1_4,I - Know how to get things done
+ip_c2_1,I - Like order
+ip_c2_2,I - Like to tidy up
+ip_c2_3,I - Leave a mess in my room
+ip_c2_4,I - Leave my belongings around
+ip_c3_1,I - Keep my promises
+ip_c3_2,I - Tell the truth
+ip_c3_3,I - Break my promises
+ip_c3_4,I - Get others to do my duties
+ip_c4_1,I - Work hard
+ip_c4_2,I - Do more than what’s expected of me
+ip_c4_3,I - Set high standards for myself and others
+ip_c4_4,I - Am not highly motivated to succeed
+ip_c5_1,I - Start tasks right away
+ip_c5_2,I - Find it difficult to get down to work
+ip_c5_3,I - Need a push to get started
+ip_c5_4,I - Have difficulty starting tasks
+ip_c6_1,I - Jump into things without thinking
+ip_c6_2,I - Make rash decisions
+ip_c6_3,I - Rush into things
+ip_c6_4,I - Act without thinking
+ip_n1_1,I - Worry about things
+ip_n1_2,I - Fear for the worst
+ip_n1_3,I - Am afraid of many things
+ip_n1_4,I - Get stressed out easily
+ip_n2_1,I - Get angry easily
+ip_n2_2,I - Get irritated easily
+ip_n2_3,I - Lose my temper
+ip_n2_4,I - Rarely get irritated
+ip_n3_1,I - Often feel blue
+ip_n3_2,I - Dislike myself
+ip_n3_3,I - Am often down in the dumps
+ip_n3_4,I - Have a low opinion of myself
+ip_n4_1,I - Find it difficult to approach others
+ip_n4_2,I - Am easily intimidated
+ip_n4_3,I - Am not embarrassed easily
+ip_n4_4,I - Am able to stand up for myself
+ip_n5_1,I - Often eat too much
+ip_n5_2,I - Go on binges
+ip_n5_3,I - Rarely overindulge
+ip_n5_4,I - Am able to control my cravings
+ip_n6_1,I - Feel that I’m unable to deal with things
+ip_n6_2,I - Know how to cope
+ip_n6_3,I - Am calm even in tense situations
+ip_n6_4,I - Remain calm under pressure
+ip_o1_1,I - Have a vivid imagination
+ip_o1_2,I - Love to daydream
+ip_o1_3,I - Like to get lost in thought
+ip_o1_4,I - Spend time reflecting on things
+ip_o2_1,I - See beauty in things that others might not notice
+ip_o2_2,I - Do not like art
+ip_o2_3,I - Do not like poetry
+ip_o2_4,I - Do not enjoy going to art museums
+ip_o3_1,I - Experience my emotions intensely
+ip_o3_2,I - Feel others' emotions
+ip_o3_3,I - Rarely notice my emotional reactions
+ip_o3_4,I - Don't understand people who get emotional
+ip_o4_1,I - Prefer to stick with things that I know
+ip_o4_2,I - Dislike changes
+ip_o4_3,I - Don’t like the idea of change
+ip_o4_4,I - Am attached to conventional ways
+ip_o5_1,I - Am not interested in abstract ideas
+ip_o5_2,I - Avoid philosophical discussions
+ip_o5_3,I - Have difficulty understanding abstract ideas
+ip_o5_4,I - Am not interested in theoretical discussions
+ip_o6_1,I - Tend to vote for conservative political candidates
+ip_o6_2,I - Believe that there is no absolute right and wrong
+ip_o6_3,I - Believe that criminals should receive help rather than punishment
+ip_o6_4,I - Believe that too much tax money goes to support artists
+aggr_a_1,I flare up quickly but get over it quickly
+aggr_a_2,Sometimes I fly off the handle for no good reason
+aggr_a_3,I have trouble controlling my temper
+aggr_h_1,At times I feel I have gotten a raw deal out of life
+aggr_h_2,Other people always seem to get the breaks
+aggr_h_3,I wonder why sometimes I feel so bitter about things
+aggr_p_1,"Given enough provocation, I may hit another person"
+aggr_p_2,There are people who pushed me so far that we came to blows
+aggr_p_3,I have threatened people I know
+aggr_v_1,I often find myself disagreeing with people
+aggr_v_2,I can't help getting into arguments when people disagree with me
+aggr_v_3,My friends say that I'm somewhat argumentative
+bas_d_1,I go out of my way to get things I want
+bas_d_2,When I want something I usually go all-out to get it
+bas_d_3,If I see a chance to get something I want I move on it right away
+bas_d_4,"When I go after something I use a ""no holds barred"" approach"
+bas_fs_1,I'm always willing to try something new if I think it will be fun
+bas_fs_2,I will often do things for no other reason than that they might be fun
+bas_fs_3,I often act on the spur of the moment
+bas_fs_4,I crave excitement and new sensations
+bas_r_1,When I'm doing well at something I love to keep at it
+bas_r_2,"When I get something I want, I feel excited and energized"
+bas_r_3,When I see an opportunity for something I like I get excited right away
+bas_r_4,"When good things happen to me, it affects me strongly"
+bas_r_5,It would excite me to win a contest
+bis_1,"Even if something bad is about to happen to me, I rarely experience fear or nervousness"
+bis_2,Criticism or scolding hurts me quite a bit
+bis_3,I feel pretty worried or upset when I think or know somebody is angry at me
+bis_4,"If I think something unpleasant is going to happen I usually get pretty ""worked up"""
+bis_5,I feel worried when I think I have done poorly at something important
+bis_6,I have very few fears compared to my friends
+bis_7,I worry about making mistakes
+erreap_1,"When I want to feel more positive emotion (such as joy or amusement), I change what I’m thinking about"
+erreap_2,"When I want to feel less negative emotion (such as sadness or anger), I change what I’m thinking about"
+erreap_3,"When I’m faced with a stressful situation, I make myself think about it in a way that helps me stay calm"
+erreap_4,"When I want to feel more positive emotion, I change the way I’m thinking about the situation"
+erreap_5,I control my emotions by changing the way I think about the situation I’m in
+erreap_6,"When I want to feel less negative emotion, I change the way I’m thinking about the situation"
+ersup_1,I keep my emotions to myself
+ersup_2,"When I am feeling positive emotions, I am careful not to express them"
+ersup_3,I control my emotions by not expressing them
+ersup_4,"When I am feeling negative emotions, I make sure not to express them"
+empec_1,"I often have tender, concerned feelings for people less fortunate than me"
+empec_2,"When I see someone being taken advantage of, I feel kind of protective toward them"
+empec_3,"When I see someone being treated unfairly, I feel very much pity for them"
+empec_4,I would describe myself as a pretty soft-hearted person
+empf_1,I really get involved with the feelings of the characters in a novel
+empf_2,"After seeing a play or movie, I have felt as though I were one of the characters"
+empf_3,"When I watch a good movie, I can very easily put myself in the place of a leading character"
+empf_4,"When I am reading an interesting story or novel, I imagine how I would feel if the events in the story were happening to me"
+emppd_1,"In emergency situations, I feel apprehensive and ill-at-ease"
+emppd_2,Being in a tense emotional situation scares me
+emppd_3,I tend to lose control during emergencies
+emppd_4,"When I see someone who badly needs help in an emergency, I go to pieces"
+emppt_1,I try to look at everybody’s side of a disagreement before I make a decision
+emppt_2,I sometimes try to understand my friends better by imagining how things look from their perspective
+emppt_3,"When I’m upset at someone, I usually try to “put myself in his shoes” for a while"
+emppt_4,"Before criticizing somebody, I try to imagine how I would feel if I were in their place"
+grit_c_1,I often set a goal but later choose to pursue a different one
+grit_c_2,New ideas and new projects sometimes distract me from previous ones
+grit_c_3,I become interested in new pursuits every few months
+grit_c_4,My interests change from year to year
+grit_c_5,I have been obsessed with a certain idea or project for a short time but later lost interest
+grit_c_6,I have difficulty maintaining my focus on projects that take more than a few months to complete
+grit_p_1,I have achieved a goal that took years of work
+grit_p_2,I have overcome setbacks to conquer an important challenge
+grit_p_3,I finish whatever I begin
+grit_p_4,Setbacks don’t discourage me
+grit_p_5,I am a hard worker
+grit_p_6,I am diligent
+hope_a_1,I energetically pursue my goals
+hope_a_2,My past experiences have prepared me well for my future
+hope_a_3,I've been pretty successful in life
+hope_a_4,I meet the goals that I set for myself
+hope_p_1,I can think of many ways to get out of a jam
+hope_p_2,There are lots of ways around any problem
+hope_p_3,I can think of many ways to get the things in life that are most important to me
+hope_p_4,"Even when others get discouraged, I know I can find a way to solve the problem"
+imp_a_1,I am restless at lectures or talks
+imp_a_2,I squirm at plays or lectures
+imp_a_3,I concentrate easily
+imp_a_4,I don't pay attention
+imp_a_5,I am easily bored solving thought problems
+imp_m_1,I act on impulse
+imp_m_2,I act on the spur of the moment
+imp_m_3,I do things without thinking
+imp_m_4,I say things without thinking
+imp_m_5,I buy things on impulse
+imp_np_1,I plan for job security
+imp_np_2,I plan for the future
+imp_np_3,I save regularly
+imp_np_4,I plan tasks carefully
+imp_np_5,I am a careful thinker
+mndfn_1,I could be experiencing some emotion and not be conscious of it until sometime later
+mndfn_2,"I break or spill things because of carelessness, not paying attention, or thinking of something else"
+mndfn_3,I find it difficult to stay focused on what’s happening in the present
+mndfn_4,I tend to walk quickly to get where I’m going without paying attention to what I experience along the way
+mndfn_5,I tend not to notice feelings of physical tension or discomfort until they really grab my attention
+mndfn_6,I forget a person’s name almost as soon as I’ve been told it for the first time
+mndfn_7,It seems I am “running on automatic” without much awareness of what I’m doing
+mndfn_8,I rush through activities without being really attentive to them
+mndfn_9,I get so focused on the goal I want to achieve that I lose touch with what I am doing right now to get there
+mndfn_10,"I do jobs or tasks automatically, without being aware of what I’m doing"
+mndfn_11,"I find myself listening to someone with one ear, doing something else at the same time"
+mndfn_12,I drive places on “automatic pilot” and then wonder why I went there
+mndfn_13,I find myself preoccupied with the future or the past
+mndfn_14,I find myself doing things without paying attention
+mndfn_15,I snack without being aware that I’m eating
+nfc_1,I would prefer complex to simple problems
+nfc_2,I like to have the responsibility of handling a situation that requires a lot of thinking
+nfc_3,Thinking is not my idea of fun
+nfc_4,I would rather do something that requires little thought than something that is sure to challenge my thinking abilities.
+nfc_5,I try to anticipate and avoid situations where there is likely chance I will have to think in depth about something
+nfc_6,I find satisfaction in deliberating hard and for long hours
+nfc_7,I only think as hard as I have to
+nfc_8,I prefer to think about small daily projects to long-term ones
+nfc_9,I like tasks that require little thought once I've learned them
+nfc_10,The idea of relying on thought to make my way to the top appeals to me
+nfc_11,I really enjoy a task that involves coming up with new solutions to problems
+nfc_12,Learning new ways to think doesn't excite me very much
+nfc_13,I prefer my life to be filled with puzzles that I must solve
+nfc_14,The notion of thinking abstractly is appealing to me
+nfc_15,"I would prefer a task that is intellectual, difficult, and important to one that is somewhat important but does not require much thought"
+nfc_16,I feel relief rather than satisfaction after completing a task that required a lot of mental effort
+nfc_17,It's enough for me that something gets the job done; I don't care how or why it works
+nfc_18,I usually end up deliberating about issues even when they do not affect me personally
+opt_1,"In uncertain times, I usually expect the best"
+opt_2,"If something can go wrong for me, it will"
+opt_3,I'm always optimistic about my future
+opt_4,I hardly ever expect things to go my way
+opt_5,I rarely count on good things happening to me
+opt_6,"Overall, I expect more good things to happen to me than bad"
+pain_h_1,"When I'm in pain, I worry all the time about whether the pain will end"
+pain_h_2,"When I'm in pain, I feel I can't go on"
+pain_h_3,"When I'm in pain, it's terrible and I think it's never going to get any better"
+pain_h_4,"When I'm in pain, it's aweful and I fell that it overwhelms me"
+pain_h_5,"When I'm in pain, I feel I can't stand it anymore"
+pain_h_6,"When I'm in pain, there's nothing I can do to reduce the intensity of the pain"
+pain_m_1,"When I'm in pain, I become afraid that the pain will get worse"
+pain_m_2,"When I'm in pain, I keep thinking of other painful events"
+pain_m_3,"When I'm in pain, I wonder whether something serious may happen"
+pain_r_1,"When I'm in pain, I anxiously want the pain to go away"
+pain_r_2,"When I'm in pain, I can't seem to keep it out of my mind"
+pain_r_3,"When I'm in pain, I keep thinking about how much it hurts"
+pain_r_4,"When I'm in pain, I keep thinking about how badly I want the pain to stop"
+pwb_a_1,I tend to be influenced by people with strong opinions
+pwb_a_2,"I have confidence in my own opinions, even if they are different from the way most other people think"
+pwb_a_3,"I judge myself by what I think is important, not by the values of what others think is important"
+pwb_em_1,The demands of everyday life often get me down
+pwb_em_2,"In general, I feel I am in charge of the situation in which I live"
+pwb_em_3,I am good at managing the responsibilities of daily life
+pwb_pg_1,"For me, life has been a continuous process of learning, changing, and growth"
+pwb_pg_2,I think it is important to have new experiences that challenge how I think about myself and the world
+pwb_pg_3,I gave up trying to make big improvements or changes in my life a long time ago
+pwb_pr_1,Maintaining close relationships has been difficult and frustrating for me
+pwb_pr_2,"People would describe me as a giving person, willing to share my time with others"
+pwb_pr_3,I have not experienced many warm and trusting relationships with others
+pwb_pl_1,Some people wander aimlessly through life but I am not one of them
+pwb_pl_2,I live life one day at a time and don’t really think about the future
+pwb_pl_3,I sometimes feel as if I’ve done all there is to do in life
+pwb_sa_1,I like most parts of my personality
+pwb_sa_2,"When I look at the story of my life, I am pleased with how things have turned out so far"
+pwb_sa_3,"In many ways, I feel disappointed about my achievements in life"
+satwl_1,In most ways my life is close to my ideal
+satwl_2,The conditions of my life are excellent
+satwl_3,I am satisfied with my life
+satwl_4,So far I have gotten the important things I want in life
+satwl_5,"If I could live my life over, I would change almost nothing"
+scomp_1,When I fail at something important to me I become consumed by feelings of inadequacy
+scomp_2,I try to be understanding and patient towards those aspects of my personality I don’t like
+scomp_3,When something painful happens I try to take a balanced view of the situation.
+scomp_4,When I’m feeling down I tend to feel like most other people are probably happier than I am.
+scomp_5,I try to see my failings as part of the human condition
+scomp_6,"When I’m going through a very hard time, I give myself the caring and tenderness I need"
+scomp_7,When something upsets me I try to keep my emotions in balance
+scomp_8,When I fail at something that’s important to me I tend to feel alone in my failure
+scomp_9,When I’m feeling down I tend to obsess and fixate on everything that’s wrong
+scomp_10,"When I feel inadequate in some way, I try to remind myself that feelings of inadequacy are shared by most people"
+scomp_11,I’m disapproving and judgemental about my own flaws and inadequacies
+scomp_12,I’m intolerant and impatient towards those aspects of my personality I don’t like
+scont_1,I am good at resisting temptation
+scont_2,I have a hard time breaking bad habits
+scont_3,I am lazy
+scont_4,I say inappropriate things
+scont_5,"I do certain things that are bad for me, if they are fun"
+scont_6,I refuse things that are bad for me
+scont_7,I wish I had more self-discipline
+scont_8,People would say that I have iron self-discipline
+scont_9,Pleasure and fun sometimes keep me from getting work done
+scont_10,I have trouble concentrating
+scont_11,I am able to work effectively toward long-term goals
+scont_12,Sometimes I can’t stop myself from doing something even if I know it is wrong
+scont_13,I often act without thinking through all the alternatives
+sest_1,"On the whole, I am satisfied with myself"
+sest_2,At times I think I am no good at all
+sest_3,I feel that I have a number of good qualities
+sest_4,I am able to do things as well as most other people
+sest_5,I feel I do not have much to be proud of
+sest_6,I certainly feel useless at times
+sest_7,"I feel that I'm a person of worth, at least on an equal plane with others"
+sest_8,I wish I could have more respect for myself
+sest_9,"All in all, I am inclined to feel that I am a failure"
+sest_10,I take a positive attitude toward myself
+smast_1,I have little control over the things that happen to me
+smast_2,There is really no way I can solve some of the problems I have
+smast_3,There is little I can do to change many of the important things in my life
+smast_4,I often feel helpless in dealing with the problems of life
+smast_5,Sometimes I feel that I'm being pushed around in life
+smast_6,What happens to me in the future mostly depends on me
+smast_7,I can do just about anything I really set my mind to do
+ss_fam_1,My family really tries to help me
+ss_fam_2,I get the emotional help and support I need from my family
+ss_fam_3,I can talk about my problems with my family
+ss_fam_4,My family is willing to help me make decisions
+ss_fr_1,My friends really try to help me
+ss_fr_2,I can count on my friends when things go wrong
+ss_fr_3,I have friends with whom I can share my joys and sorrows
+ss_fr_4,I can talk about my problems with my friends
+ss_so_1,There is a special person who is around when I am in need
+ss_so_2,There is a special person with whom I can share my joys and sorrows
+ss_so_3,I have a special person who is a real source of comfort to me
+ss_so_4,There is a special person in my life who cares about my feelings
+worry_1,"If I do not have enough time to do everything, I do not worry about it"
+worry_2,My worries overwhelm me
+worry_3,I do not tend to worry about things.
+worry_4,Many situations make me worry
+worry_5,"I know I should not worry about things, but I just cannot help it"
+worry_6,When I am under pressure I worry a lot
+worry_7,I am always worrying about something
+worry_8,I find it easy to dismiss worrisome thoughts
+worry_9,"As soon as I finish one task, I start to worry about everything else I have to do"
+worry_10,I never worry about anything
+worry_11,"When there is nothing more I can do about a concern, I do not worry about it any more"
+worry_12,I have been a worrier all my life
+worry_13,I notice that I have been worrying about things
+worry_14,"Once I start worrying, I cannot stop"
+worry_15,I worry all the time
+worry_16,I worry about projects until they are all done
+ac_1,For this question please select strongly agree
+ac_2,Please select strongly disagree for this question
+ac_3,Select neither agree nor disagree for this question
+ac_4,For this question please select strongly disagree
+unused_1,I - Use flattery to get ahead
+unused_2,I - Believe in one true religion
+unused_3,I - Seldom get emotional
+unused_4,I - Enjoy wild flights of fantasy
+unused_5,I - Am not easily affected by my emotions
+unused_6,I - Like to stand during the national anthem
+unused_7,I - Experience very few emotional highs and lows
+unused_8,I - Tend to vote for liberal political candidates
+unused_9,I - Make myself the center of attention
+mlpres_1,I understand my life’s meaning
+mlpres_2,My life has a clear sense of purpose
+mlpres_3,I have a good sense of what makes my life meaningful
+mlpres_4,I have discovered a satisfying life purpose
+mlpres_5,My life has no clear purpose
+mlsrch_1,I am looking for something that makes my life feel meaningful
+mlsrch_2,I am always looking to find my life’s purpose
+mlsrch_3,I am always searching for something that makes my life feel significant
+mlsrch_4,I am seeking a purpose or mission for my life
+mlsrch_5,I am searching for meaning in my life
+id,id
+StartDate,Start Date
+DOB1,What year were you born?
+DOB2,What month were you born?
+Gender,What is your gender?
+Ethnic,What is your ethnicity (choose all that apply)?
+Eng,Is English your first language?
+Edu,What is the highest level of education you have completed?
+Emp,What is your current employment status (select all that apply)?
+age,age
+Honest1,"Our research relies on participants providing accurate responses. The following questions gives you a chance to let us know if you did not respond honestly, which will help us to produce more reliable findings. Answers to the following questions will NOT affect any payment you are eligible for. Did you respond honestly to survey questions?"
+Honest2,"If you were us, would you include your responses in our study?"
+PLS_T_First.Click,Timing - First Click
+PLS_T_Last.Click,Timing - Last Click
+PLS_T_Page.Submit,Timing - Page Submit
+PLS_T_Click.Count,Timing - Click Count
+Consent_T_First.Click,Timing - First Click
+Consent_T_Last.Click,Timing - Last Click
+Consent_T_Page.Submit,Timing - Page Submit
+Consent_T_Click.Count,Timing - Click Count
+View_T_First.Click,Timing - First Click
+View_T_Last.Click,Timing - Last Click
+View_T_Page.Submit,Timing - Page Submit
+View_T_Click.Count,Timing - Click Count
+DOB_T_First.Click,Timing - First Click
+DOB_T_Last.Click,Timing - Last Click
+DOB_T_Page.Submit,Timing - Page Submit
+DOB_T_Click.Count,Timing - Click Count
+Ethnic_T_First.Click,Timing - First Click
+Ethnic_T_Last.Click,Timing - Last Click
+Ethnic_T_Page.Submit,Timing - Page Submit
+Ethnic_T_Click.Count,Timing - Click Count
+Gender_T_First.Click,Timing - First Click
+Gender_T_Last.Click,Timing - Last Click
+Gender_T_Page.Submit,Timing - Page Submit
+Gender_T_Click.Count,Timing - Click Count
+Eng_T_First.Click,Timing - First Click
+Eng_T_Last.Click,Timing - Last Click
+Eng_T_Page.Submit,Timing - Page Submit
+Eng_T_Click.Count,Timing - Click Count
+Edu_T_First.Click,Timing - First Click
+Edu_T_Last.Click,Timing - Last Click
+Edu_T_Page.Submit,Timing - Page Submit
+Edu_T_Click.Count,Timing - Click Count
+Emp_T_First.Click,Timing - First Click
+Emp_T_Last.Click,Timing - Last Click
+Emp_T_Page.Submit,Timing - Page Submit
+Emp_T_Click.Count,Timing - Click Count
+BFI1_T_First.Click,Timing - First Click
+BFI1_T_Last.Click,Timing - Last Click
+BFI1_T_Page.Submit,Timing - Page Submit
+BFI1_T_Click.Count,Timing - Click Count
+BFI2_T_First.Click,Timing - First Click
+BFI2_T_Last.Click,Timing - Last Click
+BFI2_T_Page.Submit,Timing - Page Submit
+BFI2_T_Click.Count,Timing - Click Count
+BFI3_T_First.Click,Timing - First Click
+BFI3_T_Last.Click,Timing - Last Click
+BFI3_T_Page.Submit,Timing - Page Submit
+BFI3_T_Click.Count,Timing - Click Count
+BFI4_T_First.Click,Timing - First Click
+BFI4_T_Last.Click,Timing - Last Click
+BFI4_T_Page.Submit,Timing - Page Submit
+BFI4_T_Click.Count,Timing - Click Count
+BFI5_T_First.Click,Timing - First Click
+BFI5_T_Last.Click,Timing - Last Click
+BFI5_T_Page.Submit,Timing - Page Submit
+BFI5_T_Click.Count,Timing - Click Count
+BFI6_T_First.Click,Timing - First Click
+BFI6_T_Last.Click,Timing - Last Click
+BFI6_T_Page.Submit,Timing - Page Submit
+BFI6_T_Click.Count,Timing - Click Count
+BFI7_T_First.Click,Timing - First Click
+BFI7_T_Last.Click,Timing - Last Click
+BFI7_T_Page.Submit,Timing - Page Submit
+BFI7_T_Click.Count,Timing - Click Count
+IPIP1_T_First.Click,Timing - First Click
+IPIP1_T_Last.Click,Timing - Last Click
+IPIP1_T_Page.Submit,Timing - Page Submit
+IPIP1_T_Click.Count,Timing - Click Count
+IPIP2_T_First.Click,Timing - First Click
+IPIP2_T_Last.Click,Timing - Last Click
+IPIP2_T_Page.Submit,Timing - Page Submit
+IPIP2_T_Click.Count,Timing - Click Count
+IPIP3_T_First.Click,Timing - First Click
+IPIP3_T_Last.Click,Timing - Last Click
+IPIP3_T_Page.Submit,Timing - Page Submit
+IPIP3_T_Click.Count,Timing - Click Count
+IPIP4_T_First.Click,Timing - First Click
+IPIP4_T_Last.Click,Timing - Last Click
+IPIP4_T_Page.Submit,Timing - Page Submit
+IPIP4_T_Click.Count,Timing - Click Count
+IPIP5_T_First.Click,Timing - First Click
+IPIP5_T_Last.Click,Timing - Last Click
+IPIP5_T_Page.Submit,Timing - Page Submit
+IPIP5_T_Click.Count,Timing - Click Count
+IPIP6_T_First.Click,Timing - First Click
+IPIP6_T_Last.Click,Timing - Last Click
+IPIP6_T_Page.Submit,Timing - Page Submit
+IPIP6_T_Click.Count,Timing - Click Count
+IPIP7_T_First.Click,Timing - First Click
+IPIP7_T_Last.Click,Timing - Last Click
+IPIP7_T_Page.Submit,Timing - Page Submit
+IPIP7_T_Click.Count,Timing - Click Count
+IPIP8_T_First.Click,Timing - First Click
+IPIP8_T_Last.Click,Timing - Last Click
+IPIP8_T_Page.Submit,Timing - Page Submit
+IPIP8_T_Click.Count,Timing - Click Count
+IPIP9_T_First.Click,Timing - First Click
+IPIP9_T_Last.Click,Timing - Last Click
+IPIP9_T_Page.Submit,Timing - Page Submit
+IPIP9_T_Click.Count,Timing - Click Count
+IPIP10_T_First.Click,Timing - First Click
+IPIP10_T_Last.Click,Timing - Last Click
+IPIP10_T_Page.Submit,Timing - Page Submit
+IPIP10_T_Click.Count,Timing - Click Count
+IPIP11_T_First.Click,Timing - First Click
+IPIP11_T_Last.Click,Timing - Last Click
+IPIP11_T_Page.Submit,Timing - Page Submit
+IPIP11_T_Click.Count,Timing - Click Count
+IPIP12_T_First.Click,Timing - First Click
+IPIP12_T_Last.Click,Timing - Last Click
+IPIP12_T_Page.Submit,Timing - Page Submit
+IPIP12_T_Click.Count,Timing - Click Count
+IPIP13_T_First.Click,Timing - First Click
+IPIP13_T_Last.Click,Timing - Last Click
+IPIP13_T_Page.Submit,Timing - Page Submit
+IPIP13_T_Click.Count,Timing - Click Count
+IPIP14_T_First.Click,Timing - First Click
+IPIP14_T_Last.Click,Timing - Last Click
+IPIP14_T_Page.Submit,Timing - Page Submit
+IPIP14_T_Click.Count,Timing - Click Count
+IPIP15_T_First.Click,Timing - First Click
+IPIP15_T_Last.Click,Timing - Last Click
+IPIP15_T_Page.Submit,Timing - Page Submit
+IPIP15_T_Click.Count,Timing - Click Count
+B1_T_First.Click,Timing - First Click
+B1_T_Last.Click,Timing - Last Click
+B1_T_Page.Submit,Timing - Page Submit
+B1_T_Click.Count,Timing - Click Count
+B2_T_First.Click,Timing - First Click
+B2_T_Last.Click,Timing - Last Click
+B2_T_Page.Submit,Timing - Page Submit
+B2_T_Click.Count,Timing - Click Count
+B3_T_First.Click,Timing - First Click
+B3_T_Last.Click,Timing - Last Click
+B3_T_Page.Submit,Timing - Page Submit
+B3_T_Click.Count,Timing - Click Count
+B4_T_First.Click,Timing - First Click
+B4_T_Last.Click,Timing - Last Click
+B4_T_Page.Submit,Timing - Page Submit
+B4_T_Click.Count,Timing - Click Count
+B5_T_First.Click,Timing - First Click
+B5_T_Last.Click,Timing - Last Click
+B5_T_Page.Submit,Timing - Page Submit
+B5_T_Click.Count,Timing - Click Count
+B6_T_First.Click,Timing - First Click
+B6_T_Last.Click,Timing - Last Click
+B6_T_Page.Submit,Timing - Page Submit
+B6_T_Click.Count,Timing - Click Count
+B7_T_First.Click,Timing - First Click
+B7_T_Last.Click,Timing - Last Click
+B7_T_Page.Submit,Timing - Page Submit
+B7_T_Click.Count,Timing - Click Count
+B8_T_First.Click,Timing - First Click
+B8_T_Last.Click,Timing - Last Click
+B8_T_Page.Submit,Timing - Page Submit
+B8_T_Click.Count,Timing - Click Count
+B9_T_First.Click,Timing - First Click
+B9_T_Last.Click,Timing - Last Click
+B9_T_Page.Submit,Timing - Page Submit
+B9_T_Click.Count,Timing - Click Count
+B10_T_First.Click,Timing - First Click
+B10_T_Last.Click,Timing - Last Click
+B10_T_Page.Submit,Timing - Page Submit
+B10_T_Click.Count,Timing - Click Count
+B11_T_First.Click,Timing - First Click
+B11_T_Last.Click,Timing - Last Click
+B11_T_Page.Submit,Timing - Page Submit
+B11_T_Click.Count,Timing - Click Count
+B12_T_First.Click,Timing - First Click
+B12_T_Last.Click,Timing - Last Click
+B12_T_Page.Submit,Timing - Page Submit
+B12_T_Click.Count,Timing - Click Count
+B13_T_First.Click,Timing - First Click
+B13_T_Last.Click,Timing - Last Click
+B13_T_Page.Submit,Timing - Page Submit
+B13_T_Click.Count,Timing - Click Count
+B14_T_First.Click,Timing - First Click
+B14_T_Last.Click,Timing - Last Click
+B14_T_Page.Submit,Timing - Page Submit
+B14_T_Click.Count,Timing - Click Count
+B15_T_First.Click,Timing - First Click
+B15_T_Last.Click,Timing - Last Click
+B15_T_Page.Submit,Timing - Page Submit
+B15_T_Click.Count,Timing - Click Count
+B16_T_First.Click,Timing - First Click
+B16_T_Last.Click,Timing - Last Click
+B16_T_Page.Submit,Timing - Page Submit
+B16_T_Click.Count,Timing - Click Count
+B17_T_First.Click,Timing - First Click
+B17_T_Last.Click,Timing - Last Click
+B17_T_Page.Submit,Timing - Page Submit
+B17_T_Click.Count,Timing - Click Count
+B18_T_First.Click,Timing - First Click
+B18_T_Last.Click,Timing - Last Click
+B18_T_Page.Submit,Timing - Page Submit
+B18_T_Click.Count,Timing - Click Count
+B19_T_First.Click,Timing - First Click
+B19_T_Last.Click,Timing - Last Click
+B19_T_Page.Submit,Timing - Page Submit
+B19_T_Click.Count,Timing - Click Count
+B20_T_First.Click,Timing - First Click
+B20_T_Last.Click,Timing - Last Click
+B20_T_Page.Submit,Timing - Page Submit
+B20_T_Click.Count,Timing - Click Count
+B21_T_First.Click,Timing - First Click
+B21_T_Last.Click,Timing - Last Click
+B21_T_Page.Submit,Timing - Page Submit
+B21_T_Click.Count,Timing - Click Count
+B22_T_First.Click,Timing - First Click
+B22_T_Last.Click,Timing - Last Click
+B22_T_Page.Submit,Timing - Page Submit
+B22_T_Click.Count,Timing - Click Count
+B23_T_First.Click,Timing - First Click
+B23_T_Last.Click,Timing - Last Click
+B23_T_Page.Submit,Timing - Page Submit
+B23_T_Click.Count,Timing - Click Count
+B24_T_First.Click,Timing - First Click
+B24_T_Last.Click,Timing - Last Click
+B24_T_Page.Submit,Timing - Page Submit
+B24_T_Click.Count,Timing - Click Count
+B25_T_First.Click,Timing - First Click
+B25_T_Last.Click,Timing - Last Click
+B25_T_Page.Submit,Timing - Page Submit
+B25_T_Click.Count,Timing - Click Count
+B26_T_First.Click,Timing - First Click
+B26_T_Last.Click,Timing - Last Click
+B26_T_Page.Submit,Timing - Page Submit
+B26_T_Click.Count,Timing - Click Count
+B27_T_First.Click,Timing - First Click
+B27_T_Last.Click,Timing - Last Click
+B27_T_Page.Submit,Timing - Page Submit
+B27_T_Click.Count,Timing - Click Count
+B28_T_First.Click,Timing - First Click
+B28_T_Last.Click,Timing - Last Click
+B28_T_Page.Submit,Timing - Page Submit
+B28_T_Click.Count,Timing - Click Count
+B29_T_First.Click,Timing - First Click
+B29_T_Last.Click,Timing - Last Click
+B29_T_Page.Submit,Timing - Page Submit
+B29_T_Click.Count,Timing - Click Count
+B30_T_First.Click,Timing - First Click
+B30_T_Last.Click,Timing - Last Click
+B30_T_Page.Submit,Timing - Page Submit
+B30_T_Click.Count,Timing - Click Count
+B31_T_First.Click,Timing - First Click
+B31_T_Last.Click,Timing - Last Click
+B31_T_Page.Submit,Timing - Page Submit
+B31_T_Click.Count,Timing - Click Count
+B32_T_First.Click,Timing - First Click
+B32_T_Last.Click,Timing - Last Click
+B32_T_Page.Submit,Timing - Page Submit
+B32_T_Click.Count,Timing - Click Count
+B33_T_First.Click,Timing - First Click
+B33_T_Last.Click,Timing - Last Click
+B33_T_Page.Submit,Timing - Page Submit
+B33_T_Click.Count,Timing - Click Count
+B34_T_First.Click,Timing - First Click
+B34_T_Last.Click,Timing - Last Click
+B34_T_Page.Submit,Timing - Page Submit
+B34_T_Click.Count,Timing - Click Count
+B35_T_First.Click,Timing - First Click
+B35_T_Last.Click,Timing - Last Click
+B35_T_Page.Submit,Timing - Page Submit
+B35_T_Click.Count,Timing - Click Count
+B36_T_First.Click,Timing - First Click
+B36_T_Last.Click,Timing - Last Click
+B36_T_Page.Submit,Timing - Page Submit
+B36_T_Click.Count,Timing - Click Count
+Honest1_T_First.Click,Timing - First Click
+Honest1_T_Last.Click,Timing - Last Click
+Honest1_T_Page.Submit,Timing - Page Submit
+Honest1_T_Click.Count,Timing - Click Count
+Honest2_T_First.Click,Timing - First Click
+Honest2_T_Last.Click,Timing - Last Click
+Honest2_T_Page.Submit,Timing - Page Submit
+Honest2_T_Click.Count,Timing - Click Count
+Debrief_T_First.Click,Timing - First Click
+Debrief_T_Last.Click,Timing - Last Click
+Debrief_T_Page.Submit,Timing - Page Submit
+Debrief_T_Click.Count,Timing - Click Count
+View2_T_First.Click,Timing - First Click
+View2_T_Last.Click,Timing - Last Click
+View2_T_Page.Submit,Timing - Page Submit
+View2_T_Click.Count,Timing - Click Count
+Report_T_First.Click,Timing - First Click
+Report_T_Last.Click,Timing - Last Click
+Report_T_Page.Submit,Timing - Page Submit
+Report_T_Click.Count,Timing - Click Count

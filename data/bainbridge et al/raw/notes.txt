@@ -1,0 +1,13 @@
+files downloaded from https://osf.io/f9hmg/
+
+s1.csvs2.csvs3.csv
+
+- are the processed data files after Bainbridge et al's data processing, exclusions for attention checks etc. They are taken from data.zip
+
+label.rds
+
+- also taken from data.zip, contains an R list of the scales' items.
+
+scale names.rds
+
+- taken from the names folder in output.zip. contains an R list of the scale abbreviations and full names.

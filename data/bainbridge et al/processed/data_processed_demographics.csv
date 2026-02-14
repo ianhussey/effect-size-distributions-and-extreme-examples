@@ -1,0 +1,1040 @@
+id,study,start_date,dob1,dob2,gender,ethnic,eng,edu,emp,age,honest,honest1,honest2
+1_1,1,2017-08-22T18:13:05Z,1998,10,Female,Chinese,Yes,High School,Not employed,18.8333333333333,NA,NA,NA
+1_2,1,2017-08-22T19:08:30Z,1998,3,Male,White/Caucasian,Yes,High School,"Student,Part time",19.4166666666667,NA,NA,NA
+1_3,1,2017-08-22T20:07:45Z,1998,7,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.0833333333333,NA,NA,NA
+1_4,1,2017-08-22T20:04:33Z,1998,5,Male,Indonesian,Yes,High School,Student,19.25,NA,NA,NA
+1_5,1,2017-08-22T20:35:59Z,1996,12,Female,White/Caucasian,Yes,High School,Not employed,20.6666666666667,NA,NA,NA
+1_6,1,2017-08-22T21:32:46Z,1998,10,Female,White/Caucasian,Yes,High School,Student,18.8333333333333,NA,NA,NA
+1_7,1,2017-08-22T22:16:19Z,1996,12,Female,Other Asian,Yes,High School,Student,20.6666666666667,NA,NA,NA
+1_8,1,2017-08-23T10:15:44Z,1997,2,Female,Chinese,No,High School,Student,20.5,NA,NA,NA
+1_9,1,2017-08-23T16:18:41Z,1998,8,Female,"White/Caucasian,Other",Yes,High School,"Student,Part time",19,NA,NA,NA
+1_11,1,2017-08-23T16:56:26Z,1998,4,Female,White/Caucasian,Yes,High School,Student,19.3333333333333,NA,NA,NA
+1_12,1,2017-08-23T15:38:11Z,1998,5,Female,Other Asian,Yes,High School,Student,19.25,NA,NA,NA
+1_15,1,2017-08-23T20:46:08Z,1998,7,Female,White/Caucasian,Yes,High School,Student,19.0833333333333,NA,NA,NA
+1_16,1,2017-08-23T22:55:15Z,1998,12,Female,White/Caucasian,Yes,High School,Student,18.6666666666667,NA,NA,NA
+1_17,1,2017-08-24T00:03:05Z,1998,10,Female,Indonesian,Yes,High School,Student,18.8333333333333,NA,NA,NA
+1_18,1,2017-08-24T12:08:22Z,1998,12,Female,White/Caucasian,Yes,High School,Student,18.6666666666667,NA,NA,NA
+1_19,1,2017-08-23T23:46:24Z,1997,7,Male,Chinese,Yes,High School,Student,20.0833333333333,NA,NA,NA
+1_21,1,2017-08-24T22:56:54Z,1998,9,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",18.9166666666667,NA,NA,NA
+1_22,1,2017-08-25T09:43:42Z,1984,3,Female,White/Caucasian,Yes,Bachelor degree,Student,33.4166666666667,NA,NA,NA
+1_23,1,2017-08-25T12:49:22Z,1996,11,Female,White/Caucasian,Yes,High School,Student,20.75,NA,NA,NA
+1_24,1,2017-08-25T15:17:50Z,1999,2,Female,White/Caucasian,Yes,High School,Part time,18.5,NA,NA,NA
+1_27,1,2017-08-25T19:48:27Z,1998,8,Female,"Chinese,Other Asian",Yes,High School,Student,19,NA,NA,NA
+1_28,1,2017-08-25T17:16:38Z,1997,7,Female,Chinese,No,High School,Student,20.0833333333333,NA,NA,NA
+1_29,1,2017-08-25T23:59:49Z,1985,2,Prefer not to say,Prefer not to say,Yes,Prefer not to say,Prefer not to say,32.5,NA,NA,NA
+1_30,1,2017-08-26T02:01:37Z,1996,1,Female,Chinese,No,High School,Student,21.5833333333333,NA,NA,NA
+1_31,1,2017-08-26T14:16:34Z,1995,5,Other,White/Caucasian,Yes,High School,"Student,Part time",22.25,NA,NA,NA
+1_32,1,2017-08-26T14:49:04Z,1999,4,Female,Other Asian,Yes,High School,Student,18.3333333333333,NA,NA,NA
+1_33,1,2017-08-26T16:28:32Z,1998,9,Female,Middle Eastern,No,High School,Part time,18.9166666666667,NA,NA,NA
+1_34,1,2017-08-26T20:18:11Z,1998,2,Male,White/Caucasian,Yes,High School,Student,19.5,NA,NA,NA
+1_35,1,2017-08-26T17:20:20Z,1998,8,Female,White/Caucasian,Yes,High School,Student,19,NA,NA,NA
+1_36,1,2017-08-26T20:32:27Z,1998,4,Male,White/Caucasian,Yes,High School,"Student,Part time",19.3333333333333,NA,NA,NA
+1_38,1,2017-08-26T19:09:59Z,1997,8,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,20,NA,NA,NA
+1_39,1,2017-08-26T22:27:42Z,1993,2,Female,Other Asian,No,Bachelor degree,Full time,24.5,NA,NA,NA
+1_40,1,2017-08-26T22:42:23Z,1998,9,Female,Chinese,Yes,High School,Student,18.9166666666667,NA,NA,NA
+1_41,1,2017-08-27T12:06:00Z,1999,2,Male,Middle Eastern,Yes,High School,Student,18.5,NA,NA,NA
+1_42,1,2017-08-27T17:29:33Z,1998,9,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,NA,NA,NA
+1_43,1,2017-08-27T17:57:50Z,1997,8,Male,Other Asian,No,High School,Full time,20,NA,NA,NA
+1_45,1,2017-08-27T21:20:36Z,1997,7,Female,White/Caucasian,Yes,High School,"Student,Part time",20.0833333333333,NA,NA,NA
+1_47,1,2017-08-28T11:20:35Z,1998,3,Female,"White/Caucasian,Chinese",Yes,High School,"Student,Full time",19.4166666666667,NA,NA,NA
+1_48,1,2017-08-28T09:47:25Z,1999,2,Female,"White/Caucasian,Other Asian,African or African American",Yes,High School,Student,18.5,NA,NA,NA
+1_49,1,2017-08-28T11:51:29Z,1999,3,Female,Indonesian,No,High School,"Student,Not employed",18.4166666666667,NA,NA,NA
+1_50,1,2017-08-28T15:47:52Z,1992,6,Male,White/Caucasian,Yes,Bachelor degree,Student,25.1666666666667,NA,NA,NA
+1_51,1,2017-08-28T15:46:51Z,1998,11,Female,White/Caucasian,Yes,High School,Student,18.75,NA,NA,NA
+1_52,1,2017-08-28T16:42:03Z,1999,2,Female,White/Caucasian,Yes,High School,"Student,Part time",18.5,NA,NA,NA
+1_53,1,2017-08-28T17:02:58Z,1998,8,Male,Chinese,Yes,High School,Student,19,NA,NA,NA
+1_54,1,2017-08-28T20:24:50Z,1999,3,Female,White/Caucasian,Yes,High School,Student,18.4166666666667,NA,NA,NA
+1_55,1,2017-08-28T19:20:25Z,1997,9,Female,Chinese,No,High School,Student,19.9166666666667,NA,NA,NA
+1_56,1,2017-08-28T22:08:38Z,1998,2,Male,Chinese,Yes,High School,Not employed,19.5,NA,NA,NA
+1_57,1,2017-08-28T23:51:33Z,1997,9,Female,"Chinese,Other Asian",Yes,High School,"Student,Not employed",19.9166666666667,NA,NA,NA
+1_59,1,2017-08-29T11:16:29Z,1999,3,Male,Chinese,Yes,High School,Student,18.4166666666667,NA,NA,NA
+1_60,1,2017-08-29T14:40:33Z,1997,3,Female,Other Asian,Yes,High School,Student,20.4166666666667,NA,NA,NA
+1_61,1,2017-08-29T17:47:51Z,1998,12,Male,White/Caucasian,Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_62,1,2017-08-29T19:34:46Z,1998,8,Female,"Chinese,Indonesian",Yes,High School,"Student,Part time",19,NA,NA,NA
+1_63,1,2017-08-29T16:52:13Z,1998,9,Male,White/Caucasian,Yes,High School,Student,18.9166666666667,NA,NA,NA
+1_64,1,2017-08-29T18:50:06Z,1999,8,Female,Indonesian,Yes,High School,Student,18,NA,NA,NA
+1_67,1,2017-08-30T01:26:47Z,1998,7,Male,Chinese,No,High School,Part time,19.0833333333333,NA,NA,NA
+1_68,1,2017-08-30T08:25:06Z,1998,9,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.9166666666667,NA,NA,NA
+1_69,1,2017-08-30T10:12:07Z,1997,5,Female,White/Caucasian,Yes,High School,"Student,Full time",20.25,NA,NA,NA
+1_70,1,2017-08-30T10:20:00Z,1998,4,Male,White/Caucasian,Yes,High School,"Student,Part time",19.3333333333333,NA,NA,NA
+1_71,1,2017-08-28T15:17:27Z,1999,3,Male,White/Caucasian,Yes,High School,Part time,18.4166666666667,NA,NA,NA
+1_72,1,2017-08-30T11:47:19Z,1997,7,Female,White/Caucasian,Yes,High School,Student,20.0833333333333,NA,NA,NA
+1_73,1,2017-08-30T11:26:18Z,1998,2,Male,White/Caucasian,Yes,High School,"Student,Part time",19.5,NA,NA,NA
+1_74,1,2017-08-30T13:36:29Z,1998,11,Female,White/Caucasian,Yes,High School,"Student,Part time",18.75,NA,NA,NA
+1_75,1,2017-08-30T14:05:09Z,1993,3,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,Postgraduate degree,"Student,Full time",24.4166666666667,NA,NA,NA
+1_76,1,2017-08-30T18:37:34Z,1999,4,Male,White/Caucasian,Yes,High School,"Student,Part time",18.3333333333333,NA,NA,NA
+1_77,1,2017-08-30T18:52:10Z,1997,12,Female,Other Asian,Yes,High School,Student,19.6666666666667,NA,NA,NA
+1_78,1,2017-08-30T18:48:12Z,1998,11,Female,Middle Eastern,No,High School,"Student,Part time",18.75,NA,NA,NA
+1_80,1,2017-08-30T20:46:35Z,1999,6,Female,Indonesian,No,High School,"Student,Not employed",18.1666666666667,NA,NA,NA
+1_81,1,2017-08-30T21:39:30Z,1996,7,Female,Chinese,No,High School,Student,21.0833333333333,NA,NA,NA
+1_82,1,2017-08-30T21:55:20Z,1998,2,Male,Chinese,Yes,High School,Student,19.5,NA,NA,NA
+1_83,1,2017-08-30T22:04:23Z,1999,2,Female,White/Caucasian,Yes,High School,Student,18.5,NA,NA,NA
+1_86,1,2017-08-31T01:24:41Z,1998,10,Female,Other Asian,Yes,High School,Student,18.8333333333333,NA,NA,NA
+1_87,1,2017-08-31T08:57:42Z,1998,3,Female,White/Caucasian,Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_88,1,2017-08-31T10:40:58Z,1998,8,Female,White/Caucasian,Yes,High School,"Student,Part time",19,NA,NA,NA
+1_89,1,2017-08-31T11:12:50Z,1998,5,Male,White/Caucasian,Yes,High School,Student,19.25,NA,NA,NA
+1_91,1,2017-08-31T13:16:10Z,1998,8,Female,Indonesian,No,High School,Student,19,NA,NA,NA
+1_93,1,2017-08-31T19:39:36Z,1998,12,Female,White/Caucasian,Yes,High School,Student,18.6666666666667,NA,NA,NA
+1_94,1,2017-08-31T20:01:10Z,1997,5,Female,White/Caucasian,Yes,High School,Part time,20.25,NA,NA,NA
+1_95,1,2017-08-31T20:17:39Z,1998,11,Female,White/Caucasian,Yes,High School,Student,18.75,NA,NA,NA
+1_96,1,2017-08-31T13:27:53Z,1999,2,Female,White/Caucasian,Yes,High School,"Student,Part time",18.5,NA,NA,NA
+1_97,1,2017-08-31T21:35:13Z,1999,3,Female,Other Asian,No,High School,Student,18.4166666666667,NA,NA,NA
+1_100,1,2017-09-01T12:25:27Z,1998,3,Female,Other Asian,No,High School,"Student,Part time",19.5,NA,NA,NA
+1_101,1,2017-09-01T12:52:22Z,1999,9,Female,Chinese,Yes,High School,Student,18,NA,NA,NA
+1_102,1,2017-09-01T14:12:53Z,1998,5,Male,Chinese,Yes,High School,Part time,19.3333333333333,NA,NA,NA
+1_103,1,2017-09-01T11:58:54Z,1994,9,Male,Chinese,Yes,"Trade, technical or vocational training",Student,23,NA,NA,NA
+1_104,1,2017-09-01T16:38:58Z,1998,12,Female,Chinese,No,High School,Student,18.75,NA,NA,NA
+1_105,1,2017-09-01T19:03:51Z,1981,10,Female,"White/Caucasian,African or African American,Hispanic",Yes,Bachelor degree,Student,35.9166666666667,NA,NA,NA
+1_108,1,2017-08-30T10:09:39Z,1998,3,Female,White/Caucasian,Yes,High School,"Student,Part time",19.4166666666667,NA,NA,NA
+1_109,1,2017-09-02T14:52:18Z,1997,5,Female,Chinese,Yes,High School,"Student,Full time",20.3333333333333,NA,NA,NA
+1_110,1,2017-09-02T16:11:42Z,1998,3,Female,White/Caucasian,Yes,High School,Student,19.5,NA,NA,NA
+1_111,1,2017-09-02T16:04:24Z,1998,3,Male,White/Caucasian,Yes,High School,Part time,19.5,NA,NA,NA
+1_113,1,2017-09-02T17:24:44Z,1998,12,Male,White/Caucasian,Yes,Did not complete high school,Student,18.75,NA,NA,NA
+1_114,1,2017-09-02T19:00:07Z,1997,9,Female,Chinese,No,Bachelor degree,Student,20,NA,NA,NA
+1_115,1,2017-09-02T21:05:10Z,1996,6,Female,Other Asian,No,High School,"Student,Part time",21.25,NA,NA,NA
+1_117,1,2017-09-02T22:23:34Z,1997,1,Female,Chinese,No,High School,Student,20.6666666666667,NA,NA,NA
+1_118,1,2017-09-03T08:16:20Z,1998,10,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,NA,NA,NA
+1_119,1,2017-09-01T15:05:51Z,1998,1,Female,White/Caucasian,Yes,High School,"Student,Part time",19.6666666666667,NA,NA,NA
+1_120,1,2017-09-03T11:53:01Z,1998,6,Female,White/Caucasian,Yes,High School,"Student,Not employed",19.25,NA,NA,NA
+1_121,1,2017-09-03T14:47:09Z,1998,12,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,Student,18.75,NA,NA,NA
+1_122,1,2017-09-02T23:57:24Z,1994,5,Male,White/Caucasian,Yes,High School,Student,23.3333333333333,NA,NA,NA
+1_124,1,2017-09-04T11:24:56Z,1998,4,Female,White/Caucasian,Yes,High School,Not employed,19.4166666666667,NA,NA,NA
+1_126,1,2017-09-04T14:50:23Z,1999,1,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.6666666666667,NA,NA,NA
+1_127,1,2017-09-04T15:17:10Z,1998,2,Female,White/Caucasian,Yes,High School,Part time,19.5833333333333,NA,NA,NA
+1_128,1,2017-09-04T15:50:54Z,1998,9,Female,Other Asian,Yes,High School,"Student,Part time",19,NA,NA,NA
+1_131,1,2017-09-04T21:30:22Z,1998,12,Female,Middle Eastern,Yes,High School,"Student,Part time",18.75,NA,NA,NA
+1_132,1,2017-09-04T22:01:23Z,1998,3,Female,White/Caucasian,Yes,High School,"Student,Part time",19.5,NA,NA,NA
+1_133,1,2017-09-04T21:07:05Z,1998,7,Female,"White/Caucasian,Chinese",Yes,High School,Student,19.1666666666667,NA,NA,NA
+1_134,1,2017-09-04T18:23:31Z,1997,2,Female,Other Asian,No,High School,Student,20.5833333333333,NA,NA,NA
+1_136,1,2017-09-05T17:59:05Z,1996,3,Female,Chinese,Yes,High School,"Student,Part time",21.5,NA,NA,NA
+1_137,1,2017-09-06T09:32:08Z,1998,9,Female,White/Caucasian,Yes,High School,Student,19,NA,NA,NA
+1_138,1,2017-09-06T13:14:47Z,1990,6,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",27.25,NA,NA,NA
+1_139,1,2017-09-06T12:08:09Z,1996,7,Female,White/Caucasian,Yes,High School,"Student,Full time",21.1666666666667,NA,NA,NA
+1_140,1,2017-09-06T18:20:20Z,1997,6,Male,White/Caucasian,Yes,High School,"Student,Part time",20.25,NA,NA,NA
+1_142,1,2017-09-06T22:54:05Z,1999,4,Female,Other Asian,Yes,High School,"Student,Part time",18.4166666666667,NA,NA,NA
+1_143,1,2017-09-06T22:58:42Z,1998,8,Other,White/Caucasian,Yes,High School,"Student,Part time",19.0833333333333,NA,NA,NA
+1_145,1,2017-09-05T14:12:22Z,1998,2,Female,White/Caucasian,Yes,Bachelor degree,Student,19.5833333333333,NA,NA,NA
+1_147,1,2017-09-08T10:01:51Z,1998,8,Female,White/Caucasian,Yes,High School,Student,19.0833333333333,NA,NA,NA
+1_148,1,2017-09-08T10:11:12Z,1998,1,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.6666666666667,NA,NA,NA
+1_150,1,2017-09-09T12:55:13Z,1999,8,Male,White/Caucasian,Yes,High School,Student,18.0833333333333,NA,NA,NA
+1_151,1,2017-09-09T13:07:51Z,1998,7,Female,White/Caucasian,Yes,High School,"Student,Part time",19.1666666666667,NA,NA,NA
+1_152,1,2017-09-09T21:34:09Z,1998,6,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.),Other Asian",Yes,High School,"Student,Part time",19.25,NA,NA,NA
+1_153,1,2017-09-09T22:00:26Z,1999,2,Male,White/Caucasian,Yes,High School,"Student,Part time",18.5833333333333,NA,NA,NA
+1_154,1,2017-09-10T02:02:08Z,1999,1,Female,Other Asian,Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_155,1,2017-09-10T12:38:25Z,1999,3,Female,Chinese,Yes,High School,"Student,Full time",18.5,NA,NA,NA
+1_156,1,2017-09-10T17:12:13Z,1997,11,Female,White/Caucasian,Yes,High School,"Student,Part time",19.8333333333333,NA,NA,NA
+1_157,1,2017-09-10T18:35:05Z,1999,3,Female,"Other Asian,Other",No,High School,Student,18.5,NA,NA,NA
+1_158,1,2017-09-10T20:53:57Z,1998,11,Female,Chinese,No,High School,Student,18.8333333333333,NA,NA,NA
+1_159,1,2017-09-10T22:43:00Z,1999,4,Male,"Chinese,Other Asian",Yes,High School,Part time,18.4166666666667,NA,NA,NA
+1_160,1,2017-09-10T23:05:53Z,1999,6,Female,White/Caucasian,Yes,High School,"Student,Full time",18.25,NA,NA,NA
+1_161,1,2017-09-09T20:19:44Z,1998,11,Female,White/Caucasian,Yes,High School,Student,18.8333333333333,NA,NA,NA
+1_162,1,2017-09-10T23:27:39Z,1997,4,Female,Indonesian,No,High School,Part time,20.4166666666667,NA,NA,NA
+1_163,1,2017-09-11T12:02:06Z,1998,10,Male,White/Caucasian,Yes,High School,"Student,Not employed",18.9166666666667,NA,NA,NA
+1_165,1,2017-09-11T14:00:50Z,1996,7,Female,Other Asian,Yes,High School,Student,21.1666666666667,NA,NA,NA
+1_166,1,2017-09-11T11:04:02Z,1999,1,Female,White/Caucasian,Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_167,1,2017-09-11T18:05:23Z,1999,3,Female,White/Caucasian,Yes,High School,Student,18.5,NA,NA,NA
+1_168,1,2017-09-11T22:45:14Z,1997,11,Male,"White/Caucasian,Chinese",Yes,High School,Student,19.8333333333333,NA,NA,NA
+1_169,1,2017-09-12T09:21:07Z,1991,7,Male,White/Caucasian,Yes,Bachelor degree,"Student,Part time",26.1666666666667,NA,NA,NA
+1_171,1,2017-09-11T16:26:12Z,1997,6,Female,White/Caucasian,Yes,High School,Student,20.25,NA,NA,NA
+1_172,1,2017-09-12T13:09:57Z,1994,7,Male,Chinese,Yes,High School,Student,23.1666666666667,NA,NA,NA
+1_174,1,2017-09-12T17:21:28Z,1999,3,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.5,NA,NA,NA
+1_175,1,2017-09-12T17:49:49Z,1996,12,Female,Other Asian,No,High School,Student,20.75,NA,NA,NA
+1_176,1,2017-09-12T20:25:57Z,1998,8,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",NA,"Trade, technical or vocational training",Student,19.0833333333333,NA,NA,NA
+1_177,1,2017-09-12T21:38:05Z,1997,4,Female,White/Caucasian,Yes,High School,"Student,Part time",20.4166666666667,NA,NA,NA
+1_178,1,2017-09-12T22:23:24Z,1998,12,Female,White/Caucasian,Yes,High School,Student,18.75,NA,NA,NA
+1_179,1,2017-09-13T08:31:10Z,1998,4,Female,White/Caucasian,Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_180,1,2017-09-13T09:29:35Z,1997,5,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",20.3333333333333,NA,NA,NA
+1_181,1,2017-09-13T10:54:49Z,1998,12,Female,Other Asian,Yes,High School,Student,18.75,NA,NA,NA
+1_182,1,2017-09-13T11:07:55Z,1998,2,Female,Chinese,No,High School,Student,19.5833333333333,NA,NA,NA
+1_183,1,2017-09-13T09:48:52Z,1998,4,Female,Other Asian,No,High School,Part time,19.4166666666667,NA,NA,NA
+1_184,1,2017-09-13T11:49:18Z,1999,1,Female,White/Caucasian,Yes,High School,"Student,Not employed",18.6666666666667,NA,NA,NA
+1_185,1,2017-09-13T12:56:01Z,1998,4,Male,White/Caucasian,NA,High School,Student,19.4166666666667,NA,NA,NA
+1_186,1,2017-09-13T14:18:28Z,1997,12,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.75,NA,NA,NA
+1_187,1,2017-09-13T15:57:28Z,1968,11,Female,White/Caucasian,No,Postgraduate degree,Part time,48.8333333333333,NA,NA,NA
+1_188,1,2017-09-14T00:52:10Z,1986,6,Female,Prefer not to say,Yes,Bachelor degree,"Student,Part time",31.25,NA,NA,NA
+1_191,1,2017-09-14T15:13:34Z,1994,5,Male,White/Caucasian,Yes,Bachelor degree,"Student,Full time",23.3333333333333,NA,NA,NA
+1_192,1,2017-09-14T19:35:32Z,1997,11,Male,White/Caucasian,Yes,High School,Part time,19.8333333333333,NA,NA,NA
+1_194,1,2017-09-15T00:43:38Z,1997,5,Female,Chinese,Yes,Bachelor degree,"Student,Part time",20.3333333333333,NA,NA,NA
+1_195,1,2017-09-15T16:52:05Z,1998,10,Female,White/Caucasian,Yes,High School,"Student,Not employed",18.9166666666667,NA,NA,NA
+1_196,1,2017-09-16T11:23:21Z,1997,8,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,Student,20.0833333333333,NA,NA,NA
+1_197,1,2017-09-15T19:35:11Z,1997,7,Female,"White/Caucasian,Other Asian",Yes,High School,"Student,Part time",20.1666666666667,NA,NA,NA
+1_198,1,2017-09-16T16:43:43Z,1998,8,Female,White/Caucasian,Yes,High School,"Student,Full time",19.0833333333333,NA,NA,NA
+1_199,1,2017-09-16T16:44:18Z,1997,12,Male,White/Caucasian,Yes,High School,Student,19.75,NA,NA,NA
+1_200,1,2017-09-16T18:31:06Z,1997,11,Male,Chinese,Prefer not to say,Bachelor degree,Not employed,19.8333333333333,NA,NA,NA
+1_201,1,2017-09-16T19:18:40Z,1998,8,Female,White/Caucasian,Yes,High School,"Student,Part time",19.0833333333333,NA,NA,NA
+1_202,1,2017-09-16T19:15:15Z,1998,4,Male,White/Caucasian,Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_203,1,2017-09-16T12:47:52Z,1997,8,Female,Chinese,No,High School,"Student,Full time",20.0833333333333,NA,NA,NA
+1_204,1,2017-09-16T23:31:25Z,1999,1,Female,White/Caucasian,Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_205,1,2017-09-17T03:04:00Z,1998,10,Female,Other Asian,No,High School,Student,18.9166666666667,NA,NA,NA
+1_206,1,2017-09-17T10:42:05Z,1998,4,Female,Chinese,Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_207,1,2017-09-17T14:09:00Z,1998,10,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,NA,NA,NA
+1_208,1,2017-09-17T18:58:55Z,1998,12,Female,White/Caucasian,Yes,High School,"Student,Part time",18.75,NA,NA,NA
+1_209,1,2017-09-17T22:05:34Z,1998,10,Female,White/Caucasian,Yes,High School,"Student,Part time",18.9166666666667,NA,NA,NA
+1_210,1,2017-09-17T22:38:49Z,1998,6,Female,Indonesian,No,High School,"Student,Not employed",19.25,NA,NA,NA
+1_211,1,2017-09-18T00:59:53Z,1980,6,Male,Other,No,Postgraduate degree,Not employed,37.25,NA,NA,NA
+1_212,1,2017-09-18T10:22:50Z,1993,10,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",23.9166666666667,NA,NA,NA
+1_214,1,2017-09-18T16:13:12Z,1991,11,Female,White/Caucasian,Yes,Postgraduate degree,"Student,Part time",25.8333333333333,NA,NA,NA
+1_215,1,2017-09-18T12:58:07Z,1998,8,Female,Other Asian,Yes,High School,"Student,Part time,Full time",19.0833333333333,NA,NA,NA
+1_216,1,2017-09-18T18:43:38Z,1997,10,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Not employed",19.9166666666667,NA,NA,NA
+1_217,1,2017-09-18T21:41:05Z,1998,8,Female,White/Caucasian,Yes,High School,"Student,Part time",19.0833333333333,NA,NA,NA
+1_218,1,2017-09-18T22:45:47Z,1997,7,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,20.1666666666667,NA,NA,NA
+1_219,1,2017-09-18T22:12:32Z,1998,6,Male,Chinese,No,High School,Student,19.25,NA,NA,NA
+1_220,1,2017-09-19T10:22:39Z,1997,5,Female,Chinese,No,High School,Student,20.3333333333333,NA,NA,NA
+1_221,1,2017-09-20T10:23:47Z,1999,2,Female,Other Asian,Yes,High School,"Student,Full time",18.5833333333333,NA,NA,NA
+1_222,1,2017-09-20T19:27:55Z,1998,7,Male,Chinese,Yes,High School,Student,19.1666666666667,NA,NA,NA
+1_223,1,2017-09-20T20:46:52Z,1998,7,Female,White/Caucasian,Yes,High School,Student,19.1666666666667,NA,NA,NA
+1_224,1,2017-09-20T22:00:39Z,1998,5,Female,Chinese,Yes,High School,"Student,Part time",19.3333333333333,NA,NA,NA
+1_226,1,2017-09-21T13:05:34Z,1998,4,Female,White/Caucasian,Yes,High School,"Student,Full time",19.4166666666667,NA,NA,NA
+1_227,1,2017-09-21T21:25:06Z,1997,9,Female,Chinese,No,High School,Student,20,NA,NA,NA
+1_228,1,2017-09-21T22:12:35Z,1999,1,Female,White/Caucasian,Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_229,1,2017-09-22T11:34:38Z,1998,2,Male,White/Caucasian,Yes,High School,"Student,Full time",19.5833333333333,NA,NA,NA
+1_230,1,2017-09-22T14:15:56Z,1998,11,Female,White/Caucasian,Yes,High School,Part time,18.8333333333333,NA,NA,NA
+1_231,1,2017-09-22T18:47:44Z,1999,2,Female,Chinese,Yes,High School,"Student,Part time",18.5833333333333,NA,NA,NA
+1_233,1,2017-09-23T22:04:50Z,1998,11,Male,White/Caucasian,Yes,High School,Student,18.8333333333333,NA,NA,NA
+1_235,1,2017-09-24T00:02:24Z,1998,8,Female,Chinese,Yes,High School,Student,19.0833333333333,NA,NA,NA
+1_236,1,2017-09-24T21:22:52Z,1999,3,Female,Chinese,Yes,High School,"Student,Part time",18.5,NA,NA,NA
+1_237,1,2017-09-24T22:00:04Z,1997,9,Female,Other Asian,Yes,High School,Student,20,NA,NA,NA
+1_239,1,2017-09-24T17:03:11Z,1995,10,Male,Chinese,No,High School,Student,21.9166666666667,NA,NA,NA
+1_240,1,2017-09-21T21:44:54Z,1999,2,Female,Chinese,Yes,High School,Student,18.5833333333333,NA,NA,NA
+1_241,1,2017-09-25T16:30:17Z,1999,3,Female,White/Caucasian,Yes,High School,Student,18.5,NA,NA,NA
+1_242,1,2017-09-25T17:28:41Z,1997,10,Female,White/Caucasian,Yes,High School,Student,19.9166666666667,NA,NA,NA
+1_243,1,2017-09-25T18:45:56Z,1996,2,Female,Other,No,High School,Student,21.5833333333333,NA,NA,NA
+1_244,1,2017-09-25T21:02:57Z,1998,2,Female,Chinese,Yes,High School,Student,19.5833333333333,NA,NA,NA
+1_246,1,2017-09-26T11:31:26Z,1997,11,Male,White/Caucasian,Yes,High School,Student,19.8333333333333,NA,NA,NA
+1_247,1,2017-09-26T18:03:15Z,1999,3,Male,White/Caucasian,Yes,High School,"Student,Part time",18.5,NA,NA,NA
+1_248,1,2017-09-27T13:22:44Z,1998,2,Female,White/Caucasian,Yes,High School,"Student,Not employed",19.5833333333333,NA,NA,NA
+1_249,1,2017-09-27T16:45:01Z,1998,10,Male,Chinese,Yes,High School,"Student,Full time",18.9166666666667,NA,NA,NA
+1_250,1,2017-09-27T15:15:28Z,1998,9,Female,White/Caucasian,Yes,High School,Student,19,NA,NA,NA
+1_251,1,2017-09-27T21:10:46Z,1997,9,Female,White/Caucasian,Yes,High School,Student,20,NA,NA,NA
+1_252,1,2017-09-28T09:45:37Z,1995,10,Male,Chinese,Yes,"Trade, technical or vocational training",Student,21.9166666666667,NA,NA,NA
+1_253,1,2017-09-28T13:07:17Z,1995,12,Female,Chinese,No,High School,"Student,Part time",21.75,NA,NA,NA
+1_255,1,2017-09-28T19:21:47Z,1997,8,Male,"White/Caucasian,Other Asian",Yes,High School,"Student,Part time",20.0833333333333,NA,NA,NA
+1_256,1,2017-09-29T12:33:31Z,1998,3,Female,White/Caucasian,Yes,High School,"Student,Part time",19.5,NA,NA,NA
+1_257,1,2017-09-29T15:00:26Z,1998,9,Male,White/Caucasian,Yes,High School,"Student,Part time",19,NA,NA,NA
+1_258,1,2017-09-29T15:11:11Z,1998,8,Female,Chinese,Yes,High School,Student,19.0833333333333,NA,NA,NA
+1_259,1,2017-09-29T18:40:30Z,1998,1,Male,Other Asian,No,High School,"Student,Part time",19.6666666666667,NA,NA,NA
+1_260,1,2017-09-29T19:30:06Z,1997,5,Female,Chinese,No,High School,Student,20.3333333333333,NA,NA,NA
+1_261,1,2017-09-29T20:15:02Z,1997,12,Female,Other,Yes,Bachelor degree,Part time,19.75,NA,NA,NA
+1_262,1,2017-09-29T20:33:48Z,1997,3,Female,Chinese,No,High School,Not employed,20.5,NA,NA,NA
+1_263,1,2017-09-29T22:05:33Z,1998,7,Male,Chinese,Yes,High School,"Student,Part time",19.1666666666667,NA,NA,NA
+1_264,1,2017-09-29T23:29:03Z,1998,5,Female,White/Caucasian,No,High School,"Student,Not employed",19.3333333333333,NA,NA,NA
+1_267,1,2017-09-30T15:04:37Z,1999,4,Male,Chinese,Yes,High School,"Student,Full time",18.4166666666667,NA,NA,NA
+1_270,1,2017-09-30T23:25:30Z,1998,8,Female,Chinese,No,High School,Student,19.0833333333333,NA,NA,NA
+1_271,1,2017-10-01T12:40:39Z,1998,6,Female,White/Caucasian,Yes,High School,"Student,Part time",19.3333333333333,NA,NA,NA
+1_272,1,2017-10-01T15:06:50Z,1987,10,Female,White/Caucasian,Yes,Bachelor degree,Part time,30,NA,NA,NA
+1_273,1,2017-10-01T16:02:24Z,1998,6,Male,White/Caucasian,Yes,High School,Student,19.3333333333333,NA,NA,NA
+1_274,1,2017-10-01T18:26:39Z,1997,6,Female,Chinese,No,High School,"Student,Full time",20.3333333333333,NA,NA,NA
+1_275,1,2017-10-01T19:46:05Z,1996,10,Male,Chinese,No,High School,Student,21,NA,NA,NA
+1_276,1,2017-10-01T20:20:04Z,1999,9,Male,White/Caucasian,Yes,High School,"Student,Part time",18.0833333333333,NA,NA,NA
+1_277,1,2017-10-01T21:29:37Z,1998,5,Female,White/Caucasian,Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_278,1,2017-10-01T22:23:33Z,1997,12,Male,"White/Caucasian,Other Asian",Yes,High School,Student,19.8333333333333,NA,NA,NA
+1_279,1,2017-10-01T23:23:32Z,1998,5,Female,"Chinese,South Asian/Desi (Indian, Pakistani, Sri Lankan etc.),Hispanic",Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_281,1,2017-10-02T09:45:49Z,1999,4,Female,White/Caucasian,Yes,NA,NA,18.5,NA,NA,NA
+1_284,1,2017-10-02T12:24:35Z,1999,1,Female,White/Caucasian,Yes,High School,Student,18.75,NA,NA,NA
+1_285,1,2017-10-02T12:21:18Z,1998,2,Female,White/Caucasian,Yes,High School,Student,19.6666666666667,NA,NA,NA
+1_286,1,2017-10-02T13:07:54Z,1989,8,Female,White/Caucasian,Yes,Bachelor degree,Part time,28.1666666666667,NA,NA,NA
+1_287,1,2017-10-02T13:21:14Z,1998,6,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",19.3333333333333,NA,NA,NA
+1_288,1,2017-10-02T03:23:00Z,1997,9,Male,Chinese,Yes,High School,"Student,Part time",20.0833333333333,NA,NA,NA
+1_289,1,2017-10-02T15:28:07Z,1998,8,Male,White/Caucasian,Yes,High School,Student,19.1666666666667,NA,NA,NA
+1_290,1,2017-10-02T16:07:45Z,1997,7,Female,Other,Yes,High School,"Student,Part time",20.25,NA,NA,NA
+1_291,1,2017-10-02T16:05:57Z,1998,7,Male,Chinese,No,Bachelor degree,Student,19.25,NA,NA,NA
+1_292,1,2017-10-02T17:22:09Z,1998,5,Male,White/Caucasian,Yes,High School,"Student,Part time",19.4166666666667,NA,NA,NA
+1_293,1,2017-10-02T19:36:28Z,1992,11,Female,White/Caucasian,No,Bachelor degree,"Student,Part time",24.9166666666667,NA,NA,NA
+1_294,1,2017-10-02T19:43:56Z,1998,4,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.5,NA,NA,NA
+1_295,1,2017-10-02T15:43:13Z,1998,4,Male,White/Caucasian,Yes,High School,"Student,Part time",19.5,NA,NA,NA
+1_296,1,2017-10-02T20:31:23Z,1998,5,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.4166666666667,NA,NA,NA
+1_297,1,2017-10-02T16:35:07Z,1998,12,Female,White/Caucasian,Yes,High School,"Student,Part time",18.8333333333333,NA,NA,NA
+1_298,1,2017-10-02T12:39:18Z,1999,2,Male,Other Asian,Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_299,1,2017-10-03T22:12:06Z,1998,11,Female,White/Caucasian,Yes,High School,"Student,Not employed",18.9166666666667,NA,NA,NA
+1_300,1,2017-09-26T11:52:07Z,1998,11,Female,White/Caucasian,No,High School,Student,18.8333333333333,NA,NA,NA
+1_301,1,2017-10-04T16:31:18Z,1997,10,Female,White/Caucasian,Yes,High School,"Student,Not employed",20,NA,NA,NA
+1_303,1,2017-10-07T13:03:57Z,1999,2,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",18.6666666666667,NA,NA,NA
+1_304,1,2017-10-07T13:58:33Z,1994,5,Female,White/Caucasian,No,High School,Student,23.4166666666667,NA,NA,NA
+1_305,1,2017-10-07T19:20:31Z,1999,3,Female,Chinese,Yes,High School,"Student,Full time",18.5833333333333,NA,NA,NA
+1_306,1,2017-10-07T22:25:10Z,1998,6,Female,"White/Caucasian,African or African American",Yes,High School,"Student,Not employed",19.3333333333333,NA,NA,NA
+2_1,2,2018-04-17T13:05:08Z,1999,6,Female,Other Asian,No,High School,Student,18.8333333333333,Yes,NA,NA
+2_2,2,2018-04-17T13:34:57Z,1999,5,Female,White/Caucasian,Yes,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_3,2,2018-04-17T13:16:12Z,1999,7,Female,White/Caucasian,Yes,High School,"Student,Part time",18.75,Yes,NA,NA
+2_4,2,2018-04-17T14:24:23Z,1998,1,Female,"White/Caucasian,Hispanic",Yes,High School,"Student,Part time",20.25,Yes,NA,NA
+2_5,2,2018-04-17T14:27:32Z,1999,9,Male,Chinese,Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_6,2,2018-04-17T14:46:19Z,1998,5,Female,"Chinese,Other Asian",Prefer not to say,High School,Student,19.9166666666667,Yes,NA,NA
+2_7,2,2018-04-17T15:17:01Z,1997,2,Female,"Chinese,South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,21.1666666666667,Yes,NA,NA
+2_8,2,2018-04-17T15:46:18Z,1999,1,Male,Chinese,Yes,High School,"Student,Part time",19.25,Yes,NA,NA
+2_9,2,2018-04-17T15:44:31Z,1999,6,Female,White/Caucasian,Yes,High School,Student,18.8333333333333,Yes,NA,NA
+2_11,2,2018-04-17T15:42:24Z,1999,6,Female,White/Caucasian,Yes,High School,Student,18.8333333333333,Yes,NA,NA
+2_12,2,2018-04-17T18:30:34Z,2000,4,Female,White/Caucasian,Yes,High School,Student,18,Yes,NA,NA
+2_13,2,2018-04-17T14:54:46Z,1999,5,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_15,2,2018-04-17T20:49:09Z,1999,9,Female,White/Caucasian,Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_16,2,2018-04-17T20:42:19Z,1999,4,Female,Other Asian,No,High School,Student,19,Yes,NA,NA
+2_17,2,2018-04-17T21:35:13Z,1999,10,Female,Other Asian,No,High School,Student,18.5,Yes,NA,NA
+2_18,2,2018-04-17T21:29:22Z,1999,9,Male,Other Asian,Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_19,2,2018-04-17T22:13:54Z,1999,4,Female,Chinese,No,High School,Student,19,Yes,NA,NA
+2_21,2,2018-04-17T22:13:46Z,2000,1,Male,White/Caucasian,Yes,High School,Student,18.25,Yes,NA,NA
+2_22,2,2018-04-17T22:39:20Z,1999,7,Female,White/Caucasian,Yes,High School,Student,18.75,Yes,NA,NA
+2_23,2,2018-04-17T22:55:58Z,1999,8,Male,White/Caucasian,Yes,High School,"Student,Not employed",18.6666666666667,Yes,NA,NA
+2_24,2,2018-04-18T00:13:45Z,1997,1,Female,White/Caucasian,Yes,High School,Student,21.25,Yes,NA,NA
+2_26,2,2018-04-18T10:45:19Z,1997,4,Female,Indonesian,No,High School,Student,21,Yes,NA,NA
+2_28,2,2018-04-18T11:51:09Z,1999,8,Female,White/Caucasian,Yes,High School,Student,18.6666666666667,Yes,NA,NA
+2_29,2,2018-04-18T12:40:02Z,1999,9,Male,White/Caucasian,Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_30,2,2018-04-18T13:05:23Z,2000,3,Female,Indonesian,Yes,High School,Student,18.0833333333333,Yes,NA,NA
+2_31,2,2018-04-18T13:19:24Z,1997,4,Female,"White/Caucasian,Other",No,High School,Student,21,Yes,NA,NA
+2_32,2,2018-04-18T14:15:42Z,1998,5,Male,White/Caucasian,Yes,High School,Student,19.9166666666667,Yes,NA,NA
+2_33,2,2018-04-18T13:52:56Z,2000,1,Female,Chinese,Prefer not to say,High School,Student,18.25,Yes,NA,NA
+2_34,2,2018-04-18T12:41:13Z,2000,4,Female,White/Caucasian,Yes,High School,"Student,Part time",18,Yes,NA,NA
+2_35,2,2018-04-18T14:35:47Z,2000,3,Female,"White/Caucasian,Chinese,Other Asian",Yes,High School,Student,18.0833333333333,Yes,NA,NA
+2_36,2,2018-04-18T15:37:42Z,1998,8,Female,White/Caucasian,Yes,High School,Student,19.6666666666667,Yes,NA,NA
+2_37,2,2018-04-18T17:44:24Z,1999,3,Female,White/Caucasian,Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_38,2,2018-04-18T12:40:06Z,1999,8,Female,"White/Caucasian,Other",Yes,High School,"Student,Not employed",18.6666666666667,Yes,NA,NA
+2_39,2,2018-04-18T18:00:46Z,1999,5,Female,Other Asian,No,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_40,2,2018-04-18T18:52:02Z,1999,10,Female,"Chinese,Other Asian",Yes,High School,Student,18.5,Yes,NA,NA
+2_41,2,2018-04-18T18:45:33Z,1999,6,Female,Other,Yes,High School,Student,18.8333333333333,Yes,NA,NA
+2_42,2,2018-04-18T20:18:36Z,1999,5,Male,White/Caucasian,Yes,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_43,2,2018-04-18T22:32:46Z,1999,5,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.),Other Asian,Middle Eastern",Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_44,2,2018-04-18T21:42:21Z,1999,12,Female,Chinese,No,Bachelor degree,Student,18.3333333333333,Yes,NA,NA
+2_46,2,2018-04-19T10:46:14Z,1979,12,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,Postgraduate degree,"Student,Full time",38.3333333333333,Yes,NA,NA
+2_49,2,2018-04-19T12:12:06Z,2000,3,Female,"White/Caucasian,Middle Eastern,Other",Yes,High School,"Student,Part time",18.0833333333333,Yes,NA,NA
+2_50,2,2018-04-19T12:48:06Z,2000,3,Male,White/Caucasian,Yes,High School,Student,18.0833333333333,Yes,NA,NA
+2_52,2,2018-04-18T16:55:55Z,1999,12,Female,Chinese,No,High School,Student,18.3333333333333,Yes,NA,NA
+2_53,2,2018-04-19T14:43:56Z,1999,5,Female,"White/Caucasian,Other Asian,Other",Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_54,2,2018-04-19T14:36:00Z,1999,8,Female,Other,Yes,High School,Part time,18.6666666666667,Yes,NA,NA
+2_55,2,2018-04-19T16:07:00Z,1999,8,Female,Chinese,No,High School,Not employed,18.6666666666667,Yes,NA,NA
+2_56,2,2018-04-19T16:51:38Z,1998,8,Female,Indonesian,Yes,High School,Student,19.6666666666667,Yes,NA,NA
+2_57,2,2018-04-19T17:16:28Z,2000,4,Female,Indonesian,No,High School,Student,18,Yes,NA,NA
+2_58,2,2018-04-19T17:18:23Z,1999,7,Male,Indonesian,Yes,High School,Student,18.75,Yes,NA,NA
+2_59,2,2018-04-19T18:06:49Z,1999,6,Female,White/Caucasian,Yes,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_61,2,2018-04-19T19:46:50Z,1999,10,Male,Indonesian,No,High School,Student,18.5,Yes,NA,NA
+2_62,2,2018-04-19T18:17:54Z,1998,11,Female,"White/Caucasian,Middle Eastern",Yes,High School,Part time,19.4166666666667,Yes,NA,NA
+2_63,2,2018-04-19T20:56:12Z,1998,3,Male,Other Asian,Yes,High School,Student,20.0833333333333,Yes,NA,NA
+2_64,2,2018-04-19T11:42:43Z,1999,3,Female,Chinese,No,High School,"Student,Part time",19.0833333333333,Yes,NA,NA
+2_65,2,2018-04-19T21:00:48Z,1999,10,Female,Chinese,Yes,High School,"Student,Part time",18.5,Yes,NA,NA
+2_69,2,2018-04-20T20:56:50Z,1981,10,Male,White/Caucasian,Yes,Bachelor degree,"Student,Part time",36.5,Yes,NA,NA
+2_70,2,2018-04-21T16:15:28Z,1999,2,Female,Chinese,No,High School,Student,19.1666666666667,Yes,NA,NA
+2_71,2,2018-04-21T17:04:59Z,2000,3,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Not employed",18.0833333333333,Yes,NA,NA
+2_72,2,2018-04-23T09:31:30Z,1998,6,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",19.8333333333333,Yes,NA,NA
+2_73,2,2018-04-23T12:28:07Z,1997,8,Female,Chinese,No,High School,Student,20.6666666666667,Yes,NA,NA
+2_74,2,2018-04-23T14:26:23Z,1998,10,Female,Chinese,No,Bachelor degree,Student,19.5,Yes,NA,NA
+2_75,2,2018-04-24T13:27:55Z,1997,2,Male,Other Asian,No,High School,Student,21.1666666666667,Yes,NA,NA
+2_76,2,2018-04-24T15:22:33Z,1999,12,Female,Chinese,No,High School,"Student,Part time",18.3333333333333,Yes,NA,NA
+2_77,2,2018-04-19T22:34:25Z,1997,12,Male,"Chinese,Indonesian",No,High School,Student,20.3333333333333,Yes,NA,NA
+2_79,2,2018-04-17T18:05:53Z,1998,6,Male,White/Caucasian,Yes,High School,"Student,Part time",19.8333333333333,Yes,NA,NA
+2_80,2,2018-04-24T21:25:17Z,1999,10,Female,Chinese,Yes,High School,Student,18.5,Yes,NA,NA
+2_81,2,2018-04-17T22:12:14Z,2000,1,Female,White/Caucasian,Yes,High School,Student,18.25,Yes,NA,NA
+2_82,2,2018-04-25T12:01:23Z,1981,12,Male,Middle Eastern,No,Postgraduate degree,Full time,36.3333333333333,Yes,NA,NA
+2_84,2,2018-04-26T17:48:47Z,1998,4,Female,"White/Caucasian,Aboriginal or Torres Strait Islander",Yes,High School,"Student,Not employed",20,Yes,NA,NA
+2_85,2,2018-04-24T22:13:12Z,1998,4,Female,Chinese,No,High School,Student,20,Yes,NA,NA
+2_86,2,2018-04-29T12:10:19Z,1999,11,Female,Other Asian,No,High School,Student,18.4166666666667,Yes,NA,NA
+2_87,2,2018-04-29T22:34:31Z,1998,11,Female,Chinese,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_88,2,2018-04-30T00:57:50Z,1998,6,Female,Chinese,No,High School,Not employed,19.8333333333333,Yes,NA,NA
+2_89,2,2018-04-29T23:24:43Z,1998,7,Male,Chinese,No,Bachelor degree,Student,19.75,Yes,NA,NA
+2_90,2,2018-04-30T12:26:14Z,1997,8,Female,"White/Caucasian,South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,20.6666666666667,Yes,NA,NA
+2_91,2,2018-04-30T12:38:10Z,1998,2,Female,Chinese,No,High School,Part time,20.1666666666667,Yes,NA,NA
+2_92,2,2018-04-30T12:35:13Z,1998,8,Female,Chinese,No,High School,Student,19.6666666666667,Yes,NA,NA
+2_93,2,2018-04-30T13:12:40Z,1999,10,Female,"Indonesian,Other Asian",Yes,High School,Student,18.5,Yes,NA,NA
+2_94,2,2018-04-30T13:25:50Z,1999,1,Female,White/Caucasian,Yes,High School,Student,19.25,Yes,NA,NA
+2_95,2,2018-04-24T09:34:51Z,1999,3,Female,Chinese,Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_96,2,2018-04-30T14:48:42Z,1999,8,Female,White/Caucasian,Yes,High School,"Student,Not employed",18.6666666666667,Yes,NA,NA
+2_97,2,2018-04-30T15:48:34Z,2000,4,Female,Chinese,Yes,High School,Student,18,Yes,NA,NA
+2_98,2,2018-05-02T12:22:00Z,1999,5,Female,Other Asian,Yes,High School,"Student,Not employed",19,Yes,NA,NA
+2_99,2,2018-05-03T18:15:35Z,1999,1,Male,African or African American,Yes,High School,Student,19.3333333333333,Yes,NA,NA
+2_100,2,2018-05-04T17:57:32Z,1999,4,Male,White/Caucasian,Yes,High School,Part time,19.0833333333333,Yes,NA,NA
+2_101,2,2018-05-05T21:01:45Z,1998,2,Female,Chinese,No,High School,Part time,20.25,Yes,NA,NA
+2_102,2,2018-05-16T17:51:14Z,1998,10,Female,Chinese,Yes,High School,Student,19.5833333333333,Yes,NA,NA
+2_103,2,2018-05-16T18:16:04Z,1995,10,Male,Other Asian,No,High School,Student,22.5833333333333,Yes,NA,NA
+2_104,2,2018-05-16T18:21:01Z,1999,6,Female,Chinese,No,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_105,2,2018-05-16T19:05:25Z,1998,10,Female,Other Asian,Yes,High School,Student,19.5833333333333,Yes,NA,NA
+2_106,2,2018-05-16T19:18:05Z,1999,9,Male,White/Caucasian,Yes,High School,Student,18.6666666666667,Yes,NA,NA
+2_109,2,2018-05-17T02:03:38Z,1997,12,Female,Chinese,Yes,High School,Student,20.4166666666667,Yes,NA,NA
+2_110,2,2018-05-17T08:21:00Z,1999,8,Female,Other Asian,Yes,High School,Student,18.75,Yes,NA,NA
+2_111,2,2018-05-16T18:00:42Z,1998,5,Male,Chinese,Yes,Bachelor degree,Student,20,Yes,NA,NA
+2_112,2,2018-05-17T09:29:20Z,1995,5,Female,Other,Yes,Bachelor degree,"Student,Part time",23,Yes,NA,NA
+2_116,2,2018-05-17T13:03:40Z,1999,3,Male,White/Caucasian,Yes,High School,"Student,Part time",19.1666666666667,Yes,NA,NA
+2_117,2,2018-05-17T13:41:36Z,1999,11,Female,Other Asian,Yes,High School,Student,18.5,Yes,NA,NA
+2_118,2,2018-05-17T14:30:22Z,1991,3,Female,White/Caucasian,Yes,Bachelor degree,Full time,27.1666666666667,Yes,NA,NA
+2_119,2,2018-05-17T14:25:37Z,1999,10,Female,White/Caucasian,Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_120,2,2018-05-17T18:04:51Z,1998,12,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",19.4166666666667,Yes,NA,NA
+2_121,2,2018-05-17T21:47:20Z,2000,4,Female,White/Caucasian,Yes,High School,Student,18.0833333333333,Yes,NA,NA
+2_122,2,2018-05-18T12:06:54Z,1998,10,Female,White/Caucasian,Yes,High School,Part time,19.5833333333333,Yes,NA,NA
+2_123,2,2018-05-18T14:11:01Z,1995,8,Female,Other Asian,Yes,High School,Student,22.75,Yes,NA,NA
+2_124,2,2018-05-21T11:56:51Z,1996,5,Female,White/Caucasian,Yes,Bachelor degree,Student,22,Yes,NA,NA
+2_125,2,2018-05-21T19:45:00Z,1998,11,Female,Chinese,No,High School,Student,19.5,Yes,NA,NA
+2_126,2,2018-05-22T16:58:14Z,1999,10,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_127,2,2018-05-23T13:04:43Z,2000,5,Female,White/Caucasian,Yes,High School,"Student,Part time",18,Yes,NA,NA
+2_129,2,2018-05-17T22:38:41Z,1998,12,Female,White/Caucasian,Yes,High School,Student,19.4166666666667,Yes,NA,NA
+2_131,2,2018-05-26T22:07:41Z,1998,8,Female,Chinese,Yes,High School,"Student,Full time",19.75,Yes,NA,NA
+2_134,2,2018-05-30T10:47:38Z,1999,2,Female,White/Caucasian,Yes,High School,"Student,Part time",19.25,Yes,NA,NA
+2_136,2,2018-05-30T17:33:25Z,1998,2,Female,White/Caucasian,Yes,High School,"Student,Part time",20.25,Yes,NA,NA
+2_137,2,2018-05-30T17:43:35Z,1999,10,Female,"Middle Eastern,Other",Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_138,2,2018-07-27T13:29:06Z,1998,2,Male,Chinese,No,High School,Student,20.4166666666667,Yes,NA,NA
+2_139,2,2018-07-27T13:38:39Z,1998,10,Female,Chinese,Yes,High School,"Student,Full time",19.75,Yes,NA,NA
+2_140,2,2018-07-27T15:08:33Z,1999,3,Female,White/Caucasian,Yes,High School,"Student,Part time",19.3333333333333,Yes,NA,NA
+2_141,2,2018-07-27T15:33:04Z,1999,12,Male,White/Caucasian,Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_142,2,2018-07-27T15:38:40Z,1988,1,Male,Chinese,Yes,Bachelor degree,Student,30.5,Yes,NA,NA
+2_143,2,2018-07-27T15:46:17Z,2000,1,Female,Other Asian,Yes,High School,"Student,Part time",18.5,Yes,NA,NA
+2_144,2,2018-07-27T15:12:25Z,1999,8,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_145,2,2018-07-27T16:01:40Z,1999,7,Female,White/Caucasian,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_146,2,2018-07-27T16:03:01Z,1993,4,Male,White/Caucasian,Yes,High School,"Student,Part time",25.25,Yes,NA,NA
+2_147,2,2018-07-27T14:58:11Z,2000,5,Female,Chinese,Yes,High School,"Student,Part time",18.1666666666667,Yes,NA,NA
+2_149,2,2018-07-27T20:37:50Z,1999,4,Male,White/Caucasian,Yes,High School,Student,19.25,Yes,NA,NA
+2_150,2,2018-07-27T21:17:55Z,1999,10,Male,Other Asian,Yes,High School,Student,18.75,Yes,NA,NA
+2_151,2,2018-07-27T20:56:29Z,1999,12,Male,Chinese,Yes,High School,"Student,Not employed",18.5833333333333,Yes,NA,NA
+2_152,2,2018-07-27T20:24:52Z,1998,3,Female,Chinese,No,High School,Student,20.3333333333333,Yes,NA,NA
+2_153,2,2018-07-27T21:34:53Z,1999,12,Female,Chinese,No,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_154,2,2018-07-27T21:45:14Z,1999,11,Female,Chinese,No,High School,Student,18.6666666666667,Yes,NA,NA
+2_155,2,2018-07-27T21:58:30Z,1999,8,Female,Chinese,No,Bachelor degree,Student,18.9166666666667,Yes,NA,NA
+2_156,2,2018-07-28T18:55:06Z,1998,5,Female,Indonesian,Yes,High School,Student,20.1666666666667,Yes,NA,NA
+2_157,2,2018-07-27T16:12:33Z,1999,9,Female,White/Caucasian,Yes,High School,Student,18.8333333333333,Yes,NA,NA
+2_158,2,2018-07-27T17:16:35Z,1999,6,Female,Chinese,No,High School,Student,19.0833333333333,Yes,NA,NA
+2_159,2,2018-07-29T16:24:50Z,1999,9,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,Bachelor degree,Student,18.8333333333333,Yes,NA,NA
+2_160,2,2018-07-29T16:36:17Z,1997,4,Male,Chinese,Yes,Bachelor degree,Student,21.25,Yes,NA,NA
+2_161,2,2018-07-27T17:29:46Z,1999,7,Female,White/Caucasian,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_162,2,2018-07-30T10:29:55Z,1998,5,Female,White/Caucasian,Yes,High School,Student,20.1666666666667,Yes,NA,NA
+2_163,2,2018-07-30T11:10:15Z,1997,10,Female,Chinese,Yes,High School,"Student,Part time",20.75,Yes,NA,NA
+2_164,2,2018-07-30T11:39:38Z,1996,9,Female,White/Caucasian,Yes,Bachelor degree,Student,21.8333333333333,Yes,NA,NA
+2_166,2,2018-07-30T12:10:05Z,1999,6,Female,"Chinese,Other Asian",No,High School,Student,19.0833333333333,Yes,NA,NA
+2_167,2,2018-07-30T14:19:01Z,2000,2,Female,Middle Eastern,No,High School,Student,18.4166666666667,Yes,NA,NA
+2_168,2,2018-07-30T14:39:56Z,1998,8,Female,Other Asian,No,High School,"Student,Full time,Not employed",19.9166666666667,Yes,NA,NA
+2_169,2,2018-07-30T14:31:39Z,1998,6,Female,Chinese,No,High School,"Student,Full time,Not employed",20.0833333333333,Yes,NA,NA
+2_170,2,2018-07-30T15:09:32Z,1999,10,Female,"White/Caucasian,Hispanic",Yes,High School,Student,18.75,Yes,NA,NA
+2_171,2,2018-07-30T15:17:51Z,1999,1,Female,Middle Eastern,Yes,High School,Student,19.5,Yes,NA,NA
+2_174,2,2018-07-30T15:27:09Z,1998,8,Female,Chinese,No,High School,Student,19.9166666666667,Yes,NA,NA
+2_175,2,2018-07-30T16:02:19Z,1998,4,Female,Other,Yes,High School,"Student,Part time",20.25,Yes,NA,NA
+2_177,2,2018-07-30T16:23:30Z,1999,6,Female,Chinese,No,High School,"Student,Part time",19.0833333333333,Yes,NA,NA
+2_178,2,2018-07-30T16:38:03Z,2000,7,Female,"Chinese,Indonesian",Yes,High School,Student,18,Yes,NA,NA
+2_179,2,2018-07-30T15:59:04Z,1999,2,Female,Chinese,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_180,2,2018-07-30T16:45:00Z,1998,1,Female,White/Caucasian,No,High School,Student,20.5,Yes,NA,NA
+2_182,2,2018-07-30T16:34:15Z,1999,2,Female,Chinese,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_183,2,2018-07-30T16:11:08Z,1998,10,Female,Chinese,No,High School,"Student,Full time",19.75,Yes,NA,NA
+2_184,2,2018-07-30T16:48:01Z,1984,9,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,Bachelor degree,Student,33.8333333333333,Yes,NA,NA
+2_185,2,2018-07-30T17:41:30Z,1999,7,Female,Chinese,No,High School,Student,19,Yes,NA,NA
+2_187,2,2018-07-30T16:14:49Z,1999,8,Female,Chinese,No,High School,Student,18.9166666666667,Yes,NA,NA
+2_188,2,2018-07-30T17:59:43Z,1999,8,Female,Other Asian,Yes,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_189,2,2018-07-30T12:30:14Z,1999,5,Female,Chinese,No,High School,Student,19.1666666666667,Yes,NA,NA
+2_191,2,2018-07-30T19:50:40Z,1999,12,Female,Other Asian,No,Bachelor degree,Student,18.5833333333333,Yes,NA,NA
+2_192,2,2018-07-30T20:07:56Z,1999,9,Female,Chinese,Yes,High School,Student,18.8333333333333,Yes,NA,NA
+2_193,2,2018-07-30T21:15:02Z,1998,2,Female,Chinese,No,High School,Student,20.4166666666667,Yes,NA,NA
+2_194,2,2018-07-30T14:19:49Z,2000,1,Female,Aboriginal or Torres Strait Islander,Yes,High School,Student,18.5,Yes,NA,NA
+2_195,2,2018-07-30T21:47:26Z,1999,2,Female,Chinese,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_196,2,2018-07-30T22:09:03Z,2000,3,Male,White/Caucasian,Yes,High School,Student,18.3333333333333,Yes,NA,NA
+2_197,2,2018-07-30T22:39:35Z,1998,6,Female,Chinese,No,High School,Student,20.0833333333333,Yes,NA,NA
+2_198,2,2018-07-30T23:29:15Z,1998,1,Female,Other Asian,No,High School,Student,20.5,Yes,NA,NA
+2_199,2,2018-07-31T10:20:05Z,1998,6,Female,Other Asian,Yes,High School,"Student,Part time",20.0833333333333,Yes,NA,NA
+2_200,2,2018-07-31T12:18:26Z,1998,6,Female,Chinese,No,High School,Student,20.0833333333333,Yes,NA,NA
+2_201,2,2018-07-31T11:33:33Z,1998,3,Male,Chinese,No,Bachelor degree,Part time,20.3333333333333,Yes,NA,NA
+2_202,2,2018-07-31T14:31:35Z,1983,10,Female,Chinese,No,Postgraduate degree,Student,34.75,Yes,NA,NA
+2_203,2,2018-07-31T15:34:59Z,1999,7,Female,Chinese,Yes,High School,Student,19,Yes,NA,NA
+2_205,2,2018-07-30T15:30:06Z,1997,2,Female,Other Asian,Yes,High School,Student,21.4166666666667,Yes,NA,NA
+2_206,2,2018-07-31T17:09:39Z,1999,3,Female,Chinese,No,High School,Student,19.3333333333333,Yes,NA,NA
+2_207,2,2018-07-31T20:01:17Z,1999,1,Female,Chinese,No,High School,Student,19.5,Yes,NA,NA
+2_209,2,2018-07-30T12:47:01Z,1999,10,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.75,Yes,NA,NA
+2_210,2,2018-08-01T13:47:02Z,1999,3,Male,Chinese,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_211,2,2018-08-03T12:02:32Z,1996,9,Female,Chinese,No,Bachelor degree,"Student,Part time",21.9166666666667,Yes,NA,NA
+2_212,2,2018-08-03T14:31:16Z,1997,7,Female,"Chinese,Indonesian",No,"Trade, technical or vocational training",Student,21.0833333333333,Yes,NA,NA
+2_213,2,2018-08-03T14:51:52Z,1999,12,Female,Chinese,Yes,High School,Student,18.6666666666667,Yes,NA,NA
+2_215,2,2018-08-04T13:52:21Z,2000,7,Male,"Chinese,Other Asian",No,High School,Student,18.0833333333333,Yes,NA,NA
+2_216,2,2018-08-04T15:27:48Z,1996,5,Male,Other Asian,No,High School,Student,22.25,Yes,NA,NA
+2_218,2,2018-08-04T22:06:50Z,1998,3,Female,Chinese,Yes,High School,Student,20.4166666666667,Yes,NA,NA
+2_219,2,2018-08-03T11:09:06Z,1998,6,Female,Chinese,No,High School,Student,20.1666666666667,Yes,NA,NA
+2_221,2,2018-08-05T14:22:08Z,1999,3,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Not employed,19.4166666666667,Yes,NA,NA
+2_222,2,2018-08-05T19:00:49Z,1999,6,Female,Chinese,No,High School,Student,19.1666666666667,Yes,NA,NA
+2_223,2,2018-08-05T22:06:27Z,1999,1,Male,White/Caucasian,Yes,Bachelor degree,Student,19.5833333333333,Yes,NA,NA
+2_224,2,2018-08-05T22:13:43Z,1999,7,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_225,2,2018-08-05T22:20:16Z,1999,7,Female,White/Caucasian,Yes,High School,"Student,Part time",19.0833333333333,Yes,NA,NA
+2_227,2,2018-07-30T10:17:25Z,2000,2,Female,"White/Caucasian,Chinese,Other Asian,Aboriginal or Torres Strait Islander",Yes,High School,Student,18.4166666666667,Yes,NA,NA
+2_228,2,2018-08-06T10:58:17Z,1999,9,Female,White/Caucasian,Yes,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_230,2,2018-08-06T13:20:34Z,1999,8,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",19,Yes,NA,NA
+2_231,2,2018-08-06T19:51:16Z,1998,8,Female,Chinese,No,High School,Not employed,20,Yes,NA,NA
+2_232,2,2018-08-07T10:34:31Z,1998,9,Female,"White/Caucasian,Other Asian",Yes,High School,Student,19.9166666666667,Yes,NA,NA
+2_233,2,2018-08-06T11:24:38Z,2000,2,Male,White/Caucasian,Yes,High School,"Student,Part time",18.5,Yes,NA,NA
+2_234,2,2018-08-07T15:41:23Z,1997,9,Female,Chinese,Yes,High School,Student,20.9166666666667,Yes,NA,NA
+2_235,2,2018-08-08T12:07:52Z,1999,5,Female,Chinese,No,Bachelor degree,Student,19.25,Yes,NA,NA
+2_236,2,2018-08-04T11:20:50Z,1992,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training","Student,Not employed",26.0833333333333,Yes,NA,NA
+2_237,2,2018-08-12T22:01:23Z,1999,8,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Part time,19,Yes,NA,NA
+2_238,2,2018-08-17T15:31:20Z,1997,12,Female,Chinese,Yes,High School,Student,20.6666666666667,Yes,NA,NA
+2_239,2,2018-08-17T15:21:36Z,1999,11,Male,White/Caucasian,Yes,High School,Student,18.75,Yes,NA,NA
+2_240,2,2018-08-17T17:34:39Z,1999,11,Male,Chinese,Yes,High School,Student,18.75,Yes,NA,NA
+2_241,2,2018-08-17T19:46:30Z,1999,1,Female,Chinese,No,High School,"Student,Part time,Prefer not to say",19.5833333333333,Yes,NA,NA
+2_243,2,2018-08-17T23:19:01Z,2000,2,Female,Chinese,No,High School,Student,18.5,Yes,NA,NA
+2_244,2,2018-08-18T00:27:30Z,1999,3,Female,Other Asian,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_245,2,2018-08-18T01:32:41Z,1999,2,Female,Prefer not to say,No,High School,"Student,Part time",19.5,Yes,NA,NA
+2_247,2,2018-08-18T12:28:20Z,1998,9,Female,White/Caucasian,Yes,High School,"Student,Part time",19.9166666666667,Yes,NA,NA
+2_248,2,2018-08-18T17:32:46Z,1999,9,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_249,2,2018-08-19T00:28:02Z,2000,3,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.4166666666667,Yes,NA,NA
+2_250,2,2018-08-18T19:14:08Z,2000,1,Male,White/Caucasian,Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_251,2,2018-08-19T13:00:06Z,1999,11,Female,Chinese,Yes,High School,Student,18.75,Yes,NA,NA
+2_252,2,2018-08-19T16:28:36Z,1999,8,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_253,2,2018-08-19T16:29:33Z,1998,9,Male,Indonesian,No,High School,Student,19.9166666666667,Yes,NA,NA
+2_254,2,2018-08-19T19:26:17Z,1999,2,Male,White/Caucasian,Yes,High School,Student,19.5,Yes,NA,NA
+2_255,2,2018-08-19T19:38:21Z,1998,11,Female,"White/Caucasian,Middle Eastern",Yes,High School,Student,19.75,Yes,NA,NA
+2_256,2,2018-08-20T02:51:23Z,1999,10,Female,"Chinese,Indonesian",No,High School,Student,18.8333333333333,Yes,NA,NA
+2_257,2,2018-08-20T05:04:05Z,1999,5,Male,"Chinese,Other Asian",Yes,High School,"Student,Part time",19.25,Yes,NA,NA
+2_258,2,2018-08-20T10:10:17Z,1999,7,Female,White/Caucasian,Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_259,2,2018-08-20T17:23:06Z,1997,5,Female,Chinese,No,High School,Student,21.25,Yes,NA,NA
+2_260,2,2018-08-20T17:42:31Z,1997,3,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,21.4166666666667,Yes,NA,NA
+2_261,2,2018-08-20T18:05:45Z,1999,11,Male,Other,Yes,High School,Student,18.75,Yes,NA,NA
+2_263,2,2018-08-19T00:22:06Z,1999,6,Male,Indonesian,No,High School,Student,19.1666666666667,Yes,NA,NA
+2_264,2,2018-08-20T23:47:50Z,1998,8,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,Student,20,Yes,NA,NA
+2_265,2,2018-08-20T19:09:57Z,1999,10,Female,White/Caucasian,Yes,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_266,2,2018-08-20T22:13:18Z,1998,9,Female,White/Caucasian,Yes,High School,Part time,19.9166666666667,Yes,NA,NA
+2_267,2,2018-08-20T10:12:08Z,1999,4,Male,Chinese,Yes,High School,Student,19.3333333333333,Yes,NA,NA
+2_268,2,2018-08-22T21:49:28Z,2000,2,Male,Chinese,Yes,High School,Student,18.5,Yes,NA,NA
+2_269,2,2018-08-21T17:52:18Z,1999,7,Female,Other Asian,No,High School,Student,19.0833333333333,Yes,NA,NA
+2_270,2,2018-08-23T02:57:26Z,1999,5,Female,"Chinese,Other",Yes,High School,Student,19.25,Yes,NA,NA
+2_271,2,2018-08-23T17:30:56Z,2000,6,Female,"Chinese,Other Asian",No,High School,"Student,Part time",18.1666666666667,Yes,NA,NA
+2_272,2,2018-08-23T21:03:57Z,2000,4,Female,Other Asian,Yes,High School,"Student,Not employed",18.3333333333333,Yes,NA,NA
+2_273,2,2018-08-18T14:04:24Z,1999,2,Male,Chinese,No,High School,Student,19.5,Yes,NA,NA
+2_275,2,2018-08-24T07:59:55Z,1997,9,Male,Other Asian,No,High School,Student,20.9166666666667,Yes,NA,NA
+2_276,2,2018-08-24T10:33:46Z,1999,6,Female,White/Caucasian,Yes,High School,Student,19.1666666666667,Yes,NA,NA
+2_277,2,2018-08-24T12:32:41Z,1998,1,Male,Chinese,No,High School,Student,20.5833333333333,Yes,NA,NA
+2_279,2,2018-08-24T15:04:20Z,1999,10,Female,White/Caucasian,Yes,High School,Student,18.8333333333333,Yes,NA,NA
+2_280,2,2018-08-24T16:00:12Z,1999,12,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,Student,18.6666666666667,Yes,NA,NA
+2_282,2,2018-08-27T13:43:20Z,1998,9,Male,White/Caucasian,Yes,High School,Student,19.9166666666667,Yes,NA,NA
+2_283,2,2018-08-27T13:00:51Z,1998,10,Female,Chinese,No,High School,Student,19.8333333333333,Yes,NA,NA
+2_285,2,2018-08-31T11:21:04Z,1999,7,Female,Chinese,No,High School,Student,19.0833333333333,Yes,NA,NA
+2_287,2,2018-09-01T09:34:55Z,1999,11,Other,White/Caucasian,Yes,High School,"Student,Not employed",18.8333333333333,Yes,NA,NA
+2_288,2,2018-10-01T18:32:38Z,1999,12,Female,White/Caucasian,Yes,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_290,2,2018-10-01T20:23:44Z,1999,3,Female,White/Caucasian,Yes,High School,Student,19.5833333333333,Yes,NA,NA
+2_291,2,2018-10-01T20:36:44Z,1999,10,Female,White/Caucasian,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_292,2,2018-10-01T21:05:28Z,1999,6,Female,White/Caucasian,Yes,High School,"Student,Part time",19.3333333333333,Yes,NA,NA
+2_293,2,2018-10-01T21:34:41Z,1999,10,Female,"White/Caucasian,South Asian/Desi (Indian, Pakistani, Sri Lankan etc.),Other",Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_294,2,2018-10-01T22:07:12Z,1999,8,Female,Other Asian,Yes,High School,Student,19.1666666666667,Yes,NA,NA
+2_297,2,2018-10-01T23:24:51Z,1999,8,Female,Chinese,No,High School,Student,19.1666666666667,Yes,NA,NA
+2_300,2,2018-10-02T10:29:08Z,1999,9,Female,Chinese,No,High School,"Student,Part time",19.0833333333333,Yes,NA,NA
+2_301,2,2018-10-02T10:44:42Z,1999,4,Male,White/Caucasian,Yes,High School,Student,19.5,Yes,NA,NA
+2_302,2,2018-10-02T10:55:45Z,1999,9,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Full time,Not employed",19.0833333333333,Yes,NA,NA
+2_303,2,2018-10-02T13:33:11Z,1999,11,Female,White/Caucasian,Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_304,2,2018-10-02T14:35:34Z,1990,7,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",28.25,Yes,NA,NA
+2_305,2,2018-10-02T11:48:23Z,1999,10,Female,Chinese,No,High School,Student,19,Yes,NA,NA
+2_306,2,2018-10-02T21:32:36Z,1997,8,Female,"White/Caucasian,South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Not employed",21.1666666666667,Yes,NA,NA
+2_307,2,2018-10-02T22:09:10Z,1998,6,Female,White/Caucasian,Yes,High School,Student,20.3333333333333,Yes,NA,NA
+2_308,2,2018-10-03T11:46:35Z,1999,8,Female,"Middle Eastern,Other",Yes,High School,Student,19.1666666666667,Yes,NA,NA
+2_311,2,2018-10-02T04:54:52Z,1998,6,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,"Student,Full time",20.3333333333333,Yes,NA,NA
+2_312,2,2018-10-07T20:42:08Z,2000,1,Female,White/Caucasian,Yes,High School,"Student,Part time",18.75,Yes,NA,NA
+2_313,2,2018-10-07T22:53:23Z,1999,5,Female,White/Caucasian,Yes,High School,"Student,Part time",19.4166666666667,Yes,NA,NA
+2_315,2,2018-10-08T23:34:03Z,1999,1,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,Student,19.75,Yes,NA,NA
+2_316,2,2018-10-02T12:40:51Z,1999,5,Female,White/Caucasian,Yes,High School,"Student,Part time",19.4166666666667,Yes,NA,NA
+2_317,2,2018-10-10T12:04:21Z,1996,12,Female,Middle Eastern,Yes,High School,"Student,Part time",21.8333333333333,Yes,NA,NA
+2_318,2,2018-10-10T12:31:22Z,1997,6,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,21.3333333333333,Yes,NA,NA
+2_320,2,2018-10-10T13:35:27Z,1999,10,Female,White/Caucasian,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_321,2,2018-10-10T16:24:49Z,1998,2,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,20.6666666666667,Yes,NA,NA
+2_322,2,2018-10-10T16:04:52Z,1999,10,Female,Other,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_323,2,2018-10-10T14:39:45Z,1998,7,Male,Chinese,No,Bachelor degree,"Student,Part time",20.25,Yes,NA,NA
+2_324,2,2018-10-10T16:35:05Z,1999,9,Male,White/Caucasian,Yes,High School,"Student,Part time",19.0833333333333,Yes,NA,NA
+2_325,2,2018-10-10T16:46:23Z,1999,4,Female,Indonesian,No,High School,Student,19.5,Yes,NA,NA
+2_327,2,2018-10-10T12:40:55Z,2000,7,Female,Indonesian,No,High School,Student,18.25,Yes,NA,NA
+2_328,2,2018-10-10T16:34:13Z,1999,12,Female,Other Asian,No,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_329,2,2018-10-11T11:50:21Z,1998,5,Female,White/Caucasian,Yes,High School,Student,20.4166666666667,Yes,NA,NA
+2_330,2,2018-10-11T11:14:06Z,1998,8,Female,White/Caucasian,Yes,High School,Student,20.1666666666667,Yes,NA,NA
+2_331,2,2018-10-11T12:12:07Z,2000,4,Male,African or African American,Yes,High School,"Student,Not employed",18.5,Yes,NA,NA
+2_333,2,2018-10-11T14:45:47Z,1999,8,Female,White/Caucasian,Yes,High School,"Student,Part time",19.1666666666667,Yes,NA,NA
+2_334,2,2018-10-11T16:43:21Z,2000,3,Female,Other Asian,No,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_335,2,2018-10-11T20:02:12Z,1997,6,Male,Chinese,No,High School,Student,21.3333333333333,Yes,NA,NA
+2_336,2,2018-10-11T16:24:44Z,1999,7,Female,White/Caucasian,Yes,High School,"Student,Part time",19.25,Yes,NA,NA
+2_337,2,2018-10-11T22:05:23Z,1999,10,Female,Chinese,Yes,High School,Student,19,Yes,NA,NA
+2_338,2,2018-10-12T08:40:09Z,1990,4,Male,White/Caucasian,Yes,Bachelor degree,"Student,Part time",28.5,Yes,NA,NA
+2_339,2,2018-10-12T09:08:38Z,1999,7,Female,Chinese,No,High School,Student,19.25,Yes,NA,NA
+2_340,2,2018-10-12T12:40:42Z,1999,11,Female,White/Caucasian,Yes,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_341,2,2018-10-12T12:58:28Z,1993,9,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",25.0833333333333,Yes,NA,NA
+2_342,2,2018-10-12T10:45:32Z,1998,3,Male,White/Caucasian,Yes,High School,Student,20.5833333333333,Yes,NA,NA
+2_344,2,2018-10-12T13:10:55Z,1999,11,Female,Chinese,Prefer not to say,High School,Student,18.9166666666667,Yes,NA,NA
+2_345,2,2018-10-12T15:05:11Z,1999,8,Female,Chinese,No,High School,Student,19.1666666666667,Yes,NA,NA
+2_346,2,2018-10-12T16:47:03Z,2000,3,Female,White/Caucasian,Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_348,2,2018-10-12T18:24:50Z,1999,1,Female,Chinese,No,High School,Student,19.75,Yes,NA,NA
+2_349,2,2018-10-12T19:39:37Z,1999,10,Male,Chinese,Yes,High School,"Student,Full time",19,Yes,NA,NA
+2_350,2,2018-10-12T19:52:59Z,2000,10,Female,Chinese,No,High School,Student,18,Yes,NA,NA
+2_351,2,2018-10-12T20:33:20Z,2000,9,Female,Indonesian,No,High School,"Student,Not employed",18.0833333333333,Yes,NA,NA
+2_353,2,2018-10-13T10:59:57Z,1999,2,Female,White/Caucasian,Yes,High School,"Student,Full time",19.6666666666667,Yes,NA,NA
+2_354,2,2018-10-13T12:31:50Z,1999,4,Female,Chinese,Yes,High School,"Student,Not employed",19.5,Yes,NA,NA
+2_357,2,2018-10-13T15:55:15Z,1999,8,Female,Chinese,Yes,High School,Part time,19.1666666666667,Yes,NA,NA
+2_359,2,2018-10-13T18:27:05Z,2000,1,Female,White/Caucasian,Yes,High School,Student,18.75,Yes,NA,NA
+2_360,2,2018-10-13T19:47:52Z,2000,3,Female,Chinese,Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_361,2,2018-10-13T22:21:42Z,1999,6,Female,White/Caucasian,Yes,High School,"Student,Part time",19.3333333333333,Yes,NA,NA
+2_362,2,2018-10-13T21:23:40Z,1999,3,Female,Chinese,No,High School,Student,19.5833333333333,Yes,NA,NA
+2_363,2,2018-10-13T23:18:41Z,1999,11,Male,"White/Caucasian,Chinese",Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_364,2,2018-10-14T16:37:29Z,1999,10,Male,White/Caucasian,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_365,2,2018-10-14T20:23:20Z,1997,11,Male,White/Caucasian,Yes,High School,Student,20.9166666666667,Yes,NA,NA
+2_366,2,2018-10-14T20:43:01Z,1999,12,Male,White/Caucasian,Yes,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_367,2,2018-10-14T21:22:20Z,2000,4,Male,Chinese,No,High School,"Student,Not employed",18.5,Yes,NA,NA
+2_368,2,2018-10-14T20:03:41Z,1996,2,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,Bachelor degree,Part time,22.6666666666667,Yes,NA,NA
+2_371,2,2018-10-15T00:12:41Z,1999,11,Female,Chinese,No,High School,Student,18.9166666666667,Yes,NA,NA
+2_372,2,2018-10-15T08:53:31Z,1999,8,Male,White/Caucasian,Yes,High School,Student,19.1666666666667,Yes,NA,NA
+2_373,2,2018-10-15T11:16:02Z,1999,10,Female,White/Caucasian,Yes,High School,"Student,Part time",19,Yes,NA,NA
+2_374,2,2018-10-15T11:49:42Z,1998,8,Female,White/Caucasian,Yes,High School,Student,20.1666666666667,Yes,NA,NA
+2_377,2,2018-10-15T14:32:22Z,1999,5,Female,Chinese,No,High School,Student,19.4166666666667,Yes,NA,NA
+2_378,2,2018-10-15T14:31:20Z,1999,11,Female,Middle Eastern,Yes,High School,Student,18.9166666666667,Yes,NA,NA
+2_379,2,2018-10-15T16:27:22Z,1999,2,Female,White/Caucasian,Yes,High School,"Student,Part time",19.6666666666667,Yes,NA,NA
+2_380,2,2018-10-11T13:32:24Z,2000,2,Female,White/Caucasian,Yes,High School,Student,18.6666666666667,Yes,NA,NA
+2_381,2,2018-10-15T17:03:15Z,1999,2,Female,"White/Caucasian,Other Asian",Yes,High School,Student,19.6666666666667,Yes,NA,NA
+2_382,2,2018-10-15T17:10:53Z,1998,3,Male,Chinese,No,High School,"Student,Full time",20.5833333333333,Yes,NA,NA
+2_384,2,2018-10-15T20:08:07Z,1999,6,Female,"Chinese,Other",Yes,High School,Part time,19.3333333333333,Yes,NA,NA
+2_385,2,2018-10-15T20:41:06Z,1999,5,Male,White/Caucasian,Yes,High School,Part time,19.4166666666667,Yes,NA,NA
+2_386,2,2018-10-15T18:44:58Z,1998,8,Female,White/Caucasian,Yes,High School,Student,20.1666666666667,Yes,NA,NA
+2_387,2,2018-10-15T21:21:51Z,1999,10,Male,Other Asian,No,High School,"Student,Part time",19,Yes,NA,NA
+2_388,2,2018-10-15T21:24:55Z,1999,2,Male,White/Caucasian,Yes,High School,Student,19.6666666666667,Yes,NA,NA
+2_389,2,2018-10-16T00:54:45Z,1998,10,Female,White/Caucasian,Yes,High School,Student,20,Yes,NA,NA
+2_391,2,2018-10-16T12:59:30Z,1998,10,Female,White/Caucasian,Yes,High School,"Student,Part time",20,Yes,NA,NA
+2_392,2,2018-10-16T14:27:05Z,1998,10,Female,White/Caucasian,Yes,High School,Student,20,Yes,NA,NA
+2_394,2,2018-10-16T14:32:20Z,1998,8,Female,White/Caucasian,No,High School,Student,20.1666666666667,Yes,NA,NA
+2_396,2,2018-10-16T15:14:04Z,1998,4,Female,White/Caucasian,Yes,High School,"Student,Not employed",20.5,Yes,NA,NA
+2_397,2,2018-10-16T16:16:29Z,1999,7,Female,White/Caucasian,Yes,High School,"Student,Part time",19.25,Yes,NA,NA
+2_398,2,2018-10-16T16:09:27Z,1994,4,Male,White/Caucasian,Yes,"Trade, technical or vocational training","Student,Part time",24.5,Yes,NA,NA
+2_399,2,2018-10-16T15:51:16Z,1999,11,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,High School,Student,18.9166666666667,Yes,NA,NA
+2_400,2,2018-10-16T16:34:35Z,1984,3,Male,White/Caucasian,Yes,Postgraduate degree,"Student,Part time",34.5833333333333,Yes,NA,NA
+2_401,2,2018-10-16T17:22:05Z,1998,9,Female,White/Caucasian,Yes,High School,Part time,20.0833333333333,Yes,NA,NA
+2_402,2,2018-10-16T17:31:46Z,1999,9,Female,White/Caucasian,Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_403,2,2018-10-16T17:07:08Z,1999,9,Female,Chinese,Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_404,2,2018-10-13T22:00:19Z,1999,7,Female,"Chinese,Indonesian,Other Asian",Yes,High School,Part time,19.25,Yes,NA,NA
+2_405,2,2018-10-16T17:26:38Z,1997,2,Male,Chinese,No,High School,Student,21.6666666666667,Yes,NA,NA
+2_406,2,2018-10-16T20:51:58Z,1999,7,Male,White/Caucasian,Yes,High School,Student,19.25,Yes,NA,NA
+2_407,2,2018-10-16T23:18:07Z,1998,1,Female,Chinese,No,High School,Student,20.75,Yes,NA,NA
+2_408,2,2018-10-16T23:52:28Z,1999,6,Female,Other Asian,Yes,High School,"Student,Part time",19.3333333333333,Yes,NA,NA
+2_409,2,2018-10-17T00:15:22Z,1999,1,Male,"Chinese,Indonesian",No,High School,Part time,19.75,Yes,NA,NA
+2_410,2,2018-10-17T09:46:09Z,2000,3,Female,Other Asian,No,High School,Student,18.5833333333333,Yes,NA,NA
+2_411,2,2018-10-17T12:04:13Z,1999,12,Female,Other,Yes,High School,Part time,18.8333333333333,Yes,NA,NA
+2_412,2,2018-10-17T12:13:38Z,2000,3,Male,Chinese,Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_414,2,2018-10-17T14:34:41Z,1979,3,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Student,39.5833333333333,Yes,NA,NA
+2_415,2,2018-10-17T10:06:38Z,1999,7,Male,White/Caucasian,Yes,High School,Student,19.25,Yes,NA,NA
+2_416,2,2018-10-17T14:39:29Z,1999,6,Female,Chinese,No,High School,Student,19.3333333333333,Yes,NA,NA
+2_418,2,2018-10-17T15:54:18Z,1997,5,Female,"White/Caucasian,Middle Eastern,Other",Yes,High School,"Student,Part time",21.4166666666667,Yes,NA,NA
+2_419,2,2018-10-17T18:16:49Z,1999,9,Other,Other Asian,Yes,High School,"Student,Not employed",19.0833333333333,Yes,NA,NA
+2_421,2,2018-10-17T16:44:31Z,1999,4,Male,"Chinese,South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,Prefer not to say,Student,19.5,Yes,NA,NA
+2_423,2,2018-10-17T20:48:16Z,1999,7,Female,Chinese,No,Bachelor degree,Student,19.25,Yes,NA,NA
+2_424,2,2018-10-17T20:36:56Z,2000,2,Female,Other Asian,No,High School,Student,18.6666666666667,Yes,NA,NA
+2_425,2,2018-10-17T22:43:39Z,2000,9,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.0833333333333,Yes,NA,NA
+2_426,2,2018-10-18T10:13:53Z,1999,11,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,"Student,Part time",18.9166666666667,Yes,NA,NA
+2_428,2,2018-10-18T14:28:55Z,1999,6,Male,Chinese,No,High School,Student,19.3333333333333,Yes,NA,NA
+2_429,2,2018-10-18T15:42:34Z,1999,9,Male,White/Caucasian,Yes,High School,"Student,Part time",19.0833333333333,Yes,NA,NA
+2_430,2,2018-10-17T10:18:09Z,1999,8,Female,White/Caucasian,Yes,High School,Student,19.1666666666667,Yes,NA,NA
+2_431,2,2018-10-17T13:47:47Z,2000,3,Female,"White/Caucasian,Other Asian",Yes,High School,"Student,Part time",18.5833333333333,Yes,NA,NA
+2_432,2,2018-10-18T19:06:32Z,1999,8,Female,Chinese,No,High School,"Student,Part time",19.1666666666667,Yes,NA,NA
+2_433,2,2018-10-18T19:56:09Z,1999,10,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19,Yes,NA,NA
+2_434,2,2018-10-18T21:03:12Z,1998,7,Female,Chinese,Yes,High School,Student,20.25,Yes,NA,NA
+2_435,2,2018-10-18T21:06:52Z,1999,3,Female,White/Caucasian,Yes,High School,"Student,Part time",19.5833333333333,Yes,NA,NA
+2_436,2,2018-10-18T22:43:59Z,1999,10,Female,"White/Caucasian,Other",Yes,High School,"Student,Not employed",19,Yes,NA,NA
+2_439,2,2018-10-19T07:14:49Z,2000,4,Male,Other Asian,Yes,High School,Student,18.5,Yes,NA,NA
+2_440,2,2018-10-19T10:07:36Z,1999,8,Female,Other Asian,Yes,"Trade, technical or vocational training",Student,19.1666666666667,Yes,NA,NA
+2_442,2,2018-10-19T14:08:41Z,1998,6,Female,White/Caucasian,Yes,High School,"Student,Part time",20.3333333333333,Yes,NA,NA
+2_444,2,2018-10-19T13:12:49Z,1999,10,Female,African or African American,Yes,High School,"Student,Not employed",19,Yes,NA,NA
+2_445,2,2018-10-19T16:30:48Z,1999,12,Female,Chinese,Yes,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_446,2,2018-10-19T16:48:48Z,1998,12,Male,Other Asian,No,High School,Student,19.8333333333333,Yes,NA,NA
+2_447,2,2018-10-19T21:12:54Z,1999,8,Female,Other Asian,No,High School,"Student,Part time",19.1666666666667,Yes,NA,NA
+2_448,2,2018-10-20T23:12:06Z,1981,12,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,36.8333333333333,Yes,NA,NA
+2_449,2,2018-10-21T14:54:02Z,2000,9,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,18.0833333333333,Yes,NA,NA
+2_450,2,2018-10-21T15:39:39Z,1999,8,Female,White/Caucasian,Yes,High School,Student,19.1666666666667,Yes,NA,NA
+2_451,2,2018-10-21T17:04:39Z,1993,5,Female,White/Caucasian,Yes,Bachelor degree,Part time,25.4166666666667,Yes,NA,NA
+2_452,2,2018-10-21T17:18:03Z,1999,6,Male,White/Caucasian,Yes,High School,"Student,Full time",19.3333333333333,Yes,NA,NA
+2_453,2,2018-10-21T16:17:36Z,1997,10,Female,White/Caucasian,Yes,High School,"Student,Part time",21,Yes,NA,NA
+2_454,2,2018-10-21T20:57:07Z,1999,1,Female,White/Caucasian,Yes,High School,Student,19.75,Yes,NA,NA
+2_455,2,2018-10-21T14:16:09Z,1999,9,Female,White/Caucasian,Yes,High School,Student,19.0833333333333,Yes,NA,NA
+2_457,2,2018-10-22T11:02:13Z,1999,12,Female,Chinese,No,High School,"Student,Not employed",18.8333333333333,Yes,NA,NA
+2_458,2,2018-10-15T11:32:22Z,2000,5,Female,White/Caucasian,Yes,High School,"Student,Part time",18.4166666666667,Yes,NA,NA
+2_459,2,2018-10-19T12:28:04Z,1999,6,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,19.3333333333333,Yes,NA,NA
+2_460,2,2018-10-22T13:27:24Z,1999,3,Female,White/Caucasian,Yes,High School,Student,19.5833333333333,Yes,NA,NA
+2_461,2,2018-10-22T14:35:41Z,2000,3,Female,Chinese,Yes,High School,Student,18.5833333333333,Yes,NA,NA
+2_462,2,2018-10-22T16:20:01Z,2000,3,Female,White/Caucasian,Yes,Bachelor degree,Student,18.5833333333333,Yes,NA,NA
+2_463,2,2018-10-22T16:12:51Z,1999,6,Female,Middle Eastern,Yes,High School,Student,19.3333333333333,Yes,NA,NA
+2_464,2,2018-10-22T16:56:18Z,1996,12,Female,Other Asian,No,High School,"Student,Part time",21.8333333333333,Yes,NA,NA
+2_465,2,2018-10-22T13:56:30Z,1999,2,Male,"White/Caucasian,Chinese,Other Asian",Yes,High School,"Student,Part time",19.6666666666667,Yes,NA,NA
+2_466,2,2018-10-22T20:37:51Z,1999,12,Male,Other Asian,Yes,High School,"Student,Part time",18.8333333333333,Yes,NA,NA
+2_468,2,2018-10-22T21:11:00Z,1997,11,Female,Other Asian,No,High School,"Student,Part time",20.9166666666667,Yes,NA,NA
+2_469,2,2018-10-22T23:08:57Z,1998,10,Female,White/Caucasian,Yes,High School,Student,20,Yes,NA,NA
+2_472,2,2018-10-23T22:47:03Z,1997,1,Female,White/Caucasian,Yes,High School,"Student,Part time",21.75,Yes,NA,NA
+2_474,2,2018-10-24T03:10:09Z,1999,5,Female,Chinese,Yes,High School,"Student,Part time",19.4166666666667,Yes,NA,NA
+2_475,2,2018-10-24T17:34:27Z,1999,10,Female,"White/Caucasian,Indonesian",Yes,High School,Student,19,Yes,NA,NA
+2_478,2,2018-10-24T22:08:33Z,1999,3,Male,White/Caucasian,Yes,High School,Student,19.5833333333333,Yes,NA,NA
+2_480,2,2018-10-25T07:12:01Z,1998,9,Male,Other Asian,Yes,High School,Student,20.0833333333333,Yes,NA,NA
+2_483,2,2018-10-25T12:49:22Z,1992,8,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",26.1666666666667,Yes,NA,NA
+2_485,2,2018-10-25T11:33:18Z,2000,3,Male,Chinese,No,High School,Student,18.5833333333333,Yes,NA,NA
+2_486,2,2018-10-25T16:34:50Z,1997,8,Male,Chinese,Yes,High School,Student,21.1666666666667,Yes,NA,NA
+2_487,2,2018-10-25T17:41:27Z,1999,3,Male,White/Caucasian,Yes,High School,"Student,Part time",19.5833333333333,Yes,NA,NA
+2_488,2,2018-10-25T17:49:51Z,1999,3,Female,Chinese,No,High School,Student,19.5833333333333,Yes,NA,NA
+2_489,2,2018-10-25T19:19:30Z,1989,11,Female,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",No,Postgraduate degree,"Student,Part time",28.9166666666667,Yes,NA,NA
+2_490,2,2018-10-26T11:40:05Z,1997,10,Female,"White/Caucasian,Hispanic",Yes,"Trade, technical or vocational training",Student,21,Yes,NA,NA
+2_491,2,2018-10-26T14:19:38Z,1999,9,Female,Chinese,No,High School,Student,19.0833333333333,Yes,NA,NA
+3_1,3,2019-05-13T10:52:28Z,1996,6,Female,White/Caucasian,Yes,Bachelor degree,"Student,Part time",22.9166666666667,NA,Yes,Yes
+3_2,3,2019-05-13T11:22:17Z,1983,2,Male,White/Caucasian,Yes,Bachelor degree,Full time,36.25,NA,Yes,Yes
+3_3,3,2019-05-13T11:20:49Z,1954,2,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,65.25,NA,Yes,Yes
+3_4,3,2019-05-13T11:19:34Z,1982,2,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,37.25,NA,Yes,Yes
+3_5,3,2019-05-13T11:54:34Z,1987,4,Male,White/Caucasian,Yes,Bachelor degree,Full time,32.0833333333333,NA,Yes,Yes
+3_6,3,2019-05-13T11:48:49Z,1989,12,Male,"White/Caucasian,African or African American",Yes,High School,Full time,29.4166666666667,NA,Yes,Yes
+3_7,3,2019-05-13T11:39:53Z,1965,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,54.3333333333333,NA,Yes,Yes
+3_8,3,2019-05-13T12:15:30Z,1974,7,Female,"White/Caucasian,Aboriginal or Torres Strait Islander",Yes,"Trade, technical or vocational training",Full time,44.8333333333333,NA,Yes,Yes
+3_9,3,2019-05-13T14:04:04Z,1947,2,Male,White/Caucasian,Yes,High School,Full time,72.25,NA,Yes,Yes
+3_10,3,2019-05-14T10:11:11Z,1988,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,30.8333333333333,NA,Yes,Yes
+3_11,3,2019-05-14T10:15:59Z,1981,7,Male,White/Caucasian,Yes,High School,Full time,37.8333333333333,NA,Yes,Yes
+3_12,3,2019-05-14T10:19:19Z,1994,12,Male,White/Caucasian,Yes,High School,Full time,24.4166666666667,NA,Yes,Yes
+3_13,3,2019-05-14T10:33:42Z,1973,7,Female,White/Caucasian,Yes,Postgraduate degree,Part time,45.8333333333333,NA,Yes,Yes
+3_14,3,2019-05-14T10:30:46Z,1989,7,Female,White/Caucasian,Yes,High School,Full time,29.8333333333333,NA,Yes,Yes
+3_15,3,2019-05-14T10:30:53Z,1985,5,Male,African or African American,Yes,High School,Prefer not to say,34,NA,Yes,Yes
+3_16,3,2019-05-14T10:32:19Z,1983,12,Male,Chinese,Yes,"Trade, technical or vocational training",Full time,35.4166666666667,NA,Yes,Yes
+3_17,3,2019-05-14T10:17:58Z,1988,8,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,30.75,NA,Yes,Yes
+3_18,3,2019-05-14T10:28:16Z,1982,12,Female,White/Caucasian,Yes,High School,Not employed,36.4166666666667,NA,Yes,Yes
+3_19,3,2019-05-14T10:23:55Z,1989,12,Male,White/Caucasian,Yes,Did not complete high school,Not employed,29.4166666666667,NA,Yes,Yes
+3_20,3,2019-05-14T10:36:52Z,1987,4,Female,White/Caucasian,Yes,High School,Full time,32.0833333333333,NA,Yes,Yes
+3_21,3,2019-05-14T10:21:02Z,1983,10,Male,"White/Caucasian,Other Asian,Other",Yes,Bachelor degree,Full time,35.5833333333333,NA,Yes,Yes
+3_22,3,2019-05-14T10:32:12Z,1974,1,Female,White/Caucasian,Yes,Bachelor degree,Part time,45.3333333333333,NA,Yes,Yes
+3_23,3,2019-05-14T10:45:04Z,1996,7,Male,White/Caucasian,Yes,High School,Full time,22.8333333333333,NA,Yes,Yes
+3_24,3,2019-05-14T11:06:19Z,1991,3,Male,White/Caucasian,Yes,Bachelor degree,Full time,28.1666666666667,NA,Yes,Yes
+3_25,3,2019-05-14T10:49:18Z,1983,8,Male,White/Caucasian,Yes,High School,Full time,35.75,NA,Yes,Yes
+3_26,3,2019-05-14T10:59:53Z,1991,10,Male,African or African American,Yes,Bachelor degree,Full time,27.5833333333333,NA,Yes,Yes
+3_27,3,2019-05-14T10:25:15Z,1976,6,Male,White/Caucasian,Yes,High School,Part time,42.9166666666667,NA,Yes,Yes
+3_28,3,2019-05-14T11:24:27Z,1966,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,52.75,NA,Yes,Yes
+3_29,3,2019-05-14T11:21:21Z,1959,9,Male,White/Caucasian,Yes,High School,Full time,59.6666666666667,NA,Yes,Yes
+3_30,3,2019-05-14T11:29:37Z,1989,3,Male,"White/Caucasian,Hispanic",Yes,Bachelor degree,Full time,30.1666666666667,NA,Yes,Yes
+3_31,3,2019-05-14T11:30:20Z,1987,10,Male,White/Caucasian,Yes,Bachelor degree,Full time,31.5833333333333,NA,Yes,Yes
+3_32,3,2019-05-14T11:37:48Z,1998,8,Male,African or African American,Yes,High School,Full time,20.75,NA,Yes,Yes
+3_33,3,2019-05-14T11:29:50Z,1988,1,Female,White/Caucasian,Yes,Bachelor degree,Full time,31.3333333333333,NA,Yes,Yes
+3_34,3,2019-05-14T11:39:51Z,1981,7,Male,Hispanic,Yes,Bachelor degree,Full time,37.8333333333333,NA,Yes,Yes
+3_35,3,2019-05-14T11:44:30Z,1987,3,Female,Other Asian,Yes,Bachelor degree,Full time,32.1666666666667,NA,Yes,Yes
+3_36,3,2019-05-14T12:05:02Z,1980,6,Female,"White/Caucasian,Other Asian",Yes,Bachelor degree,Full time,38.9166666666667,NA,Yes,Yes
+3_37,3,2019-05-14T11:58:52Z,1995,9,Female,White/Caucasian,Yes,Bachelor degree,Full time,23.6666666666667,NA,Yes,Yes
+3_38,3,2019-05-14T12:04:44Z,1987,10,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,31.5833333333333,NA,Yes,Yes
+3_39,3,2019-05-14T11:56:22Z,1987,9,Female,White/Caucasian,Yes,Bachelor degree,Full time,31.6666666666667,NA,Yes,Yes
+3_40,3,2019-05-14T12:11:14Z,1989,10,Male,White/Caucasian,Yes,High School,Full time,29.5833333333333,NA,Yes,Yes
+3_41,3,2019-05-14T12:50:43Z,1983,2,Female,White/Caucasian,Yes,Bachelor degree,Full time,36.25,NA,Yes,Yes
+3_43,3,2019-05-14T13:12:30Z,1982,4,Male,White/Caucasian,Yes,Bachelor degree,Full time,37.0833333333333,NA,Yes,Yes
+3_44,3,2019-05-14T13:13:11Z,1992,4,Prefer not to say,African or African American,Yes,High School,Part time,27.0833333333333,NA,Yes,Yes
+3_45,3,2019-05-14T13:22:58Z,1989,6,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,29.9166666666667,NA,Yes,Yes
+3_46,3,2019-05-14T12:57:56Z,1991,9,Female,African or African American,Yes,"Trade, technical or vocational training",Student,27.6666666666667,NA,Yes,Yes
+3_47,3,2019-05-14T13:48:25Z,1979,7,Female,White/Caucasian,Yes,Bachelor degree,Full time,39.8333333333333,NA,Yes,Yes
+3_48,3,2019-05-14T13:52:51Z,1980,11,Male,White/Caucasian,Yes,High School,Full time,38.5,NA,Yes,Yes
+3_49,3,2019-05-14T13:50:54Z,1986,5,Male,White/Caucasian,Yes,High School,Student,33,NA,Yes,Yes
+3_50,3,2019-05-14T14:54:55Z,1986,10,Male,Chinese,Yes,Bachelor degree,Full time,32.5833333333333,NA,Yes,Yes
+3_51,3,2019-05-14T14:54:59Z,1988,1,Male,White/Caucasian,Yes,High School,Full time,31.3333333333333,NA,Yes,Yes
+3_52,3,2019-05-14T15:21:16Z,1995,5,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,24,NA,Yes,Yes
+3_53,3,2019-05-14T15:42:11Z,1986,11,Male,White/Caucasian,Yes,High School,Full time,32.5,NA,Yes,Yes
+3_54,3,2019-05-14T15:24:09Z,1993,9,Male,Hispanic,Yes,High School,Not employed,25.6666666666667,NA,Yes,Yes
+3_55,3,2019-05-15T10:03:56Z,1987,2,Female,White/Caucasian,Yes,High School,Full time,32.25,NA,Yes,Yes
+3_57,3,2019-05-15T10:06:20Z,1985,8,Female,White/Caucasian,Yes,Bachelor degree,Full time,33.75,NA,Yes,Yes
+3_58,3,2019-05-15T10:05:50Z,1980,10,Female,African or African American,Yes,Bachelor degree,Full time,38.5833333333333,NA,Yes,Yes
+3_59,3,2019-05-15T10:05:28Z,1980,5,Male,White/Caucasian,Yes,Bachelor degree,Full time,39,NA,Yes,Yes
+3_60,3,2019-05-15T10:04:57Z,1987,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,32.3333333333333,NA,Yes,Yes
+3_61,3,2019-05-15T10:12:32Z,1992,3,Male,White/Caucasian,Yes,Bachelor degree,Prefer not to say,27.1666666666667,NA,Yes,Yes
+3_62,3,2019-05-15T10:24:32Z,1991,10,Male,White/Caucasian,Yes,Bachelor degree,Full time,27.5833333333333,NA,Yes,Yes
+3_63,3,2019-05-15T10:17:38Z,1992,1,Male,Hispanic,Yes,Bachelor degree,Full time,27.3333333333333,NA,Yes,Yes
+3_65,3,2019-05-15T10:18:16Z,1988,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,30.8333333333333,NA,Yes,Yes
+3_66,3,2019-05-15T10:04:18Z,1992,1,Male,White/Caucasian,Yes,High School,Part time,27.3333333333333,NA,Yes,Yes
+3_67,3,2019-05-15T10:06:20Z,1980,4,Male,White/Caucasian,Yes,Bachelor degree,Full time,39.0833333333333,NA,Yes,Yes
+3_68,3,2019-05-15T10:15:50Z,1973,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,45.8333333333333,NA,Yes,Yes
+3_69,3,2019-05-15T10:12:24Z,1987,9,Male,White/Caucasian,Yes,High School,Not employed,31.6666666666667,NA,Yes,Yes
+3_70,3,2019-05-15T10:05:15Z,1992,3,Female,White/Caucasian,Yes,Bachelor degree,Student,27.1666666666667,NA,Yes,Yes
+3_71,3,2019-05-15T10:33:06Z,1986,10,Male,Other Asian,No,Prefer not to say,Full time,32.5833333333333,NA,Yes,Yes
+3_72,3,2019-05-15T10:37:23Z,1981,8,Female,White/Caucasian,Yes,High School,Full time,37.75,NA,Yes,Yes
+3_73,3,2019-05-15T10:05:03Z,1987,11,Male,White/Caucasian,Yes,Bachelor degree,Full time,31.5,NA,Yes,Yes
+3_74,3,2019-05-15T10:39:18Z,1980,4,Female,Middle Eastern,Yes,High School,"Student,Part time",39.0833333333333,NA,Yes,Yes
+3_75,3,2019-05-15T10:58:13Z,1965,1,Male,White/Caucasian,Yes,High School,Full time,54.3333333333333,NA,Yes,Yes
+3_76,3,2019-05-15T11:01:12Z,1991,12,Female,White/Caucasian,Yes,Bachelor degree,Full time,27.4166666666667,NA,Yes,Yes
+3_77,3,2019-05-15T10:06:55Z,1982,9,Female,White/Caucasian,Yes,Bachelor degree,Not employed,36.6666666666667,NA,Yes,Yes
+3_78,3,2019-05-15T10:08:38Z,1992,9,Male,African or African American,No,Bachelor degree,Full time,26.6666666666667,NA,Yes,Yes
+3_79,3,2019-05-15T11:09:56Z,1985,3,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,34.1666666666667,NA,Yes,Yes
+3_80,3,2019-05-15T11:16:18Z,1989,7,Female,Hispanic,Yes,Bachelor degree,Full time,29.8333333333333,NA,Yes,Yes
+3_82,3,2019-05-15T10:19:45Z,1985,7,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,33.8333333333333,NA,Yes,Yes
+3_83,3,2019-05-15T10:59:02Z,1996,4,Male,African or African American,Yes,Bachelor degree,Part time,23.0833333333333,NA,Yes,Yes
+3_84,3,2019-05-15T11:30:36Z,1981,12,Male,White/Caucasian,Yes,Bachelor degree,Full time,37.4166666666667,NA,Yes,Yes
+3_85,3,2019-05-15T11:27:01Z,1968,1,Female,White/Caucasian,Yes,Postgraduate degree,Full time,51.3333333333333,NA,Yes,Yes
+3_86,3,2019-05-15T11:43:04Z,1995,10,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,Bachelor degree,Full time,23.5833333333333,NA,Yes,Yes
+3_88,3,2019-05-15T11:23:53Z,1980,5,Male,White/Caucasian,Yes,Bachelor degree,Full time,39,NA,Yes,Yes
+3_89,3,2019-05-15T11:23:03Z,1986,1,Female,African or African American,Yes,"Trade, technical or vocational training",Full time,33.3333333333333,NA,Yes,Yes
+3_90,3,2019-05-15T11:36:06Z,1983,11,Female,Hispanic,Yes,Bachelor degree,Full time,35.5,NA,Yes,Yes
+3_91,3,2019-05-15T11:13:30Z,1970,8,Female,White/Caucasian,Yes,High School,Part time,48.75,NA,Yes,Yes
+3_92,3,2019-05-15T11:45:07Z,1989,3,Female,Other Asian,Yes,Bachelor degree,Full time,30.1666666666667,NA,Yes,Yes
+3_93,3,2019-05-15T11:27:16Z,1982,4,Male,White/Caucasian,Yes,High School,Full time,37.0833333333333,NA,Yes,Yes
+3_94,3,2019-05-15T11:27:06Z,1982,12,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,36.4166666666667,NA,Yes,Yes
+3_95,3,2019-05-15T10:09:47Z,1991,10,Male,Hispanic,Yes,High School,Full time,27.5833333333333,NA,Yes,Yes
+3_96,3,2019-05-15T11:45:26Z,1980,5,Male,White/Caucasian,Yes,High School,Not employed,39,NA,Yes,Yes
+3_97,3,2019-05-15T11:18:28Z,1977,3,Male,White/Caucasian,Yes,High School,Full time,42.1666666666667,NA,Yes,Yes
+3_98,3,2019-05-15T12:02:32Z,1987,5,Male,"White/Caucasian,Hispanic",Yes,"Trade, technical or vocational training",Full time,32,NA,Yes,Yes
+3_99,3,2019-05-15T11:28:46Z,1989,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,29.8333333333333,NA,Yes,Yes
+3_100,3,2019-05-15T11:42:44Z,1990,4,Male,White/Caucasian,Yes,Postgraduate degree,Full time,29.0833333333333,NA,Yes,Yes
+3_101,3,2019-05-15T11:50:24Z,1987,1,Female,Other Asian,Yes,"Trade, technical or vocational training",Full time,32.3333333333333,NA,Yes,Yes
+3_104,3,2019-05-15T13:08:26Z,1983,2,Female,African or African American,Yes,Bachelor degree,Full time,36.25,NA,Yes,Yes
+3_105,3,2019-05-15T13:21:55Z,1984,4,Male,African or African American,Yes,Bachelor degree,Full time,35.0833333333333,NA,Yes,Yes
+3_107,3,2019-05-15T13:09:43Z,1994,5,Male,Other Asian,Yes,Bachelor degree,Full time,25,NA,Yes,Yes
+3_108,3,2019-05-15T13:07:03Z,1997,2,Female,White/Caucasian,Yes,Bachelor degree,Part time,22.25,NA,Yes,Yes
+3_109,3,2019-05-15T13:45:25Z,1994,8,Male,Hispanic,Yes,Bachelor degree,Full time,24.75,NA,Yes,Yes
+3_110,3,2019-05-15T14:10:09Z,1963,1,Female,White/Caucasian,Yes,Bachelor degree,Full time,56.3333333333333,NA,Yes,Yes
+3_111,3,2019-05-15T15:18:32Z,1959,4,Female,White/Caucasian,Yes,High School,Full time,60.0833333333333,NA,Yes,Yes
+3_112,3,2019-05-15T17:29:15Z,1988,9,Female,White/Caucasian,Yes,High School,Full time,30.6666666666667,NA,Yes,Yes
+3_114,3,2019-05-16T10:00:58Z,1979,7,Male,White/Caucasian,Yes,Postgraduate degree,Full time,39.8333333333333,NA,Yes,Yes
+3_115,3,2019-05-16T10:00:22Z,1983,5,Male,White/Caucasian,Yes,Bachelor degree,Full time,36,NA,Yes,Yes
+3_116,3,2019-05-16T10:00:08Z,1983,1,Female,White/Caucasian,Yes,High School,Full time,36.3333333333333,NA,Yes,Yes
+3_117,3,2019-05-16T10:04:03Z,1991,6,Female,White/Caucasian,Yes,High School,Part time,27.9166666666667,NA,Yes,Yes
+3_118,3,2019-05-16T10:00:36Z,1985,5,Male,White/Caucasian,Yes,High School,Full time,34,NA,Yes,Yes
+3_119,3,2019-05-16T10:00:31Z,1958,10,Female,White/Caucasian,Yes,NA,Retired,60.5833333333333,NA,Yes,Yes
+3_120,3,2019-05-16T10:00:21Z,1990,5,Male,White/Caucasian,Yes,"Trade, technical or vocational training","Student,Full time",29,NA,Yes,Yes
+3_121,3,2019-05-16T10:02:37Z,1990,9,Male,White/Caucasian,Yes,Postgraduate degree,Full time,28.6666666666667,NA,Yes,Yes
+3_122,3,2019-05-16T10:01:53Z,1986,12,Female,White/Caucasian,Yes,High School,Full time,32.4166666666667,NA,Yes,Yes
+3_123,3,2019-05-16T10:02:49Z,1990,5,Male,White/Caucasian,Yes,Bachelor degree,Part time,29,NA,Yes,Yes
+3_124,3,2019-05-16T10:01:20Z,1959,3,Female,White/Caucasian,Yes,Bachelor degree,Not employed,60.1666666666667,NA,Yes,Yes
+3_125,3,2019-05-16T10:00:15Z,1987,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,31.8333333333333,NA,Yes,Yes
+3_126,3,2019-05-16T10:00:24Z,1970,4,Female,White/Caucasian,Yes,Bachelor degree,Full time,49.0833333333333,NA,Yes,Yes
+3_127,3,2019-05-16T10:08:02Z,1990,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,29.3333333333333,NA,Yes,Yes
+3_128,3,2019-05-16T10:04:58Z,1987,6,Female,White/Caucasian,Yes,Bachelor degree,Full time,31.9166666666667,NA,Yes,Yes
+3_129,3,2019-05-16T10:11:57Z,1951,11,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,67.5,NA,Yes,Yes
+3_130,3,2019-05-16T10:00:44Z,1979,8,Female,White/Caucasian,Yes,Postgraduate degree,Full time,39.75,NA,Yes,Yes
+3_131,3,2019-05-16T10:14:49Z,1993,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,25.75,NA,Yes,Yes
+3_132,3,2019-05-16T10:00:17Z,1991,9,Male,White/Caucasian,Yes,Bachelor degree,Full time,27.6666666666667,NA,Yes,Yes
+3_133,3,2019-05-16T10:16:35Z,1991,10,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,27.5833333333333,NA,Yes,Yes
+3_134,3,2019-05-16T10:17:17Z,1997,11,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Student,21.5,NA,Yes,Yes
+3_135,3,2019-05-16T10:03:41Z,1957,10,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,61.5833333333333,NA,Yes,Yes
+3_136,3,2019-05-16T10:02:18Z,1980,4,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Prefer not to say,39.0833333333333,NA,Yes,Yes
+3_137,3,2019-05-16T10:00:12Z,1965,6,Male,African or African American,Yes,Bachelor degree,Full time,53.9166666666667,NA,Yes,Yes
+3_138,3,2019-05-16T10:00:53Z,1989,8,Female,White/Caucasian,Yes,High School,"Student,Full time",29.75,NA,Yes,Yes
+3_139,3,2019-05-16T10:07:42Z,1992,1,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,27.3333333333333,NA,Yes,Yes
+3_140,3,2019-05-16T10:11:04Z,1984,12,Male,White/Caucasian,Yes,Bachelor degree,Full time,34.4166666666667,NA,Yes,Yes
+3_141,3,2019-05-16T10:20:28Z,1954,10,Female,White/Caucasian,Yes,High School,Part time,64.5833333333333,NA,Yes,Yes
+3_142,3,2019-05-16T10:21:05Z,1984,12,Female,White/Caucasian,Yes,Postgraduate degree,Not employed,34.4166666666667,NA,Yes,Yes
+3_143,3,2019-05-16T10:19:26Z,1985,11,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,33.5,NA,Yes,Yes
+3_144,3,2019-05-16T10:35:11Z,1991,12,Female,White/Caucasian,Yes,Bachelor degree,Part time,27.4166666666667,NA,Yes,Yes
+3_146,3,2019-05-16T10:39:08Z,1989,3,Female,White/Caucasian,Yes,High School,Not employed,30.1666666666667,NA,Yes,Yes
+3_147,3,2019-05-16T10:42:36Z,1990,12,Male,White/Caucasian,Yes,Bachelor degree,Not employed,28.4166666666667,NA,Yes,Yes
+3_148,3,2019-05-16T10:07:53Z,1996,3,Male,White/Caucasian,Yes,High School,Student,23.1666666666667,NA,Yes,Yes
+3_149,3,2019-05-16T10:29:59Z,1972,11,Male,White/Caucasian,Yes,Bachelor degree,Full time,46.5,NA,Yes,Yes
+3_150,3,2019-05-16T10:46:15Z,1988,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,30.8333333333333,NA,Yes,Yes
+3_151,3,2019-05-16T10:11:24Z,1976,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,42.8333333333333,NA,Yes,Yes
+3_152,3,2019-05-16T10:15:02Z,1963,12,Female,White/Caucasian,Yes,High School,Full time,55.4166666666667,NA,Yes,Yes
+3_153,3,2019-05-16T10:59:02Z,1963,8,Male,White/Caucasian,Yes,High School,Full time,55.75,NA,Yes,Yes
+3_154,3,2019-05-16T10:34:44Z,1968,1,Female,White/Caucasian,Yes,High School,Part time,51.3333333333333,NA,Yes,Yes
+3_155,3,2019-05-16T10:35:38Z,1995,2,Female,African or African American,Yes,High School,Full time,24.25,NA,Yes,Yes
+3_156,3,2019-05-16T10:00:32Z,1975,12,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,43.4166666666667,NA,Yes,Yes
+3_157,3,2019-05-16T10:56:02Z,1989,1,Male,African or African American,Yes,Bachelor degree,Full time,30.3333333333333,NA,Yes,Yes
+3_158,3,2019-05-16T10:15:58Z,1983,1,Male,African or African American,Yes,Bachelor degree,Full time,36.3333333333333,NA,Yes,Yes
+3_159,3,2019-05-16T11:01:23Z,1966,6,Male,White/Caucasian,Yes,Postgraduate degree,Full time,52.9166666666667,NA,Yes,Yes
+3_160,3,2019-05-16T10:01:35Z,1984,6,Male,Hispanic,Yes,High School,Full time,34.9166666666667,NA,Yes,Yes
+3_162,3,2019-05-16T10:12:16Z,1973,3,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,46.1666666666667,NA,Yes,Yes
+3_163,3,2019-05-16T10:42:26Z,1985,9,Female,African or African American,Yes,"Trade, technical or vocational training",Full time,33.6666666666667,NA,Yes,Yes
+3_164,3,2019-05-16T10:50:19Z,1988,3,Male,Hispanic,Yes,Bachelor degree,Full time,31.1666666666667,NA,Yes,Yes
+3_165,3,2019-05-16T11:43:36Z,1993,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,25.8333333333333,NA,Yes,Yes
+3_166,3,2019-05-16T10:26:39Z,1984,12,Female,White/Caucasian,Yes,Bachelor degree,Full time,34.4166666666667,NA,Yes,Yes
+3_167,3,2019-05-16T11:33:49Z,1987,7,Male,White/Caucasian,Yes,Bachelor degree,Not employed,31.8333333333333,NA,Yes,Yes
+3_169,3,2019-05-16T11:53:18Z,1992,3,Female,"White/Caucasian,African or African American,Hispanic",Yes,High School,Full time,27.1666666666667,NA,Yes,Yes
+3_170,3,2019-05-16T11:43:40Z,1989,9,Female,White/Caucasian,Yes,Postgraduate degree,Full time,29.6666666666667,NA,Yes,Yes
+3_171,3,2019-05-16T11:46:59Z,1958,6,Female,White/Caucasian,Yes,Bachelor degree,Part time,60.9166666666667,NA,Yes,Yes
+3_172,3,2019-05-16T10:57:12Z,1985,10,Male,"White/Caucasian,Other Asian,Other",Yes,"Trade, technical or vocational training",Part time,33.5833333333333,NA,Yes,Yes
+3_173,3,2019-05-16T12:04:27Z,1986,8,Male,White/Caucasian,Yes,High School,Full time,32.75,NA,Yes,Yes
+3_174,3,2019-05-16T11:11:42Z,1984,10,Female,African or African American,Yes,Postgraduate degree,Part time,34.5833333333333,NA,Yes,Yes
+3_175,3,2019-05-16T12:20:57Z,1992,10,Male,White/Caucasian,Yes,High School,Full time,26.5833333333333,NA,Yes,Yes
+3_176,3,2019-05-16T12:19:25Z,1955,1,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Retired,64.3333333333333,NA,Yes,Yes
+3_177,3,2019-05-16T12:03:03Z,1990,9,Female,White/Caucasian,Yes,Bachelor degree,Full time,28.6666666666667,NA,Yes,Yes
+3_178,3,2019-05-16T11:50:49Z,1970,7,Male,Hispanic,Yes,Postgraduate degree,Full time,48.8333333333333,NA,Yes,Yes
+3_179,3,2019-05-16T12:47:48Z,1990,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,29.3333333333333,NA,Yes,Yes
+3_180,3,2019-05-16T12:37:02Z,1973,12,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,45.4166666666667,NA,Yes,Yes
+3_182,3,2019-05-16T13:08:17Z,1984,2,Male,White/Caucasian,Yes,Bachelor degree,Full time,35.25,NA,Yes,Yes
+3_183,3,2019-05-16T13:06:53Z,1983,10,Female,White/Caucasian,Yes,Bachelor degree,Not employed,35.5833333333333,NA,Yes,Yes
+3_184,3,2019-05-16T13:02:06Z,1991,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,27.8333333333333,NA,Yes,Yes
+3_185,3,2019-05-16T13:20:06Z,1989,2,Male,White/Caucasian,Yes,High School,Part time,30.25,NA,Yes,Yes
+3_186,3,2019-05-16T11:41:58Z,1997,3,Female,African or African American,Yes,High School,"Student,Full time",22.1666666666667,NA,Yes,Yes
+3_187,3,2019-05-16T13:24:19Z,1992,3,Male,White/Caucasian,Yes,High School,Full time,27.1666666666667,NA,Yes,Yes
+3_188,3,2019-05-16T13:53:31Z,1966,7,Male,White/Caucasian,Yes,Postgraduate degree,Full time,52.8333333333333,NA,Yes,Yes
+3_189,3,2019-05-16T14:08:39Z,1974,11,Female,White/Caucasian,Yes,"Trade, technical or vocational training","Student,Part time",44.5,NA,Yes,Yes
+3_190,3,2019-05-16T13:33:34Z,1982,7,Female,Other Asian,Yes,"Trade, technical or vocational training",Full time,36.8333333333333,NA,Yes,Yes
+3_191,3,2019-05-16T11:39:27Z,1984,12,Male,White/Caucasian,Yes,Bachelor degree,Full time,34.4166666666667,NA,Yes,Yes
+3_192,3,2019-05-16T15:33:10Z,1995,5,Male,White/Caucasian,Yes,Bachelor degree,Full time,24,NA,Yes,Yes
+3_193,3,2019-05-16T18:18:17Z,1946,11,Female,White/Caucasian,Yes,Bachelor degree,Full time,72.5,NA,Yes,Yes
+3_194,3,2019-05-16T18:44:00Z,1990,10,Female,White/Caucasian,Yes,Bachelor degree,Full time,28.5833333333333,NA,Yes,Yes
+3_197,3,2019-05-17T10:49:54Z,1998,5,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,21,NA,Yes,Yes
+3_198,3,2019-05-17T10:51:50Z,1992,11,Female,White/Caucasian,Yes,Bachelor degree,Full time,26.5,NA,Yes,Yes
+3_199,3,2019-05-17T10:39:50Z,1993,2,Male,White/Caucasian,Yes,Bachelor degree,Part time,26.25,NA,Yes,Yes
+3_200,3,2019-05-17T10:44:07Z,1972,7,Female,White/Caucasian,Yes,Postgraduate degree,Part time,46.8333333333333,NA,Yes,Yes
+3_201,3,2019-05-17T10:41:22Z,1981,5,Female,Hispanic,Yes,Bachelor degree,Full time,38,NA,Yes,Yes
+3_202,3,2019-05-17T10:40:49Z,1973,1,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Not employed,46.3333333333333,NA,Yes,Yes
+3_203,3,2019-05-17T10:48:49Z,1962,9,Male,White/Caucasian,Yes,High School,Full time,56.6666666666667,NA,Yes,Yes
+3_204,3,2019-05-17T11:01:56Z,1989,8,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,29.75,NA,Yes,Yes
+3_205,3,2019-05-17T10:48:45Z,1986,11,Male,White/Caucasian,Yes,Bachelor degree,Full time,32.5,NA,Yes,Yes
+3_207,3,2019-05-17T10:39:39Z,1989,5,Male,"White/Caucasian,African or African American",Yes,Bachelor degree,"Student,Full time",30,NA,Yes,Yes
+3_208,3,2019-05-17T10:58:13Z,1992,9,Female,White/Caucasian,Yes,Bachelor degree,Full time,26.6666666666667,NA,Yes,Yes
+3_209,3,2019-05-17T10:54:51Z,1964,1,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,55.3333333333333,NA,Yes,Yes
+3_210,3,2019-05-17T10:47:25Z,1990,2,Female,White/Caucasian,Yes,High School,Full time,29.25,NA,Yes,Yes
+3_211,3,2019-05-17T10:42:17Z,1997,1,Male,White/Caucasian,Yes,High School,"Student,Full time",22.3333333333333,NA,Yes,Yes
+3_212,3,2019-05-17T11:02:02Z,1997,8,Other,White/Caucasian,Yes,Did not complete high school,Not employed,21.75,NA,Yes,Yes
+3_213,3,2019-05-17T11:00:43Z,1998,5,Male,White/Caucasian,Yes,High School,"Student,Part time",21,NA,Yes,Yes
+3_214,3,2019-05-17T11:04:11Z,1980,3,Male,White/Caucasian,Yes,Postgraduate degree,Full time,39.1666666666667,NA,Yes,Yes
+3_215,3,2019-05-17T10:55:21Z,1994,3,Female,White/Caucasian,Yes,Bachelor degree,Full time,25.1666666666667,NA,Yes,Yes
+3_216,3,2019-05-17T11:07:49Z,1979,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,39.8333333333333,NA,Yes,Yes
+3_217,3,2019-05-17T10:46:50Z,1994,3,Male,White/Caucasian,Yes,Bachelor degree,Full time,25.1666666666667,NA,Yes,Yes
+3_218,3,2019-05-17T11:11:33Z,1990,10,Male,White/Caucasian,Yes,Bachelor degree,Full time,28.5833333333333,NA,Yes,Yes
+3_219,3,2019-05-17T11:04:42Z,1981,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Not employed,37.8333333333333,NA,Yes,Yes
+3_220,3,2019-05-17T11:16:09Z,1998,7,Male,"South Asian/Desi (Indian, Pakistani, Sri Lankan etc.)",Yes,High School,Student,20.8333333333333,NA,Yes,Yes
+3_223,3,2019-05-17T11:47:35Z,1962,6,Female,White/Caucasian,Yes,Bachelor degree,Full time,56.9166666666667,NA,Yes,Yes
+3_224,3,2019-05-17T11:37:23Z,1957,10,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Not employed,61.5833333333333,NA,Yes,Yes
+3_225,3,2019-05-17T11:39:22Z,1991,4,Male,White/Caucasian,Yes,High School,Full time,28.0833333333333,NA,Yes,Yes
+3_226,3,2019-05-17T11:36:31Z,1986,9,Male,White/Caucasian,Yes,Bachelor degree,Full time,32.6666666666667,NA,Yes,Yes
+3_227,3,2019-05-17T11:33:51Z,1959,12,Female,"White/Caucasian,African or African American,Other",Yes,Postgraduate degree,Full time,59.4166666666667,NA,Yes,Yes
+3_228,3,2019-05-17T11:25:03Z,1961,2,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,58.25,NA,Yes,Yes
+3_229,3,2019-05-17T11:52:06Z,1990,7,Female,"White/Caucasian,Hispanic",Yes,Bachelor degree,Part time,28.8333333333333,NA,Yes,Yes
+3_230,3,2019-05-17T11:47:01Z,1996,1,Male,White/Caucasian,Yes,High School,"Student,Part time",23.3333333333333,NA,Yes,Yes
+3_231,3,2019-05-17T11:37:35Z,1990,6,Female,White/Caucasian,Yes,Bachelor degree,Full time,28.9166666666667,NA,Yes,Yes
+3_232,3,2019-05-17T11:10:45Z,1985,2,Male,White/Caucasian,Yes,Bachelor degree,Full time,34.25,NA,Yes,Yes
+3_233,3,2019-05-17T11:40:16Z,1985,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,34.3333333333333,NA,Yes,Yes
+3_234,3,2019-05-17T12:05:07Z,1988,1,Male,Hispanic,Yes,High School,Full time,31.3333333333333,NA,Yes,Yes
+3_235,3,2019-05-17T11:15:50Z,1966,11,Male,Other,Yes,"Trade, technical or vocational training",Part time,52.5,NA,Yes,Yes
+3_236,3,2019-05-17T10:55:39Z,1988,4,Female,African or African American,Yes,Bachelor degree,Not employed,31.0833333333333,NA,Yes,Yes
+3_237,3,2019-05-17T12:13:57Z,1957,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,62.3333333333333,NA,Yes,Yes
+3_238,3,2019-05-17T12:21:52Z,1974,8,Female,White/Caucasian,Yes,Bachelor degree,Full time,44.75,NA,Yes,Yes
+3_239,3,2019-05-17T12:02:55Z,1989,3,Male,White/Caucasian,Yes,High School,Full time,30.1666666666667,NA,Yes,Yes
+3_240,3,2019-05-17T12:20:59Z,1975,3,Female,White/Caucasian,Yes,Bachelor degree,Full time,44.1666666666667,NA,Yes,Yes
+3_241,3,2019-05-17T12:34:04Z,1986,7,Female,"African or African American,Hispanic",Yes,Bachelor degree,Full time,32.8333333333333,NA,Yes,Yes
+3_242,3,2019-05-17T12:55:41Z,1972,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,46.8333333333333,NA,Yes,Yes
+3_243,3,2019-05-17T12:47:59Z,1985,1,Female,White/Caucasian,Yes,High School,Not employed,34.3333333333333,NA,Yes,Yes
+3_244,3,2019-05-17T12:40:07Z,1994,4,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,25.0833333333333,NA,Yes,Yes
+3_245,3,2019-05-17T12:30:55Z,1986,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,32.75,NA,Yes,Yes
+3_246,3,2019-05-17T12:51:40Z,1973,1,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,46.3333333333333,NA,Yes,Yes
+3_247,3,2019-05-17T13:07:14Z,1980,7,Female,White/Caucasian,Yes,Bachelor degree,Full time,38.8333333333333,NA,Yes,Yes
+3_248,3,2019-05-17T13:08:19Z,1990,6,Male,White/Caucasian,Yes,High School,Full time,28.9166666666667,NA,Yes,Yes
+3_249,3,2019-05-17T13:06:18Z,1996,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,22.75,NA,Yes,Yes
+3_250,3,2019-05-17T13:16:00Z,1978,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,40.8333333333333,NA,Yes,Yes
+3_251,3,2019-05-17T13:25:42Z,1954,9,Male,White/Caucasian,Yes,Bachelor degree,Full time,64.6666666666667,NA,Yes,Yes
+3_252,3,2019-05-17T12:48:44Z,1989,5,Female,White/Caucasian,Yes,High School,Full time,30,NA,Yes,Yes
+3_253,3,2019-05-17T12:51:59Z,1990,8,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,28.75,NA,Yes,Yes
+3_254,3,2019-05-17T13:39:39Z,1982,6,Male,White/Caucasian,Yes,Postgraduate degree,"Student,Full time",36.9166666666667,NA,Yes,Yes
+3_255,3,2019-05-17T13:21:47Z,1983,4,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,36.0833333333333,NA,Yes,Yes
+3_256,3,2019-05-17T13:22:40Z,1974,7,Female,"White/Caucasian,Other Asian,Middle Eastern",Yes,Postgraduate degree,Part time,44.8333333333333,NA,Yes,Yes
+3_257,3,2019-05-17T13:40:36Z,1983,9,Female,Other Asian,Yes,Bachelor degree,Full time,35.6666666666667,NA,Yes,Yes
+3_258,3,2019-05-17T13:21:59Z,1991,6,Male,White/Caucasian,Yes,Postgraduate degree,Full time,27.9166666666667,NA,Yes,Yes
+3_259,3,2019-05-17T13:29:40Z,1991,5,Female,"White/Caucasian,Other",Yes,High School,Part time,28,NA,Yes,Yes
+3_260,3,2019-05-17T13:43:48Z,1976,9,Male,White/Caucasian,Yes,Bachelor degree,Part time,42.6666666666667,NA,Yes,Yes
+3_261,3,2019-05-17T13:10:57Z,1972,10,Male,White/Caucasian,Yes,Bachelor degree,Full time,46.5833333333333,NA,Yes,Yes
+3_262,3,2019-05-17T13:36:40Z,1974,9,Female,White/Caucasian,Yes,Bachelor degree,Full time,44.6666666666667,NA,Yes,Yes
+3_263,3,2019-05-17T13:55:38Z,1981,6,Male,White/Caucasian,Yes,Postgraduate degree,Full time,37.9166666666667,NA,Yes,Yes
+3_264,3,2019-05-17T14:23:09Z,1984,9,Male,White/Caucasian,Yes,Bachelor degree,Full time,34.6666666666667,NA,Yes,Yes
+3_265,3,2019-05-17T13:04:51Z,1979,11,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,39.5,NA,Yes,Yes
+3_266,3,2019-05-17T14:08:10Z,1957,10,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,61.5833333333333,NA,Yes,Yes
+3_267,3,2019-05-17T13:42:02Z,1969,7,Female,African or African American,Yes,Bachelor degree,Full time,49.8333333333333,NA,Yes,Yes
+3_268,3,2019-05-17T15:04:50Z,1993,12,Female,African or African American,Yes,High School,Full time,25.4166666666667,NA,Yes,Yes
+3_269,3,2019-05-17T14:28:48Z,1970,5,Female,White/Caucasian,Yes,Bachelor degree,Part time,49,NA,Yes,Yes
+3_270,3,2019-05-17T15:14:49Z,1991,10,Male,White/Caucasian,Yes,Bachelor degree,Part time,27.5833333333333,NA,Yes,Yes
+3_271,3,2019-05-17T14:53:21Z,1987,6,Female,White/Caucasian,Yes,High School,Full time,31.9166666666667,NA,Yes,Yes
+3_272,3,2019-05-17T15:41:02Z,1975,8,Male,African or African American,Yes,Postgraduate degree,Full time,43.75,NA,Yes,Yes
+3_273,3,2019-05-17T16:20:46Z,1993,4,Male,White/Caucasian,Yes,High School,Part time,26.0833333333333,NA,Yes,Yes
+3_275,3,2019-05-17T17:49:25Z,1980,3,Female,Hispanic,Yes,Bachelor degree,Full time,39.1666666666667,NA,Yes,Yes
+3_276,3,2019-05-17T21:55:26Z,1980,6,Female,White/Caucasian,Yes,Postgraduate degree,Full time,38.9166666666667,NA,Yes,Yes
+3_281,3,2019-05-23T10:27:05Z,1986,5,Female,White/Caucasian,Yes,High School,Full time,33,NA,Yes,Yes
+3_282,3,2019-05-23T10:28:08Z,1990,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,28.75,NA,Yes,Yes
+3_283,3,2019-05-23T10:29:37Z,1988,7,Female,White/Caucasian,Yes,Bachelor degree,Full time,30.8333333333333,NA,Yes,Yes
+3_284,3,2019-05-23T10:38:04Z,1990,8,Male,Other Asian,Yes,Bachelor degree,Full time,28.75,NA,Yes,Yes
+3_285,3,2019-05-23T10:26:53Z,1992,10,Male,White/Caucasian,Yes,High School,Part time,26.5833333333333,NA,Yes,Yes
+3_286,3,2019-05-23T10:36:16Z,1986,10,Male,White/Caucasian,Yes,High School,Full time,32.5833333333333,NA,Yes,Yes
+3_287,3,2019-05-23T10:31:16Z,1973,11,Female,White/Caucasian,Yes,Bachelor degree,Full time,45.5,NA,Yes,Yes
+3_288,3,2019-05-23T10:34:11Z,1980,9,Female,Prefer not to say,Yes,High School,Full time,38.6666666666667,NA,Yes,Yes
+3_289,3,2019-05-23T10:30:29Z,1977,6,Male,White/Caucasian,Yes,High School,Full time,41.9166666666667,NA,Yes,Yes
+3_290,3,2019-05-23T10:48:09Z,1989,8,Male,White/Caucasian,Yes,Postgraduate degree,Full time,29.75,NA,Yes,Yes
+3_291,3,2019-05-23T10:27:12Z,1967,6,Male,White/Caucasian,Yes,Bachelor degree,Full time,51.9166666666667,NA,Yes,Yes
+3_292,3,2019-05-23T10:33:37Z,1957,7,Female,White/Caucasian,Yes,High School,Full time,61.8333333333333,NA,Yes,Yes
+3_293,3,2019-05-23T10:39:37Z,1958,10,Male,White/Caucasian,Yes,High School,Full time,60.5833333333333,NA,Yes,Yes
+3_294,3,2019-05-23T10:42:52Z,1982,9,Female,White/Caucasian,Yes,Bachelor degree,Full time,36.6666666666667,NA,Yes,Yes
+3_295,3,2019-05-23T10:32:54Z,1980,6,Male,Indonesian,No,Bachelor degree,Full time,38.9166666666667,NA,Yes,Yes
+3_296,3,2019-05-23T10:40:58Z,1986,7,Male,White/Caucasian,Yes,High School,Full time,32.8333333333333,NA,Yes,Yes
+3_297,3,2019-05-23T10:46:19Z,1978,4,Male,White/Caucasian,Yes,Bachelor degree,Full time,41.0833333333333,NA,Yes,Yes
+3_299,3,2019-05-23T10:28:04Z,1998,4,Male,"White/Caucasian,African or African American",Yes,High School,"Student,Full time",21.0833333333333,NA,Yes,Yes
+3_300,3,2019-05-23T10:27:36Z,1994,1,Male,Chinese,Yes,Bachelor degree,Full time,25.3333333333333,NA,Yes,Yes
+3_301,3,2019-05-23T10:35:29Z,1987,6,Female,African or African American,Yes,Bachelor degree,Full time,31.9166666666667,NA,Yes,Yes
+3_302,3,2019-05-23T10:32:01Z,1973,9,Male,White/Caucasian,Yes,Bachelor degree,Full time,45.6666666666667,NA,Yes,Yes
+3_303,3,2019-05-23T10:35:06Z,1988,11,Male,Other Asian,Yes,High School,Full time,30.5,NA,Yes,Yes
+3_304,3,2019-05-23T11:01:58Z,1979,12,Female,White/Caucasian,Yes,High School,Part time,39.4166666666667,NA,Yes,Yes
+3_305,3,2019-05-23T11:13:44Z,1963,10,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,55.5833333333333,NA,Yes,Yes
+3_306,3,2019-05-23T11:00:55Z,1972,5,Female,White/Caucasian,Yes,Bachelor degree,Not employed,47,NA,Yes,Yes
+3_307,3,2019-05-23T11:08:30Z,1996,4,Male,Chinese,Yes,High School,"Student,Part time",23.0833333333333,NA,Yes,Yes
+3_308,3,2019-05-23T10:54:05Z,1969,7,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,49.8333333333333,NA,Yes,Yes
+3_309,3,2019-05-23T11:29:54Z,1985,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,34.3333333333333,NA,Yes,Yes
+3_310,3,2019-05-23T11:12:58Z,1988,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,30.75,NA,Yes,Yes
+3_311,3,2019-05-23T11:16:08Z,1976,5,Female,White/Caucasian,Yes,Bachelor degree,Full time,43,NA,Yes,Yes
+3_312,3,2019-05-23T11:04:46Z,1987,12,Male,Hispanic,Yes,Bachelor degree,Full time,31.4166666666667,NA,Yes,Yes
+3_313,3,2019-05-23T11:23:05Z,1965,1,Female,White/Caucasian,Yes,Bachelor degree,Full time,54.3333333333333,NA,Yes,Yes
+3_314,3,2019-05-23T11:43:33Z,1989,9,Female,Prefer not to say,Yes,Bachelor degree,Full time,29.6666666666667,NA,Yes,Yes
+3_315,3,2019-05-23T11:30:37Z,1973,7,Female,White/Caucasian,Yes,High School,Full time,45.8333333333333,NA,Yes,Yes
+3_316,3,2019-05-23T11:41:40Z,1983,3,Male,White/Caucasian,Yes,Bachelor degree,Not employed,36.1666666666667,NA,Yes,Yes
+3_317,3,2019-05-23T11:41:39Z,1991,1,Female,White/Caucasian,Yes,Bachelor degree,Full time,28.3333333333333,NA,Yes,Yes
+3_318,3,2019-05-23T11:46:27Z,1993,3,Female,White/Caucasian,No,Bachelor degree,Full time,26.1666666666667,NA,Yes,Yes
+3_319,3,2019-05-23T10:39:10Z,1989,12,Male,White/Caucasian,Yes,High School,Full time,29.4166666666667,NA,Yes,Yes
+3_320,3,2019-05-23T11:50:31Z,1983,3,Male,White/Caucasian,Yes,Bachelor degree,Full time,36.1666666666667,NA,Yes,Yes
+3_321,3,2019-05-23T12:01:50Z,1988,1,Male,White/Caucasian,Yes,High School,Full time,31.3333333333333,NA,Yes,Yes
+3_322,3,2019-05-23T11:51:58Z,1987,10,Female,African or African American,Yes,Bachelor degree,Full time,31.5833333333333,NA,Yes,Yes
+3_323,3,2019-05-23T11:59:58Z,1987,10,Male,White/Caucasian,Yes,High School,Full time,31.5833333333333,NA,Yes,Yes
+3_324,3,2019-05-23T11:18:49Z,1989,11,Male,White/Caucasian,Yes,High School,Part time,29.5,NA,Yes,Yes
+3_325,3,2019-05-23T12:09:17Z,1988,6,Male,White/Caucasian,Yes,Bachelor degree,Full time,30.9166666666667,NA,Yes,Yes
+3_326,3,2019-05-23T11:57:14Z,1990,1,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,29.3333333333333,NA,Yes,Yes
+3_327,3,2019-05-23T12:13:38Z,1989,1,Female,White/Caucasian,Yes,Bachelor degree,Full time,30.3333333333333,NA,Yes,Yes
+3_328,3,2019-05-23T11:05:12Z,1988,12,Male,White/Caucasian,Yes,High School,Full time,30.4166666666667,NA,Yes,Yes
+3_329,3,2019-05-23T12:21:17Z,1979,4,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Part time,40.0833333333333,NA,Yes,Yes
+3_330,3,2019-05-23T11:47:36Z,1959,3,Male,White/Caucasian,Yes,High School,Not employed,60.1666666666667,NA,Yes,Yes
+3_331,3,2019-05-23T12:28:25Z,1998,3,Male,White/Caucasian,Yes,High School,"Student,Part time",21.1666666666667,NA,Yes,Yes
+3_332,3,2019-05-23T11:30:18Z,1974,5,Female,White/Caucasian,Yes,High School,Not employed,45,NA,Yes,Yes
+3_333,3,2019-05-23T12:31:43Z,1992,4,Female,White/Caucasian,Yes,Bachelor degree,Full time,27.0833333333333,NA,Yes,Yes
+3_334,3,2019-05-23T12:27:12Z,1983,6,Male,White/Caucasian,Yes,Bachelor degree,Full time,35.9166666666667,NA,Yes,Yes
+3_335,3,2019-05-23T12:48:12Z,1986,12,Male,White/Caucasian,Yes,Bachelor degree,Part time,32.4166666666667,NA,Yes,Yes
+3_336,3,2019-05-23T12:33:18Z,1988,8,Female,White/Caucasian,Yes,Bachelor degree,Not employed,30.75,NA,Yes,Yes
+3_337,3,2019-05-23T12:28:19Z,1976,10,Male,White/Caucasian,Yes,High School,Full time,42.5833333333333,NA,Yes,Yes
+3_338,3,2019-05-23T12:45:51Z,1976,10,Female,White/Caucasian,Yes,Bachelor degree,Full time,42.5833333333333,NA,Yes,Yes
+3_339,3,2019-05-23T12:42:57Z,1984,2,Male,White/Caucasian,Yes,High School,Full time,35.25,NA,Yes,Yes
+3_340,3,2019-05-23T12:43:05Z,1987,12,Male,"White/Caucasian,African or African American",Yes,Prefer not to say,Prefer not to say,31.4166666666667,NA,Yes,Yes
+3_341,3,2019-05-23T12:39:26Z,1983,2,Male,White/Caucasian,Yes,Bachelor degree,Full time,36.25,NA,Yes,Yes
+3_342,3,2019-05-23T13:04:36Z,1987,11,Male,White/Caucasian,Yes,High School,Full time,31.5,NA,Yes,Yes
+3_343,3,2019-05-23T13:14:23Z,1993,8,Female,White/Caucasian,Yes,Bachelor degree,Part time,25.75,NA,Yes,Yes
+3_344,3,2019-05-23T12:43:34Z,1967,5,Female,"White/Caucasian,African or African American",Yes,Bachelor degree,Full time,52,NA,Yes,Yes
+3_345,3,2019-05-23T13:18:16Z,1981,11,Male,White/Caucasian,Yes,High School,Part time,37.5,NA,Yes,Yes
+3_346,3,2019-05-23T12:51:54Z,1992,3,Male,White/Caucasian,Yes,Bachelor degree,Full time,27.1666666666667,NA,Yes,Yes
+3_347,3,2019-05-23T13:14:53Z,1969,10,Female,White/Caucasian,Yes,High School,Full time,49.5833333333333,NA,Yes,Yes
+3_348,3,2019-05-23T13:28:55Z,1984,8,Female,Other,Yes,Bachelor degree,Part time,34.75,NA,Yes,Yes
+3_349,3,2019-05-23T13:28:09Z,1979,12,Female,"White/Caucasian,Hispanic",Yes,"Trade, technical or vocational training",Full time,39.4166666666667,NA,Yes,Yes
+3_350,3,2019-05-23T13:31:24Z,1985,10,Other,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,33.5833333333333,NA,Yes,Yes
+3_351,3,2019-05-23T12:27:24Z,1986,8,Male,White/Caucasian,Yes,High School,Full time,32.75,NA,Yes,Yes
+3_352,3,2019-05-23T13:16:55Z,1970,4,Female,White/Caucasian,Yes,Bachelor degree,Full time,49.0833333333333,NA,Yes,Yes
+3_353,3,2019-05-23T13:45:04Z,1963,2,Male,White/Caucasian,Yes,Bachelor degree,Full time,56.25,NA,Yes,Yes
+3_354,3,2019-05-23T14:30:37Z,1990,7,Male,White/Caucasian,Yes,Postgraduate degree,Not employed,28.8333333333333,NA,Yes,Yes
+3_355,3,2019-05-23T14:47:44Z,1989,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,29.8333333333333,NA,Yes,Yes
+3_356,3,2019-05-23T14:34:23Z,1984,8,Male,White/Caucasian,Yes,High School,Part time,34.75,NA,Yes,Yes
+3_357,3,2019-05-23T14:30:21Z,1993,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,25.8333333333333,NA,Yes,Yes
+3_358,3,2019-05-23T14:54:19Z,1976,2,Male,White/Caucasian,Yes,High School,Not employed,43.25,NA,Yes,Yes
+3_359,3,2019-05-23T15:36:52Z,1972,11,Female,White/Caucasian,Yes,Postgraduate degree,Part time,46.5,NA,Yes,Yes
+3_360,3,2019-05-23T17:09:25Z,1991,6,Female,White/Caucasian,Yes,Bachelor degree,Full time,27.9166666666667,NA,Yes,Yes
+3_367,3,2019-05-27T11:32:56Z,1996,8,Female,White/Caucasian,Yes,High School,Not employed,22.75,NA,Yes,Yes
+3_368,3,2019-05-29T09:38:42Z,1986,10,Female,White/Caucasian,Yes,Bachelor degree,Full time,32.5833333333333,NA,Yes,Yes
+3_369,3,2019-05-29T09:37:52Z,1989,5,Female,"Other Asian,African or African American",Yes,Bachelor degree,Part time,30,NA,Yes,Yes
+3_371,3,2019-05-29T09:37:48Z,1994,10,Female,White/Caucasian,Yes,Bachelor degree,Part time,24.5833333333333,NA,Yes,Yes
+3_372,3,2019-05-29T09:39:01Z,1980,5,Male,Other Asian,Yes,Bachelor degree,Full time,39,NA,Yes,Yes
+3_373,3,2019-05-29T09:43:37Z,1968,12,Male,White/Caucasian,Yes,Postgraduate degree,Not employed,50.4166666666667,NA,Yes,Yes
+3_374,3,2019-05-29T09:38:57Z,1973,6,Female,White/Caucasian,Yes,Bachelor degree,Part time,45.9166666666667,NA,Yes,Yes
+3_375,3,2019-05-29T09:37:55Z,1968,4,Male,White/Caucasian,Yes,High School,Full time,51.0833333333333,NA,Yes,Yes
+3_376,3,2019-05-29T09:49:44Z,1970,4,Female,White/Caucasian,Yes,Postgraduate degree,Full time,49.0833333333333,NA,Yes,Yes
+3_377,3,2019-05-29T09:38:01Z,1985,10,Female,White/Caucasian,Yes,NA,Full time,33.5833333333333,NA,Yes,Yes
+3_378,3,2019-05-29T09:37:41Z,1983,9,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,35.6666666666667,NA,Yes,Yes
+3_379,3,2019-05-29T09:38:58Z,1994,10,Male,White/Caucasian,Yes,Bachelor degree,Full time,24.5833333333333,NA,Yes,Yes
+3_380,3,2019-05-29T09:45:47Z,1963,6,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,55.9166666666667,NA,Yes,Yes
+3_381,3,2019-05-29T09:58:25Z,1995,1,Female,White/Caucasian,Yes,High School,Full time,24.3333333333333,NA,Yes,Yes
+3_382,3,2019-05-29T10:07:49Z,1987,8,Female,White/Caucasian,Yes,Bachelor degree,Full time,31.75,NA,Yes,Yes
+3_383,3,2019-05-29T09:56:45Z,1990,10,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,28.5833333333333,NA,Yes,Yes
+3_384,3,2019-05-29T10:08:44Z,1989,5,Female,Hispanic,Yes,High School,Full time,30,NA,Yes,Yes
+3_386,3,2019-05-29T10:05:48Z,1990,10,Female,Hispanic,Yes,Bachelor degree,Part time,28.5833333333333,NA,Yes,Yes
+3_387,3,2019-05-29T10:09:30Z,1973,12,Male,White/Caucasian,Yes,Bachelor degree,Full time,45.4166666666667,NA,Yes,Yes
+3_388,3,2019-05-29T10:18:44Z,1983,3,Male,White/Caucasian,Yes,Bachelor degree,Part time,36.1666666666667,NA,Yes,Yes
+3_389,3,2019-05-29T10:06:57Z,1982,7,Female,"Chinese,African or African American",Yes,"Trade, technical or vocational training",Full time,36.8333333333333,NA,Yes,Yes
+3_390,3,2019-05-29T10:05:05Z,1984,12,Female,White/Caucasian,Yes,High School,Full time,34.4166666666667,NA,Yes,Yes
+3_391,3,2019-05-29T09:39:12Z,1982,6,Male,White/Caucasian,Yes,Bachelor degree,Full time,36.9166666666667,NA,Yes,Yes
+3_392,3,2019-05-29T10:14:26Z,1981,6,Male,African or African American,Yes,Bachelor degree,Full time,37.9166666666667,NA,Yes,Yes
+3_393,3,2019-05-29T10:15:50Z,1960,4,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,59.0833333333333,NA,Yes,Yes
+3_394,3,2019-05-29T09:50:40Z,1989,9,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,29.6666666666667,NA,Yes,Yes
+3_395,3,2019-05-29T10:47:48Z,2000,5,Male,"White/Caucasian,Other Asian",Yes,"Trade, technical or vocational training",Student,19,NA,Yes,Yes
+3_396,3,2019-05-29T10:32:46Z,1982,10,Female,White/Caucasian,Yes,Postgraduate degree,Full time,36.5833333333333,NA,Yes,Yes
+3_397,3,2019-05-29T10:34:06Z,1991,10,Male,White/Caucasian,Yes,Bachelor degree,Full time,27.5833333333333,NA,Yes,Yes
+3_398,3,2019-05-29T10:28:06Z,1983,9,Male,White/Caucasian,Yes,Bachelor degree,Full time,35.6666666666667,NA,Yes,Yes
+3_399,3,2019-05-29T10:14:19Z,1996,3,Female,White/Caucasian,Yes,High School,Not employed,23.1666666666667,NA,Yes,Yes
+3_400,3,2019-05-29T10:15:55Z,1990,7,Female,White/Caucasian,Yes,High School,Part time,28.8333333333333,NA,Yes,Yes
+3_401,3,2019-05-29T10:40:57Z,1979,2,Male,White/Caucasian,Yes,High School,Full time,40.25,NA,Yes,Yes
+3_402,3,2019-05-29T11:04:56Z,1987,7,Male,White/Caucasian,Yes,Bachelor degree,Full time,31.8333333333333,NA,Yes,Yes
+3_403,3,2019-05-29T09:56:56Z,1988,9,Female,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,30.6666666666667,NA,Yes,Yes
+3_405,3,2019-05-29T10:58:54Z,1969,5,Female,White/Caucasian,Yes,High School,Full time,50,NA,Yes,Yes
+3_406,3,2019-05-29T11:13:38Z,1995,1,Male,White/Caucasian,Yes,Bachelor degree,Full time,24.3333333333333,NA,Yes,Yes
+3_407,3,2019-05-29T11:20:33Z,1993,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,25.75,NA,Yes,Yes
+3_408,3,2019-05-29T11:16:59Z,1969,11,Female,African or African American,Yes,Bachelor degree,Part time,49.5,NA,Yes,Yes
+3_409,3,2019-05-29T10:51:10Z,1990,8,Male,White/Caucasian,Yes,Bachelor degree,Full time,28.75,NA,Yes,Yes
+3_410,3,2019-05-29T11:39:07Z,1985,2,Female,White/Caucasian,Yes,High School,Full time,34.25,NA,Yes,Yes
+3_411,3,2019-05-29T11:57:04Z,1983,12,Male,White/Caucasian,Yes,Bachelor degree,Full time,35.4166666666667,NA,Yes,Yes
+3_412,3,2019-05-29T11:24:37Z,1983,11,Male,White/Caucasian,Yes,Postgraduate degree,Full time,35.5,NA,Yes,Yes
+3_413,3,2019-05-29T12:21:00Z,1972,5,Male,White/Caucasian,Yes,"Trade, technical or vocational training",Full time,47,NA,Yes,Yes
+3_414,3,2019-05-29T12:48:09Z,1962,3,Female,White/Caucasian,Yes,Bachelor degree,Full time,57.1666666666667,NA,Yes,Yes
+3_415,3,2019-05-29T12:53:19Z,1993,12,Male,White/Caucasian,Yes,High School,Full time,25.4166666666667,NA,Yes,Yes
+3_416,3,2019-05-29T12:53:58Z,1995,12,Male,White/Caucasian,Yes,High School,Not employed,23.4166666666667,NA,Yes,Yes
+3_417,3,2019-05-29T13:02:02Z,1986,3,Female,White/Caucasian,Yes,High School,Full time,33.1666666666667,NA,Yes,Yes
+3_418,3,2019-05-29T13:27:44Z,1994,11,Male,White/Caucasian,Yes,Bachelor degree,Full time,24.5,NA,Yes,Yes
+3_419,3,2019-05-29T13:02:51Z,1993,8,Female,Other Asian,No,Bachelor degree,Full time,25.75,NA,Yes,Yes
+3_420,3,2019-05-29T14:02:35Z,1986,5,Female,White/Caucasian,Yes,High School,Part time,33,NA,Yes,Yes
+3_421,3,2019-05-29T13:25:06Z,1991,4,Male,White/Caucasian,Yes,High School,Full time,28.0833333333333,NA,Yes,Yes

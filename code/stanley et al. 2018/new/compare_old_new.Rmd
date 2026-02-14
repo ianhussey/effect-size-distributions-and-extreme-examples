@@ -1,0 +1,60 @@
+---
+title: "Exploring Stanleyu et al 2018"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_download: true
+    code_folding: show
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup}
+#| include: false
+
+# load knitr 
+library(knitr)
+
+# set knitr chunk options 
+opts_chunk$set(echo = TRUE,
+               message = FALSE,
+               warning = FALSE)
+```
+
+# Stanley et al. 2018
+
+```{r}
+
+# Check column name diversity across files
+library(haven)
+library(fs)
+
+files <- dir_ls("../../../data/stanley et al. 2018/raw/", glob = "*.dta")
+
+column_check <- map_dfr(files, function(f) {
+  cols <- names(read_dta(f))
+  tibble(
+    file = f,
+    has_es = "es" %in% cols,
+    has_SE = "SE" %in% cols,
+    has_d = "d" %in% cols,
+    has_r = "r" %in% cols,
+    has_se_lower = "se" %in% cols,
+    all_cols = paste(cols, collapse = ", ")
+  )
+})
+
+# Files that would break the original script
+problem_files <- column_check %>%
+  filter(!has_es | !has_SE)
+
+print(problem_files)
+
+```
+
+
+
+
+

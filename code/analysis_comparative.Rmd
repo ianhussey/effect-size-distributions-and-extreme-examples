@@ -25,6 +25,7 @@ knitr::opts_chunk$set(message = FALSE,
 library(tidyverse)
 library(scales)
 library(janitor)
+library(roundwork)
 library(knitr)
 library(kableExtra)
 
@@ -63,7 +64,7 @@ data_percentiles_bogdan <- read_rds("../data/bogdan 2025/processed/data_effectsi
          d_s, 
          d_z,
          r = abs_r) |>
-  mutate(d_s = janitor::round_half_up(d_s, digits = 2))
+  mutate(d_s = round_up(d_s, digits = 2))
 
 data_percentiles_cuijpers <- read_csv("../data/cuijpers metapsy psy vs control/metapsy_depression_psy_vs_control_effect_sizes_2024-01-01.csv") |>
   summarise(
@@ -102,7 +103,12 @@ dat_percentiles_comparative <- bind_rows(
     mutate(Source = "Paterson et al. (2016)"),
   
   read_csv("../data/previous articles extracting many effect sizes/data_richards.csv") |> 
-    mutate(Source = "Richards et al. (2003)")
+    mutate(Source = "Richards et al. (2003)"),
+  
+  read_csv("../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/percentiles_by_metric.csv") |> 
+    mutate(Source = "Stanley et al. (2018)") |>
+    select(-yi_raw) |>
+    pivot_wider(names_from = metric, values_from = yi_abs)
 ) |>
   mutate(Type = case_when(str_detect(Source, "Bogdan") ~ "All effects",
                           TRUE ~ "Substantive effects"))
@@ -115,7 +121,7 @@ dat_percentiles_comparative <- bind_rows(
 
 data_table_r <- dat_percentiles_comparative |>
   select(percentile, Source, r) |>
-  mutate(r = round_half_up(r, 2)) |>
+  mutate(r = round_up(r, 2)) |>
   drop_na() |>
   pivot_wider(names_from = "Source",
               values_from = "r") |>
@@ -138,7 +144,8 @@ data_table_r |>
 dat_percentiles_comparative |>
   drop_na(r) |>
   ggplot(aes(r, percentile, shape = Type, color = Source, group = Source)) +  
-  geom_line() +
+  geom_smooth(method = "gam", size = 0.5, se = FALSE) +
+  #geom_line() +
   geom_point() +
   scale_y_continuous(breaks = c(1, seq(5, 95, 5), 99), name = "Percentile") +
   scale_x_continuous(breaks = scales::breaks_pretty(n = 10), limits = c(0, 1), 
@@ -190,7 +197,7 @@ ggsave("plots/percentiles_comparative_r.png", width = 6, height = 4, dpi = 600)
 
 data_table_d <- dat_percentiles_comparative |>
   select(percentile, Source, d) |>
-  mutate(d = round_half_up(d, 2)) |>
+  mutate(d = round_up(d, 2)) |>
   drop_na() |>
   pivot_wider(names_from = "Source",
               values_from = "d") |>
@@ -205,6 +212,11 @@ data_table_d |>
   kable() |>
   kable_classic(full_width = FALSE)
 
+data_table_d |>
+  filter(percentile >= 95) |>
+  kable() |>
+  kable_classic(full_width = FALSE)
+
 ```
 
 
@@ -214,7 +226,8 @@ dat_percentiles_comparative |>
   drop_na(d) |>
   filter(percentile <= 95) |>
   ggplot(aes(d, percentile, shape = Type, color = Source, group = Source)) +  
-  geom_line() +
+  geom_smooth(method = "gam", size = 0.5, se = FALSE) +
+  #geom_line() +
   geom_point() +
   scale_y_continuous(breaks = c(1, seq(5, 95, 5)), name = "Percentile") +
   scale_x_continuous(breaks = c(0, .2, .5, .8, 1, 1.5, 2, 2.5, 3, 3.5), 
@@ -240,7 +253,7 @@ dat_percentiles_comparative |>
   geom_segment(data = data.frame(x1 = 0.5, 
                                  x2 = 0.5, 
                                  y1 = 36, 
-                                 y2 = 63.5),
+                                 y2 = 70.5),
                aes(x = x1, y = y1, xend = x2, yend = y2),
                linewidth = 2,
                alpha = 0.3,
@@ -248,8 +261,8 @@ dat_percentiles_comparative |>
                inherit.aes = FALSE) +
   geom_segment(data = data.frame(x1 = 0.8, 
                                  x2 = 0.8, 
-                                 y1 = 55, 
-                                 y2 = 83.5),
+                                 y1 = 56, 
+                                 y2 = 89),
                aes(x = x1, y = y1, xend = x2, yend = y2),
                linewidth = 2,
                alpha = 0.3,

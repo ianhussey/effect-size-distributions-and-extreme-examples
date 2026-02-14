@@ -1,0 +1,305 @@
+
+# diagnostics
+
+```{r}
+
+#This line reads the powerBullFunctions.R script so that those
+#functions are in the global environment.
+source("powerBullFunctions.R")
+
+#Define the directory where the data files are saved.
+dataDir = "../../../data/stanley et al. 2018/raw/"
+
+#Grab the names of all fo the files in dataDire
+nameF = list.files(path = dataDir)
+
+#Initialize variables to fill in
+NAME = avgES = medSE = I_sq = FE_est = RE_est = rep(NA,length(nameF)) 
+WLS_est = WW_est = PP_est = FAT_sig = PET_sig = rep(NA,length(nameF))
+kAdq_WL = kAdq_PP = kAdq_WW = prAdq_WL = prAdq_PP = prAdq_WW = rep(NA,length(nameF))  
+pow_WL = pow_PP = pow_WW = rep(NA,length(nameF))
+
+
+#Begin loop over each of the datasets
+for(i in 1:length(nameF)){
+  
+  print(paste0("Read in and analyze dataset ",i))
+  
+  #Read in dataset i
+  dat = read.dta13(file = paste0("../../../data/stanley et al. 2018/raw/", nameF[i]))
+  
+  #Define the name for dataset i
+  NAME[i] = strsplit(nameF[i],".dta")[[1]]
+  
+  #Define variance for dataset i 
+  v = dat$SE^2
+  
+  #Run analyses on dataset i and extract results
+  avgES[i]   = mean(dat$es,na.rm=T)
+  medSE[i]   = median(dat$SE,na.rm=T)
+  I_sq[i]    = RMA.est (dat$es,v)$value[7]
+  FE_est[i]  = as.numeric(rma(dat$es,v,method="FE")$b)
+  RE_est[i]  = RMA.est (dat$es,v)$value[1]
+  WLS_est[i] = WLS.est(dat$es,v)$value[1]
+  WW_est[i]  = as.numeric(WAAP.est(dat$es, v)$value[1])
+  PP_est[i]  = PETPEESE.est(dat$es, v)$value[25]
+  FAT_sig[i] = PETPEESE.est(dat$es, v)$value[22] < 0.10
+  PET_sig[i] = PETPEESE.est(dat$es, v)$value[16] < 0.10
+  
+  pow_WL[i] = 1 - pnorm(1.96 - abs(WLS_est[i])/medSE[i])
+  pow_PP[i] = 1 - pnorm(1.96 - abs(PP_est[i])/medSE[i])
+  pow_WW[i] = 1 - pnorm(1.96 - abs(WW_est[i])/medSE[i])
+  
+  kAdq_WL[i] = sum(dat$SE < abs(WLS_est[i])/2.8, na.rm = T)
+  kAdq_PP[i] = sum(dat$SE < abs(PP_est[i])/2.8,na.rm = T)
+  kAdq_WW[i] = sum(dat$SE < abs(WW_est[i])/2.8,na.rm = T)
+  prAdq_WL[i] = kAdq_WL[i]/sum(!is.na(dat$SE))
+  prAdq_PP[i] = kAdq_PP[i]/sum(!is.na(dat$SE))
+  prAdq_WW[i] = kAdq_WW[i]/sum(!is.na(dat$SE))
+
+}
+
+#Compile results from the loop into a dataframe
+output = data.frame(
+  NAME,    
+  avgES,   
+  medSE, 
+  I_sq,
+  FE_est,  
+  RE_est,  
+  WLS_est, 
+  WW_est,  
+  PP_est,  
+  FAT_sig, 
+  PET_sig,
+  pow_WL,
+  pow_PP,
+  pow_WW,
+  kAdq_WL, 
+  kAdq_PP, 
+  kAdq_WW,
+  prAdq_WL, 
+  prAdq_PP, 
+  prAdq_WW
+) 
+
+#get median power for each MA
+print(paste0("Median of median power, based on WLS: ",round(median(output$pow_WL,na.rm=T),3)))
+print(paste0("Median of median power, based on WAAP: ",round(median(output$pow_WW,na.rm=T),3)))
+print(paste0("Median of median power, based on PET-PEESE: ",round(median(output$pow_PP,na.rm=T),3)))
+
+#get median proportions of adequately powered
+print(paste0("Median proportion of adequately powered, based on WLS: ",round(median(output$prAdq_WL),3)))
+print(paste0("Median proportion of adequately powered, based on WAAP: ",round(median(output$prAdq_WW),3)))
+print(paste0("Median proportion of adequately powered, based on PET-PEESE: ",round(median(output$prAdq_PP),3)))
+
+print(paste0("Median I^2: ",round(median(output$I_sq),3)))
+
+print(paste0("Median absolute value of average effect size: ",round(median(abs(output$avgES)),3)))
+print(paste0("Median absolute value of WLS estimate: ",round(median(abs(output$WLS_est)),3)))
+print(paste0("Median absolute value of WAAP estimate: ",round(median(abs(output$WW_est)),3)))
+print(paste0("Median absolute value of PET-PEESE estimate: ",round(median(abs(output$PP_est)),3)))
+
+
+#Write the dataframe as a .csv file
+write.csv(output,file="../../../data/stanley et al. 2018/outputs/results_original.csv")
+
+
+```
+
+
+# Comparisons
+
+## Check 1: Do all files have the same structure?
+
+```{r}
+
+# Additional Diagnostics: Why Might Row Counts Differ?
+
+library(haven)
+library(fs)
+library(tidyverse)
+
+files <- dir_ls("../../../data/stanley et al. 2018/raw/", glob = "*.dta")
+
+structure_check <- map_dfr(files, function(f) {
+  dat <- read_dta(f)
+  cols <- names(dat)
+  
+  tibble(
+    file = basename(f),
+    n_rows = nrow(dat),
+    n_cols = ncol(dat),
+    has_es = "es" %in% cols,
+    has_SE = "SE" %in% cols,
+    n_es_nonmissing = sum(!is.na(dat$es)),
+    n_SE_nonmissing = sum(!is.na(dat$SE)),
+    n_both_nonmissing = sum(!is.na(dat$es) & !is.na(dat$SE)),
+    all_cols = paste(cols, collapse = ", ")
+  )
+})
+
+cat("=== FILES SUMMARY ===\n")
+print(structure_check %>% select(file, n_rows, n_es_nonmissing, n_SE_nonmissing, n_both_nonmissing))
+
+```
+
+## Check 2: Compare total rows between approaches
+
+```{r}
+# Original approach: sum of rows across files
+total_rows_original <- sum(structure_check$n_rows)
+
+# Rewrite approach: read all files and stack
+dat_raw_rewrite <- dir_ls("../../../data/stanley et al. 2018/raw/", glob = "*.dta") %>%
+  map_dfr(~read_dta(.x) %>% mutate(across(everything(), as.character)), .id = "source_file")
+
+total_rows_rewrite <- nrow(dat_raw_rewrite)
+
+cat("\n=== ROW COUNT COMPARISON ===\n")
+cat(sprintf("Original approach would process: %d rows (sum of individual files)\n", total_rows_original))
+cat(sprintf("Rewrite approach processes: %d rows (stacked dataframe)\n", total_rows_rewrite))
+cat(sprintf("Difference: %d rows\n", total_rows_rewrite - total_rows_original))
+
+if (total_rows_original != total_rows_rewrite) {
+  cat("\n⚠️  WARNING: Row counts differ! This suggests:\n")
+  cat("   - Duplicate rows being added during stacking, OR\n")
+  cat("   - Files being read multiple times, OR\n") 
+  cat("   - Some other data processing difference\n")
+}
+
+```
+
+## Check 3: Are there rows with missing es or SE?
+
+```{r}
+# For original: count rows that would be USED (non-missing for both)
+usable_rows_original <- sum(structure_check$n_both_nonmissing)
+
+# For rewrite: count after your coalesce logic
+dat_cleaned_rewrite <- dat_raw_rewrite %>%
+  mutate(
+    yi = as.numeric(coalesce(
+      r, correlation, d, g, es, fischer, z, averager, dreportedinpaper
+    )),
+    sei = case_when(
+      !is.na(SE) ~ as.numeric(SE),
+      !is.na(se) ~ as.numeric(se),
+      !is.na(sed) ~ as.numeric(sed),
+      !is.na(SEd) ~ as.numeric(SEd),
+      !is.na(sefischer) ~ as.numeric(sefischer),
+      !is.na(SEused) ~ as.numeric(SEused),
+      !is.na(variance) ~ sqrt(as.numeric(variance)),
+      !is.na(Variance) ~ sqrt(as.numeric(Variance)),
+      TRUE ~ NA_real_
+    )
+  )
+
+usable_rows_rewrite <- sum(!is.na(dat_cleaned_rewrite$yi) & !is.na(dat_cleaned_rewrite$sei))
+
+cat("\n=== USABLE ROWS COMPARISON ===\n")
+cat(sprintf("Original: %d rows with non-missing es AND SE\n", usable_rows_original))
+cat(sprintf("Rewrite: %d rows with non-missing yi AND sei\n", usable_rows_rewrite))
+cat(sprintf("Difference: %d rows\n", usable_rows_rewrite - usable_rows_original))
+
+if (usable_rows_original != usable_rows_rewrite) {
+  cat("\n⚠️  DIFFERENCE FOUND!\n")
+  sprintf("   The rewrite captures %d %s usable effect sizes\n", 
+      abs(usable_rows_rewrite - usable_rows_original),
+      ifelse(usable_rows_rewrite > usable_rows_original, "MORE", "FEWER"))
+}
+
+```
+
+## Check 4: Are there any alternative columns with data?
+
+```{r}
+
+# Check if ANY of the alternative columns you're checking have data
+alternative_check <- map_dfr(files, function(f) {
+  dat <- read_dta(f)
+  cols <- names(dat)
+  
+  tibble(
+    file = basename(f),
+    # Effect size alternatives
+    has_r = "r" %in% cols,
+    has_correlation = "correlation" %in% cols,
+    has_d = "d" %in% cols,
+    has_g = "g" %in% cols,
+    has_fischer = "fischer" %in% cols,
+    has_z = "z" %in% cols,
+    # SE alternatives  
+    has_se_lower = "se" %in% cols,
+    has_sed = "sed" %in% cols,
+    has_variance = "variance" %in% cols,
+    # Check if they have NON-MISSING data
+    r_nonmissing = if("r" %in% cols) sum(!is.na(dat$r)) else 0,
+    correlation_nonmissing = if("correlation" %in% cols) sum(!is.na(dat$correlation)) else 0,
+    d_nonmissing = if("d" %in% cols) sum(!is.na(dat$d)) else 0,
+    g_nonmissing = if("g" %in% cols) sum(!is.na(dat$g)) else 0,
+    se_lower_nonmissing = if("se" %in% cols) sum(!is.na(dat$se)) else 0,
+    variance_nonmissing = if("variance" %in% cols) sum(!is.na(dat$variance)) else 0
+  )
+})
+
+cat("\n=== ALTERNATIVE COLUMNS CHECK ===\n")
+alternative_summary <- alternative_check %>%
+  summarise(
+    files_with_r = sum(r_nonmissing > 0),
+    files_with_correlation = sum(correlation_nonmissing > 0),
+    files_with_d = sum(d_nonmissing > 0),
+    files_with_g = sum(g_nonmissing > 0),
+    files_with_se_lower = sum(se_lower_nonmissing > 0),
+    files_with_variance = sum(variance_nonmissing > 0),
+    total_files = n()
+  )
+
+print(alternative_summary)
+
+if (alternative_summary$files_with_r > 0 || 
+    alternative_summary$files_with_correlation > 0 ||
+    alternative_summary$files_with_d > 0) {
+  cat("\n⚠️  Some files have data in alternative effect size columns!\n")
+  cat("   Your coalesce() logic may be capturing these.\n")
+}
+
+```
+
+## Check 5: Key Question - Does coalesce capture MORE than es alone?
+
+```{r}
+
+cat("\n=== COALESCE BENEFIT CHECK ===\n")
+
+# Simulate what original gets (just es)
+just_es <- dat_raw_rewrite %>%
+  mutate(
+    yi_original = as.numeric(es),
+    sei_original = as.numeric(SE)
+  )
+
+n_original_method <- sum(!is.na(just_es$yi_original) & !is.na(just_es$sei_original))
+
+# What rewrite gets (coalesce)
+n_rewrite_method <- usable_rows_rewrite
+
+cat(sprintf("Using ONLY es column: %d usable rows\n", n_original_method))
+cat(sprintf("Using coalesce() logic: %d usable rows\n", n_rewrite_method))
+cat(sprintf("Extra rows captured by coalesce: %d\n", n_rewrite_method - n_original_method))
+
+if (n_rewrite_method > n_original_method) {
+  # Find which rows are captured by coalesce but not by es
+  extra_rows <- dat_cleaned_rewrite %>%
+    mutate(yi_original = as.numeric(es)) %>%
+    filter(!is.na(yi) & !is.na(sei)) %>%
+    filter(is.na(yi_original))
+  
+  cat(sprintf("\n✓ Coalesce captures %d additional rows!\n", nrow(extra_rows)))
+  cat("These rows have data in alternative columns:\n")
+  print(head(extra_rows %>% select(source_file, yi, sei)))
+} else {
+  cat("\n✓ Coalesce provides NO additional benefit - all data is in 'es' column\n")
+}
+
+```

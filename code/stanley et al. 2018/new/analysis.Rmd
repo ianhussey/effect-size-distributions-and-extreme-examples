@@ -11,6 +11,10 @@ output:
     toc_float: yes
 ---
 
+# TODO
+
+need to match the data in summary_data.csv that authors emailed me to the dta files extracted from, to ensure each effect size type is classified correctly. currently uses a heuristic for this.
+
 ```{r setup}
 #| include: false
 
@@ -182,6 +186,38 @@ cat(sprintf("Cohen's d: %d effect sizes from %d meta-analyses\n",
 # Save the effect-size-level dataset
 write_csv(all_effect_sizes, 
           "../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/effect_sizes_with_metric.csv")
+
+```
+
+
+
+```{r}
+
+effect_size_types <- read_csv("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/raw/summary_data.csv")
+
+all_effect_sizes <- read_csv("../../../data/previous articles extracting many effect sizes/stanley et al. 2018/outputs/effect_sizes_with_metric.csv")
+
+
+effect_size_types |>
+  select(study, studies) |>
+  arrange(study, studies)
+
+```
+
+
+```{r}
+
+all_effect_sizes |>
+  count(meta_analysis, 
+        file_name) |>
+  arrange(meta_analysis, n)
+
+```
+
+
+
+
+```{r}
 
 cat("\nEffect-size level data saved to: effect_sizes_with_metric.csv\n")
 

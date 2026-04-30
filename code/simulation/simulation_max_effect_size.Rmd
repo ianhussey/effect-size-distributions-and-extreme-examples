@@ -1,0 +1,842 @@
+---
+title: "Simulation of maximum plausible SMD given scale range-to-SD ratio"
+author: "Ian Hussey" 
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+always_allow_html: true
+output:
+  html_document:
+    code_folding: hide
+    highlight: haddock
+    theme: flatly
+    toc: yes
+    toc_float:
+      collapsed: false
+      fontsize: 10pt
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, 
+                      message = FALSE, 
+                      warning = FALSE)
+
+# disable scientific notation
+options(scipen = 999) 
+
+```
+
+# Motivation and logic
+
+## The problem
+
+When evaluating the plausibility of reported effect sizes in psychology — whether for forensic purposes, meta-analytic quality control, or power analysis — it is useful to know the *maximum* standardized mean difference (SMD, Cohen's *d*) that could plausibly be observed on a given self-report scale. A reported *d* that exceeds this ceiling should raise red flags, because it implies a mean difference that the scale cannot physically accommodate.
+
+## Why scale range constrains SMDs
+
+A self-report scale has a fixed range (max − min). The standardized mean difference *d* = (M~treatment~ − M~control~) / SD~pooled~ is bounded because the numerator — the raw mean difference — cannot exceed the scale range. A naive upper bound is therefore Range / SD, the ratio of the scale's scoring range to its standard deviation. However, several factors make the *achievable* maximum considerably smaller than this naive bound:
+
+1. **The control mean is not at the boundary.** For symptom scales (e.g., BDI-II, PHQ-9), untreated clinical groups average around 30–50% of the scale range, not at the ceiling. For community samples, the control mean sits near the floor. Either way, the control mean "uses up" a portion of the range before any treatment effect is applied.
+
+2. **The treatment mean cannot reach the opposite boundary.** Even a maximally effective intervention leaves some residual variance — not every participant reaches the floor (or ceiling). The treatment group mean must therefore sit at least ~1 SD from the boundary.
+
+3. **Variance compression near boundaries.** As a group mean approaches a scale boundary, its variance is squeezed by floor/ceiling effects. This *deflates* the pooled SD, which paradoxically could *inflate* the SMD ratio, but at extreme compression the SMD becomes uninterpretable. We model this compression explicitly.
+
+4. **Sampling noise at small N.** Small studies have imprecise estimates of both means and SDs. By chance, a small study can observe a *d* considerably larger than the true population value. This means the plausible *observed* ceiling depends on sample size: smaller studies can produce more extreme values through noise alone.
+
+## The simulation approach
+
+For each combination of scale archetype, effect size level, and sample size, we:
+
+1. Generate bounded data for both groups using beta distributions parameterized to match the target mean and SD within the scale bounds.
+2. Compute Cohen's *d* with pooled SD.
+3. Repeat many times to build a sampling distribution of observed *d*.
+4. Extract the mean, 95th percentile, and 99th percentile of this distribution.
+
+The 95th percentile is the key diagnostic quantity: it represents the largest *d* that a study could plausibly report, accounting for both the true maximum effect the scale can accommodate and the additional inflation from sampling noise.
+
+## Why scale type matters
+
+The maximum achievable SMD depends critically on where the control group mean sits relative to the scale boundaries, which varies systematically by scale type:
+
+- **Symptom scales in clinical samples** (e.g., BDI-II in depressed outpatients): The control mean sits moderately high (~35–50% of range), leaving substantial room for treatment to reduce scores. Maximum true *d* ≈ 3.0.
+- **Symptom scales in community samples** (e.g., PHQ-9 in general population): The control mean sits near the floor (~10–15% of range), because most healthy people score near zero. There is almost no room for further reduction. Maximum true *d* ≈ 1.0–1.3. This is the most constrained scenario.
+- **Well-being scales** (e.g., SWLS, RSES): The control mean typically sits near the middle of the range (~45–55%), with treatment pushing scores upward. Maximum true *d* ≈ 2.9–4.5.
+- **Trait measures** (e.g., STAI-Trait, NEO-FFI Neuroticism): The control mean often sits well away from both boundaries, and trait measures tend to be more normally distributed. This gives the most room for separation. Maximum true *d* ≈ 3.1–5.2.
+
+## Scale archetypes and sources for mean and SD estimates
+
+The simulation uses 12 scale archetypes based on widely-used self-report measures. The control group means and SDs are drawn from published normative data and large validation studies:
+
+| Scale | Items | Scoring | Range | Control mean | Control SD | Source |
+|-------|-------|---------|-------|-------------|-----------|--------|
+| BDI-II (clinical) | 21 | 0–3 | 0–63 | 25 | 10.0 | Beck, Steer & Brown (1996) manual: outpatient M ≈ 22.5, SD ≈ 12.8; rounded for moderate severity |
+| PHQ-9 (clinical) | 9 | 0–3 | 0–27 | 14 | 5.5 | Cameron et al. (2008) primary care referrals: SD ≈ 6.5; M = 14 approximates moderate depression |
+| PHQ-9 (community) | 9 | 0–3 | 0–27 | 3 | 3.6 | Kocalevent, Hinz & Brähler (2013) German general population N = 5,018: M ≈ 2.9, SD ≈ 3.6 |
+| BDI-II (community) | 21 | 0–3 | 0–63 | 8 | 8.5 | Whisman & Richardson (2015) US college students N = 15,233: SD ≈ 8.5; community means typically 6–10 |
+| CES-D (clinical) | 20 | 0–3 | 0–60 | 24 | 10.0 | Radloff (1977): psychiatric sample M ≈ 24, community SD ≈ 8.5, clinical SD somewhat larger |
+| CES-D (community) | 20 | 0–3 | 0–60 | 9 | 8.2 | Radloff (1977) community samples: M ≈ 8.6–9.3, SD ≈ 7.9–8.6 |
+| SWLS | 5 | 1–7 | 5–35 | 20 | 6.2 | Diener et al. (1985), Pavot & Diener (1993): M ≈ 23–26 (students), SD ≈ 6.4; M = 20 as conservative community estimate |
+| RSES (0–30) | 10 | 0–3 | 0–30 | 16 | 5.3 | Sinclair et al. (2010) US adults N = 503: M ≈ 22.6, SD ≈ 5.8; M = 16 reflects lower-functioning control |
+| PANAS-PA | 10 | 1–5 | 10–50 | 32 | 7.0 | Watson et al. (1988) "general" instruction: M ≈ 35, SD ≈ 6.4; Crawford & Henry (2004): SD ≈ 7.7 |
+| STAI-Trait | 20 | 1–4 | 20–80 | 38 | 9.8 | Spielberger (1983) manual: working adults SD ≈ 9.9–10.0, college students similar |
+| PSS-10 | 10 | 0–4 | 0–40 | 17 | 6.2 | Cohen & Williamson (1988) US probability sample N = 2,387: M ≈ 13, SD ≈ 6.4; Klein et al. (2016): SD ≈ 5.9 |
+| NEO-FFI Neuroticism | 12 | 0–4 | 0–48 | 19 | 7.7 | Costa & McCrae (1992) manual: M ≈ 19.1, SD ≈ 7.7 |
+
+## Modelling variance compression
+
+As a treatment group mean approaches a scale boundary, the distribution gets "squeezed" — there is less room for scores to spread out, reducing the SD. We model this using a square-root proportional compression: the treatment SD shrinks as √(distance to boundary / control distance to boundary). This is a conservative approximation: it ensures that a treatment group whose mean is at 25% of the available distance from the boundary retains 50% of the original SD, which is broadly consistent with the behavior of beta distributions near their bounds.
+
+# Dependencies and setup
+
+```{r}
+
+library(tidyverse)
+library(furrr)
+library(scales)
+
+plan(multisession, workers = availableCores() - 1)
+set.seed(42)
+
+# shared plot theme
+theme_set(
+  theme_minimal(base_size = 12) +
+    theme(
+      panel.grid.minor = element_blank(),
+      plot.title       = element_text(face = "bold", size = 13),
+      plot.subtitle    = element_text(colour = "grey40", size = 10),
+      strip.text       = element_text(face = "bold"),
+      legend.position  = "right"
+    )
+)
+
+scale_type_colours <- c(
+  "symptom_clinical"  = "#d62728",
+  "symptom_community" = "#ff7f0e",
+  "trait"             = "#1f77b4",
+  "wellbeing"         = "#2ca02c"
+)
+
+scale_type_labels <- c(
+  "symptom_clinical"  = "Symptom (clinical)",
+  "symptom_community" = "Symptom (community)",
+  "trait"             = "Trait",
+  "wellbeing"         = "Well-being"
+)
+
+```
+
+# Functions
+
+```{r}
+
+#' Generate bounded random data using a beta distribution
+#'
+#' Produces a sample of n values on the interval [scale_min, scale_max]
+#' whose expected mean and SD match the specified targets. This is achieved
+#' by reparameterizing the beta distribution in terms of mean and variance
+#' on the unit interval, then rescaling to the desired range.
+#'
+#' The beta distribution is used because it naturally produces data on a
+#' bounded interval and can be parameterized to match a wide range of
+#' distributional shapes (symmetric, left-skewed, right-skewed) depending
+#' on the target mean and SD.
+#'
+#' Returns NULL if the target mean/SD combination is not achievable within
+#' the beta distribution's constraints (i.e., when the variance exceeds
+#' mu * (1 - mu) on the unit scale, or when the resulting shape parameters
+#' are degenerate). This allows the simulation to gracefully skip
+#' impossible parameter combinations.
+#'
+#' @param n       Integer. Number of observations to generate.
+#' @param mean_val Numeric. Target mean on the [scale_min, scale_max] scale.
+#' @param sd_val  Numeric. Target SD on the [scale_min, scale_max] scale.
+#' @param scale_min Numeric. Lower bound of the scale.
+#' @param scale_max Numeric. Upper bound of the scale.
+#'
+#' @return Numeric vector of length n, or NULL if parameters are degenerate.
+rbounded <- function(n, mean_val, sd_val, scale_min, scale_max) {
+  rng <- scale_max - scale_min
+  mu <- (mean_val - scale_min) / rng
+  sigma <- sd_val / rng
+  var_ <- sigma^2
+  if (var_ >= mu * (1 - mu)) return(NULL)
+  phi <- mu * (1 - mu) / var_ - 1
+  if (phi <= 0) return(NULL)
+  a <- mu * phi; b <- (1 - mu) * phi
+  if (a <= 0.01 | b <= 0.01) return(NULL)
+  rbeta(n, a, b) * rng + scale_min
+}
+
+
+#' Compute Cohen's d with pooled standard deviation
+#'
+#' Calculates the standardized mean difference between two independent
+#' groups using the pooled SD (square root of the weighted average of
+#' the two group variances). This is the standard formulation used in
+#' meta-analysis for between-group designs.
+#'
+#' Returns NA if the pooled SD is effectively zero (< 1e-10), which can
+#' occur when data are extremely compressed near a boundary.
+#'
+#' @param x_treat Numeric vector. Treatment group scores.
+#' @param x_ctrl  Numeric vector. Control group scores.
+#'
+#' @return Numeric scalar: (M_treat - M_ctrl) / SD_pooled.
+cohens_d <- function(x_treat, x_ctrl) {
+  n1 <- length(x_treat); n2 <- length(x_ctrl)
+  sp <- sqrt(((n1 - 1) * var(x_treat) + (n2 - 1) * var(x_ctrl)) / (n1 + n2 - 2))
+  if (sp < 1e-10) return(NA_real_)
+  (mean(x_treat) - mean(x_ctrl)) / sp
+}
+
+
+#' Simulate a single replication of a two-group comparison
+#'
+#' Generates one pair of treatment and control group samples using
+#' rbounded(), then computes Cohen's d. The direction parameter
+#' determines which group is expected to score higher: for symptom
+#' scales ("down"), the control group scores higher and d is computed
+#' as control minus treatment; for well-being/trait scales ("up"),
+#' d is computed as treatment minus control. This ensures d is always
+#' positive when the treatment is effective.
+#'
+#' @param rep_id    Integer. Replication index (unused but included for
+#'                  compatibility with map functions).
+#' @param n_per     Integer. Sample size per group.
+#' @param ctrl_mean Numeric. Control group population mean.
+#' @param ctrl_sd   Numeric. Control group population SD.
+#' @param treat_mean Numeric. Treatment group population mean.
+#' @param treat_sd  Numeric. Treatment group population SD.
+#' @param scale_min Numeric. Lower bound of the scale.
+#' @param scale_max Numeric. Upper bound of the scale.
+#' @param direction Character. "down" if treatment reduces scores
+#'                  (symptom scales), "up" if treatment increases
+#'                  scores (well-being/trait scales).
+#'
+#' @return Numeric scalar: observed Cohen's d for this replication,
+#'         or NA if data generation failed.
+sim_one_rep <- function(rep_id, n_per, ctrl_mean, ctrl_sd, treat_mean, treat_sd,
+                        scale_min, scale_max, direction) {
+  ctrl_data  <- rbounded(n_per, ctrl_mean, ctrl_sd, scale_min, scale_max)
+  treat_data <- rbounded(n_per, treat_mean, treat_sd, scale_min, scale_max)
+  if (is.null(ctrl_data) || is.null(treat_data)) return(NA_real_)
+  if (direction == "down") cohens_d(ctrl_data, treat_data) else cohens_d(treat_data, ctrl_data)
+}
+
+
+#' Run a full simulation for one parameter condition
+#'
+#' Performs n_reps replications of the two-group comparison for a
+#' single row of the parameter grid. Each replication generates fresh
+#' samples and computes Cohen's d. The function then summarizes the
+#' resulting sampling distribution by computing the mean, SD, and
+#' several quantiles (P05, P95, P99) of the observed d values.
+#'
+#' The P95 and P99 are the key diagnostic quantities: they represent
+#' the largest d values that could be observed at this sample size
+#' purely through the combination of the true effect and sampling noise.
+#'
+#' Returns NULL if fewer than 100 valid replications were achieved
+#' (indicating a near-degenerate parameter combination).
+#'
+#' @param cond_id   Integer. Row index into params_df identifying
+#'                  which parameter combination to simulate.
+#' @param params_df Data frame. The full parameter grid, with columns
+#'                  including n_per_group, ctrl_mean, ctrl_sd,
+#'                  treat_mean, treat_sd, scale_min, scale_max,
+#'                  direction, and condition_id.
+#' @param n_reps    Integer. Number of Monte Carlo replications.
+#'
+#' @return A single-row tibble with columns: condition_id,
+#'         observed_d_mean, observed_d_sd, observed_d_p05,
+#'         observed_d_p95, observed_d_p99, observed_d_max, n_valid.
+#'         Returns NULL if < 100 valid replications.
+run_condition <- function(cond_id, params_df, n_reps) {
+  p <- params_df |> filter(condition_id == cond_id)
+  
+  ds <- map_dbl(seq_len(n_reps), \(r) {
+    sim_one_rep(r,
+                n_per      = p$n_per_group,
+                ctrl_mean  = p$ctrl_mean,
+                ctrl_sd    = p$ctrl_sd,
+                treat_mean = p$treat_mean,
+                treat_sd   = p$treat_sd,
+                scale_min  = p$scale_min,
+                scale_max  = p$scale_max,
+                direction  = p$direction)
+  })
+  
+  ds <- ds[!is.na(ds)]
+  if (length(ds) < 100) return(NULL)
+  
+  tibble(
+    condition_id    = cond_id,
+    observed_d_mean = mean(ds),
+    observed_d_sd   = sd(ds),
+    observed_d_p05  = quantile(ds, 0.05),
+    observed_d_p95  = quantile(ds, 0.95),
+    observed_d_p99  = quantile(ds, 0.99),
+    observed_d_max  = max(ds),
+    n_valid         = length(ds)
+  )
+}
+
+```
+
+# Scale archetypes
+
+```{r}
+
+scales <- tribble(
+  ~scale_type,          ~scale_name,            ~scale_min, ~scale_max, ~ctrl_mean, ~ctrl_sd,
+  "symptom_clinical",   "BDI-II (clinical)",     0,         63,         25,         10.0,
+  "symptom_clinical",   "PHQ-9 (clinical)",      0,         27,         14,          5.5,
+  "symptom_community",  "PHQ-9 (community)",     0,         27,          3,          3.6,
+  "symptom_community",  "BDI-II (community)",    0,         63,          8,          8.5,
+  "symptom_clinical",   "CES-D (clinical)",      0,         60,         24,         10.0,
+  "symptom_community",  "CES-D (community)",     0,         60,          9,          8.2,
+  "wellbeing",          "SWLS",                  5,         35,         20,          6.2,
+  "wellbeing",          "RSES (0-30)",           0,         30,         16,          5.3,
+  "trait",              "PANAS-PA",             10,         50,         32,          7.0,
+  "trait",              "STAI-Trait",           20,         80,         38,          9.8,
+  "wellbeing",          "PSS-10",                0,         40,         17,          6.2,
+  "trait",              "NEO-FFI Neuroticism",   0,         48,         19,          7.7,
+) |>
+  mutate(
+    range     = scale_max - scale_min,
+    range_sd  = range / ctrl_sd,
+    direction = if_else(scale_type %in% c("symptom_clinical", "symptom_community"),
+                        "down", "up"),
+    avail     = if_else(direction == "down",
+                        ctrl_mean - scale_min,
+                        scale_max - ctrl_mean)
+  )
+
+```
+
+# Build full parameter grid
+
+The simulation varies three factors in a fully crossed design:
+
+- **Scale archetype** (12 levels): determines the scale range, control mean, control SD, and direction of effect.
+- **Effect proportion** (9 levels: 0.1 to 0.9 in steps of 0.1): the proportion of the *available room* between the control mean and the target boundary that the treatment mean moves. An effect proportion of 0.5 means the treatment mean is halfway between the control mean and the boundary; 0.9 means the treatment mean is 90% of the way to the boundary.
+- **Sample size per group** (7 levels: 10 to 200): captures the range of sample sizes commonly seen in psychological intervention studies.
+
+For each combination, the treatment group SD is computed using the square-root compression model described above.
+
+```{r}
+
+params <- scales |>
+  crossing(
+    effect_proportion = seq(0.1, 0.9, by = 0.1),
+    n_per_group       = c(10, 15, 20, 25, 30, 40, 50, 100, 200)
+  ) |>
+  mutate(
+    treat_mean = if_else(direction == "down",
+                         ctrl_mean - effect_proportion * avail,
+                         ctrl_mean + effect_proportion * avail),
+    dist_to_bound = if_else(direction == "down",
+                            treat_mean - scale_min,
+                            scale_max - treat_mean),
+    treat_sd = ctrl_sd * sqrt(dist_to_bound / avail)
+  ) |>
+  filter(!is.na(treat_sd), treat_sd >= 0.5) |>
+  mutate(
+    pooled_sd_approx = sqrt((ctrl_sd^2 + treat_sd^2) / 2),
+    true_d           = abs(treat_mean - ctrl_mean) / pooled_sd_approx,
+    condition_id     = row_number()
+  )
+
+```
+
+# Run simulation in parallel
+
+```{r}
+
+n_reps <- 10000
+
+cat(sprintf("Parameter grid: %d conditions x %d reps = %d total sims\n",
+            nrow(params), n_reps, nrow(params) * n_reps))
+
+cat("Running simulation with", availableCores() - 1, "workers...\n")
+
+
+if(file.exists("results.rds")){
+  results <- read_rds("results.rds")
+} else {
+  sim_results <- future_map(
+    params$condition_id,
+    \(cid) run_condition(cid, params, n_reps),
+    .options = furrr_options(seed = TRUE),
+    .progress = TRUE
+  ) |>
+    compact() |>
+    list_rbind()
+  
+  # Join back to parameters
+  results <- params |>
+    inner_join(sim_results, by = "condition_id")
+  
+  write_rds(results, "results.rds")
+}
+
+cat(sprintf("\nSimulation complete: %d conditions with valid results\n", nrow(results)))
+
+```
+
+# Analysis
+
+## Max achievable d per scale
+
+### N = 200
+
+At the largest simulated sample size (N = 200 per group), what is the maximum mean and P95 Cohen's *d* achievable on each scale?
+
+```{r}
+
+max_per_scale <- results |>
+  filter(n_per_group == 200) |>
+  group_by(scale_name, scale_type, range, range_sd) |>
+  summarise(
+    max_true_d = max(true_d),
+    max_mean_d = max(observed_d_mean),
+    max_p95_d  = max(observed_d_p95),
+    multiplier = max(observed_d_mean) / first(range_sd),
+    mult_p95   = max(observed_d_p95) / first(range_sd),
+    .groups = "drop"
+  ) |>
+  arrange(desc(max_p95_d))
+
+max_per_scale |>
+  print(n = 20, width = 140)
+
+```
+
+```{r fig.width=8, fig.height=6}
+
+max_per_scale |>
+  mutate(scale_name = fct_reorder(scale_name, max_p95_d)) |>
+  ggplot(aes(y = scale_name)) +
+  # P95 bar (full extent)
+  geom_col(aes(x = max_p95_d, fill = scale_type), alpha = 0.4, width = 0.7) +
+  # Mean d bar (inner, darker)
+  geom_col(aes(x = max_mean_d, fill = scale_type), width = 0.5) +
+  # Labels
+  geom_text(aes(x = max_p95_d, label = sprintf("%.1f", max_p95_d)),
+            hjust = -0.15, size = 3, colour = "grey30") +
+  geom_text(aes(x = max_mean_d, label = sprintf("%.1f", max_mean_d)),
+            hjust = 1.15, size = 2.8, colour = "white", fontface = "bold") +
+  scale_fill_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title    = "Maximum achievable SMD per scale (N = 200 per group)",
+    subtitle = "Dark bar = mean d; light extension = 95th percentile observed d",
+    x = "Cohen's d",
+    y = NULL,
+    fill = "Scale type"
+  ) +
+  coord_cartesian(xlim = c(0, max(max_per_scale$max_p95_d) * 1.12))
+
+```
+
+### N = 25
+
+At the typical sample size (N = 25 per group), what is the maximum mean and P95 Cohen's *d* achievable on each scale?
+
+```{r}
+
+max_per_scale2 <- results |>
+  filter(n_per_group == 25) |>
+  group_by(scale_name, scale_type, range, range_sd) |>
+  summarise(
+    max_true_d = max(true_d),
+    max_mean_d = max(observed_d_mean),
+    max_p95_d  = max(observed_d_p95),
+    multiplier = max(observed_d_mean) / first(range_sd),
+    mult_p95   = max(observed_d_p95) / first(range_sd),
+    .groups = "drop"
+  ) |>
+  arrange(desc(max_p95_d))
+
+max_per_scale2 |>
+  print(n = 20, width = 140)
+
+```
+
+```{r fig.width=8, fig.height=6}
+
+max_per_scale2 |>
+  mutate(scale_name = fct_reorder(scale_name, max_p95_d)) |>
+  ggplot(aes(y = scale_name)) +
+  # P95 bar (full extent)
+  geom_col(aes(x = max_p95_d, fill = scale_type), alpha = 0.4, width = 0.7) +
+  # Mean d bar (inner, darker)
+  geom_col(aes(x = max_mean_d, fill = scale_type), width = 0.5) +
+  # Labels
+  geom_text(aes(x = max_p95_d, label = sprintf("%.1f", max_p95_d)),
+            hjust = -0.15, size = 3, colour = "grey30") +
+  geom_text(aes(x = max_mean_d, label = sprintf("%.1f", max_mean_d)),
+            hjust = 1.15, size = 2.8, colour = "white", fontface = "bold") +
+  scale_fill_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title    = "Maximum achievable SMD per scale (N = 25 per group)",
+    subtitle = "Dark bar = mean d; light extension = 95th percentile observed d",
+    x = "Cohen's d",
+    y = NULL,
+    fill = "Scale type"
+  ) +
+  coord_cartesian(xlim = c(0, max(max_per_scale$max_p95_d) * 1.12))
+
+```
+
+## Max P95 d by scale and N
+
+The maximum P95 observed *d* across all effect proportions, for each scale and sample size. This is the answer to: "what is the largest *d* a study of this size could plausibly report on this measure?"
+
+```{r}
+
+max_by_n <- results |>
+  group_by(scale_name, scale_type, range_sd, n_per_group) |>
+  summarise(
+    max_mean_d = max(observed_d_mean),
+    max_p95_d  = max(observed_d_p95),
+    max_p99_d  = max(observed_d_p99),
+    .groups = "drop"
+  )
+
+max_by_n |>
+  select(scale_name, range_sd, n_per_group, max_p95_d) |>
+  pivot_wider(names_from = n_per_group, values_from = max_p95_d, names_prefix = "n_") |>
+  arrange(desc(range_sd)) |>
+  print(n = 20, width = 150)
+
+```
+
+```{r fig.width=10, fig.height=7}
+
+max_by_n |>
+  mutate(scale_name = fct_reorder(scale_name, max_p95_d, .fun = max)) |>
+  ggplot(aes(x = n_per_group, y = max_p95_d, colour = scale_name)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  facet_wrap(~ scale_type, scales = "free_y",
+             labeller = labeller(scale_type = scale_type_labels)) +
+  scale_x_continuous(trans = "log10", breaks = c(10, 20, 50, 100, 200)) +
+  labs(
+    title    = "Maximum P95 observed d by sample size",
+    subtitle = "Faceted by scale type; each line is one scale archetype",
+    x = "N per group (log scale)",
+    y = "Max P95 observed d",
+    colour = "Scale"
+  ) +
+  theme(legend.position = "right")
+
+```
+
+```{r fig.width=10, fig.height=8}
+
+max_by_n |>
+  mutate(scale_name = fct_reorder(scale_name, max_p95_d, .fun = max)) |>
+  ggplot(aes(y = scale_name, x = max_p95_d, fill = scale_type)) +
+  geom_col(alpha = 0.85, width = 0.7) +
+  geom_text(aes(label = sprintf("%.1f", max_p95_d)),
+            hjust = -0.1, size = 2.5, colour = "grey30") +
+  facet_wrap(~ n_per_group, ncol = 4,
+             labeller = labeller(n_per_group = \(x) paste("N =", x))) +
+  scale_fill_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title    = "Maximum P95 observed d by scale and sample size",
+    subtitle = "What a study could plausibly report at each N",
+    x = "Cohen's d (P95)",
+    y = NULL,
+    fill = "Scale type"
+  ) +
+  coord_cartesian(xlim = c(0, max(max_by_n$max_p95_d) * 1.15))
+
+```
+
+## P95 multiplier by scale type and N
+
+The multiplier converts the naive Range/SD ratio to the maximum plausible P95 *d*. Multiply the scale's Range/SD by this factor to get the red-flag threshold.
+
+```{r}
+
+mult_summary <- max_by_n |>
+  mutate(mult_p95 = max_p95_d / range_sd) |>
+  group_by(scale_type, n_per_group) |>
+  summarise(
+    mean_mult_p95 = mean(mult_p95),
+    .groups = "drop"
+  )
+
+mult_summary |>
+  pivot_wider(names_from = n_per_group, values_from = mean_mult_p95, names_prefix = "n_") |>
+  print(n = 10, width = 100)
+
+```
+
+```{r fig.width=8, fig.height=5}
+
+# Also compute mean d multiplier for reference
+mult_both <- max_by_n |>
+  mutate(
+    mult_mean = max_mean_d / range_sd,
+    mult_p95  = max_p95_d / range_sd
+  ) |>
+  group_by(scale_type, n_per_group) |>
+  summarise(
+    mean_mult_mean = mean(mult_mean),
+    mean_mult_p95  = mean(mult_p95),
+    .groups = "drop"
+  ) |>
+  pivot_longer(cols = starts_with("mean_mult_"),
+               names_to = "quantity", values_to = "multiplier",
+               names_prefix = "mean_mult_") |>
+  mutate(quantity = if_else(quantity == "p95", "P95 d", "Mean d"))
+
+mult_both |>
+  ggplot(aes(x = n_per_group, y = multiplier, colour = scale_type,
+             linetype = quantity)) +
+  geom_line(linewidth = 1) +
+  geom_point(aes(shape = quantity), size = 2.5) +
+  scale_x_continuous(trans = "log10", breaks = c(10, 20, 50, 100, 200)) +
+  scale_colour_manual(values = scale_type_colours, labels = scale_type_labels) +
+  scale_linetype_manual(values = c("Mean d" = "dotted", "P95 d" = "solid")) +
+  scale_shape_manual(values = c("Mean d" = 15, "P95 d" = 16)) +
+  labs(
+    title    = "Multiplier: Range/SD ratio → max plausible SMD",
+    subtitle = "Multiply a scale's Range/SD by this factor to get the ceiling d",
+    x = "N per group (log scale)",
+    y = "Multiplier (max d / Range:SD)",
+    colour   = "Scale type",
+    linetype = "Quantity",
+    shape    = "Quantity"
+  ) +
+  coord_cartesian(ylim = c(0, 1.15))
+
+```
+
+## Red flag thresholds
+
+The most practically useful output: the maximum P95 *d* one should expect by scale type and sample size. An observed *d* above these curves should be treated with suspicion.
+
+```{r}
+
+red_flag <- max_by_n |>
+  group_by(scale_type, n_per_group) |>
+  summarise(
+    mean_p95 = mean(max_p95_d),
+    min_p95  = min(max_p95_d),
+    max_p95  = max(max_p95_d),
+    .groups = "drop"
+  )
+
+red_flag |>
+  print(n = 20, width = 120)
+
+```
+
+```{r fig.width=9, fig.height=6}
+
+red_flag |>
+  ggplot(aes(x = n_per_group, colour = scale_type, fill = scale_type)) +
+  geom_ribbon(aes(ymin = min_p95, ymax = max_p95), alpha = 0.15, colour = NA) +
+  geom_line(aes(y = mean_p95), linewidth = 1.2) +
+  geom_point(aes(y = mean_p95), size = 2.5) +
+  scale_x_continuous(trans = "log10", breaks = c(10, 20, 50, 100, 200)) +
+  scale_colour_manual(values = scale_type_colours, labels = scale_type_labels) +
+  scale_fill_manual(values = scale_type_colours, labels = scale_type_labels) +
+  geom_hline(yintercept = 2.0, linetype = "dotted", colour = "grey50") +
+  annotate("text", x = 180, y = 2.2, label = "d = 2.0", colour = "grey50", size = 3.5) +
+  labs(
+    title    = "Red flag thresholds: max plausible P95 observed d",
+    subtitle = "Band = range across scales within each type; observed d above these curves is suspect",
+    x = "N per group (log scale)",
+    y = "Max plausible P95 SMD",
+    colour = "Scale type",
+    fill   = "Scale type"
+  ) +
+  coord_cartesian(ylim = c(0, NA))
+
+```
+
+## Effect size ramp
+
+How does the P95 observed *d* grow as the treatment effect increases (i.e., as the treatment mean moves further toward the scale boundary)? Shown for selected scales at small (N = 20), medium (N = 50), and large (N = 200) sample sizes. The shaded band extends from P95 to P99.
+
+```{r fig.width=12, fig.height=8}
+
+selected_scales <- c("PHQ-9 (clinical)", "BDI-II (clinical)", "SWLS",
+                      "STAI-Trait", "PHQ-9 (community)", "CES-D (community)")
+
+results |>
+  filter(
+    scale_name %in% selected_scales,
+    n_per_group %in% c(20, 50, 200)
+  ) |>
+  mutate(
+    n_label    = paste("N =", n_per_group),
+    n_label    = fct_reorder(n_label, n_per_group),
+    scale_name = factor(scale_name, levels = selected_scales)
+  ) |>
+  ggplot(aes(x = effect_proportion, colour = n_label, fill = n_label)) +
+  geom_ribbon(aes(ymin = observed_d_p95, ymax = observed_d_p99), alpha = 0.12, colour = NA) +
+  geom_line(aes(y = observed_d_p95), linewidth = 1) +
+  geom_point(aes(y = observed_d_p95), size = 1.5) +
+  geom_line(aes(y = observed_d_mean), linewidth = 0.5, linetype = "dotted", alpha = 0.5) +
+  facet_wrap(~ scale_name, scales = "free_y", ncol = 3) +
+  scale_colour_brewer(palette = "Set1") +
+  scale_fill_brewer(palette = "Set1") +
+  labs(
+    title    = "P95 observed d as treatment effect proportion increases",
+    subtitle = "Solid = P95; dotted = mean d; shaded band = P95 to P99",
+    x = "Effect proportion (fraction of available room used)",
+    y = "Cohen's d",
+    colour = "Sample size",
+    fill   = "Sample size"
+  )
+
+```
+
+## Small-sample noise inflation
+
+How much does small N inflate the *observed* d beyond the true population value? Panel A shows the SD of the sampling distribution of *d* at the maximum effect level. Panel B shows the P95/mean ratio: the factor by which a "lucky" study overestimates the true *d*.
+
+```{r fig.width=10, fig.height=5}
+
+# At max effect proportion per scale
+max_props <- results |>
+  filter(n_per_group == 200) |>
+  group_by(scale_name) |>
+  summarise(max_ep = max(effect_proportion), .groups = "drop")
+
+noise_data <- results |>
+  inner_join(max_props, by = "scale_name") |>
+  filter(effect_proportion == max_ep)
+
+p_a <- noise_data |>
+  filter(scale_name %in% selected_scales) |>
+  ggplot(aes(x = n_per_group, y = observed_d_sd,
+             colour = scale_type, group = scale_name)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  scale_x_continuous(trans = "log10", breaks = c(10, 20, 50, 100, 200)) +
+  scale_colour_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title = "A. Sampling variability of d",
+    x = "N per group", y = "SD of observed d",
+    colour = "Scale type"
+  ) +
+  theme(legend.position = "none")
+
+p_b <- noise_data |>
+  filter(scale_name %in% selected_scales) |>
+  mutate(inflation = observed_d_p95 / observed_d_mean) |>
+  ggplot(aes(x = n_per_group, y = inflation,
+             colour = scale_type, group = scale_name)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  geom_hline(yintercept = 1.0, linetype = "dotted", colour = "grey50") +
+  scale_x_continuous(trans = "log10", breaks = c(10, 20, 50, 100, 200)) +
+  scale_colour_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title = "B. P95 / Mean d ratio",
+    x = "N per group", y = "P95 / Mean ratio",
+    colour = "Scale type"
+  )
+
+# Combine
+library(patchwork)
+p_a + p_b +
+  plot_annotation(
+    title    = "Small-sample noise inflation of observed SMDs",
+    subtitle = "At the maximum simulated effect level for each scale"
+  ) +
+  plot_layout(guides = "collect") &
+  theme(legend.position = "right")
+
+```
+
+## Stacked bar comparison across N
+
+A direct comparison of mean *d*, P95, and P99 for each scale at three representative sample sizes (N = 20, 50, 200). This makes visible both the true ceiling (mean *d*) and the noise-inflated ceiling (P95, P99).
+
+```{r fig.width=14, fig.height=7}
+
+max_by_n |>
+  filter(n_per_group %in% c(20, 50, 200)) |>
+  mutate(
+    scale_name = fct_reorder(scale_name, max_p95_d, .fun = max),
+    n_label    = paste("N =", n_per_group),
+    n_label    = fct_reorder(n_label, n_per_group)
+  ) |>
+  ggplot(aes(y = scale_name)) +
+  # P99 bar (lightest, full extent)
+  geom_col(aes(x = max_p99_d, fill = scale_type), width = 0.7, alpha = 0.2) +
+  # P95 bar (medium)
+  geom_col(aes(x = max_p95_d, fill = scale_type), width = 0.7, alpha = 0.5) +
+  # Mean d bar (darkest, innermost)
+  geom_col(aes(x = max_mean_d, fill = scale_type), width = 0.7, alpha = 1.0) +
+  # Value labels
+  geom_text(aes(x = max_p99_d,
+                label = sprintf("%.1f | %.1f | %.1f", max_mean_d, max_p95_d, max_p99_d)),
+            hjust = -0.05, size = 2.2, colour = "grey40") +
+  facet_wrap(~ n_label, ncol = 3) +
+  scale_fill_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title    = "Maximum plausible SMDs: mean d, P95, and P99",
+    subtitle = "Darkest = mean d; medium = P95; lightest = P99. Labels show mean | P95 | P99.",
+    x = "Cohen's d",
+    y = NULL,
+    fill = "Scale type"
+  ) +
+  coord_cartesian(xlim = c(0, max(max_by_n$max_p99_d) * 1.25))
+
+```
+
+## Range/SD ratio vs max plausible d
+
+The relationship between a scale's Range/SD ratio and its maximum plausible P95 *d*, with diagonal reference lines showing multiplier values. This demonstrates that the Range/SD ratio alone is insufficient — the scale type (and thus control mean position) fundamentally determines the achievable ceiling.
+
+```{r fig.width=9, fig.height=7}
+
+max_by_n |>
+  filter(n_per_group %in% c(20, 50, 200)) |>
+  mutate(n_label = paste("N =", n_per_group)) |>
+  ggplot(aes(x = range_sd, y = max_p95_d, colour = scale_type,
+             shape = n_label)) +
+  geom_point(size = 3, alpha = 0.8) +
+  # Reference lines for multipliers
+  geom_abline(slope = 0.15, intercept = 0, linetype = "dotted",  colour = "grey60") +
+  geom_abline(slope = 0.35, intercept = 0, linetype = "dotted",  colour = "grey60") +
+  geom_abline(slope = 0.55, intercept = 0, linetype = "solid",   colour = "grey60", linewidth = 0.3) +
+  geom_abline(slope = 0.75, intercept = 0, linetype = "dotted",  colour = "grey60") +
+  geom_abline(slope = 0.95, intercept = 0, linetype = "dotted",  colour = "grey60") +
+  # Multiplier labels
+  annotate("text", x = 7.6, y = 0.15 * 7.6 + 0.15, label = "×0.15",
+           colour = "grey50", size = 3) +
+  annotate("text", x = 7.6, y = 0.35 * 7.6 + 0.15, label = "×0.35",
+           colour = "grey50", size = 3) +
+  annotate("text", x = 7.6, y = 0.55 * 7.6 + 0.15, label = "×0.55",
+           colour = "grey50", size = 3) +
+  annotate("text", x = 7.6, y = 0.75 * 7.6 + 0.15, label = "×0.75",
+           colour = "grey50", size = 3) +
+  annotate("text", x = 7.6, y = 0.95 * 7.6 + 0.15, label = "×0.95",
+           colour = "grey50", size = 3) +
+  scale_colour_manual(values = scale_type_colours, labels = scale_type_labels) +
+  labs(
+    title    = "Range/SD ratio vs maximum plausible P95 observed d",
+    subtitle = "Diagonal lines show multiplier values; same Range/SD → very different ceilings depending on scale type",
+    x = "Range / SD ratio",
+    y = "Max P95 observed d",
+    colour = "Scale type",
+    shape  = "Sample size"
+  )
+
+```
+
+```{r}
+
+# write_csv(results, "max_smd_simulation_results.csv")
+# write_csv(max_by_n, "max_smd_by_scale_and_n.csv")
+
+```

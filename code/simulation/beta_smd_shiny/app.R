@@ -63,8 +63,8 @@ ui <- fluidPage(
   p(class = "lede",
     "Given an observed mean and SD on a bounded scale, fit a Beta distribution",
     " by method of moments, predict how SD compresses as the mean moves toward",
-    " the bounds (constant-precision assumption), and compute SMD bounds under",
-    " three denominator conventions."),
+    " the bounds (constant-precision assumption), and compute SMD bounds for",
+    " between-groups Cohen's d or dependent Cohen's d_rm."),
 
   sidebarLayout(
     sidebarPanel(
@@ -74,8 +74,15 @@ ui <- fluidPage(
       uiOutput("m_input"),
       uiOutput("sd_input"),
       hr(),
-      helpText("Sliders rescale to the current bounds. Use the number boxes",
-               " for fine values.")
+      selectInput("es_type", "Effect size type",
+                  choices = c("Between-groups (Cohen's d)" = "between",
+                              "Dependent (Cohen's d_rm)" = "dependent"),
+                  selected = "between"),
+      conditionalPanel(
+        condition = "input.es_type == 'dependent'",
+        numericInput("rho", "Pre-post correlation (r)",
+                     value = 0.5, min = 0, max = 0.99, step = 0.05)
+      )
     ),
 
     mainPanel(
@@ -94,9 +101,11 @@ ui <- fluidPage(
 
       h2("SMD vs post-intervention mean", class = "section"),
       p(class = "note",
-        "Each curve assumes the post-intervention distribution has the same",
+        "Both curves assume the post-intervention distribution has the same",
         " precision phi as the observed one, so its SD is predicted rather",
-        " than reported. The three curves differ only in the SMD denominator."),
+        " than reported. The naive curve uses the observed SD as denominator;",
+        " the Beta-implied curve uses the appropriate two-condition denominator",
+        " for the selected effect size type."),
       plotOutput("smdPlot", height = "340px"),
 
       h2("SMD ceilings at the scale endpoints", class = "section"),
@@ -112,10 +121,12 @@ ui <- fluidPage(
         "The Beta-implied SD curve is only as good as the assumption that ",
         "precision doesn't shift between conditions. Treat predicted SDs as ",
         "a reference distribution, not a hard cap."),
-      p(class = "note", strong("Why post-only SD is a poor convention. "),
-        "Near a bound, the predicted post SD goes to zero, so SMD computed ",
-        "against it explodes. Pooled SD is bounded above (asymptotically by ",
-        "sqrt(2) x the naive control-SD bound).")
+      p(class = "note", strong("Effect size conventions. "),
+        "Between-groups Cohen's d uses sqrt((SD1^2 + SD2^2)/2) as the ",
+        "denominator (equal-n simplification of d_s, equivalent to d_av in ",
+        "within-subjects). Dependent Cohen's d_rm = (M2 - M1) * sqrt(2(1-r)) ",
+        "/ sqrt(SD1^2 + SD2^2 - 2*r*SD1*SD2), which collapses to the ",
+        "between-groups formula at r = 0.")
     )
   )
 )
@@ -129,51 +140,19 @@ server <- function(input, output, session) {
     smin <- input$smin; smax <- input$smax
     if (is.null(smin) || is.null(smax) || smax <= smin) return(NULL)
     rng <- smax - smin
-    tagList(
-      numericInput("M", "Observed mean (M)",
-                   value = isolate(input$M) %||% (smin + 0.75 * rng),
-                   step = rng / 200),
-      sliderInput("M_slider", NULL, min = smin, max = smax,
-                  value = isolate(input$M) %||% (smin + 0.75 * rng),
-                  step = rng / 200, ticks = FALSE)
-    )
+    numericInput("M", "Observed mean (M)",
+                 value = isolate(input$M) %||% (smin + 0.75 * rng),
+                 step = rng / 200)
   })
 
   output$sd_input <- renderUI({
     smin <- input$smin; smax <- input$smax
     if (is.null(smin) || is.null(smax) || smax <= smin) return(NULL)
     rng <- smax - smin
-    tagList(
-      numericInput("SD", "Observed SD",
-                   value = isolate(input$SD) %||% (rng * 0.12),
-                   step = rng / 500),
-      sliderInput("SD_slider", NULL, min = rng / 1000, max = rng / 2,
-                  value = isolate(input$SD) %||% (rng * 0.12),
-                  step = rng / 500, ticks = FALSE)
-    )
+    numericInput("SD", "Observed SD",
+                 value = isolate(input$SD) %||% (rng * 0.12),
+                 step = rng / 500)
   })
-
-  # Two-way sync between number boxes and sliders
-  observeEvent(input$M_slider, {
-    if (!is.null(input$M) && !isTRUE(all.equal(input$M, input$M_slider))) {
-      updateNumericInput(session, "M", value = input$M_slider)
-    }
-  }, ignoreInit = TRUE)
-  observeEvent(input$M, {
-    if (!is.null(input$M_slider) && !isTRUE(all.equal(input$M_slider, input$M))) {
-      updateSliderInput(session, "M_slider", value = input$M)
-    }
-  }, ignoreInit = TRUE)
-  observeEvent(input$SD_slider, {
-    if (!is.null(input$SD) && !isTRUE(all.equal(input$SD, input$SD_slider))) {
-      updateNumericInput(session, "SD", value = input$SD_slider)
-    }
-  }, ignoreInit = TRUE)
-  observeEvent(input$SD, {
-    if (!is.null(input$SD_slider) && !isTRUE(all.equal(input$SD_slider, input$SD))) {
-      updateSliderInput(session, "SD_slider", value = input$SD)
-    }
-  }, ignoreInit = TRUE)
 
   # Validate + fit
   fit_r <- reactive({
@@ -270,37 +249,47 @@ server <- function(input, output, session) {
     M_grid  <- r$smin + mu_grid * rng
     diff    <- M_grid - r$M
     smd_naive <- diff / r$SD
+
+    es_type  <- input$es_type %||% "between"
+    rho      <- if (es_type == "dependent") {
+                  min(max(input$rho %||% 0.5, 0), 0.99)
+                } else 0
+    beta_lab <- if (es_type == "dependent") {
+                  sprintf("Beta-implied (Cohen's d_rm, r = %.2f)", rho)
+                } else "Beta-implied (between-groups Cohen's d)"
+
     if (f$impossible) {
       df <- data.frame(M = M_grid, smd = smd_naive,
-                       conv = "Naive (control SD)")
+                       conv = "Naive (observed SD)")
     } else {
       sd_post <- sqrt(mu_grid * (1 - mu_grid) / (1 + f$phi)) * rng
-      smd_post   <- ifelse(sd_post < 1e-9, NA, diff / sd_post)
-      smd_pooled <- diff / sqrt((r$SD^2 + sd_post^2) / 2)
+      if (es_type == "dependent") {
+        sd_diff  <- sqrt(r$SD^2 + sd_post^2 - 2 * rho * r$SD * sd_post)
+        smd_beta <- diff * sqrt(2 * (1 - rho)) / sd_diff
+      } else {
+        smd_beta <- diff / sqrt((r$SD^2 + sd_post^2) / 2)
+      }
       df <- rbind(
-        data.frame(M = M_grid, smd = smd_naive,  conv = "Naive (control SD)"),
-        data.frame(M = M_grid, smd = smd_pooled, conv = "Pooled SD (Beta-predicted)"),
-        data.frame(M = M_grid, smd = pmin(pmax(smd_post, -15), 15),
-                   conv = "Post SD only (Beta-predicted)")
+        data.frame(M = M_grid, smd = smd_naive, conv = "Naive (observed SD)"),
+        data.frame(M = M_grid, smd = smd_beta,  conv = beta_lab)
       )
     }
-    df$conv <- factor(df$conv,
-      levels = c("Naive (control SD)",
-                 "Pooled SD (Beta-predicted)",
-                 "Post SD only (Beta-predicted)"))
+    df$conv <- factor(df$conv, levels = c("Naive (observed SD)", beta_lab))
+
+    cols <- setNames(c("#444444", "#1a5fb4"),
+                     c("Naive (observed SD)", beta_lab))
+    ltys <- setNames(c("dashed", "solid"),
+                     c("Naive (observed SD)", beta_lab))
+    lwds <- setNames(c(0.7, 1.1),
+                     c("Naive (observed SD)", beta_lab))
+
     ggplot(df, aes(M, smd, colour = conv, linetype = conv, linewidth = conv)) +
       geom_hline(yintercept = 0, colour = "grey80") +
       geom_vline(xintercept = r$M, colour = "grey80") +
       geom_line() +
-      scale_colour_manual(values = c("Naive (control SD)" = "#444444",
-                                     "Pooled SD (Beta-predicted)" = "#1a5fb4",
-                                     "Post SD only (Beta-predicted)" = "#c64600")) +
-      scale_linetype_manual(values = c("Naive (control SD)" = "dashed",
-                                       "Pooled SD (Beta-predicted)" = "solid",
-                                       "Post SD only (Beta-predicted)" = "solid")) +
-      scale_linewidth_manual(values = c("Naive (control SD)" = 0.7,
-                                        "Pooled SD (Beta-predicted)" = 1.1,
-                                        "Post SD only (Beta-predicted)" = 0.9)) +
+      scale_colour_manual(values = cols) +
+      scale_linetype_manual(values = ltys) +
+      scale_linewidth_manual(values = lwds) +
       labs(x = "post-intervention mean (raw scale)", y = "SMD",
            colour = NULL, linetype = NULL, linewidth = NULL) +
       theme_minimal(base_size = 12) +
@@ -315,27 +304,43 @@ server <- function(input, output, session) {
     f <- r$fit
     naive_up   <- (r$smax - r$M) / r$SD
     naive_down <- (r$smin - r$M) / r$SD
-    pooled_up_str   <- "&mdash;"
-    pooled_down_str <- "&mdash;"
+
+    es_type <- input$es_type %||% "between"
+    rho     <- if (es_type == "dependent") {
+                 min(max(input$rho %||% 0.5, 0), 0.99)
+               } else 0
+    beta_label <- if (es_type == "dependent") {
+                    sprintf("Beta-implied bound (Cohen's d_rm, r = %.2f, mu' approaching bound)", rho)
+                  } else "Beta-implied bound (between-groups Cohen's d, mu' approaching bound)"
+
+    beta_up_str   <- "&mdash;"
+    beta_down_str <- "&mdash;"
     if (!f$impossible) {
       eps <- 5e-4
       M_up   <- r$smin + (1 - eps) * (r$smax - r$smin)
       M_down <- r$smin + eps * (r$smax - r$smin)
       sd_up   <- predict_sd_at_mean(M_up,   f$phi, r$smin, r$smax)
       sd_down <- predict_sd_at_mean(M_down, f$phi, r$smin, r$smax)
-      pooled_up_str   <- sprintf("%.3f", (M_up   - r$M) / sqrt((r$SD^2 + sd_up^2)   / 2))
-      pooled_down_str <- sprintf("%.3f", (M_down - r$M) / sqrt((r$SD^2 + sd_down^2) / 2))
+      if (es_type == "dependent") {
+        sd_diff_up   <- sqrt(r$SD^2 + sd_up^2   - 2 * rho * r$SD * sd_up)
+        sd_diff_down <- sqrt(r$SD^2 + sd_down^2 - 2 * rho * r$SD * sd_down)
+        beta_up_str   <- sprintf("%.3f", (M_up   - r$M) * sqrt(2 * (1 - rho)) / sd_diff_up)
+        beta_down_str <- sprintf("%.3f", (M_down - r$M) * sqrt(2 * (1 - rho)) / sd_diff_down)
+      } else {
+        beta_up_str   <- sprintf("%.3f", (M_up   - r$M) / sqrt((r$SD^2 + sd_up^2)   / 2))
+        beta_down_str <- sprintf("%.3f", (M_down - r$M) / sqrt((r$SD^2 + sd_down^2) / 2))
+      }
     }
     div(class = "readout",
         HTML(sprintf(paste0(
           "<span class='label'>Naive linear bound (observed SD as denominator):</span><br>",
           "&nbsp;&nbsp;Max upward SMD &nbsp;= <span class='value'>%.3f</span> (at M' = %.3f)<br>",
           "&nbsp;&nbsp;Max downward SMD = <span class='value'>%.3f</span> (at M' = %.3f)<br><br>",
-          "<span class='label'>Beta-implied bound (pooled SD, mu' approaching bound):</span><br>",
+          "<span class='label'>%s:</span><br>",
           "&nbsp;&nbsp;Approaching upper bound: SMD &rarr; <span class='value'>%s</span><br>",
           "&nbsp;&nbsp;Approaching lower bound: SMD &rarr; <span class='value'>%s</span>"),
           naive_up, r$smax, naive_down, r$smin,
-          pooled_up_str, pooled_down_str)))
+          beta_label, beta_up_str, beta_down_str)))
   })
 }
 

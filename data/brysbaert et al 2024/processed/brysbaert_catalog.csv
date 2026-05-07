@@ -1,0 +1,136 @@
+scale_folder,data_file,item_cols,n_items,response_min,response_max,valid
+BISBAS,BISBAS_Binter.xlsx,10:29,20,1,4,TRUE
+BISBAS,BISBAS_Jonker.sav,"(23:46)[-c(1,6,11,17)]",20,1,4,TRUE
+BISBAS,BISBAS_Khaliq.sav,"(298:321)[-c(1,6,11,17)]",20,1,4,TRUE
+BISBAS,BISBAS_Molenda.sav,"(34:57)[-c(1,6,11,17)]",20,1,4,TRUE
+BISBAS,BISBAS_Rutten.csv,257:276,20,1,4,TRUE
+BISBAS,BISBASdata_Dierickx.sav,"c(3:6,8:11,13:17,19:25)",20,1,4,TRUE
+Beliefs,Beliefs_Barnby.csv,"seq(10, ncol(.df), 3)",NA,1,7,FALSE
+Compulsivity Muela,compulsivity_gambling_Muela.xlsx,10:99,90,1,5,TRUE
+Compulsivity Muela,compulsivity_videogames_Muela.xlsx,10:99,90,1,5,TRUE
+CovidStress,Final_COVIDiSTRESS_Vol2_cleaned.csv,111:117,7,1,6,TRUE
+DASS-21,dass21_Thiyagarajan.xlsx,9:29,21,0,3,TRUE
+DOSPERT,DOSPERT_Frey.csv,"c(3:8,21:26,39:44,57:62,75:80)",30,1,7,TRUE
+Depression,BDI-II_Garcia_Batista.sav,3:23,21,0,3,TRUE
+Depression,BDI-II_Rabeya.xlsx,17:37,21,0,3,TRUE
+Depression,BDI-II_Smith.sav,49:68,20,0,3,TRUE
+Depression,depression_Sandoval.xlsx,27:47,21,0,3,TRUE
+Emotion regulation DERS,DERS_Valencia.sav,8:43,36,1,5,TRUE
+Emotional intelligence,AES_Anglim.csv,254:286,33,1,5,TRUE
+Emotional intelligence,AES_Demetrovics.sav,38:70,33,1,5,TRUE
+Emotional intelligence,AES_Demetrovics2.sav,44:76,33,1,5,TRUE
+Emotional intelligence,AES_Rua.xlsx,5:37,33,1,5,TRUE
+Emotional intelligence,Bainbridge_s2_IRI.csv,224:239,16,1,5,TRUE
+Emotional intelligence,EI_Brienza.sav,283:298,16,1,5,TRUE
+Emotional intelligence,EI_Robinson.xlsx,2:17,16,1,5,TRUE
+Emotional intelligence,IRI_Stosic.xlsx,2:29,28,0,4,TRUE
+Emotional intelligence,Martingano_IRI.sav,187:214,28,0,4,TRUE
+Emotional intelligence,TEIQue_Perazzo.sav,4:33,30,1,7,TRUE
+Emotional intelligence,TEIQue_Perez-Diaz.csv,1:30,30,1,7,TRUE
+FFMQ,Chile.sav,22:60,39,1,5,TRUE
+FFMQ,Germany.sav,16:54,39,1,5,TRUE
+FFMQ,Hong Kong.sav,17:55,39,1,5,TRUE
+FFMQ,India.sav,8:46,39,1,5,TRUE
+FFMQ,Norway.sav,5:43,39,1,5,TRUE
+FFMQ,Poland.xlsx,1:39,39,1,5,TRUE
+FFMQ,Portugal.sav,2:40,39,1,5,TRUE
+FFMQ,Romania.xlsx,7:45,39,1,5,TRUE
+FFMQ,Spain.sav,3:41,39,1,5,TRUE
+FFMQ,australia.sav,3:41,39,1,5,TRUE
+FFMQ,austria.sav,5:43,39,1,5,FALSE
+FFMQ,croatia.sav,4:42,39,1,5,TRUE
+FFMQ,sweden.sav,6:44,39,1,5,TRUE
+FFMQ,us1.xlsx,3:41,39,1,5,TRUE
+Face recognition,Dal_Lago_2023_PI20_raw_data.xlsx,4:23,20,1,5,TRUE
+Face recognition,Danish PI20 validation study.xlsx,15:34,20,1,5,TRUE
+Face recognition,Estudillo_2021_PI20_JCP.csv,2:21,20,1,5,FALSE
+Face recognition,Estudillo_2021_PI20_PEERJ.csv,2:21,20,1,5,FALSE
+Face recognition,Kramer_2023_PI20.xlsx,1:20,20,1,5,TRUE
+Face recognition,PI20_questionnaire_Jlowes.xlsx,4:23,20,1,5,TRUE
+Handedness,Dragan_handedness.dat,5:14,10,1,5,TRUE
+Handedness,McManus_handedness.sav,"c(2,14,3,8,12,17,4,5,7,27)",10,1,5,TRUE
+Hope,Boutilier_RRB_Hope_Optimism_Data.sav,89:100,12,1,8,TRUE
+Impulsivity UPPS and BIS,BIS_Demetrovics1.sav,3:32,30,1,4,TRUE
+Impulsivity UPPS and BIS,BIS_Demetrovics2.sav,10:30,21,1,4,TRUE
+Impulsivity UPPS and BIS,Billieux.xlsx,7:26,20,1,4,TRUE
+Impulsivity UPPS and BIS,Bothe.sav,1:20,20,1,4,TRUE
+Impulsivity UPPS and BIS,Eben2020.xlsx,2:21,20,1,4,TRUE
+Impulsivity UPPS and BIS,Finley.sav,129:162,30,1,4,TRUE
+Impulsivity UPPS and BIS,Flayelle.xlsx,27:46,20,1,4,TRUE
+Impulsivity UPPS and BIS,Haines.csv,26:55,30,1,4,TRUE
+Impulsivity UPPS and BIS,Littrell.csv,44:73,30,1,4,TRUE
+Impulsivity UPPS and BIS,Meule.sav,5:19,15,1,4,TRUE
+Impulsivity UPPS and BIS,Racine_EMA_Data.sav,74:132,59,1,4,TRUE
+Impulsivity UPPS and BIS,Steiner.xlsx,2:46,45,1,4,FALSE
+Impulsivity UPPS and BIS,validation_sample_Wuellhorst.xlsx,2:60,59,1,4,TRUE
+Interoceptive accuracy,IAS_Brand1.sav,13:33,21,1,5,TRUE
+Interoceptive accuracy,IAS_Brand2.sav,11:31,21,1,5,TRUE
+Interoceptive accuracy,IAS_Brand3.sav,4:24,21,1,5,TRUE
+Interoceptive accuracy,IAS_Campos.sav,76:96,21,1,5,TRUE
+Interoceptive accuracy,IAS_Murphy1.sav,3:23,21,1,5,TRUE
+Interoceptive accuracy,IAS_Todd.sav,80:100,21,1,5,TRUE
+Interoceptive accuracy,MAIA_Desmedt.csv,27:63,37,0,5,TRUE
+Interoceptive accuracy,MAIA_Ferentzi.xlsx,9:40,32,0,5,TRUE
+Interoceptive accuracy,MAIA_Randelovic.sav,4:40,37,0,5,TRUE
+Interoceptive accuracy,MAIA_Reis.csv,1:32,32,0,5,TRUE
+Interoceptive accuracy,MAIA_Rogowska.xlsx,6:42,37,0,5,TRUE
+Loneliness,Lardone.xlsx,109:128,20,1,4,TRUE
+Loneliness,McDanal.csv,30:49,20,1,4,TRUE
+Loneliness,Panayiotou.xlsx,2:21,20,1,4,TRUE
+Loneliness,Weinstein.csv,50:69,20,1,4,TRUE
+Moral foundations,MoralF_Harper.csv,25:65,41,0,5,TRUE
+Moral foundations,MoralF_Zakharin.csv,"c(3:7,9:23,25:34)",30,0,5,TRUE
+OCD,OCI-R dataset Ignatova.xlsx,2:19,18,0,4,TRUE
+OCD,Obsession_Ozcanli.sav,2:51,50,0,4,TRUE
+Optimism,Optimism_Coelho_Bra.sav,2:10,9,0,4,TRUE
+Optimism,Optimism_Coelho_UK.sav,11:19,9,0,4,TRUE
+PANAS,PANAS_Diaz-Garcia.sav,12:31,20,1,5,TRUE
+Perfectionism,MacKinnon_Perfectionism1.csv,259:304,46,1,7,TRUE
+Perfectionism,Perfectionism_Kacar-Basaran.sav,2:46,45,1,7,FALSE
+Perfectionism,Perfectionism_Linnett.sav,7:36,30,1,7,TRUE
+Perfectionism,Workye_Perfectionism.csv,37:74,38,1,7,TRUE
+Personality,BFAS_Zajenkowski.sav,49:148,100,1,5,TRUE
+Personality,BFI-2_Gallardo-Pujol.csv,5:64,60,1,5,TRUE
+Personality,BFI2-Andrejevic.csv,5:64,60,1,5,TRUE
+Personality,BFI2_Vermeiren.xlsx,2:61,60,1,5,TRUE
+Personality,Big_Five_Mezquita.sav,5:54,50,1,5,TRUE
+Personality,HEXACO_Gallagher.csv,23:82,60,1,5,TRUE
+Personality,HEXACO_Henry_time1.xlsx,1:96,96,1,5,TRUE
+Personality,IPIP_Silvia.csv,107:156,50,1,5,TRUE
+Personality,TIPI_Coelho_Bra.sav,11:20,10,1,7,TRUE
+Personality,TIPI_Coelho_UK.sav,1:10,10,1,7,TRUE
+Personality,data_RIASEC_openpsychometrics.csv,1:48,48,1,5,FALSE
+Personality disorders,Dark_triad_Nielsen.csv,3:29,27,1,5,TRUE
+Personality disorders,ICD11_Carnovale.csv,6:65,60,0,3,TRUE
+Personality disorders,Machiavellism_Grabovac.csv,1:52,52,1,5,TRUE
+Personality disorders,Natoli_Pers_Functioning.csv,6:17,12,1,4,TRUE
+Personality disorders,Psychopathy_Knack.sav,26:89,64,1,5,TRUE
+Post Traumatic Stress Disorder,Ashbaugh_PCL-5.FR.sav,4:23,20,0,4,TRUE
+Post Traumatic Stress Disorder,Ashbaugh_PCL-5.sav,4:23,20,0,4,TRUE
+Post Traumatic Stress Disorder,Orovou_PCL-5.sav,26:45,20,0,4,TRUE
+QEWB,QEWB_Ishii.xlsx,5:25,21,1,5,TRUE
+Quality of Life WHO,WHOQOL_McConachie.xlsx,3:26,24,1,5,TRUE
+Reinforcement sensitivity,Nuel_RST-PQ.txt,2:55,54,1,4,TRUE
+Reinforcement sensitivity,Nuel_RST-PQ2.txt,2:55,54,1,4,TRUE
+Reinforcement sensitivity,RST_Sozer.sav,3:67,65,1,4,FALSE
+Reinforcement sensitivity,Satchell_RST-PQ.csv,5:77,73,1,4,TRUE
+STAI-T,STAI-T_Sundelin.xlsx,3:22,20,1,4,TRUE
+STAI-T,STAI_Joshi.xlsx,22:41,20,1,4,TRUE
+Self control,BSC1_Paap.sav,63:75,13,1,5,TRUE
+Self control,BSC2_Paap.sav,78:90,13,1,5,TRUE
+Self control,BSC_Sjastad1.xlsx,14:26,13,1,5,TRUE
+Self control,BSC_Sjastad2.xlsx,14:26,13,1,5,TRUE
+Sense of coherence,Coherence_Zajenkowska.sav,86:114,29,1,7,TRUE
+Sense of coherence,Sense_of_coherence_Lelek.xlsx,2:30,29,1,7,TRUE
+Sexual desire,SDI-2_Jones.txt,5:18,14,0,8,TRUE
+Social dominance,SDO_Fleeson1.sav,37:52,16,1,7,TRUE
+Social dominance,SDO_Fleeson2.sav,85:100,16,1,7,TRUE
+Social dominance,SDO_Perkins.csv,8:23,16,1,7,TRUE
+Social dominance,SDO_Roets1.sav,15:30,16,1,7,TRUE
+Social dominance,SDO_Roets2.sav,16:31,16,1,7,TRUE
+Social dominance,SDO_Simon1.xlsx,585:600,16,1,7,TRUE
+Social dominance,SDO_Simon3.xlsx,579:594,16,1,7,TRUE
+Symptom checklist 90R,SCL90R_Chen.csv,55:144,90,0,4,TRUE
+Time perspective,Time_perspective_Bodecka.sav,41:60,20,1,5,TRUE
+Time perspective,ZTPI_Akirmak.csv,19:74,56,1,5,TRUE
+Time perspective,ZTPI_Ceccato.xlsx,8:25,18,1,5,TRUE

@@ -1,0 +1,45 @@
+
+```{r}
+
+library(tidyverse)
+
+source("extract_brysbaert_functions.R")
+
+write_csv(brysbaert_catalog, "processed/brysbaert_catalog.csv")
+write_csv(brysbaert_load_log, "processed/brysbaert_load_log.csv")
+write_csv(range_check, "processed/brysbaert_range_check.csv")
+
+range_check
+brysbaert_load_log
+
+library(arrow)
+
+dat_brysbaert_sumscores <- read_parquet("processed/dat_sumscores_brysbaert.parquet")
+dat_brysbaert_long      <- read_parquet("processed/dat_long_brysbaert.parquet")
+
+
+# dat_brysbaert_sumscores |>
+#   distinct(scale) |>
+#   dput()
+# 
+# dat_brysbaert_long |>
+#   distinct(scale) |>
+#   dput()
+
+dat_brysbaert_sumscores |>
+  count(scale)
+
+dat_brysbaert_long |>
+  count(scale) 
+
+head(dat_brysbaert_long)
+
+# temp <- dat_brysbaert_long |>
+#   slice_head(n = 10000) 
+
+```
+
+
+
+
+  

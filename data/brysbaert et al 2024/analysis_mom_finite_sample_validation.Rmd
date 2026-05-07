@@ -1,0 +1,277 @@
+---
+title: "MOM vs MLE Beta phi recovery at production sample sizes"
+subtitle: "Bootstrap validation across the Brysbaert et al. (2024) corpus"
+author: "Ian Hussey"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE,
+                      cache = TRUE, fig.width = 11, fig.height = 7)
+```
+
+```{r deps}
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(betareg)
+  library(knitr)
+})
+source("extract_brysbaert_functions.R")
+```
+
+# Why this analysis exists
+
+The full-N MOM vs MLE comparison done elsewhere mostly answers "does the
+constant-phi Beta model fit this scale?" — at N in the thousands, both
+estimators are essentially asymptotic and recover the same population
+phi. That tells us nothing useful about the production case, where
+someone has reported `(M, SD)` from `n = 80` and we want to derive
+plausibility bounds from that single summary.
+
+To validate MOM for production use we need to ask:
+
+> At realistic clinical-trial sample sizes, how close is the MOM phi
+> derived from `(M, SD)` to the MLE phi we'd get from the same
+> participants' raw items?
+
+This Rmd bootstraps subsamples of multiple sizes from each well-behaved
+Brysbaert dataset, computes both MOM and MLE phi per subsample, and
+reports their bias and variance against the full-N MLE as ground truth.
+
+# Selecting datasets
+
+Restrictions:
+
+- `n_kept >= 500` so we can bootstrap up to `N = 500`
+- catalog `min/max` agrees with observed (not in `range_check`) — we
+  want clean data, not fights with mis-specified ranges
+- mean POMP between 0.15 and 0.85 — extreme-mean scales are known
+  Beta-misfit cases (boundary mass) and would conflate "Beta is wrong"
+  with "MOM is biased at small N"
+
+```{r select-datasets}
+in_rc <- dplyr::transmute(range_check, scale, source, in_range_check = TRUE)
+
+candidates <- brysbaert_load_log |>
+  dplyr::filter(ok, n_kept >= 500) |>
+  dplyr::left_join(in_rc, by = c("scale", "source")) |>
+  dplyr::filter(is.na(in_range_check)) |>
+  dplyr::select(scale_folder, data_file, scale, source, n_kept)
+
+# Mean POMP per dataset (computed cheaply from sumscores)
+mean_pomp_per_dataset <- dat_brysbaert_sumscores |>
+  dplyr::group_by(scale, source) |>
+  dplyr::summarise(
+    mean_pomp = mean((sumscore / n_items - min_response) /
+                     (max_response - min_response), na.rm = TRUE),
+    .groups = "drop"
+  )
+
+candidates <- candidates |>
+  dplyr::left_join(mean_pomp_per_dataset, by = c("scale", "source")) |>
+  dplyr::filter(mean_pomp >= 0.15, mean_pomp <= 0.85)
+
+cat("Candidate datasets after filtering:", nrow(candidates), "\n")
+candidates |>
+  dplyr::select(scale, source, n_kept, mean_pomp) |>
+  dplyr::arrange(desc(n_kept)) |>
+  kable(digits = 3, caption = "Datasets entering the bootstrap")
+```
+
+# Build participant POMP vectors
+
+```{r build-pomp, cache=TRUE}
+candidates$pomp <- lapply(seq_len(nrow(candidates)), function(i) {
+  tryCatch({
+    d <- get_dataset_items(candidates$scale_folder[i], candidates$data_file[i])
+    participant_pomp(d)
+  }, error = function(e) NULL)
+})
+
+candidates$n_pomp <- sapply(candidates$pomp,
+                            function(x) if (is.null(x)) 0L else length(x))
+candidates <- candidates[candidates$n_pomp >= 500, ]
+cat("Datasets with >=500 valid POMP scores:", nrow(candidates), "\n")
+```
+
+# Bootstrap
+
+`B = 200` reps per (scale, N). Sample sizes span typical psychology
+sample sizes: 30 (very small RCT arm), 50, 100 (median trial arm), 200,
+500. Larger N would already be near-asymptotic.
+
+```{r bootstrap, cache=TRUE}
+N_GRID <- c(30, 50, 100, 200, 500)
+B      <- 200
+
+boot_results <- purrr::map_dfr(seq_len(nrow(candidates)), function(i) {
+  bootstrap_phi_finite_sample(
+    pomp_full = candidates$pomp[[i]],
+    scale     = candidates$scale[i],
+    source    = candidates$source[i],
+    N_grid    = N_GRID,
+    B         = B,
+    seed      = i
+  )
+})
+
+# Persist for downstream use
+if (!dir.exists("processed")) dir.create("processed")
+saveRDS(boot_results, "processed/mom_mle_bootstrap.rds")
+cat("Bootstrap rows:", nrow(boot_results), "\n")
+```
+
+# Headline: corpus-level MOM vs MLE agreement at each N
+
+This is the main result. Across all candidate datasets, in each
+subsample of size N: how close is MOM phi to MLE phi (in the same
+subsample)? And how close is each to the full-N MLE ground truth?
+
+```{r headline}
+headline <- boot_results |>
+  dplyr::filter(is.finite(phi_mom), is.finite(phi_mle),
+                is.finite(phi_star), phi_star > 0) |>
+  dplyr::group_by(N) |>
+  dplyr::summarise(
+    n_subsamples       = dplyr::n(),
+    median_rel_bias_mom = round(median((phi_mom - phi_star) / phi_star), 3),
+    median_rel_bias_mle = round(median((phi_mle - phi_star) / phi_star), 3),
+    median_abs_diff_mom_mle = round(median(abs(phi_mom - phi_mle) / phi_mle), 3),
+    q90_abs_diff_mom_mle    = round(quantile(abs(phi_mom - phi_mle) / phi_mle, 0.9), 3),
+    .groups = "drop"
+  )
+
+kable(headline,
+      caption = paste("Corpus-wide MOM vs MLE recovery at finite N. Columns:",
+                      "median relative bias against full-N MLE truth (positive =",
+                      "estimator overshoots truth) and median / 90th-percentile",
+                      "absolute relative difference between MOM and MLE in the",
+                      "same subsample."))
+```
+
+# Per-dataset summary
+
+```{r per-dataset-summary}
+boot_summary <- boot_results |>
+  dplyr::filter(is.finite(phi_mom), is.finite(phi_mle),
+                is.finite(phi_star), phi_star > 0) |>
+  dplyr::group_by(scale, source, N) |>
+  dplyr::summarise(
+    phi_star    = unique(phi_star)[1],
+    phi_mom_med = median(phi_mom, na.rm = TRUE),
+    phi_mle_med = median(phi_mle, na.rm = TRUE),
+    phi_mom_q25 = quantile(phi_mom, 0.25, na.rm = TRUE),
+    phi_mom_q75 = quantile(phi_mom, 0.75, na.rm = TRUE),
+    phi_mle_q25 = quantile(phi_mle, 0.25, na.rm = TRUE),
+    phi_mle_q75 = quantile(phi_mle, 0.75, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+# Plot: phi recovery vs N, faceted by dataset
+
+Each facet is one Brysbaert dataset. Y-axis is `phi_estimator / phi_star`.
+Dashed line at 1 = perfect recovery. Ribbons are IQR across `B`
+bootstrap subsamples.
+
+```{r plot-recovery, fig.height=11}
+plot_df <- boot_summary |>
+  dplyr::mutate(
+    mom_ratio = phi_mom_med / phi_star,
+    mle_ratio = phi_mle_med / phi_star,
+    mom_lo    = phi_mom_q25 / phi_star,
+    mom_hi    = phi_mom_q75 / phi_star,
+    mle_lo    = phi_mle_q25 / phi_star,
+    mle_hi    = phi_mle_q75 / phi_star,
+    facet_lab = sprintf("%s\n%s (phi*=%.1f)", scale, source, phi_star)
+  )
+
+ggplot(plot_df, aes(x = N)) +
+  geom_hline(yintercept = 1, linetype = "dashed", colour = "grey60") +
+  geom_ribbon(aes(ymin = mom_lo, ymax = mom_hi),
+              fill = "#1a5fb4", alpha = 0.18) +
+  geom_ribbon(aes(ymin = mle_lo, ymax = mle_hi),
+              fill = "#c64600", alpha = 0.18) +
+  geom_line(aes(y = mom_ratio, colour = "MOM"), linewidth = 0.9) +
+  geom_line(aes(y = mle_ratio, colour = "MLE"), linewidth = 0.9) +
+  geom_point(aes(y = mom_ratio, colour = "MOM"), size = 1.3) +
+  geom_point(aes(y = mle_ratio, colour = "MLE"), size = 1.3) +
+  scale_x_log10(breaks = N_GRID) +
+  scale_colour_manual(values = c("MOM" = "#1a5fb4", "MLE" = "#c64600")) +
+  facet_wrap(~ facet_lab, scales = "free_y", ncol = 4) +
+  labs(x = "Subsample size N (log scale)",
+       y = "Estimated phi / full-N MLE phi*",
+       colour = NULL,
+       caption = "Ribbons = IQR across bootstrap reps. Dashed = perfect recovery.") +
+  theme_linedraw(base_size = 10) +
+  theme(legend.position = "bottom",
+        strip.text = element_text(size = 8))
+```
+
+# Same-subsample MOM vs MLE agreement
+
+The most production-relevant question: in the SAME subsample, how close
+are MOM and MLE? This is what the meta-analytic plausibility check
+gambles on.
+
+```{r same-sample-agreement}
+agreement <- boot_results |>
+  dplyr::filter(is.finite(phi_mom), is.finite(phi_mle), phi_mle > 0) |>
+  dplyr::mutate(rel_diff = (phi_mom - phi_mle) / phi_mle) |>
+  dplyr::group_by(N) |>
+  dplyr::summarise(
+    n          = dplyr::n(),
+    median     = round(median(rel_diff), 3),
+    p10        = round(quantile(rel_diff, 0.10), 3),
+    p90        = round(quantile(rel_diff, 0.90), 3),
+    abs_med    = round(median(abs(rel_diff)), 3),
+    abs_p90    = round(quantile(abs(rel_diff), 0.90), 3),
+    pct_within_10pct = round(mean(abs(rel_diff) < 0.10), 3),
+    pct_within_25pct = round(mean(abs(rel_diff) < 0.25), 3),
+    .groups = "drop"
+  )
+
+kable(agreement,
+      caption = "(phi_MOM - phi_MLE) / phi_MLE in matched subsamples")
+```
+
+```{r plot-agreement, fig.height=4}
+boot_results |>
+  dplyr::filter(is.finite(phi_mom), is.finite(phi_mle), phi_mle > 0) |>
+  dplyr::mutate(rel_diff = (phi_mom - phi_mle) / phi_mle,
+                N = factor(N, levels = N_GRID)) |>
+  ggplot(aes(N, rel_diff)) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey50") +
+  geom_violin(fill = "#1a5fb4", alpha = 0.2, colour = "#1a5fb4") +
+  geom_boxplot(width = 0.15, outlier.size = 0.4, fill = "white") +
+  coord_cartesian(ylim = c(-1, 1)) +
+  labs(x = "Subsample size N", y = "(phi_MOM - phi_MLE) / phi_MLE",
+       caption = "Distribution across all (scale x bootstrap) reps. Clipped to +/-100% for readability.") +
+  theme_linedraw(base_size = 12)
+```
+
+# Interpretation
+
+Read this section after running the chunks above. The headline table
+and the same-subsample agreement plot answer the production question
+directly:
+
+- If `pct_within_25pct` at `N = 80–100` is high (say >0.8), MOM is
+  defensible for plausibility-bound use on typical clinical-trial
+  summary stats.
+- If `median_rel_bias_mom` is appreciably non-zero at small N, MOM
+  systematically over- or under-estimates phi, which translates into
+  systematic SMD-bound bias.
+- If `q90_abs_diff_mom_mle` is large (say >0.5), the MOM bound from a
+  single (M, SD) report can be substantially off — useful caveat for
+  any production tool.
+
+Compare the headline numbers at different N values to see how fast the
+MOM/MLE gap shrinks. The figure shows whether some scales misbehave
+more than others — that signals scale-specific Beta-fit weakness rather
+than a generic MOM problem.

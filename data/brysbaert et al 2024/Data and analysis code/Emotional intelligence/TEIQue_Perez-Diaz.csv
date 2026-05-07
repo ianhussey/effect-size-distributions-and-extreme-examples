@@ -1,0 +1,336 @@
+﻿t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,t20,t21,t22,t23,t24,t25,t26,t27,t28,t29,t30,Wellbeing,Selfcontrol,Emotionality,Sociability,GlobalTEI,sex,age,dateborn,bornin,numbersofkids,civilstate,activity,education,ethnicbackground,mothertongue,jobposition
+7,5,7,7,4,7,4,5,4,1,4,5,1,1,4,5,7,4,7,7,4,7,4,7,4,6,7,4,7,5,5.666666667,5.666666667,4.75,4.333333333,5.033333333,Masculine, ,99,Big city,None,Single,Student,Secondary Education,Black-African background,Yes,Student
+2,6,7,1,1,7,3,2,7,4,6,4,2,3,5,2,7,4,7,5,3,2,7,6,1,3,6,7,1,6,4.833333333,4,4.375,4,4.233333333,Masculine,31,1987,Regular city,None,In a relationship,Public sector,Secondary Education,Black-american background,No,Salesman-woman
+3,1,3,1,2,1,2,4,2,2,7,2,1,3,1,1,3,1,1,2,3,5,5,2,7,1,1,1,3,1,1.833333333,1.833333333,2.375,3.5,2.4,Masculine,21,1997,Big city,One,Single,Private sector,Secondary Education,Black-american background,99,Student
+1,7,2,6,5,3,4,4,5,3,6,2,1,1,1,6,3,4,5,6,7,7,2,3,4,3,6,1,2,3,4.5,4.333333333,3.125,4.333333333,3.766666667,Masculine,24,1994,Regular city,One,Single,Private sector,Secondary Education,Black-African background,No,Student
+5,4,2,4,4,5,2,7,5,4,6,5,6,5,5,3,4,3,6,5,4,5,3,4,3,6,5,7,4,3,4.666666667,4.166666667,4.875,4.666666667,4.466666667,Masculine,18,2000,Big city,None,Single,Other,Secondary Education,Mixed,Yes,Locksmith
+2,6,7,6,7,7,7,6,7,7,1,7,7,2,1,6,3,7,2,1,1,5,4,7,6,7,7,6,3,2,6,3.833333333,5,4.833333333,4.9,Masculine,36,1982,99,None,Married,Student,Secondary Education,Black-African background,No,Merchant
+5,4,6,1,4,4,4,6,4,2,5,6,3,1,2,5,4,7,3,2,4,4,7,3,4,1,4,4,6,6,3.833333333,3.333333333,4.75,3.333333333,4.033333333,99, ,99,99,99,99,99,99,99,99,Merchant
+7,7,7,7,2,7,6,7,7,3,6,7,6,7,7,7,7,3,6,3,7,1,7,5,1,7,6,4,7,2,5,4.833333333,6.5,5.166666667,5.533333333,Femenine,30,1988,Town,One,Married,Student,Other,Black-american background,No,Student
+7,7,5,4,1,7,4,2,7,3,5,1,7,4,6,5,6,5,7,5,6,5,6,7,3,2,7,3,7,1,4.666666667,4.5,5.375,4.333333333,4.833333333,Masculine,19,1999,Big city,None,Single,Private sector,Secondary Education,Black-African background,No,laborer
+7,5,4,5,7,6,6,7,7,6,6,7,7,7,7,7,6,7,7,7,7,4,7,7,2,7,7,7,7,6,7,5.833333333,6.625,5.666666667,6.3,Masculine,19,1999,Regular city,None,Single,Student,99,Mixed,Yes,Student
+7,4,6,6,4,5,2,1,3,4,5,5,2,6,1,5,4,6,4,3,5,2,3,3,6,7,3,7,3,4,3.5,3.166666667,4.125,5.333333333,4.2,Femenine,20,1998,Regular city,None,In a relationship,Student,Other,Mapuche/Huilliche,Yes,Student
+7,3,6,1,4,5,4,1,7,6,3,2,3,4,6,1,1,1,6,5,7,4,6,5,1,6,7,3,4,7,5,4.666666667,3.125,4.666666667,4.2,Masculine,22,1996,Big city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+6,3,3,3,3,4,2,1,6,1,5,2,5,3,6,6,7,2,4,2,5,7,7,4,1,6,7,4,7,1,4,3.833333333,4.875,3.666666667,4.1,Femenine,25,1993,Regular city,Three,In a relationship,Student,Secondary Education,White,Yes,Student
+5,3,6,7,6,3,4,7,4,7,3,3,3,4,6,1,5,2,2,4,4,3,3,4,2,3,5,7,4,2,4.333333333,4,4.25,3.666666667,4.066666667,Femenine,45,1973,Big city,Two,In a relationship,Student,Secondary Education,White,Yes,Eldery Care
+7,3,7,2,7,6,7,7,7,7,5,6,2,7,7,3,3,7,7,5,5,7,6,6,6,7,7,7,7,7,6.333333333,6.166666667,4.75,6,5.9,Masculine,39,1979,Big city,One,Single,Unemployed,Secondary Education,Mixed,Yes,Student
+3,5,4,6,4,6,6,3,5,3,4,4,5,3,4,6,5,4,6,3,5,7,3,3,5,5,3,2,4,3,3.666666667,5.333333333,4,4.666666667,4.3,Femenine,20,1998,Big city,None,Single,Student,Secondary Education,Other,Yes,Student
+5,5,5,2,6,5,5,6,7,5,5,5,5,5,5,3,5,5,2,6,5,5,5,6,3,5,6,6,6,5,6,4,5,4.666666667,4.966666667,Femenine,53,1965,Town,None,In a relationship,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+2,4,3,3,1,4,6,6,6,7,6,4,2,5,4,2,7,4,7,2,3,6,4,6,5,2,2,2,3,5,3.5,5.166666667,3.625,4.5,4.1,Femenine,26,1992,Big city,None,Single,Student,Secondary Education,Mapuche/Huilliche,99,Student
+2,5,4,6,3,4,5,4,7,3,2,4,5,4,7,3,3,3,2,2,1,5,4,3,4,3,4,5,2,5,3.833333333,5,3.875,2.833333333,3.8,Masculine,28,1990,Big city,One,Single,Student,Secondary Education,Black-African background,No,Student
+4,7,4,7,6,5,4,1,4,1,6,7,4,7,7,7,7,5,7,7,7,7,7,4,6,7,7,7,7,4,5.833333333,6,5.5,5.333333333,5.666666667,Masculine,20,1998,Big city,None,Single,Student,Secondary Education,Mapuche/Huilliche,Yes,Assistant
+4,3,7,5,4,3,6,4,7,2,4,5,3,4,5,6,4,1,6,6,4,3,3,7,5,1,7,4,7,5,6,5,3.875,3.166666667,4.5,Masculine,31,1987,Big city,None,Single,Student,University degree or similar,Black-american background,99,Student
+7,6,7,4,5,5,2,4,6,6,6,5,2,3,7,2,5,2,7,7,7,3,6,7,1,3,7,2,7,7,6.166666667,5,4.25,4.666666667,4.933333333,Masculine,33,1985,Regular city,Two,Married,Private sector,University degree or similar,Mapuche/Huilliche,No,Teacher/Lecturer
+7,7,3,7,7,6,1,6,6,6,6,7,3,7,2,2,6,1,7,3,3,1,7,4,7,7,6,7,7,4,5.5,3.666666667,5.625,5.833333333,5.1,Femenine,19,1999,Regular city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+6,3,6,5,4,6,6,4,6,2,6,5,5,5,3,4,6,5,6,5,4,3,6,6,2,2,6,5,6,4,5.333333333,4.5,4.875,3.666666667,4.733333333,Masculine, ,99,Big city,Two,Divorced/separated,Student,Secondary Education,99,Yes,Assistant
+4,3,7,4,3,5,3,3,6,6,5,5,4,3,5,5,3,5,4,6,6,3,5,6,3,1,6,2,6,6,5.333333333,4.166666667,3.625,4.333333333,4.433333333,Femenine,23,1995,Town,None,Single,Student,Secondary Education,Black-american background,No,Student
+7,2,6,3,3,4,3,2,4,3,6,3,2,3,6,4,6,4,5,4,5,2,3,4,2,3,4,2,6,5,3.666666667,4,3.5,3.833333333,3.866666667,Masculine,24,1994,Big city,None,Single,Other,Secondary Education,Mixed,99,Assistant
+4,3,3,3,2,5,1,4,7,3,5,4,3,2,5,4,5,2,4,6,5,3,4,5,4,3,7,4,5,7,5.166666667,3.833333333,3.875,4.166666667,4.066666667,Masculine,25,1993,Regular city,None,Single,Private sector,Secondary Education,Black-African background,No,Student
+1,3,7,5,1,2,4,1,7,2,3,7,5,1,3,3,3,6,4,6,5,4,2,3,6,4,7,4,2,6,5.166666667,4.333333333,2.75,3.666666667,3.9,Masculine, ,99,Big city,None,Single,Student,Secondary Education,Black-African background,No,Student
+4,1,7,6,1,4,3,5,6,3,4,7,5,6,4,5,4,7,4,6,3,6,4,5,5,6,7,2,5,6,5.333333333,4.833333333,3.75,4.166666667,4.7,Masculine,38,1980,Other,None,Married,Student,Secondary Education,Black-African background,No,Student
+7,6,7,5,7,7,4,2,7,6,7,3,7,7,7,7,4,7,7,7,7,7,4,7,1,7,7,7,7,5,6.333333333,5.833333333,5.5,5.833333333,6,Masculine,20,1998,Big city,None,Single,Private sector,Secondary Education,White,Yes,Assistant
+5,1,7,5,7,7,2,1,7,3,3,7,7,7,4,3,7,7,6,7,5,2,7,7,1,4,7,7,5,6,7,4.166666667,4.75,3.833333333,5.133333333,Femenine,20,1998,Regular city,None,Single,Student,Secondary Education,White,Yes,Student
+3,3,5,1,3,4,7,3,7,2,5,5,7,1,4,4,5,4,2,7,6,7,5,7,1,3,7,1,5,3,6,4,3.875,3.5,4.233333333,Femenine,22,1996,Regular city,None,In a relationship,Student,Secondary Education,Mixed,Yes,Merchant
+7,7,7,4,7,6,4,6,5,6,7,7,7,7,6,7,7,7,6,5,4,6,1,7,6,7,7,6,7,4,6.333333333,5,6,6,6,Masculine,21,1997,Big city,None,Single,Private sector,Secondary Education,Other,Yes,Tinsmith
+5,4,6,6,7,6,7,7,7,7,7,7,7,7,4,5,7,6,7,7,7,7,6,6,5,3,7,7,6,4,6.833333333,5.833333333,6,5.833333333,6.133333333,Masculine,18,2000,Big city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+7,4,5,6,6,7,6,7,3,7,7,2,7,6,6,7,5,6,6,5,6,3,7,6,6,5,7,7,7,5,4.833333333,5.333333333,6.375,6.333333333,5.8,Masculine,27,1991,Big city,None,In a relationship,Student,Secondary Education,Mixed,Yes,Sexual worker
+7,4,5,3,7,4,3,4,6,7,5,5,5,6,2,5,3,3,4,6,6,2,5,5,7,6,7,4,5,1,6,2.5,4.625,5.833333333,4.733333333,Femenine,18,2000,Big city,Three,Single,Public sector,Secondary Education,White,Yes,Student
+7,7,5,7,7,1,7,7,5,7,2,7,7,7,7,4,7,7,7,7,7,7,7,7,4,1,7,7,7,7,6.666666667,7,6.625,3.666666667,6.1,Femenine,19,1999,Big city,None,Single,Student,Secondary Education,White,Yes,Salesman-woman
+1,7,1,7,2,3,7,7,2,7,4,5,3,5,5,1,2,2,6,1,4,6,1,4,7,6,1,2,4,4,2.5,5.833333333,3,5.166666667,3.9,Masculine,18,2000,Big city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+7,6,4,7,4,7,1,2,7,2,7,6,7,2,7,7,3,1,7,5,4,1,4,5,7,7,7,1,7,7,5.666666667,5,4.625,5.666666667,4.966666667,Masculine,21,1997,Big city,None,Single,Student,Secondary Education,99,Yes,Assistant
+1,1,1,1,1,1,1,7,7,7,1,7,1,7,7,7,1,1,7,1,7,7,1,7,7,7,7,1,1,1,5,4,2.5,5,3.8,Other,19,1999,Big city,None,Single,Student,Secondary Education,White,Yes,laborer
+4,5,4,2,2,5,5,5,5,4,5,4,6,5,2,3,5,4,3,1,3,4,3,3,6,1,2,4,5,1,2.833333333,2.833333333,4.375,4,3.7,Femenine,25,1993,Big city,Two,In a relationship,Student,Secondary Education,Mixed,Yes,Merchant
+7,4,5,4,5,5,1,5,5,4,6,3,6,5,3,6,4,5,4,5,5,5,6,6,4,5,5,5,6,5,4.833333333,3.666666667,5.375,4.833333333,4.8,Femenine,19,1999,Regular city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+7,2,7,7,6,1,6,7,2,6,3,2,3,6,3,1,7,7,2,1,7,6,6,3,1,1,6,1,2,6,3.333333333,5,4.25,3.166666667,4.166666667,Femenine,30,1988,99,None,In a relationship,Private sector,Secondary Education,Black-american background,No,Student
+4,7,3,3,3,6,3,6,7,3,6,3,7,4,1,7,2,3,5,3,4,1,7,1,3,3,4,3,4,7,3.5,3.333333333,5.375,4.166666667,4.1,Femenine,20,1998,Big city,One,Single,Student,Secondary Education,Mixed,Yes,Student
+3,4,3,3,2,4,5,1,4,3,7,3,2,2,6,3,3,2,6,4,6,3,2,6,6,4,3,2,4,4,3.666666667,4.5,2.5,5,3.666666667,99, ,99,99,99,99,99,99,99,99,Merchant
+1,1,1,4,1,1,7,3,1,7,4,1,3,1,1,1,5,1,4,1,4,5,4,1,7,6,1,4,3,1,1,3.666666667,2.75,4.833333333,2.833333333,Femenine,31,1987,Big city,Two,Other not disclosed,Other,Secondary Education,Mixed,Yes,Student
+7,5,7,4,5,4,3,5,7,4,4,6,5,4,6,4,5,5,4,4,6,5,4,7,2,4,7,6,5,5,6,4.5,5.125,4,4.966666667,Masculine, ,99,Regular city,None,Single,Private sector,Secondary Education,Black-African background,No,Student
+5,2,6,1,3,6,3,3,7,2,4,3,1,2,5,1,6,1,6,5,6,4,5,7,2,4,6,1,6,7,5.166666667,4.333333333,3,4,4,Masculine,20,1998,Regular city,None,Single,Private sector,University degree or similar,Black-american background,No,Student
+6,6,7,2,4,7,2,4,7,6,4,1,7,4,5,4,4,1,4,4,6,2,1,3,3,4,3,1,6,6,3.666666667,3.5,4.125,5,4.133333333,Masculine, ,99,99,Three,In a relationship,Student,Secondary Education,Black-African background,No,Assistant
+4,2,6,2,7,3,2,3,4,6,2,1,6,4,4,1,2,1,7,1,3,4,7,7,4,7,1,7,6,4,3.5,3.833333333,4,4.166666667,3.933333333,Masculine,26,1992,Regular city,None,Single,Public sector,University degree or similar,Black-African background,No,laborer
+5,5,6,2,5,4,5,2,7,2,5,6,7,2,7,6,5,5,4,5,6,2,4,5,7,6,6,7,5,6,5.666666667,4.333333333,5.125,5,4.966666667,Masculine,21,1997,Other,None,Single,Student,Secondary Education,White,Yes,Student
+7,3,7,7,7,1,5,7,7,7,1,7,7,4,7,3,1,7,7,7,4,7,3,7,4,7,5,7,7,5,6.666666667,6.333333333,4.75,4,5.5,Masculine,20,1998,Other,None,Single,Student,Secondary Education,Other,Yes,Salesman-woman
+7,6,6,6,3,6,1,7,6,7,7,1,5,7,7,7,5,1,7,4,4,1,1,6,7,7,2,2,7,7,3.666666667,4.833333333,5,6.333333333,5,Masculine,19,1999,Big city,None,Single,Student,Secondary Education,White,Yes,laborer
+6,6,7,7,4,4,3,2,6,7,3,4,3,3,6,6,1,7,6,5,5,4,3,2,2,2,7,3,6,5,4.666666667,5.166666667,3.75,3.833333333,4.5,Masculine,23,1995,Town,None,Single,Student,Secondary Education,Black-African background,No,laborer
+5,1,4,4,1,1,1,3,1,7,7,2,1,4,3,3,3,2,7,6,3,1,3,4,7,7,3,7,1,1,2.833333333,2.833333333,3.25,5.333333333,3.433333333,Femenine,28,1990,Regular city,99,In a relationship,Student,Secondary Education,Mapuche/Huilliche,Yes,Student
+5,4,4,3,3,5,2,3,7,2,5,6,7,6,5,3,5,6,4,7,6,3,6,5,4,3,5,6,4,6,5.5,3.833333333,4.875,4.166666667,4.666666667,Masculine,23,1995,Other,None,Single,Student,Secondary Education,White,Yes,Student
+7,2,6,3,5,7,7,7,6,2,7,7,6,7,4,7,6,2,5,7,7,3,5,6,3,5,7,7,7,5,6.333333333,4.5,5.875,5.166666667,5.5,Masculine,20,1998,Regular city,None,Single,Student,Secondary Education,Other,Yes,Student
+7,4,7,7,7,4,7,7,7,7,4,7,5,4,1,6,4,7,4,7,4,4,4,7,1,4,7,7,7,1,7,4,5.5,4,5.3,Masculine,25,1993,Big city,One,Single,Private sector,Secondary Education,Mixed,Yes,Student
+1,7,7,7,1,6,7,7,7,7,7,7,7,7,7,7,1,7,1,7,7,7,7,7,7,7,7,7,7,4,6,5.5,5.5,6.833333333,6.066666667,Femenine,32,1986,Big city,Two,Single,Student,99,White,Yes,Merchant
+1,5,1,1,6,2,1,1,3,1,7,1,1,4,5,6,1,1,1,2,1,2,1,1,6,6,1,1,4,1,2.333333333,1.833333333,2.125,3.833333333,2.5,Femenine,20,1998,Big city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+1,7,3,1,1,1,5,2,1,7,1,1,4,1,3,1,1,2,1,1,1,7,2,1,7,7,1,6,7,3,1,3.333333333,3,4,2.9,Masculine,18,2000,Regular city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+4,3,7,6,3,3,7,1,6,6,6,3,7,3,7,4,7,3,6,7,5,4,6,6,3,4,7,3,6,5,5.333333333,5.833333333,4.375,4.5,4.933333333,Masculine,17,2001,Regular city,None,Single,Student,University degree or similar,Black-African background,No,Student
+5,2,6,4,1,5,4,2,5,5,5,5,5,4,7,3,5,3,6,4,4,5,5,6,2,4,6,6,5,6,4.5,5.333333333,4.125,4.166666667,4.5,Masculine, ,99,Big city,None,Single,Private sector,University degree or similar,Black-African background,No,Student
+2,5,3,7,4,4,5,7,1,6,5,7,7,7,4,2,7,4,5,4,3,7,6,3,1,1,3,7,4,1,3.666666667,4.833333333,5.375,3.333333333,4.4,Masculine,19,1999,Big city,None,Single,Student,Secondary Education,Other,Yes,Student
+6,3,7,6,7,6,2,3,6,1,6,7,7,7,6,3,7,7,6,6,7,7,7,7,3,4,6,1,7,6,6.5,5.5,4.625,4.5,5.466666667,Femenine,44,1974,Big city,Four,Other not disclosed,Student,Secondary Education,White,Yes,Student
+1,7,7,7,7,7,1,7,7,1,1,1,7,1,7,1,7,7,7,7,7,1,1,7,1,7,1,7,7,7,5,5,4.75,4,4.8,Femenine,21,1997,Regular city,One,Single,Student,Secondary Education,White,Yes,Student
+6,6,6,6,6,6,6,5,6,6,5,6,5,6,6,3,3,6,6,6,5,6,2,6,4,6,6,6,6,6,6,6,4.5,5.333333333,5.466666667,Masculine,53,1965,Regular city,Three,Divorced/separated,Teacher/Lecturer,Master degree,White,Yes,Teacher/Lecturer
+7,7,7,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,2,1,7,7,7,5,7,6.5,7,5.166666667,6.533333333,Femenine,34,1984,Big city,Two,Married,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+3,7,4,7,4,6,7,6,5,4,4,5,7,4,6,3,6,2,3,4,5,7,5,5,5,3,4,3,5,6,4.5,6,5,4.5,4.833333333,Femenine,51,1967,Town,Three,Divorced/separated,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+5,6,6,6,7,6,6,6,6,6,5,7,7,7,1,7,5,6,5,6,5,3,4,4,3,6,6,6,5,2,6,3.833333333,5.75,5.166666667,5.333333333,Femenine,45,1973,Big city,Two,Married,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+6,2,5,5,7,5,7,6,6,6,5,7,6,6,5,7,6,3,5,6,5,7,7,6,6,4,5,7,5,6,6.166666667,5.833333333,5.875,5.166666667,5.633333333,Femenine,38,1980,Big city,None,Single,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+3,5,6,7,6,6,4,6,6,5,2,6,5,5,6,3,5,6,6,4,6,3,3,5,4,6,6,6,6,6,5.5,5.333333333,4.5,4.833333333,5.1,Femenine,38,1980,Regular city,Two,Divorced/separated,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+6,7,6,6,6,7,6,6,6,6,7,6,7,6,7,6,7,6,6,6,6,6,2,6,6,6,6,7,6,2,6,5.5,6,6.333333333,5.966666667,Femenine,38,1980,Big city,Two,Other not disclosed,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+7,7,6,7,1,7,6,6,7,7,6,7,7,1,6,6,7,7,7,6,6,6,6,6,5,7,7,7,7,5,5.666666667,6.166666667,6.625,6.333333333,6.1,Femenine,33,1985,Big city,One,Married,Teacher/Lecturer,Master degree,White,Yes,Teacher/Lecturer
+5,6,6,6,7,3,6,6,6,5,2,7,6,6,6,6,5,6,5,7,3,6,4,7,6,4,7,6,7,4,6.833333333,5.5,5.5,3.833333333,5.533333333,Femenine,44,1974,Big city,Three,Married,Private sector,University degree or similar,White,Yes,Teacher/Lecturer
+7,6,6,6,7,6,7,7,7,7,7,7,7,7,6,7,7,6,7,6,5,2,7,6,1,5,7,7,5,6,6.666666667,5.666666667,6.875,5.166666667,6.133333333,Femenine,30,1988,Big city,None,Single,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+6,1,7,7,7,7,7,1,7,7,5,7,7,7,2,7,7,7,7,7,7,5,6,7,5,3,7,6,7,7,7,5.833333333,5.125,5.666666667,6,Femenine,50,1968,Big city,Three,Divorced/separated,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,7,7,6,7,7,1,6,7,5,6,6,7,7,7,2,7,7,6,7,7,7,6,7,3,7,7,6,7,6,6.833333333,5.5,6,5.833333333,6.166666667,Masculine,28,1990,Town,One,Single,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+5,6,3,2,5,5,3,5,6,2,2,6,5,3,6,3,6,4,5,6,6,5,5,6,3,4,6,6,5,4,5.833333333,4.166666667,5.125,3.666666667,4.6,Femenine,32,1986,Big city,One,Single,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+7,1,6,4,7,6,3,7,6,3,5,7,7,5,2,2,7,6,4,7,6,1,5,7,1,3,6,6,4,5,6.666666667,3.166666667,5.25,4,4.866666667,Femenine,36,1982,Big city,Two,Divorced/separated,Teacher/Lecturer,University degree or similar,Mapuche/Huilliche,Yes,Teacher/Lecturer
+2,6,7,7,7,7,7,7,7,7,1,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6.25,6,6.6,Femenine, ,99,Big city,Three,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,7,5,7,7,7,5,7,6,4,4,7,7,7,6,4,6,6,5,6,5,6,4,5,5,5,7,7,7,5,6.333333333,5.666666667,6.125,5,5.866666667,Femenine,28,1990,Big city,One,Single,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,2,7,7,7,7,7,7,7,7,6,7,7,7,7,6,7,7,7,7,7,7,6,7,7,6,6,7,6,7,6.833333333,7,6.125,6.666666667,6.633333333,Femenine, ,99,Regular city,Four,Married,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+6,3,7,6,6,6,4,7,7,6,5,5,6,7,7,2,4,7,6,6,6,6,6,7,7,6,7,7,7,6,6.333333333,5.833333333,5.125,6,5.933333333,Masculine,39,1979,Big city,Two,99,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+7,7,6,6,7,7,7,6,7,7,7,7,7,2,6,6,6,7,6,6,5,7,6,6,6,2,6,2,6,3,6.5,5.833333333,5.875,5.666666667,5.866666667,Femenine,37,1981,Big city,One,Married,Private sector,University degree or similar,White,Yes,Teacher/Lecturer
+3,6,6,6,6,6,7,7,6,6,6,7,7,6,6,4,5,6,2,6,6,6,5,6,4,5,6,6,6,6,6.166666667,5.5,5.375,5.5,5.666666667,Masculine,37,1981,Big city,One,In a relationship,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+6,6,6,6,4,6,6,6,6,6,4,6,6,5,5,6,6,6,3,6,6,6,5,6,5,5,6,6,6,5,5.666666667,5.166666667,5.875,5.333333333,5.566666667,Masculine,41,1977,Big city,Two,Single,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,3,5,6,2,5,5,5,6,6,4,6,6,4,5,6,5,5,7,7,5,6,7,7,4,6,6,7,5,4,5.666666667,5.5,5.75,5,5.4,Femenine,26,1992,Big city,None,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+5,6,7,2,4,7,6,1,7,4,4,1,7,7,4,7,7,4,5,6,4,4,6,7,5,4,7,7,2,1,5.333333333,3.666666667,5.75,4.666666667,4.933333333,Femenine,27,1991,Regular city,Two,Married,Teacher/Lecturer,University degree or similar,Mixed,No,Assistant
+4,3,3,2,6,5,6,3,6,6,6,4,7,4,6,3,5,2,6,6,7,1,5,5,5,5,6,6,4,6,5.5,4.5,4.5,5.666666667,4.766666667,Femenine,30,1988,Regular city,None,Married,Private sector,Secondary Education,Mapuche/Huilliche,Yes,Assistant
+7,7,7,7,1,7,7,7,6,7,4,7,7,7,7,7,7,7,7,7,7,7,1,4,7,7,7,7,7,7,5.333333333,7,6.25,6.5,6.366666667,Femenine,39,1979,Big city,Two,Single,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+6,2,6,3,2,5,4,3,6,4,5,6,4,4,6,3,5,6,4,6,6,3,5,6,5,3,5,6,4,3,5.166666667,3.833333333,4.25,4.666666667,4.533333333,Femenine,30,1988,Big city,One,In a relationship,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,5,4,7,7,7,7,7,7,7,4,7,7,7,4,7,7,7,3,7,7,7,7,7,7,7,7,7,7,1,7,4.833333333,6.75,6.5,6.3,Femenine,25,1993,Big city,One,Single,Unemployed,Secondary Education,Mixed,Yes,Assistant
+5,2,6,3,3,6,3,3,5,2,6,2,6,5,5,4,4,3,5,6,5,4,5,6,2,4,6,6,5,6,4.666666667,4.333333333,4.375,4.166666667,4.433333333,Femenine,50,1968,Regular city,Two,Single,Private sector,University degree or similar,Mixed,Yes,Health Professional
+7,7,7,4,7,6,7,7,7,7,4,7,2,7,5,7,6,7,5,7,7,7,7,7,3,5,7,7,7,5,7,5.5,6.25,5.333333333,6.166666667,Femenine,43,1975,Regular city,Two,Married,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+6,3,6,4,6,6,4,3,6,3,6,6,5,4,3,1,6,4,6,7,6,3,6,6,4,5,6,7,7,4,6.166666667,4,4.625,5,4.966666667,Femenine,47,1971,Big city,One,Married,Private sector,Secondary Education,Mapuche/Huilliche,Yes,Desk clerk
+4,3,5,4,3,4,2,4,6,3,6,3,2,4,5,2,5,4,4,5,4,3,4,5,2,3,6,3,5,3,4.666666667,3.5,3.375,3.666666667,3.866666667,Masculine,56,1962,Big city,Three,Married,Unemployed,Secondary Education,Mixed,Yes,Desk clerk
+7,7,5,1,7,7,3,2,7,7,4,7,7,1,5,7,7,7,7,7,6,7,7,7,4,7,7,7,4,7,7,5,6.375,5.833333333,5.833333333,Femenine,67,1951,Big city,Five,Married,Unemployed,University degree or similar,White,Yes,Housewife
+3,1,7,2,7,7,3,5,7,6,5,7,7,7,2,7,7,7,6,6,6,1,3,7,2,6,7,7,1,5,6.833333333,3.166666667,5,5.333333333,5.133333333,Femenine,45,1973,Big city,Two,Married,Unemployed,University degree or similar,Mixed,Yes,Desk clerk
+7,1,7,6,3,6,6,6,6,6,7,7,3,5,6,6,7,6,6,5,6,5,4,5,5,6,7,6,6,4,5.5,5.5,5,6,5.533333333,Femenine,43,1975,Town,Two,Divorced/separated,Public sector,University degree or similar,White,Yes,Health Professional
+5,3,7,4,7,7,2,2,7,2,7,7,4,7,7,2,6,7,6,7,7,2,7,7,4,3,6,2,7,5,6.833333333,4.333333333,3.875,5,5.2,Femenine,30,1988,Regular city,One,In a relationship,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+7,7,7,6,7,7,6,7,5,7,7,7,7,5,5,7,7,7,6,7,7,6,6,7,4,6,7,7,6,7,6.666666667,6,6.875,6.333333333,6.466666667,Masculine,21,1997,Big city,None,Single,Public sector,University degree or similar,Mapuche/Huilliche,Yes,Assistant
+6,1,5,2,7,5,6,7,7,7,4,6,7,7,7,7,6,6,2,6,7,6,6,7,2,3,7,7,7,7,6.666666667,5,5.875,4.666666667,5.666666667,Masculine,31,1987,Big city,One,In a relationship,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+5,6,6,6,7,7,5,6,7,4,6,7,7,6,6,3,6,6,5,5,7,5,6,6,6,6,6,7,7,6,6.333333333,5.5,5.75,6,5.933333333,Masculine,48,1970,Regular city,Two,Married,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+6,2,6,4,4,6,5,5,7,2,4,4,5,5,6,1,7,7,7,7,7,6,7,7,1,6,7,6,7,7,6,5.833333333,4.875,4.333333333,5.366666667,Femenine,29,1989,Big city,Three,Married,Unemployed,Secondary Education,Mixed,Yes,Housewife
+2,4,3,3,3,5,3,3,5,2,5,3,6,3,2,2,6,4,3,3,4,3,3,2,6,4,5,5,2,2,3.5,2.666666667,3.875,4.333333333,3.533333333,Femenine,39,1979,Big city,Two,In a relationship,Private sector,Secondary Education,White,Yes,laborer
+7,4,7,7,4,5,7,6,4,7,2,7,7,6,7,3,5,7,7,5,7,5,4,6,7,5,6,7,6,1,5.333333333,5.666666667,5.375,5.5,5.6,Femenine,39,1979,Big city,Two,Married,Private sector,Secondary Education,Mixed,Yes,laborer
+7,2,7,6,7,7,7,7,7,5,6,7,7,7,2,7,3,7,1,7,7,6,6,7,2,7,7,7,7,7,7,4.833333333,5.75,5.666666667,5.966666667,Femenine,42,1976,Big city,Three,Married,Teacher/Lecturer,University degree or similar,Mapuche/Huilliche,Yes,Teacher/Lecturer
+6,1,7,7,1,7,1,7,7,1,7,7,3,7,7,2,5,7,4,7,6,2,7,7,2,7,7,7,7,5,6,4.333333333,4.75,5,5.266666667,Femenine,39,1979,Big city,Three,Single,Private sector,Secondary Education,White,Yes,Driver
+2,1,7,3,2,6,1,1,7,4,5,7,3,6,7,7,7,7,7,5,6,6,6,6,3,6,6,7,7,7,5.5,5.166666667,4.25,5,5.166666667,Femenine,36,1982,Big city,Four,In a relationship,Student,Secondary Education,White,Yes,Housewife
+7,3,5,4,1,5,4,5,6,1,6,4,5,5,1,3,6,4,5,7,6,3,5,7,2,1,7,4,2,1,5.333333333,3,4.75,3.5,4.166666667,Femenine,27,1991,Big city,One,Single,Private sector,University degree or similar,Mixed,Yes,Entrepreneur
+7,2,7,1,2,6,7,7,7,2,5,5,7,6,1,5,7,2,7,7,7,6,7,6,2,6,7,7,7,6,5.666666667,4.666666667,6.125,4.666666667,5.366666667,Femenine,38,1980,Big city,Five,Married,Unemployed,Secondary Education,Mixed,Yes,Housewife
+7,2,7,2,5,3,2,6,1,3,3,5,6,4,6,2,6,2,5,3,4,3,4,6,2,6,5,4,3,2,4.166666667,3.333333333,4.625,3.5,3.966666667,Masculine,62,1956,Town,Four,Divorced/separated,Private sector,University degree or similar,White,Yes,Bussiness and Finance Professional
+5,2,7,4,3,3,4,3,5,3,6,3,2,4,4,2,5,3,5,4,3,7,3,3,6,2,4,2,6,2,3.666666667,4.333333333,3,3.833333333,3.833333333,Femenine,37,1981,Big city,Three,Divorced/separated,Unemployed,Secondary Education,Mixed,Yes,Housewife
+1,7,5,5,7,3,7,3,7,2,7,7,7,5,7,7,7,7,5,7,7,4,6,7,3,3,7,5,7,7,7,5.833333333,5.375,4.166666667,5.633333333,Masculine,42,1976,Big city,Three,Married,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+7,7,2,6,7,7,7,7,7,3,6,7,7,7,7,7,5,2,7,7,7,7,7,7,3,2,7,7,7,6,7,6.666666667,6.75,4.666666667,6.066666667,Masculine,65,1953,Town,Three,Married,Private sector,Secondary Education,Mixed,Yes,Worker in the construction sector
+7,4,7,7,7,7,7,7,1,7,3,6,7,7,6,4,4,7,1,7,7,7,4,7,5,6,7,7,7,4,5.833333333,5.333333333,5.5,5.833333333,5.8,Masculine, ,99,Big city,Four,Married,Private sector,Secondary Education,Mixed,Yes,Merchant
+7,7,6,5,7,5,7,7,5,2,4,4,4,6,6,7,6,6,6,7,6,7,6,6,3,4,6,6,3,3,5.833333333,5.666666667,6.25,4,5.466666667,Masculine,40,1978,Regular city,Two,Married,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+4,5,5,4,4,4,6,4,5,4,4,5,6,5,5,4,5,5,5,6,5,5,3,6,2,4,6,3,5,5,5.333333333,5,4.25,3.833333333,4.633333333,Masculine,32,1986,Big city,One,Married,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+7,5,7,7,7,7,6,6,7,7,5,7,7,7,7,7,7,7,7,7,6,4,5,6,2,6,6,7,7,6,6.666666667,6.166666667,6.375,5.5,6.3,Femenine,38,1980,Regular city,One,Single,Private sector,University degree or similar,White,Yes,Desk clerk
+4,6,6,6,6,4,6,6,5,6,6,6,6,6,6,2,4,6,6,5,5,6,2,6,4,6,7,6,6,6,5.833333333,6,4.5,5.166666667,5.4,Masculine,30,1988,Big city,None,Married,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+6,3,7,3,3,6,3,5,4,3,3,3,7,4,6,3,3,3,6,6,5,5,5,4,3,3,6,1,7,4,4.333333333,4.5,4.125,3.833333333,4.333333333,Femenine,53,1965,Regular city,Two,Married,Private sector,University degree or similar,Mixed,Yes,Desk clerk
+3,3,5,3,6,4,6,6,4,4,3,5,5,5,4,6,5,5,3,4,4,4,3,3,3,5,5,5,5,6,4.5,4.333333333,4.5,3.833333333,4.4,Masculine,55,1963,Regular city,None,Single,Private sector,Secondary Education,Mixed,Yes,Desk clerk
+7,3,7,7,6,6,7,7,6,7,6,6,7,7,6,7,6,7,6,6,7,5,1,5,7,6,7,7,7,6,6,6.166666667,5.625,6.5,6.166666667,Femenine,47,1971,Big city,Two,99,Private sector,University degree or similar,White,Yes,Bussiness and Finance Professional
+7,7,3,5,7,7,4,7,4,4,4,7,7,4,7,7,5,7,4,7,4,4,4,7,4,7,7,7,7,6,6.5,5,6.375,5,5.7,Masculine,36,1982,Big city,One,Divorced/separated,Private sector,University degree or similar,Mixed,Yes,Assistant
+7,3,6,2,7,6,7,7,6,7,1,7,7,7,1,7,6,7,6,6,6,7,1,6,7,7,6,7,6,1,6.333333333,4,5.625,5.666666667,5.566666667,Masculine,54,1964,Regular city,Four,Married,Unemployed,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+6,6,6,3,6,6,3,6,6,6,5,6,6,3,4,6,5,6,2,4,6,4,6,5,3,3,6,5,5,6,5.5,3.666666667,5.75,4.833333333,5,Femenine,50,1968,Town,Two,Married,Private sector,University degree or similar,White,Yes,Bussiness and Finance Professional
+6,4,7,7,7,3,7,7,5,6,1,7,7,7,7,7,6,7,7,7,5,7,6,7,2,7,6,7,7,6,6.5,6.833333333,6.25,4,6.066666667,Femenine,43,1975,Town,One,Single,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+5,6,6,4,7,2,6,5,5,5,4,7,6,5,5,6,5,5,3,6,6,3,5,5,3,5,6,6,6,6,6,4.5,5.5,4.166666667,5.133333333,Masculine,42,1976,Other,None,Single,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+7,1,6,1,7,6,2,1,6,2,2,1,6,1,5,1,7,7,2,5,6,2,6,4,1,2,6,6,6,2,4.833333333,2.333333333,4.375,3.166666667,3.9,Masculine,48,1970,Town,Two,Married,Private sector,University degree or similar,White,Yes,Bussiness and Finance Professional
+1,7,7,7,7,7,7,7,7,7,7,7,7,7,7,1,7,7,7,7,7,1,1,7,1,7,7,7,7,7,7,6,4.75,6,6,99, ,99,99,99,99,99,99,99,99,Merchant
+7,7,5,4,6,6,2,6,7,3,6,5,3,5,6,6,7,5,6,6,6,2,6,6,4,5,6,6,6,4,6,4,6,5,5.3,Femenine,40,1978,Big city,None,Single,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+6,3,6,6,7,7,3,6,6,6,4,7,7,7,3,7,7,6,4,7,6,6,5,6,3,3,7,7,7,5,6.666666667,4.5,6,4.833333333,5.666666667,Femenine,32,1986,Big city,One,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+5,2,6,7,4,7,7,7,7,7,7,7,7,2,7,1,7,7,7,7,7,7,4,7,7,7,7,7,7,7,6.5,7,5,7,6.166666667,Masculine,29,1989,Regular city,Two,Married,Private sector,University degree or similar,Mixed,Yes,Car Mechanic
+6,5,6,3,7,6,6,3,7,7,7,6,7,1,6,7,7,6,5,6,6,6,5,7,4,6,6,6,7,3,6.5,4.833333333,5.75,6,5.666666667,Femenine,40,1978,Big city,Four,Married,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+5,3,7,6,6,5,7,7,5,7,6,6,6,6,6,6,5,6,6,6,5,7,5,2,7,3,6,7,7,4,5.166666667,6,5.5,5.5,5.666666667,Femenine,42,1976,Regular city,One,Single,Unemployed,Secondary Education,Mixed,Yes,Assistant
+3,6,5,6,7,4,6,7,5,4,5,6,7,6,6,6,1,7,6,7,4,7,6,5,5,6,7,7,6,3,6.166666667,5.666666667,5.375,4.666666667,5.533333333,Femenine,31,1987,Regular city,None,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+3,2,6,3,3,6,4,2,6,3,5,3,5,4,5,3,6,4,5,5,6,3,6,5,3,3,6,3,5,5,4.666666667,4.166666667,3.75,4.333333333,4.266666667,Femenine,54,1964,Regular city,One,Single,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+7,7,7,7,7,2,7,7,6,7,6,7,7,7,6,7,7,7,1,7,7,7,7,7,1,7,7,7,7,7,6.833333333,5.833333333,7,5,6.333333333,Femenine,54,1964,Big city,One,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,4,6,2,4,7,5,1,6,1,5,3,5,5,2,1,3,4,2,3,4,5,7,4,7,2,3,7,5,1,3.833333333,2.833333333,4.375,4.333333333,4.033333333,Femenine,44,1974,Big city,Four,Divorced/separated,Public sector,University degree or similar,White,Yes,Teacher/Lecturer
+7,5,7,4,7,7,6,7,7,4,6,3,7,2,6,7,7,3,5,6,6,5,5,6,3,2,7,7,6,6,6,5.333333333,6.5,4.666666667,5.533333333,Femenine,37,1981,Big city,Two,In a relationship,Unemployed,Secondary Education,Mixed,Yes,Assistant
+4,2,5,7,7,7,6,4,7,3,4,7,7,7,7,6,5,4,7,7,6,6,4,6,3,3,7,6,6,4,6.833333333,6.166666667,4.75,4.333333333,5.466666667,Femenine,38,1980,Town,Two,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+4,4,5,4,6,6,4,3,5,3,5,4,6,3,5,3,5,3,6,6,6,3,6,6,3,3,6,5,4,5,5.5,4.5,4.5,4.333333333,4.566666667,Femenine,39,1979,Regular city,Two,Married,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+7,5,6,6,7,6,6,7,6,6,6,6,7,7,5,2,6,6,4,5,6,4,6,6,5,6,6,6,5,7,6,5.333333333,5.75,5.833333333,5.766666667,Femenine,29,1989,Big city,None,Single,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+3,1,2,7,7,5,6,6,6,6,2,7,7,7,5,6,1,7,2,6,6,7,2,6,6,6,6,7,6,5,6.333333333,5.333333333,4.125,5.166666667,5.2,Femenine,44,1974,Big city,Four,Married,Public sector,University degree or similar,Mixed,Yes,Desk clerk
+6,6,6,6,7,1,6,4,4,6,6,6,6,6,7,3,4,3,7,6,4,6,5,4,4,5,6,6,6,4,5.5,6,5,4.333333333,5.2,Masculine,43,1975,Regular city,One,Married,Public sector,Secondary Education,Mixed,Yes,Assistant
+6,2,7,6,6,7,6,6,4,4,6,6,6,7,7,7,2,7,7,7,7,7,4,7,7,4,7,7,7,6,6.166666667,6.5,5,5.833333333,5.966666667,Femenine,42,1976,Regular city,Four,Married,Unemployed,Other,White,Yes,Assistant
+7,7,7,7,7,7,7,7,7,7,4,7,7,7,7,3,4,7,7,7,5,7,7,7,7,7,7,7,7,4,7,6.5,6.125,6.166666667,6.5,Femenine,59,1959,Big city,Five,Divorced/separated,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+1,6,7,7,3,7,3,2,7,7,1,7,7,3,3,7,7,3,4,7,7,3,6,7,1,7,7,7,7,7,6.333333333,4.5,5.375,5,5.266666667,Femenine,44,1974,Town,Two,Married,Teacher/Lecturer,Secondary Education,White,Yes,Assistant
+7,2,5,3,4,7,5,6,7,7,4,5,6,5,4,7,6,5,4,5,6,5,2,6,6,5,5,6,6,3,5.333333333,4,5.25,5.833333333,5.133333333,Femenine,35,1983,Big city,Two,In a relationship,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+5,6,6,6,3,5,3,2,6,2,6,6,3,2,6,3,6,5,5,4,5,6,7,6,4,6,6,2,6,5,5.166666667,5.166666667,4.25,4.666666667,4.766666667,Femenine,51,1967,Big city,Two,Other not disclosed,Public sector,Secondary Education,Other,Yes,Desk clerk
+2,7,7,5,7,7,4,1,5,3,7,7,5,3,1,7,7,7,7,3,7,3,4,5,7,7,7,6,7,6,5.666666667,4.333333333,4.875,6.333333333,5.366666667,Femenine,35,1983,Big city,Two,Single,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+6,6,6,7,7,6,7,4,6,6,6,7,7,7,6,2,5,2,6,5,5,2,2,6,6,6,6,7,6,3,6.166666667,5.166666667,4.875,5.833333333,5.433333333,Femenine,34,1984,Big city,Two,In a relationship,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+1,6,7,1,7,7,1,7,7,7,4,3,1,5,1,1,1,7,3,3,1,1,7,6,1,6,7,7,7,1,5.5,1.333333333,3.875,4.333333333,4.133333333,Masculine,23,1995,Other,One,Other not disclosed,Other,Other,White,Yes,Worker in the construction sector
+3,4,6,2,6,7,5,3,4,7,3,3,6,4,4,1,3,3,2,7,3,4,2,4,4,2,7,6,2,6,5.166666667,3.833333333,3.5,4.333333333,4.1,99, ,99,99,99,99,99,99,99,99,Student
+4,5,5,1,5,7,2,2,2,6,5,4,5,6,4,3,2,5,5,5,6,3,5,4,3,5,4,2,3,2,4,2.833333333,3.5,5.333333333,4,Femenine,28,1990,Big city,None,Single,Student,Secondary Education,White,Yes,Student
+7,7,7,7,7,7,7,7,7,7,4,7,7,6,1,1,4,7,7,7,7,3,7,3,7,7,7,7,4,2,6.333333333,4.5,5.875,6.5,5.833333333,Masculine,17,2001,Big city,None,Single,Student,Secondary Education,Mapuche/Huilliche,Yes,Student
+7,3,7,3,3,5,2,1,7,7,1,3,7,4,7,7,7,7,7,4,6,7,7,6,3,3,7,7,5,1,5,4.5,5.75,4.166666667,5.033333333,Femenine,18,2000,Regular city,None,In a relationship,Student,Secondary Education,White,Yes,Student
+7,2,7,5,1,7,3,2,7,1,5,1,7,7,5,4,7,4,6,7,7,4,7,7,2,1,7,1,7,7,5,5,4.625,3.833333333,4.833333333,Femenine,24,1994,99,99,Single,Student,Secondary Education,Mixed,Yes,Student
+7,7,5,7,7,7,7,3,5,3,1,7,7,4,4,1,7,6,7,6,6,3,6,5,1,2,5,4,6,7,5.833333333,5.833333333,5.25,3.333333333,5.1,Femenine,17,2001,Big city,None,Single,Student,Secondary Education,Mapuche/Huilliche,Yes,Student
+6,3,6,6,3,5,2,6,5,4,5,3,4,3,5,3,5,3,5,5,5,3,5,5,3,3,5,3,5,4,4.333333333,4.166666667,4.375,4.166666667,4.266666667,Femenine, ,99,Town,One,Other not disclosed,Student,Secondary Education,Other original Chilean ethnic background,Yes,Student
+7,2,7,3,1,5,3,1,5,5,5,5,4,6,6,4,4,3,3,6,4,3,4,5,4,3,6,1,3,4,4.666666667,3.666666667,3.375,4.333333333,4.066666667,Femenine,17,2001,Regular city,None,Single,Student,Other,Other,99,Student
+7,3,7,7,7,7,7,7,7,7,1,7,7,7,7,7,7,7,7,7,7,7,5,7,7,7,7,7,7,4,7,6.5,6.25,6,6.5,99, ,99,99,99,99,99,99,99,99,Student
+6,2,1,1,2,7,2,2,6,2,1,1,2,7,6,2,6,2,6,7,6,1,5,6,2,3,7,2,7,5,4.833333333,3.5,3.375,3.5,3.833333333,Femenine,28,1990,Regular city,None,Single,Student,Secondary Education,Mixed,99,Student
+7,5,7,4,4,4,5,7,5,5,4,4,6,6,3,6,1,7,3,4,4,4,4,4,5,6,3,3,4,3,4,3.666666667,4.875,4.666666667,4.566666667,Femenine,17,2001,Regular city,One,Single,Student,Secondary Education,Mixed,No,Student
+4,7,5,6,3,7,7,2,7,4,6,5,6,7,7,5,6,2,6,3,6,7,4,7,5,6,7,2,7,2,5.333333333,5.833333333,4.5,5.666666667,5.266666667,99, ,99,99,99,99,99,99,99,99,Student
+7,2,6,7,7,6,7,7,7,7,6,7,7,7,7,7,6,7,6,5,7,6,6,7,6,7,7,7,6,3,6.666666667,6,6.125,6.5,6.333333333,99, ,99,99,99,99,99,99,99,99,Student
+7,3,7,5,4,5,3,5,5,3,6,2,3,4,3,5,5,5,5,3,3,4,7,6,6,4,6,2,5,5,4.333333333,4.166666667,4.625,4.5,4.533333333,Femenine,43,1975,Big city,Three,Other not disclosed,Unemployed,Master degree,Black-american background,No,laborer
+7,6,6,1,4,5,6,3,7,4,6,4,3,3,7,7,3,4,7,3,5,5,3,4,2,4,3,3,1,4,4.166666667,5,4.375,4.333333333,4.333333333,Masculine,26,1992,Big city,One,Single,Student,Secondary Education,White,Yes,Worker in the construction sector
+2,5,6,6,5,4,5,3,5,4,4,5,6,4,5,2,7,6,6,4,4,5,5,4,3,3,6,5,3,6,4.833333333,5.5,4.375,3.666666667,4.6,Femenine, ,99,Regular city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+3,5,6,5,7,4,4,5,6,7,4,6,6,4,3,7,6,6,4,7,5,7,4,5,3,4,6,7,6,2,6.166666667,4.166666667,5.375,4.5,5.133333333,Masculine, ,99,Big city,One,Single,Other,Secondary Education,Other,Yes,Student
+3,2,7,1,7,1,2,1,7,2,6,7,7,7,1,7,7,7,5,1,6,3,6,7,3,2,7,1,3,1,6,2.166666667,4.25,3.333333333,4.233333333,Femenine,54,1964,Regular city,Two,Single,Student,Secondary Education,Mixed,Yes,laborer
+7,4,6,1,3,6,5,1,7,2,7,6,7,3,4,7,7,4,1,2,5,2,7,7,4,7,7,1,6,7,5.333333333,3.333333333,5.125,5.166666667,4.766666667,Femenine,19,1999,Regular city,None,Single,Student,Secondary Education,Other original Chilean ethnic background,Yes,laborer
+5,4,5,1,2,7,2,2,7,2,5,2,1,7,3,4,3,5,4,7,7,3,6,5,2,5,6,4,3,4,4.833333333,2.833333333,3.625,4.666666667,4.1,Femenine,33,1985,Big city,Two,Single,Student,Secondary Education,White,Yes,laborer
+4,5,2,4,3,3,4,3,4,6,6,3,3,4,3,3,3,3,7,7,3,4,6,4,2,1,5,2,4,4,4.333333333,4.333333333,3.625,3.5,3.833333333,Femenine, ,99,99,None,Other not disclosed,Other,Secondary Education,Other,Yes,Student
+2,3,5,2,2,6,3,2,4,2,4,4,3,2,6,3,5,4,6,6,3,2,7,5,4,2,5,2,3,6,4.333333333,4.166666667,3.375,3.5,3.766666667,Femenine, ,99,Big city,None,Single,Student,Secondary Education,White,Yes,Student
+7,5,6,6,6,5,6,6,5,6,4,6,5,6,5,1,5,5,6,6,5,7,4,5,7,3,6,2,5,3,5.666666667,5.5,4.375,5,5.133333333,Femenine,19,1999,Regular city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+5,4,5,5,6,5,5,5,4,3,3,6,6,3,5,4,3,5,4,6,5,3,5,4,3,3,6,4,4,4,5.333333333,4.333333333,4.5,3.666666667,4.433333333,Femenine,19,1999,Regular city,None,Single,Student,Secondary Education,Mixed,Yes,Student
+5,3,5,7,2,7,5,3,4,7,7,2,6,3,3,4,1,5,7,5,1,1,6,5,2,6,4,1,3,5,3.666666667,4.666666667,3.625,5,4.166666667,Masculine,19,1999,Big city,None,Single,Student,Secondary Education,Black-African background,No,Student
+2,3,7,4,7,3,7,7,7,1,4,7,7,7,4,2,6,1,4,7,5,5,5,6,3,4,5,2,4,2,6.5,4.333333333,4.25,3.333333333,4.6,Femenine,17,2001,Big city,None,In a relationship,Student,Secondary Education,Mixed,Yes,Student
+7,4,7,5,1,7,3,5,7,4,7,4,1,4,7,7,2,1,7,7,3,5,7,7,4,1,7,5,7,1,5.5,4.666666667,4.75,4.333333333,4.8,99, ,99,99,99,99,99,99,99,99,Student
+7,4,5,1,4,6,6,3,6,4,6,7,6,3,3,7,5,3,7,4,4,2,3,5,5,6,4,6,6,4,5,3.833333333,5.125,5.166666667,4.733333333,Masculine,18,2000,Other,One,Single,Student,Secondary Education,Mixed,Yes,Student
+1,7,4,4,5,5,3,5,4,5,4,5,4,5,1,4,2,5,4,3,4,5,4,3,4,5,3,5,3,3,3.833333333,3.333333333,4,4.5,3.966666667,Masculine,31,1987,Big city,None,Single,Unemployed,Secondary Education,Mixed,Yes,Driver
+5,4,7,5,3,7,1,3,7,1,7,1,1,1,6,1,5,1,7,7,6,1,7,7,3,6,6,2,7,6,5.166666667,4.333333333,3.5,5,4.366666667,Masculine,21,1997,Regular city,None,Single,Private sector,Secondary Education,Black-African background,No,Student
+7,7,6,4,1,7,3,7,4,4,6,4,6,7,6,3,7,5,5,7,4,5,4,5,1,3,6,3,2,4,4.5,4.5,5.5,4.166666667,4.766666667,Masculine,19,1999,Big city,None,Single,Unemployed,Secondary Education,Mixed,Yes,Student
+5,4,7,1,3,6,4,3,7,3,7,5,6,2,7,7,7,7,6,7,6,5,5,7,1,1,6,2,7,7,5.833333333,5,4.875,4,5.033333333,Femenine,60,1958,Other,Two,In a relationship,Student,Secondary Education,Other,Yes,Student
+3,1,7,4,7,4,4,7,4,4,5,4,4,4,4,4,4,4,4,4,4,4,4,3,3,5,4,4,4,4,4.333333333,4,3.875,4.166666667,4.166666667,99, ,99,99,99,99,99,99,99,99,Student
+5,4,6,3,2,2,5,2,5,6,6,6,2,2,2,2,2,2,2,2,6,6,6,6,6,3,5,2,5,2,4.333333333,3.333333333,3.125,4.833333333,3.833333333,Masculine,23,1995,99,None,Single,Private sector,Secondary Education,Black-African background,No,Student
+7,3,5,5,3,6,3,4,5,3,5,6,4,3,7,3,5,3,6,4,6,5,5,5,4,4,6,5,7,4,4.833333333,5,4.5,4.666666667,4.7,Femenine,25,1993,Big city,Two,Divorced/separated,Student,Secondary Education,Mixed,Yes,Salesman-woman
+5,2,5,3,5,4,4,2,7,1,5,5,2,1,4,1,2,6,6,6,5,1,4,5,1,3,7,2,5,4,5.833333333,3.666666667,2.5,3.166666667,3.766666667,Femenine,22,1996,Town,None,Single,Student,Secondary Education,Black-African background,No,Student
+3,6,6,4,1,7,3,1,6,1,7,7,6,7,7,6,1,7,7,7,7,1,7,7,3,6,7,6,2,2,5.833333333,4,4.5,5.166666667,4.933333333,Femenine,20,1998,Regular city,One,Single,Student,Secondary Education,Other,Yes,Student
+5,6,4,4,5,5,1,1,3,4,3,4,7,5,2,4,6,4,5,4,4,3,6,4,6,3,1,4,5,2,3.5,2.833333333,4.875,4.166666667,4,Femenine,19,1999,Regular city,None,Single,Student,Secondary Education,White,Yes,Student
+1,3,5,6,4,4,5,7,4,4,3,4,6,7,4,2,4,6,6,6,5,3,4,4,2,4,5,7,4,1,4.5,4.166666667,4.25,3.666666667,4.333333333,Masculine,18,2000,Town,None,Single,Student,Secondary Education,White,Yes,Student
+7,1,7,7,7,7,1,4,7,7,6,7,7,7,1,1,7,7,7,7,7,7,7,7,7,7,7,7,7,1,7,4,5.125,6.833333333,5.866666667,Masculine,25,1993,Big city,Two,In a relationship,Student,Other,Mixed,Yes,laborer
+7,4,7,4,2,7,3,3,4,1,4,3,1,3,6,1,7,1,6,5,5,3,7,6,2,3,6,1,6,4,4.333333333,4.333333333,3.875,3.666666667,4.066666667,Femenine,18,2000,Big city,None,Single,Student,Secondary Education,White,Yes,Student
+7,7,7,7,7,7,3,7,7,3,6,5,7,7,7,1,7,6,4,3,7,2,7,7,1,5,6,4,5,5,5.833333333,4.666666667,5.875,4.833333333,5.466666667,Masculine,25,1993,Regular city,None,In a relationship,Student,Secondary Education,Mixed,Yes,laborer
+4,7,6,5,7,6,6,6,6,4,4,5,7,3,5,3,7,6,5,7,5,4,5,6,2,4,5,7,6,7,6,5.333333333,5.75,4.166666667,5.333333333,Masculine,20,1998,Big city,None,Single,Private sector,Secondary Education,Mixed,Yes,laborer
+7,4,7,3,3,6,5,3,6,5,5,6,6,4,4,3,4,7,7,6,6,4,6,5,3,4,7,4,5,3,5.5,4.333333333,4.625,4.833333333,4.933333333,Femenine,18,2000,Regular city,None,Single,Student,Secondary Education,Mapuche/Huilliche,Yes,laborer
+7,1,4,7,3,4,5,1,5,4,5,5,7,6,1,7,7,7,1,2,4,5,7,4,2,1,1,4,4,7,3.333333333,4.333333333,5.125,3.333333333,4.266666667,Femenine,19,1999,Big city,99,Single,Student,Secondary Education,Mixed,Yes,Student
+4,4,6,6,3,7,2,6,6,2,6,6,4,3,6,4,5,2,4,6,5,3,5,6,3,6,4,2,6,4,5.166666667,4.166666667,4.25,4.833333333,4.533333333,Masculine, ,99,Big city,One,Single,Private sector,Secondary Education,White,Yes,Guard
+6,2,4,4,5,6,2,2,4,4,6,3,2,2,3,3,6,4,4,3,5,3,4,3,4,4,3,7,7,4,3.5,3.333333333,4,4.833333333,3.966666667,Femenine,42,1976,Big city,Four,Married,Student,Secondary Education,White,Yes,Student
+3,1,5,1,7,5,5,1,7,1,4,5,3,2,5,3,6,3,5,7,7,1,1,5,1,2,6,1,6,6,6.166666667,3.833333333,2.375,3.333333333,3.833333333,Femenine,23,1995,Big city,One,In a relationship,Student,Secondary Education,Mixed,Yes,Student
+7,5,6,6,6,5,4,6,6,4,5,6,7,5,3,6,6,5,3,4,6,3,6,6,2,5,4,6,6,5,5.333333333,4,6.125,4.5,5.133333333,Femenine,32,1986,Big city,Two,Single,Student,Secondary Education,White,Yes,House keeper
+7,3,7,3,7,5,2,7,7,7,7,7,7,7,5,7,7,7,6,7,4,7,5,7,5,4,7,4,4,1,7,4,5.875,5.333333333,5.666666667,Femenine,19,1999,Regular city,One,In a relationship,Student,Secondary Education,Mixed,Yes,laborer
+5,2,5,1,2,6,1,4,5,2,7,3,4,3,5,2,7,4,6,2,6,1,6,7,1,6,4,2,1,1,3.833333333,2.5,4,4.666666667,3.7,Masculine,20,1998,Big city,None,Single,Student,Secondary Education,Black-american background,No,laborer
+5,2,3,2,6,4,4,3,4,3,4,5,6,2,4,4,6,5,6,5,3,4,1,3,6,4,2,2,5,4,4.166666667,4,3.625,4,3.9,Masculine,18,2000,Regular city,None,Single,Student,University degree or similar,White,Yes,laborer
+7,7,7,6,6,6,7,1,7,1,7,2,7,7,3,7,7,7,7,6,7,7,7,7,1,7,7,7,7,7,5.833333333,6.166666667,6.25,4.833333333,5.966666667,Femenine,26,1992,Regular city,Two,Single,Student,Other,Other,Yes,laborer
+4,2,7,3,4,6,3,3,7,5,5,4,1,3,4,4,6,3,7,6,6,3,5,6,2,3,7,2,6,4,5.666666667,4,3.375,4.5,4.366666667,Masculine, ,99,Other,One,Single,Private sector,Secondary Education,White,Yes,Assistant
+4,2,6,3,4,2,2,1,4,1,2,5,7,2,4,5,3,2,5,1,3,3,7,5,3,5,3,3,4,5,3.666666667,3.666666667,4,2.666666667,3.533333333,Other,30,1988,Town,One,Single,Student,Secondary Education,Mixed,Yes,Guard
+4,2,7,4,2,6,3,5,6,3,6,5,4,2,4,6,5,3,5,6,5,5,3,6,4,3,6,4,6,3,5.166666667,4,4.125,4.5,4.433333333,Femenine,47,1971,Regular city,Four,Single,Student,University degree or similar,Mixed,Yes,Student
+5,5,6,6,5,5,4,6,4,4,4,6,2,6,4,6,6,2,6,6,4,4,7,4,6,6,6,7,6,4,5.166666667,4.666666667,5.5,4.833333333,5.066666667,99, ,99,99,99,99,99,99,99,99,99
+5,6,6,6,6,6,6,6,6,6,4,6,6,7,6,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5.75,5.666666667,5.9,99, ,99,99,99,99,99,99,99,99,99
+6,7,6,6,7,5,6,7,6,4,3,6,7,7,6,7,6,6,6,6,5,4,6,6,6,7,6,7,7,5,6.166666667,5.5,6.625,5,5.966666667,99, ,99,99,99,99,99,99,99,99,99
+5,1,6,3,6,6,2,6,5,4,3,2,7,6,6,2,7,2,5,4,7,2,6,5,4,3,7,2,6,4,4.833333333,3.666666667,4.5,4.5,4.466666667,99, ,99,99,99,99,99,99,99,99,99
+7,7,7,7,7,7,7,2,7,6,4,7,7,7,7,7,7,7,7,7,7,2,6,7,2,6,7,7,7,7,7,6.166666667,6.25,5.333333333,6.3,99, ,99,99,99,99,99,99,99,99,99
+7,7,7,7,7,7,7,2,7,7,6,7,7,7,6,6,7,7,7,7,7,7,7,7,6,3,7,7,7,7,7,6.833333333,6.25,6,6.566666667,99, ,99,99,99,99,99,99,99,99,99
+6,2,7,2,6,6,3,2,7,1,7,7,6,2,5,6,7,7,5,7,7,4,7,7,3,2,7,6,6,7,6.833333333,4.333333333,5.25,4.333333333,5.233333333,99, ,99,99,99,99,99,99,99,99,99
+5,4,7,1,1,6,7,2,6,3,5,2,3,6,6,2,7,6,6,7,6,4,6,6,2,3,6,3,6,6,4.666666667,5,4,4.166666667,4.666666667,99, ,99,99,99,99,99,99,99,99,99
+5,1,6,4,3,5,3,2,7,1,4,2,4,3,7,3,6,3,5,5,5,2,6,6,2,3,7,2,5,3,5,4,3.625,3.333333333,4,99, ,99,99,99,99,99,99,99,99,99
+3,4,4,3,6,4,5,4,5,6,4,6,3,5,5,4,3,5,5,6,3,4,5,6,7,4,6,3,5,2,5.833333333,4,3.625,4.666666667,4.5,99, ,99,99,99,99,99,99,99,99,99
+7,7,6,3,7,6,7,6,7,6,6,6,5,6,3,6,6,7,6,7,6,6,7,7,4,7,7,2,6,5,6.833333333,5,5.75,5.833333333,5.9,99, ,99,99,99,99,99,99,99,99,99
+6,2,4,6,3,5,5,2,6,3,6,5,7,4,4,6,5,4,5,3,4,6,6,5,6,5,7,7,3,6,4.833333333,5.333333333,5.125,4.833333333,4.866666667,99, ,99,99,99,99,99,99,99,99,99
+7,5,7,5,7,6,7,7,6,7,6,7,7,7,5,7,3,7,6,6,6,6,5,6,6,7,6,6,6,4,6.333333333,5.5,5.875,6.333333333,6.1,99, ,99,99,99,99,99,99,99,99,99
+2,2,4,6,3,5,6,2,6,2,4,2,5,5,7,6,4,6,6,5,6,6,3,3,6,6,5,5,6,5,4,6,3.625,4.833333333,4.633333333,99, ,99,99,99,99,99,99,99,99,99
+6,6,5,5,7,7,6,6,6,7,6,6,7,7,6,7,6,6,5,5,5,5,6,6,7,7,6,6,6,4,6,5.166666667,6.25,6.5,6,99, ,99,99,99,99,99,99,99,99,99
+2,4,2,1,3,2,5,6,6,1,3,2,7,2,1,4,3,3,4,4,4,4,6,4,5,2,5,4,3,2,4,2.833333333,4.5,2.833333333,3.466666667,99, ,99,99,99,99,99,99,99,99,99
+7,5,7,6,3,5,5,7,7,7,1,6,6,7,7,7,5,7,7,6,4,6,6,7,4,4,6,7,7,4,5.833333333,5.833333333,6.25,4.166666667,5.766666667,99, ,99,99,99,99,99,99,99,99,99
+5,3,6,3,2,6,2,3,6,3,6,5,3,2,6,5,6,6,3,6,6,3,2,6,6,6,7,7,7,6,5.333333333,3.833333333,4.25,5.5,4.766666667,99, ,99,99,99,99,99,99,99,99,99
+2,1,6,2,7,6,3,6,7,2,2,6,6,2,5,3,2,6,6,6,5,3,6,7,3,2,6,2,6,6,6.5,4.166666667,3.5,3.333333333,4.4,99, ,99,99,99,99,99,99,99,99,99
+7,7,6,5,4,6,4,2,4,2,2,7,6,6,6,5,5,2,5,6,2,2,3,3,3,3,6,6,6,3,5,4.166666667,5.125,3,4.466666667,99, ,99,99,99,99,99,99,99,99,99
+7,7,7,4,1,7,6,7,7,6,5,7,7,7,7,7,7,7,7,7,7,7,4,7,2,7,7,6,7,5,6,6,6.5,5.666666667,6.2,99, ,99,99,99,99,99,99,99,99,99
+6,3,7,1,7,7,7,7,7,7,5,7,7,7,7,7,7,7,7,5,7,7,4,7,7,7,7,7,7,1,6.666666667,5,6,6.666666667,6.2,99, ,99,99,99,99,99,99,99,99,99
+3,4,4,4,5,4,5,3,5,2,4,5,4,4,3,2,4,4,5,4,4,6,4,4,3,4,4,5,4,3,4.5,4.333333333,3.625,3.5,3.966666667,99, ,99,99,99,99,99,99,99,99,99
+5,1,4,2,7,5,5,7,5,2,7,3,5,1,3,3,6,7,4,7,7,2,4,6,1,1,6,4,4,5,5.666666667,3.5,4.375,3.833333333,4.3,99, ,99,99,99,99,99,99,99,99,99
+1,7,1,1,7,5,7,7,5,7,4,1,3,1,7,7,7,1,1,1,4,7,1,1,7,4,1,7,1,1,2.666666667,4,5,5.166666667,3.833333333,99, ,99,99,99,99,99,99,99,99,99
+3,5,6,4,7,5,2,6,6,3,6,6,5,6,6,6,6,6,5,7,6,3,5,5,4,6,6,7,6,5,6.166666667,4.166666667,5.375,5,5.3,99, ,99,99,99,99,99,99,99,99,99
+5,7,5,7,6,6,1,5,7,4,2,7,7,6,6,7,7,4,6,6,6,3,5,5,6,7,3,7,6,7,5.666666667,5,6.25,5.166666667,5.533333333,99, ,99,99,99,99,99,99,99,99,99
+7,3,5,3,1,5,5,1,7,3,4,4,4,2,6,6,5,3,6,1,5,7,4,6,6,4,2,6,6,2,3.5,4.833333333,4.5,4.5,4.3,99, ,99,99,99,99,99,99,99,99,99
+4,3,6,3,6,6,2,6,6,6,3,5,2,5,4,4,6,6,5,5,4,2,2,6,6,4,7,6,5,2,5.833333333,3,4.125,4.833333333,4.566666667,99, ,99,99,99,99,99,99,99,99,99
+6,7,6,6,7,6,7,7,7,7,7,6,5,4,7,7,6,6,6,6,6,5,6,6,6,6,6,6,7,5,6.333333333,6,6.25,6.333333333,6.166666667,99, ,99,99,99,99,99,99,99,99,99
+6,7,4,6,4,5,4,6,5,3,5,5,6,4,4,4,5,5,3,3,4,6,4,4,6,5,3,5,3,3,4,4.333333333,5.375,4.666666667,4.566666667,99, ,99,99,99,99,99,99,99,99,99
+1,7,7,7,1,7,7,7,7,7,1,1,7,1,7,7,7,7,7,7,7,7,7,7,7,7,1,1,7,7,4,7,5.5,6,5.6,99, ,99,99,99,99,99,99,99,99,99
+5,4,5,4,4,5,4,5,6,5,6,5,6,5,5,3,5,4,4,5,6,4,4,6,5,6,6,1,6,5,5.333333333,4.333333333,4.125,5.5,4.8,99, ,99,99,99,99,99,99,99,99,99
+7,5,5,5,7,4,6,6,5,6,4,6,6,5,4,5,4,5,5,6,5,6,4,6,6,6,7,6,6,4,6.166666667,5,5.375,5.166666667,5.4,99, ,99,99,99,99,99,99,99,99,99
+4,4,1,4,4,7,7,7,1,7,7,1,7,7,7,7,7,4,4,4,7,1,4,4,7,1,4,4,4,1,3,4,5.5,6,4.6,99, ,99,99,99,99,99,99,99,99,99
+4,1,7,6,1,4,1,1,3,3,5,1,7,1,3,4,1,3,5,3,6,1,1,4,6,3,3,7,4,2,2.5,3,3.25,4.5,3.366666667,99, ,99,99,99,99,99,99,99,99,99
+4,2,5,7,7,6,4,6,7,4,4,1,1,4,6,6,5,5,6,6,6,6,6,7,6,6,7,7,7,3,5.833333333,5.333333333,4.625,5.333333333,5.233333333,99, ,99,99,99,99,99,99,99,99,99
+1,6,5,4,4,4,6,6,5,6,4,4,4,3,4,6,4,4,4,4,4,1,3,4,4,4,4,6,5,2,4.166666667,3.5,4.5,4.333333333,4.166666667,99, ,99,99,99,99,99,99,99,99,99
+7,7,7,1,1,7,1,1,1,1,1,7,1,1,7,1,1,1,7,7,1,1,7,7,7,7,1,1,7,7,4,4,3.25,4,3.8,99, ,99,99,99,99,99,99,99,99,99
+7,1,6,1,7,7,6,6,7,2,6,6,7,7,6,6,7,6,6,7,7,6,6,6,3,2,6,6,7,6,6.5,5.166666667,5.75,4.5,5.633333333,99, ,99,99,99,99,99,99,99,99,99
+7,7,6,3,7,4,7,7,7,3,3,7,7,7,7,7,7,7,7,7,7,4,7,7,7,7,7,7,7,6,7,5.666666667,7,5.166666667,6.333333333,99, ,99,99,99,99,99,99,99,99,99
+1,1,7,1,7,7,7,7,7,1,1,7,7,7,1,1,1,7,1,7,7,7,7,7,7,1,7,7,7,7,7,4,4,4,5,99, ,99,99,99,99,99,99,99,99,99
+4,3,6,3,4,6,5,3,6,3,6,6,6,4,5,6,4,5,5,5,4,6,5,5,4,6,6,5,6,4,5.333333333,4.666666667,4.5,4.833333333,4.866666667,99, ,99,99,99,99,99,99,99,99,99
+4,4,6,4,6,6,6,4,5,5,3,6,6,6,3,4,5,5,4,6,6,5,4,6,4,5,6,6,4,4,5.833333333,4.333333333,4.625,4.833333333,4.933333333,99, ,99,99,99,99,99,99,99,99,99
+2,3,7,7,5,7,1,2,7,1,7,7,7,1,7,7,7,2,7,4,7,1,1,4,7,3,7,4,1,1,5.666666667,4,4.125,5.333333333,4.466666667,99, ,99,99,99,99,99,99,99,99,99
+7,5,7,6,7,7,6,7,7,5,5,7,7,5,7,7,7,7,7,5,7,7,7,7,7,7,7,7,7,7,6.666666667,6.666666667,6.75,6.333333333,6.6,99, ,99,99,99,99,99,99,99,99,99
+5,3,7,5,5,5,4,4,6,5,5,3,6,6,6,5,3,6,3,5,6,6,4,7,5,2,5,6,6,7,5.166666667,5.166666667,4.5,4.666666667,5.033333333,99, ,99,99,99,99,99,99,99,99,99
+7,7,7,7,7,6,7,7,6,3,1,7,7,7,6,7,7,7,5,7,7,4,5,6,7,7,7,7,7,7,6.666666667,6,6.75,5.166666667,6.3,99, ,99,99,99,99,99,99,99,99,99
+6,2,6,4,3,6,6,3,6,6,5,5,5,4,6,2,6,6,6,6,6,6,6,6,6,4,6,6,6,4,5.333333333,5.333333333,4.5,5.5,5.166666667,99, ,99,99,99,99,99,99,99,99,99
+6,6,6,7,7,6,7,7,7,6,5,7,7,6,5,2,6,6,7,6,6,6,5,7,7,7,6,7,6,5,6.666666667,6.166666667,5.75,6.166666667,6.133333333,99, ,99,99,99,99,99,99,99,99,99
+5,6,7,7,6,7,6,7,6,7,5,7,7,7,5,2,6,7,7,6,6,7,5,6,7,6,7,7,7,7,6.333333333,6.5,5.625,6.333333333,6.266666667,99, ,99,99,99,99,99,99,99,99,99
+5,6,6,4,6,3,6,6,6,7,6,4,7,7,7,7,7,7,6,7,6,3,5,6,6,6,6,6,6,5,5.833333333,5.166666667,6.125,5.666666667,5.833333333,99, ,99,99,99,99,99,99,99,99,99
+5,3,5,3,7,4,7,7,4,7,3,5,7,5,3,4,4,4,6,6,4,2,4,5,7,4,4,7,3,2,5.166666667,3.833333333,5.125,4.833333333,4.7,99, ,99,99,99,99,99,99,99,99,99
+5,1,4,5,7,7,7,7,7,4,3,4,7,4,7,1,7,4,7,7,4,1,7,7,5,1,7,7,7,3,6.5,5,5.25,4,5.133333333,99, ,99,99,99,99,99,99,99,99,99
+7,6,6,7,7,7,7,7,7,6,5,6,7,7,7,7,7,7,7,6,5,4,7,7,7,2,7,7,7,4,6.666666667,6,6.875,5.333333333,6.333333333,99, ,99,99,99,99,99,99,99,99,99
+3,3,6,2,4,7,3,4,6,5,5,2,7,6,4,3,6,3,4,6,6,4,4,6,3,4,6,6,6,5,5,3.666666667,4.5,5,4.633333333,Masculine,37,1981,Big city,One,Married,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+6,3,6,2,1,6,2,3,6,1,6,2,2,3,7,3,5,3,4,7,6,3,6,7,3,4,7,2,6,6,5,4,3.75,4.333333333,4.266666667,Masculine,61,1957,Town,Two,Married,Other,Secondary Education,Mapuche/Huilliche,Yes,Assistant
+7,4,6,4,7,5,4,3,5,3,4,6,7,2,5,4,5,2,4,5,6,6,6,6,3,2,5,2,3,5,5.666666667,4.666666667,4.75,3.833333333,4.533333333,Femenine,51,1967,Big city,Four,Divorced/separated,Private sector,Secondary Education,Mixed,Yes,Assistant
+6,3,7,1,7,7,7,7,5,2,5,7,7,7,1,7,6,7,5,7,7,7,5,5,2,3,7,7,7,4,6.333333333,4.166666667,6,4.333333333,5.5,Femenine,26,1992,Big city,None,Single,Private sector,University degree or similar,Mixed,Yes,Teacher/Lecturer
+6,6,6,5,7,2,7,7,6,6,4,7,6,7,7,5,6,7,5,7,6,6,5,6,3,5,6,6,6,5,6.5,5.833333333,5.875,4.333333333,5.766666667,Masculine,42,1976,Big city,99,99,Teacher/Lecturer,University degree or similar,Mixed,Yes,Teacher/Lecturer
+6,5,7,5,7,6,6,6,6,6,6,7,7,6,3,7,5,7,3,7,5,6,2,5,5,6,6,7,6,5,6.333333333,4.666666667,5.625,5.666666667,5.7,Femenine,49,1969,Town,Four,Married,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+7,5,5,4,6,4,5,3,6,4,2,7,7,3,5,3,7,5,5,6,5,4,4,5,4,4,5,7,7,4,5.833333333,4.5,5.375,3.833333333,4.933333333,Femenine,44,1974,Regular city,One,Single,Public sector,Secondary Education,Mixed,Yes,Assistant
+7,7,7,7,7,7,7,7,7,4,7,7,7,5,7,7,7,7,7,7,7,7,3,7,2,3,7,7,7,7,7,7,6.5,5,6.4,Masculine,52,1966,Big city,Four,Married,Private sector,University degree or similar,White,Yes,Assistant
+4,2,7,4,7,4,3,6,6,7,5,6,6,3,4,2,6,7,4,7,4,6,5,6,6,4,7,5,6,3,6.5,4,4.5,5,5.066666667,Femenine,24,1994,Big city,None,Single,Student,University degree or similar,Mixed,Yes,Student
+1,7,6,7,2,6,7,6,7,4,6,1,2,4,5,5,7,6,7,1,4,2,6,2,2,2,2,6,2,1,2.5,4.833333333,5,4,4.2,Femenine,54,1964,Big city,Two,Divorced/separated,Unemployed,University degree or similar,Mixed,Yes,Housewife
+4,7,5,5,6,6,1,4,4,6,4,4,6,5,5,4,6,2,6,5,5,4,4,5,4,5,6,5,5,6,5,4.5,5,5,4.8,Femenine,45,1973,Big city,None,Single,Unemployed,University degree or similar,White,Yes,Entrepreneur
+7,4,7,4,1,7,7,7,7,4,7,7,4,7,7,4,4,7,7,7,7,7,4,7,7,7,7,7,7,4,6,6,5.125,6.5,6,99, ,99,99,99,99,99,99,99,99,Merchant
+7,3,5,5,3,6,3,3,6,4,6,6,4,6,5,3,5,5,5,6,4,3,5,5,4,4,5,3,5,4,5.166666667,4.166666667,4.125,4.666666667,4.6,Femenine,35,1983,Town,Five,Married,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+5,7,5,6,6,6,4,7,4,2,4,6,4,7,6,6,7,4,4,4,5,3,1,3,1,6,5,5,7,7,4.666666667,5,5.25,4,4.9,Femenine,41,1977,Big city,Four,Married,Teacher/Lecturer,University degree or similar,White,Yes,Teacher/Lecturer
+1,5,2,7,1,3,6,4,1,1,3,1,5,1,2,5,5,6,6,1,3,4,4,4,1,3,2,4,1,7,1.666666667,5.333333333,4.125,2.333333333,3.3,Femenine,36,1982,Big city,Two,Married,Public sector,Master degree,Mixed,Yes,Physician
+4,4,4,7,3,3,6,5,5,3,4,3,6,3,3,3,3,3,4,4,2,4,4,4,2,3,4,3,4,6,3.833333333,5,4,2.833333333,3.866666667,Femenine,37,1981,Big city,One,Single,Student,Other,Mixed,Yes,PhD Student
+7,3,7,2,5,4,4,2,6,3,5,7,5,3,5,5,5,6,2,6,6,6,4,5,4,7,6,4,5,3,5.833333333,3.666666667,4.375,4.833333333,4.733333333,Femenine,36,1982,Big city,One,Single,Teacher/Lecturer,Other,Mixed,Yes,Teacher/Lecturer
+5,6,4,5,5,6,4,5,5,5,4,4,6,4,4,5,5,3,4,5,4,4,5,5,4,4,5,4,5,5,4.833333333,4.333333333,5.125,4.5,4.633333333,Femenine,37,1981,Big city,One,Single,Other,Master degree,White,Yes,Professional from the Social Sciences
+5,6,5,3,6,6,4,6,6,6,6,5,6,6,3,5,6,5,6,6,5,4,6,4,4,6,3,7,2,4,5,4,5.875,5.5,5.066666667,Femenine,36,1982,Big city,Two,Married,Public sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+3,6,6,6,4,5,6,6,6,6,6,6,6,7,6,2,6,3,6,5,6,6,3,6,6,6,5,6,5,6,5.333333333,6,4.75,5.833333333,5.4,Femenine,37,1981,Big city,One,Single,Public sector,Master degree,Other,Yes,Professional from the Social Sciences
+6,6,3,5,5,6,5,6,6,5,5,5,6,4,4,5,6,3,5,4,6,6,5,5,4,5,5,6,5,6,5,5.166666667,5.75,5.166666667,5.1,Femenine,35,1983,Big city,One,Single,Public sector,University degree or similar,Mixed,Yes,Entrepreneur
+6,5,6,4,6,6,7,4,6,7,5,7,4,6,6,6,6,6,5,6,5,4,5,6,4,6,5,6,6,4,6,5,5.25,5.5,5.5,Masculine,35,1983,Town,One,Married,Private sector,University degree or similar,Mixed,Yes,Desk clerk
+6,6,4,3,3,6,5,6,4,2,5,3,7,4,3,6,7,1,2,2,5,3,4,3,3,6,4,6,4,5,3.166666667,3.5,6,4.5,4.266666667,Masculine,26,1992,Big city,One,In a relationship,Public sector,University degree or similar,Mixed,Yes,Professional from the Social Sciences
+6,7,6,7,6,6,7,6,7,6,6,7,6,6,7,6,7,6,6,6,7,5,6,7,5,6,7,6,7,6,6.666666667,6.333333333,6.25,6,6.3,Femenine,37,1981,Big city,Two,Married,Teacher/Lecturer,Other,Mixed,Yes,Teacher/Lecturer
+5,6,7,6,6,5,4,5,6,4,5,7,7,5,3,5,4,5,6,6,5,4,6,6,5,6,6,6,6,6,6.166666667,4.833333333,5.5,5,5.433333333,Masculine,25,1993,Big city,One,Single,Private sector,Master degree,White,Yes,Bussiness and Finance Professional
+7,6,6,3,7,7,7,7,7,7,1,7,7,7,6,7,7,7,6,7,6,7,6,7,5,7,7,7,7,5,7,5.666666667,6.75,5.5,6.333333333,Masculine,30,1988,Regular city,One,Married,Private sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+5,6,4,6,6,6,3,6,6,3,5,6,7,6,5,3,6,3,5,6,6,5,4,5,2,5,5,6,4,3,5.666666667,4.5,5.375,4.5,4.933333333,Masculine,34,1984,Regular city,Three,Married,Private sector,Master degree,White,Yes,Professional from the Social Sciences
+7,2,7,1,3,7,7,6,7,7,7,7,7,4,4,7,7,5,4,6,5,1,7,5,7,7,4,7,7,1,5.333333333,3,6.25,6.666666667,5.433333333,Masculine,41,1977,Big city,Two,Married,Other,University degree or similar,White,No,Desk clerk
+4,7,3,7,6,7,2,6,6,4,6,4,7,7,4,4,7,3,6,6,7,4,6,5,5,7,4,7,7,7,5.166666667,5,6,6,5.5,Masculine,33,1985,Big city,Two,Married,Teacher/Lecturer,Master degree,Mixed,Yes,Professional from the Social Sciences
+7,6,5,6,6,7,6,7,6,6,6,7,7,6,7,7,6,6,6,5,5,4,5,6,6,7,6,7,6,5,6,5.666666667,6.5,6.166666667,6.066666667,Masculine,45,1973,Big city,Three,In a relationship,Other,Master degree,White,Yes,99
+5,7,4,6,6,7,7,7,6,7,5,3,7,3,2,7,7,4,5,6,6,4,7,5,3,4,5,7,6,6,5.166666667,5,6.75,5.333333333,5.466666667,Masculine,44,1974,Big city,One,In a relationship,Private sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+6,7,7,6,6,6,6,6,7,6,6,7,7,7,6,6,7,7,6,6,6,4,5,7,4,6,6,6,6,5,6.5,5.5,6.25,5.666666667,6.1,Femenine,41,1977,Big city,Three,Married,Private sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+7,6,5,5,7,6,5,7,6,6,4,6,7,6,3,6,7,5,6,6,5,3,7,5,5,5,6,6,6,4,6,4.333333333,6.625,5.166666667,5.6,Masculine,32,1986,Big city,One,In a relationship,Private sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+5,5,6,3,7,5,5,5,5,2,4,7,3,6,5,5,5,6,5,7,5,3,5,5,3,5,6,6,5,5,6.166666667,4.333333333,4.875,4,4.966666667,Femenine,35,1983,Regular city,Three,Married,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+7,2,6,6,3,5,6,6,6,6,5,7,6,6,3,5,6,6,6,6,6,6,4,6,4,6,6,7,6,4,5.666666667,5.166666667,5.375,5.333333333,5.466666667,Masculine,44,1974,Big city,Three,Married,Private sector,Master degree,White,Yes,Bussiness and Finance Professional
+7,5,7,5,7,6,7,7,6,7,6,7,7,7,5,7,3,7,6,6,6,6,5,6,6,7,6,6,6,4,6.333333333,5.5,5.875,6.333333333,6.1,Masculine,36,1982,Big city,Two,Married,Other,University degree or similar,White,Yes,Bussiness and Finance Professional
+2,2,6,2,4,5,6,5,6,5,1,7,2,6,5,5,3,6,5,6,4,6,3,6,6,4,6,6,6,4,5.833333333,4.666666667,3.5,4.166666667,4.666666667,Masculine,46,1972,Town,Four,Married,Private sector,University degree or similar,White,Yes,Desk clerk
+2,7,7,6,6,7,3,4,2,5,6,6,4,6,4,1,3,5,6,3,4,4,7,1,1,3,6,6,7,7,4,5,4.25,4.333333333,4.633333333,Masculine,35,1983,Regular city,Three,In a relationship,Private sector,University degree or similar,White,Yes,Desk clerk
+3,3,2,2,4,3,4,5,5,3,6,3,7,2,2,4,3,2,3,4,3,4,6,4,4,5,4,3,3,2,4,2.833333333,4.25,4,3.6,Masculine,43,1975,Big city,Two,Married,Other,Master degree,Mixed,Yes,99
+3,4,4,5,5,4,3,3,5,3,4,6,5,4,3,2,4,5,4,4,4,5,5,4,6,5,5,4,4,2,4.833333333,3.666666667,3.75,4.333333333,4.133333333,Masculine,44,1974,Regular city,Two,Single,Other,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+7,7,7,6,7,6,4,5,7,6,5,7,6,6,6,7,7,6,6,7,6,6,4,6,4,6,7,6,6,6,6.833333333,5.666666667,6.125,5.5,6.066666667,Femenine,32,1986,Big city,Two,In a relationship,Private sector,University degree or similar,Mixed,Yes,Bussiness and Finance Professional
+7,4,6,5,7,6,6,7,7,7,7,7,3,3,5,6,6,7,6,6,6,6,4,7,6,6,4,6,6,5,6.333333333,5.5,5.375,6.333333333,5.8,Masculine,41,1977,Regular city,Two,In a relationship,Private sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+6,7,6,3,7,6,7,5,6,3,5,7,3,5,4,6,7,7,6,6,6,7,6,6,7,6,6,7,6,4,6.333333333,5.166666667,5.875,5.5,5.766666667,Masculine,38,1980,Big city,Two,Married,Other,Master degree,Mixed,Yes,99
+3,6,4,6,4,6,7,6,6,6,7,6,6,6,7,1,6,6,6,5,6,3,2,6,7,6,5,6,1,6,5.333333333,5.833333333,4.5,6.333333333,5.266666667,Masculine,46,1972,Big city,One,Single,Private sector,Master degree,White,Yes,Assistant
+7,7,7,7,7,1,7,7,7,7,7,7,7,7,7,7,1,7,7,7,7,7,7,7,1,7,7,7,7,7,7,7,6.25,5,6.4,Masculine,25,1993,Big city,Two,Single,Public sector,University degree or similar,Mixed,Yes,Desk clerk
+3,6,5,6,6,5,2,5,6,4,6,6,6,7,6,6,6,6,6,6,6,3,6,6,5,6,6,6,6,5,6,4.666666667,5.5,5.333333333,5.466666667,Masculine,39,1979,Big city,One,In a relationship,Public sector,Master degree,White,Yes,Professional from the Social Sciences
+6,6,6,7,7,5,7,7,7,2,7,1,7,7,7,4,7,6,7,7,7,3,5,5,6,7,7,7,7,7,5.666666667,6.333333333,6.125,5.666666667,6.033333333,Masculine,39,1979,Regular city,Two,Married,Teacher/Lecturer,Master degree,White,Yes,Teacher/Lecturer
+7,6,7,4,6,7,4,5,6,3,2,4,7,7,7,7,7,3,6,7,6,3,6,4,1,6,7,7,6,5,5.666666667,4.833333333,6.5,4.166666667,5.433333333,Masculine,38,1980,Regular city,Three,In a relationship,Teacher/Lecturer,University degree or similar,Other,Yes,Teacher/Lecturer
+6,7,7,5,6,7,6,7,7,4,6,6,7,4,4,4,7,6,4,7,6,2,5,6,4,7,6,6,7,5,6.333333333,4.333333333,6.125,5.666666667,5.7,Masculine,39,1979,Big city,One,Married,Teacher/Lecturer,Other,Mixed,Yes,Teacher/Lecturer
+7,7,6,7,7,6,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,7,6,7,7,7,7,7,7,6.666666667,6.875,6.666666667,6.8,Masculine,37,1981,Big city,Three,Married,Private sector,Master degree,White,Yes,Professional from the Social Sciences
+6,5,6,5,6,6,5,6,6,5,6,6,6,5,5,4,6,6,6,6,6,4,3,5,5,6,6,6,6,5,5.833333333,5,5.25,5.666666667,5.466666667,Femenine,36,1982,Big city,One,Married,Public sector,Master degree,White,Yes,Bussiness and Finance Professional
+4,5,6,6,6,5,7,5,6,3,5,7,7,7,6,3,5,6,6,6,5,5,2,6,7,7,7,7,6,5,6.333333333,5.833333333,4.75,5.333333333,5.6,Femenine,36,1982,Big city,One,Single,Private sector,Master degree,Other original Chilean ethnic background,Yes,Chef and Gastronomy
+5,6,5,6,6,5,5,6,6,6,5,7,7,5,5,5,6,6,5,5,6,6,5,5,4,4,6,6,7,5,5.833333333,5.333333333,5.75,5,5.533333333,Masculine,36,1982,Big city,One,In a relationship,Private sector,University degree or similar,Mixed,Yes,Driver
+6,6,6,6,7,6,7,7,6,7,6,7,7,7,6,7,6,6,6,7,6,6,6,6,6,6,6,6,6,6,6.5,6.166666667,6.375,6.166666667,6.3,Femenine,34,1984,Regular city,One,In a relationship,Teacher/Lecturer,Master degree,White,Yes,Teacher/Lecturer
+6,6,7,6,3,7,3,1,7,2,6,3,6,4,3,6,7,3,4,5,4,3,5,5,7,4,7,7,5,2,5,3.5,5.5,5,4.8,Femenine,37,1981,Big city,Two,In a relationship,Public sector,University degree or similar,Mixed,Yes,Desk clerk
+5,7,7,6,5,7,6,6,6,7,5,6,7,6,6,5,6,6,6,6,7,5,4,6,6,5,6,6,6,5,5.833333333,5.666666667,5.75,6.166666667,5.9,Femenine,39,1979,Regular city,Two,Single,Teacher/Lecturer,Master degree,Mixed,Yes,Teacher/Lecturer
+6,6,7,6,7,6,7,7,7,6,7,7,7,6,6,7,6,6,6,6,6,6,5,6,5,7,6,7,6,5,6.5,6,6.375,6.166666667,6.266666667,Masculine,43,1975,Big city,Three,Married,Private sector,Master degree,White,Yes,Entrepreneur
+6,6,5,6,6,5,5,5,6,5,5,5,5,3,5,3,6,5,5,5,5,6,3,6,5,6,5,6,6,7,5.5,5.666666667,5,5.166666667,5.233333333,Femenine,36,1982,Town,One,Divorced/separated,Public sector,Master degree,Mixed,Yes,Professional from the Social Sciences
+5,7,7,7,7,7,5,7,7,4,7,7,7,7,7,7,7,4,7,7,7,3,6,7,2,7,7,4,7,7,7,6,6.25,5.666666667,6.233333333,Femenine,63,1955,Big city,Four,Married,Public sector,Master degree,White,Yes,Professional from the Social Sciences
+5,3,5,3,6,6,3,6,5,2,6,7,6,2,6,6,5,3,6,6,5,2,5,5,3,2,6,6,6,7,5.833333333,4.5,5.25,4,4.8,Masculine,32,1986,Regular city,Two,In a relationship,Teacher/Lecturer,Master degree,Mixed,Yes,99
+5,5,6,5,7,6,4,6,6,6,5,6,6,5,5,6,5,6,6,6,6,5,4,6,6,6,5,5,6,6,6,5.166666667,5.25,5.833333333,5.566666667,Masculine,33,1985,Big city,Two,In a relationship,Public sector,Master degree,Mixed,Yes,99
+3,4,3,3,6,6,4,7,3,3,3,4,1,3,3,6,6,5,4,5,3,6,3,3,2,4,3,1,2,7,4,4.5,3.875,3.5,3.866666667,Masculine,39,1979,Big city,One,Single,Private sector,Secondary Education,Black-american background,No,Student
+7,3,5,5,3,6,4,5,6,1,6,4,3,4,5,3,6,2,5,5,6,4,5,6,6,4,3,4,5,6,4.5,4.833333333,4.5,4.833333333,4.566666667,Masculine,28,1990,Big city,One,Single,Private sector,Secondary Education,Mixed,Yes,Assistant
+5,4,4,6,5,5,6,2,2,5,6,5,4,1,3,6,4,5,5,2,6,5,7,2,5,3,1,4,2,4,2.833333333,4.833333333,4.5,5,4.133333333,Femenine,21,1997,99,None,Single,Student,Secondary Education,Black-american background,No,Student
+6,7,7,3,3,7,4,1,6,7,2,5,4,3,3,4,1,5,4,1,3,4,3,1,4,1,4,3,3,4,3.333333333,3.666666667,3.625,4,3.766666667,Femenine, ,99,Big city,None,Single,Student,Secondary Education,Black-African background,No,Student
+7,1,7,3,7,2,7,5,6,7,7,7,7,4,4,7,7,6,5,7,7,6,6,7,2,4,7,7,7,6,6.833333333,5.166666667,5.875,4.833333333,5.733333333,Femenine, ,99,99,99,99,99,99,99,99,99
+6,3,6,1,7,7,7,3,7,1,1,7,7,7,7,7,1,7,1,7,2,7,7,7,3,1,7,3,7,3,7,4.333333333,4.625,2.5,4.9,Femenine, ,99,99,99,99,99,99,99,99,99
+7,3,7,2,2,6,2,2,7,2,6,1,7,3,6,2,7,1,7,7,7,2,6,7,1,2,6,1,7,7,5,4.333333333,4.375,4,4.433333333,Femenine, ,99,99,99,99,99,99,99,99,99
+6,6,7,5,7,7,6,7,6,1,4,7,7,7,7,3,5,7,6,6,7,7,4,7,2,4,7,3,2,4,6.666666667,5.833333333,5.125,4.166666667,5.466666667,Femenine, ,99,99,99,99,99,99,99,99,99
+6,1,6,5,6,6,7,6,6,7,4,7,7,5,6,7,7,7,6,7,7,6,5,7,1,3,7,6,7,6,6.666666667,6,5.625,4.666666667,5.8,Femenine, ,99,99,99,99,99,99,99,99,99

@@ -1,0 +1,33 @@
+scale,source,min_response,max_response,observed_min,observed_max,min_off,max_off
+BISBAS,BISBAS_Binter,1,4,1,5,FALSE,TRUE
+BISBAS,BISBAS_Rutten,1,4,0,4,TRUE,FALSE
+COVIDiSTRESS Covid-19 stress,Final_COVIDiSTRESS_Vol2_cleaned,1,6,0,10,TRUE,TRUE
+BDI-II depression,depression_Sandoval,0,3,-1,4,TRUE,TRUE
+AES emotional intelligence,AES_Demetrovics,1,5,0,4,TRUE,FALSE
+AES emotional intelligence,AES_Demetrovics2,1,5,0,4,TRUE,FALSE
+EI (short) emotional intelligence,EI_Brienza,1,5,1,7,FALSE,TRUE
+EI (short) emotional intelligence,EI_Robinson,1,5,1,7,FALSE,TRUE
+IRI empathy,Martingano_IRI,0,4,1,5,FALSE,TRUE
+FFMQ mindfulness,Chile,1,5,0,5,TRUE,FALSE
+FFMQ mindfulness,Germany,1,5,1,6,FALSE,TRUE
+FFMQ mindfulness,Poland,1,5,1,6,FALSE,TRUE
+FFMQ mindfulness,Spain,1,5,1,6,FALSE,TRUE
+EHI handedness,McManus_handedness,1,5,1,6,FALSE,TRUE
+Hope (Snyder),Boutilier_RRB_Hope_Optimism_Data,1,8,0,7,TRUE,FALSE
+UPPS impulsivity,Eben2020,1,4,1,14,FALSE,TRUE
+BIS-11 impulsivity,Finley,1,4,1,5,FALSE,TRUE
+UPPS-P impulsivity,validation_sample_Wuellhorst,1,4,0,3,TRUE,FALSE
+MAIA interoception,MAIA_Randelovic,0,5,1,6,FALSE,TRUE
+UCLA Loneliness,Lardone,1,4,1,5,FALSE,TRUE
+UCLA Loneliness,Weinstein,1,4,1,7,FALSE,TRUE
+MFQ moral foundations,MoralF_Harper,0,5,1,6,FALSE,TRUE
+LOT-R optimism,Optimism_Coelho_Bra,0,4,1,5,FALSE,TRUE
+LOT-R optimism,Optimism_Coelho_UK,0,4,1,5,FALSE,TRUE
+Big Five (50-item),Big_Five_Mezquita,1,5,0,4,TRUE,FALSE
+PiCD personality disorders,ICD11_Carnovale,0,3,1,5,FALSE,TRUE
+PCL-5 PTSD,Ashbaugh_PCL-5,0,4,0,4.0482007068946775,FALSE,TRUE
+QEWB eudaimonic wellbeing,QEWB_Ishii,1,5,0,4,TRUE,FALSE
+RST-PQ reinforcement sensitivity,Satchell_RST-PQ,1,4,0,3,TRUE,FALSE
+BSC self-control,BSC_Sjastad1,1,5,1,7,FALSE,TRUE
+BSC self-control,BSC_Sjastad2,1,5,1,7,FALSE,TRUE
+SDI-2 sexual desire,SDI-2_Jones,0,8,0,9,FALSE,TRUE
